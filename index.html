@@ -4429,23 +4429,23 @@ textarea.ifield { min-height: 90px; }
       <div class="kpi-strip" style="margin-bottom:1.5rem;">
         <div class="kpi-tile">
           <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg> Uw werkplekken</div>
-          <div class="kpi-num">32</div>
-          <div class="kpi-delta">↑ +3 t.o.v. Q1</div>
+          <div class="kpi-num" id="opd-werkplekken">32</div>
+          <div class="kpi-delta" id="opd-delta-wp">↑ +3 t.o.v. Q1</div>
         </div>
         <div class="kpi-tile">
           <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Doelstelling 2026</div>
-          <div class="kpi-num">50</div>
-          <div class="kpi-delta" style="color:var(--amber);">64% behaald</div>
+          <div class="kpi-num" id="opd-doelstelling">50</div>
+          <div class="kpi-delta" style="color:var(--amber);" id="opd-pct-doel">64% behaald</div>
         </div>
         <div class="kpi-tile">
           <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> MKBA-waarde</div>
-          <div class="kpi-num">€928K</div>
-          <div class="kpi-delta neutral">32 × €29.000</div>
+          <div class="kpi-num" id="opd-mkba">€928K</div>
+          <div class="kpi-delta neutral" id="opd-mkba-sub">32 × €29.000</div>
         </div>
         <div class="kpi-tile">
           <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Volgende rapportage</div>
-          <div class="kpi-num">1 sep</div>
-          <div class="kpi-delta neutral">Kwartaalrapport Q3</div>
+          <div class="kpi-num" id="opd-volgende">1 sep</div>
+          <div class="kpi-delta neutral" id="opd-rapport-lbl">Kwartaalrapport Q3</div>
         </div>
       </div>
 
@@ -4459,17 +4459,17 @@ textarea.ifield { min-height: 90px; }
             <div class="proj-gm">Gemeente Den Haag · 20 werkplekken · Looptijd 18 mnd</div>
           </div>
           <div class="proj-right">
-            <div class="proj-pb-wrap"><div class="proj-pb" style="width:80%;"></div></div>
-            <span class="proj-pct">80%</span>
+            <div class="proj-pb-wrap"><div class="proj-pb" id="opd-p1-bar" style="width:80%;"></div></div>
+            <span class="proj-pct" id="opd-p1-pct">80%</span>
             <span class="proj-chev" id="chev-p1">▾</span>
           </div>
         </div>
         <div class="proj-body" id="body-p1">
           <div class="proj-kpis">
-            <div class="pkpi"><div class="pkpi-l">Gerealiseerd</div><div class="pkpi-v">16</div><div class="pkpi-s">van 20 plekken</div></div>
+            <div class="pkpi"><div class="pkpi-l">Gerealiseerd</div><div class="pkpi-v" id="opd-p1-real">16</div><div class="pkpi-s" id="opd-p1-real-sub">van 20 plekken</div></div>
             <div class="pkpi"><div class="pkpi-l">Startdatum</div><div class="pkpi-v">apr '25</div><div class="pkpi-s">looptijd 18 mnd</div></div>
-            <div class="pkpi"><div class="pkpi-l">Uitstroom regulier</div><div class="pkpi-v">4</div><div class="pkpi-s">deelnemers</div></div>
-            <div class="pkpi"><div class="pkpi-l">MKBA gerealiseerd</div><div class="pkpi-v">€464K</div><div class="pkpi-s">van €580K doel</div></div>
+            <div class="pkpi"><div class="pkpi-l">Uitstroom regulier</div><div class="pkpi-v" id="opd-p1-uitstroom">4</div><div class="pkpi-s">deelnemers</div></div>
+            <div class="pkpi"><div class="pkpi-l">MKBA gerealiseerd</div><div class="pkpi-v" id="opd-p1-mkba">€464K</div><div class="pkpi-s" id="opd-p1-mkba-sub">van €580K doel</div></div>
           </div>
           <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">Mijlpalen</p>
           <ul class="ms-ul">
@@ -4509,17 +4509,17 @@ textarea.ifield { min-height: 90px; }
             <div class="proj-gm">Gemeente Den Haag · 12 werkplekken · Looptijd 12 mnd</div>
           </div>
           <div class="proj-right">
-            <div class="proj-pb-wrap"><div class="proj-pb" style="width:50%;background:var(--amber);"></div></div>
-            <span class="proj-pct" style="color:var(--amber);">50%</span>
+            <div class="proj-pb-wrap"><div class="proj-pb" id="opd-p2-bar" style="width:50%;background:var(--amber);"></div></div>
+            <span class="proj-pct" style="color:var(--amber);" id="opd-p2-pct">50%</span>
             <span class="proj-chev" id="chev-p2">▾</span>
           </div>
         </div>
         <div class="proj-body" id="body-p2">
           <div class="proj-kpis">
-            <div class="pkpi"><div class="pkpi-l">Gerealiseerd</div><div class="pkpi-v">6</div><div class="pkpi-s">van 12 plekken</div></div>
+            <div class="pkpi"><div class="pkpi-l">Gerealiseerd</div><div class="pkpi-v" id="opd-p2-real">6</div><div class="pkpi-s" id="opd-p2-real-sub">van 12 plekken</div></div>
             <div class="pkpi"><div class="pkpi-l">Startdatum</div><div class="pkpi-v">jan '26</div><div class="pkpi-s">looptijd 12 mnd</div></div>
-            <div class="pkpi"><div class="pkpi-l">Taaltrajecten</div><div class="pkpi-v">6</div><div class="pkpi-s">actief parallel</div></div>
-            <div class="pkpi"><div class="pkpi-l">MKBA gerealiseerd</div><div class="pkpi-v">€174K</div><div class="pkpi-s">van €348K doel</div></div>
+            <div class="pkpi"><div class="pkpi-l">Taaltrajecten</div><div class="pkpi-v" id="opd-p2-taal">6</div><div class="pkpi-s">actief parallel</div></div>
+            <div class="pkpi"><div class="pkpi-l">MKBA gerealiseerd</div><div class="pkpi-v" id="opd-p2-mkba">€174K</div><div class="pkpi-s" id="opd-p2-mkba-sub">van €348K doel</div></div>
           </div>
           <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">Mijlpalen</p>
           <ul class="ms-ul">
@@ -5427,7 +5427,7 @@ function doPortalLogin() {
 }
 
 // ── GOOGLE SHEETS KOPPELING ──────────────────────────────────
-const SHEETS_API = 'https://script.google.com/macros/s/AKfycbx43nFaaoCG22LsG_cw5uQFofBsjDJ8wtu4RPfmjOrweoZqIbR9AJoKLYc72W0xL3gNag/exec';
+const SHEETS_API = 'https://script.google.com/macros/s/AKfycbzWfV0-UYHc4d-94qhMhyiBBYRL4_Wys3WsW6hRQmp6ghrf5inau2f_ECnycXUkux60rg/exec';
 
 function fmtEur(n) {
   n = Number(n);
@@ -5516,6 +5516,52 @@ function initDashboard() {
 function initOpd() {
   const el = document.getElementById('opd-dt');
   if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  fetch(SHEETS_API + '?tab=opdrachtgever')
+    .then(r => r.json())
+    .then(d => applyOpdData(d))
+    .catch(e => console.warn('Sheets opdrachtgever niet bereikbaar:', e));
+}
+
+function applyOpdData(d) {
+  function st(id, v) { const e = document.getElementById(id); if (e && v !== undefined) e.textContent = v; }
+  function sw(id, v) { const e = document.getElementById(id); if (e && v !== undefined) e.style.width = v + '%'; }
+
+  const wp   = Number(d.totaal_werkplekken) || 32;
+  const doel = Number(d.doelstelling)       || 50;
+  const mkba = Number(d.mkba_waarde)        || 928000;
+  const pct  = doel > 0 ? Math.round((wp/doel)*100) : 0;
+
+  // KPI strip
+  st('opd-werkplekken', wp);
+  st('opd-doelstelling', doel);
+  st('opd-mkba', fmtEur(mkba));
+  st('opd-mkba-sub', wp + ' × €29.000');
+  st('opd-pct-doel', pct + '% behaald');
+  if (d.volgende_rapportage) st('opd-volgende', d.volgende_rapportage);
+  if (d.rapport_label)       st('opd-rapport-lbl', d.rapport_label);
+  if (d.delta_werkplekken)   st('opd-delta-wp', '↑ ' + d.delta_werkplekken);
+
+  // Project 1
+  const p1r = Number(d.p1_gerealiseerd) || 16;
+  const p1d = Number(d.p1_doel)         || 20;
+  const p1p = p1d > 0 ? Math.round((p1r/p1d)*100) : 0;
+  const p1m = Number(d.p1_mkba)         || 464000;
+  st('opd-p1-real', p1r);  st('opd-p1-real-sub', 'van ' + p1d + ' plekken');
+  st('opd-p1-uitstroom', d.p1_uitstroom || 4);
+  st('opd-p1-mkba', fmtEur(p1m));
+  st('opd-p1-mkba-sub', 'van ' + fmtEur(p1d * 29000) + ' doel');
+  st('opd-p1-pct', p1p + '%');  sw('opd-p1-bar', p1p);
+
+  // Project 2
+  const p2r = Number(d.p2_gerealiseerd) || 6;
+  const p2d = Number(d.p2_doel)         || 12;
+  const p2p = p2d > 0 ? Math.round((p2r/p2d)*100) : 0;
+  const p2m = Number(d.p2_mkba)         || 174000;
+  st('opd-p2-real', p2r);  st('opd-p2-real-sub', 'van ' + p2d + ' plekken');
+  st('opd-p2-taal', d.p2_taaltrajecten || 6);
+  st('opd-p2-mkba', fmtEur(p2m));
+  st('opd-p2-mkba-sub', 'van ' + fmtEur(p2d * 29000) + ' doel');
+  st('opd-p2-pct', p2p + '%');  sw('opd-p2-bar', p2p);
 }
 
 // ── OPDRACHTGEVER TABS ────────────────────────────────────────
@@ -5714,6 +5760,36 @@ function iCollectData() {
 
 function iSubmitForm() {
   const data = iCollectData();
+  // Stuur intake automatisch naar Google Sheet (tabblad 'intakes')
+  const payload = {
+    tab: 'intakes',
+    organisatie:     data.q1_1 || '',
+    type_org:        data.q1_2 || '',
+    contactpersoon:  data.q1_3 || '',
+    email:           data.q1_4 || '',
+    datum_intake:    data.q1_5 || data.ingevuld_op || '',
+    gespreksleider:  data.q1_6 || '',
+    medewerkers_fte: data.q2_1 || '',
+    doelgroep_omvang:data.q2_2 || '',
+    score_verandering: data.q8_1 || '',
+    score_kans:        data.q8_2 || '',
+    score_fit:         data.q8_3 || '',
+    score_urgentie:    data.q8_4 || '',
+    score_realisatie:  data.q8_5 || '',
+    score_gemiddeld:   data.score_gemiddeld || '',
+    advies:            data.q8_9 || '',
+    actiepunten:       data.q8_8 || '',
+    kansen:            data.q8_6 || '',
+    aandachtspunten:   data.q8_7 || '',
+    ingevuld_op:       data.ingevuld_op || ''
+  };
+  fetch(SHEETS_API, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(() => console.log('Intake verstuurd naar Google Sheets'))
+    .catch(e => console.warn('Sheets intake fout:', e));
   const scores_display = [
     ['Veranderbereidheid', data.q8_1],
     ['Kans samenwerking',  data.q8_2],
