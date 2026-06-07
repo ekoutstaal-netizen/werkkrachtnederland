@@ -2120,6 +2120,102 @@ textarea.ifield { min-height: 90px; }
   .plan-legend { padding: 0.75rem 5%; }
 }
 
+
+/* ═══════════════════════════════════════════════
+   INTERN STURINGSMODEL
+═══════════════════════════════════════════════ */
+.intern-level-tabs { display:flex; gap:6px; margin-bottom:1.5rem; flex-wrap:wrap; }
+.intern-level-btn {
+  font-family:var(--f-head); font-size:0.75rem; font-weight:700;
+  padding:7px 16px; border-radius:20px; cursor:pointer;
+  border:1.5px solid var(--sage); background:none;
+  color:var(--gray); transition:var(--trans); letter-spacing:0.04em;
+}
+.intern-level-btn:hover { border-color:var(--green); color:var(--forest); }
+.intern-level-btn.active { background:var(--green); border-color:var(--green); color:var(--white); }
+.intern-panel { display:none; }
+.intern-panel.active { display:block; }
+
+.funnel-wrap {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  margin-bottom:1.5rem; border-radius:var(--radius);
+  overflow:hidden; border:1px solid var(--sage);
+}
+.funnel-step {
+  padding:1.1rem .9rem; text-align:center;
+  border-right:1px solid var(--sage); background:var(--white);
+  transition:var(--trans); position:relative;
+}
+.funnel-step:last-child { border-right:none; }
+.funnel-step:hover { background:var(--mint); }
+.funnel-arrow {
+  position:absolute; right:-14px; top:50%; transform:translateY(-50%);
+  width:0; height:0;
+  border-left:14px solid var(--sage);
+  border-top:22px solid transparent;
+  border-bottom:22px solid transparent;
+  z-index:2;
+}
+.funnel-step:last-child .funnel-arrow { display:none; }
+.funnel-icon {
+  width:36px; height:36px; border-radius:10px; background:var(--sage);
+  display:flex; align-items:center; justify-content:center; margin:0 auto .6rem;
+}
+.funnel-icon svg { color:var(--forest); }
+.funnel-label { font-family:var(--f-head); font-size:0.65rem; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.08em; margin-bottom:3px; }
+.funnel-num { font-family:var(--f-display); font-size:1.55rem; font-weight:800; color:var(--forest); letter-spacing:-0.03em; line-height:1.1; }
+.funnel-sub { font-family:var(--f-body); font-size:0.65rem; color:var(--gray); margin-top:2px; }
+.funnel-conv { font-family:var(--f-head); font-size:0.65rem; font-weight:700; color:var(--green); margin-top:4px; }
+
+.pip-tbl { width:100%; border-collapse:collapse; font-size:0.82rem; }
+.pip-tbl th { font-family:var(--f-head); font-size:0.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); padding:8px 10px; border-bottom:2px solid var(--sage); text-align:left; background:var(--offwhite); }
+.pip-tbl td { font-family:var(--f-body); padding:9px 10px; border-bottom:1px solid var(--sage); color:var(--charcoal); vertical-align:middle; }
+.pip-tbl tr:last-child td { border-bottom:none; }
+.pip-tbl tr:hover td { background:var(--offwhite); }
+.pip-badge { display:inline-flex; align-items:center; gap:5px; font-family:var(--f-head); font-size:0.65rem; font-weight:700; padding:3px 9px; border-radius:10px; letter-spacing:.06em; white-space:nowrap; }
+.pip-g { background:var(--sage); color:var(--forest); }
+.pip-o { background:#FEF9E7; color:#9A7D0A; }
+.pip-r { background:#FDEDEC; color:#922B21; }
+.pip-dot2 { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.dot-g { background:var(--green); }
+.dot-o { background:var(--amber); }
+.dot-r { background:#C0392B; }
+
+.overleg-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:1.5rem; }
+@media(max-width:600px){ .overleg-grid { grid-template-columns:1fr; } }
+.overleg-card { background:var(--white); border:1px solid var(--sage); border-radius:var(--radius); padding:1.25rem; border-top:4px solid var(--green); }
+.overleg-card.mt { border-top-color:var(--forest); }
+.overleg-freq { font-family:var(--f-head); font-size:0.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:.4rem; }
+.overleg-card.mt .overleg-freq { color:var(--forest); }
+.overleg-card h3 { font-family:var(--f-display); font-size:1rem; font-weight:800; color:var(--charcoal); margin-bottom:.75rem; }
+.overleg-list { list-style:none; }
+.overleg-list li { font-family:var(--f-body); font-size:0.8rem; color:var(--charcoal); padding:5px 0; border-bottom:1px solid var(--sage); display:flex; align-items:flex-start; gap:8px; }
+.overleg-list li:last-child { border-bottom:none; }
+.overleg-list li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; margin-top:6px; }
+
+.bneck-wrap { background:var(--offwhite); border:1px solid var(--sage); border-radius:var(--radius); padding:1.25rem; margin-bottom:1.5rem; }
+.bneck-wrap h3 { font-family:var(--f-head); font-size:0.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); margin-bottom:.75rem; display:flex; align-items:center; gap:6px; }
+.bneck-row { display:flex; gap:8px; margin-bottom:.5rem; align-items:center; }
+.bneck-input { flex:1; font-family:var(--f-body); font-size:.82rem; color:var(--charcoal); border:1px solid var(--sage); border-radius:8px; padding:7px 10px; outline:none; background:var(--white); transition:var(--trans); }
+.bneck-input:focus { border-color:var(--green); }
+.bneck-del { font-size:.8rem; background:none; border:none; cursor:pointer; color:var(--gray); padding:4px 8px; border-radius:6px; transition:var(--trans); }
+.bneck-del:hover { color:#C0392B; background:#FDEDEC; }
+.bneck-add { font-family:var(--f-head); font-size:.72rem; font-weight:700; background:none; border:1px solid var(--sage); border-radius:7px; padding:6px 12px; cursor:pointer; color:var(--forest); transition:var(--trans); }
+.bneck-add:hover { background:var(--sage); }
+
+.cap-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:10px; margin-bottom:1.5rem; }
+.cap-card { background:var(--white); border:1px solid var(--sage); border-radius:var(--radius); padding:1rem; }
+.cap-role { font-family:var(--f-head); font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gray); margin-bottom:4px; }
+.cap-name { font-family:var(--f-display); font-size:.95rem; font-weight:800; color:var(--charcoal); margin-bottom:2px; }
+.cap-focus { font-family:var(--f-body); font-size:.72rem; color:var(--green); margin-bottom:8px; }
+.cap-bar { height:5px; background:var(--sage); border-radius:3px; overflow:hidden; }
+.cap-bar-fill { height:100%; border-radius:3px; background:var(--green); }
+.cap-pct { font-family:var(--f-body); font-size:.65rem; color:var(--gray); margin-top:3px; }
+
+@media(max-width:640px){
+  .funnel-wrap { grid-template-columns:1fr 1fr; }
+  .funnel-arrow { display:none; }
+}
 </style>
 </head>
 
@@ -2184,6 +2280,16 @@ textarea.ifield { min-height: 90px; }
         <span>
           <strong>Gemeente</strong>
           <small>Gemeentelijk portaal</small>
+        </span>
+      </button>
+      <div style="height:1px;background:rgba(255,255,255,.07);margin:4px 12px;"></div>
+      <button class="portal-dd-item" onclick="loginAs('intern')">
+        <span class="portal-dd-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </span>
+        <span>
+          <strong>Intern dashboard</strong>
+          <small>Sturingsmodel &amp; sturing</small>
         </span>
       </button>
     </div>
@@ -3935,6 +4041,327 @@ textarea.ifield { min-height: 90px; }
 
 </div>
 
+<!-- ════════════════════════════════════════
+     INTERN STURINGSMODEL (besloten)
+════════════════════════════════════════ -->
+<div id="page-intern" class="page">
+  <div class="dash-wrap">
+
+    <div class="dash-topbar">
+      <div class="dash-topbar-left">
+        <h1>Intern sturingsmodel</h1>
+        <p>WerkKracht Nederland &middot; Interne sturing op commercie, realisatie &amp; opschaling &middot; Vertrouwelijk</p>
+      </div>
+      <div class="dash-meta-right">
+        <div><span class="dash-badge-pill pill-forest">
+          <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;vertical-align:-2px;margin-right:3px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Intern &middot; Besloten
+        </span></div>
+        <div class="date-str" style="margin-top:6px;" id="intern-dt"></div>
+      </div>
+    </div>
+
+    <!-- Niveau-tabs -->
+    <div class="intern-level-tabs">
+      <button class="intern-level-btn active" onclick="internLevel(this,'intern-strategisch')">
+        <svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+        Strategisch
+      </button>
+      <button class="intern-level-btn" onclick="internLevel(this,'intern-tactisch')">
+        <svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Tactisch
+      </button>
+      <button class="intern-level-btn" onclick="internLevel(this,'intern-operationeel')">
+        <svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        Operationeel
+      </button>
+      <button class="intern-level-btn" onclick="internLevel(this,'intern-overleg')">
+        <svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;vertical-align:-1px;margin-right:4px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Overleg &amp; team
+      </button>
+    </div>
+
+    <!-- ╔═ STRATEGISCH ═╗ -->
+    <div id="intern-strategisch" class="intern-panel active">
+
+      <!-- Keten funnel -->
+      <div class="d-card" style="margin-bottom:1.5rem;">
+        <div class="d-card-title">
+          <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 12 5 19 12"/><polyline points="5 19 12 12 19 19"/></svg>
+          Kernproces: van lead tot maatschappelijke waarde
+        </div>
+        <div class="funnel-wrap">
+          <div class="funnel-step">
+            <div class="funnel-arrow"></div>
+            <div class="funnel-icon"><svg viewBox="0 0 24 24" fill="none" style="width:17px;height:17px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="funnel-label">Leads</div>
+            <div class="funnel-num">24</div>
+            <div class="funnel-sub">actief in pipeline</div>
+            <div class="funnel-conv">kwaliteit: 68%</div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-arrow"></div>
+            <div class="funnel-icon"><svg viewBox="0 0 24 24" fill="none" style="width:17px;height:17px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="funnel-label">Opdrachten</div>
+            <div class="funnel-num">11</div>
+            <div class="funnel-sub">gecontracteerd</div>
+            <div class="funnel-conv">conversie: 46%</div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-arrow"></div>
+            <div class="funnel-icon"><svg viewBox="0 0 24 24" fill="none" style="width:17px;height:17px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg></div>
+            <div class="funnel-label">Werkplekken</div>
+            <div class="funnel-num">87</div>
+            <div class="funnel-sub">gerealiseerd</div>
+            <div class="funnel-conv">doel 150 &rarr; 58%</div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-icon"><svg viewBox="0 0 24 24" fill="none" style="width:17px;height:17px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div class="funnel-label">MKBA-waarde</div>
+            <div class="funnel-num">&euro;2,5M</div>
+            <div class="funnel-sub">maatsch. rendement</div>
+            <div class="funnel-conv">5&ndash;7&times; rendement</div>
+          </div>
+        </div>
+        <p style="font-family:var(--f-body);font-size:0.72rem;color:var(--gray);margin-top:.25rem;">
+          Centrale sturingsvraag: <em>"Waar verliezen we werkplekken in de keten?"</em> &mdash; Conversie lead&rarr;opdracht (46%) is het grootste verbeterpunt.
+        </p>
+      </div>
+
+      <!-- KPI's + Groeigraaf -->
+      <div class="dash-two">
+        <div class="d-card">
+          <div class="d-card-title">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            Top-5 KPI&apos;s &mdash; MT niveau (maandelijks)
+          </div>
+          <div class="prog-row"><span class="prog-lbl">Nieuwe plekken/mnd</span><div class="prog-track"><div class="prog-fill" style="width:80%;background:var(--green);"></div></div><span class="prog-pct">+8</span></div>
+          <div class="prog-row"><span class="prog-lbl">Actieve werkplekken</span><div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--forest);"></div></div><span class="prog-pct">87</span></div>
+          <div class="prog-row"><span class="prog-lbl">Pipeline (verwacht)</span><div class="prog-track"><div class="prog-fill" style="width:73%;background:var(--green);"></div></div><span class="prog-pct">+43</span></div>
+          <div class="prog-row"><span class="prog-lbl">Lead&rarr;opdracht conv.</span><div class="prog-track"><div class="prog-fill" style="width:46%;background:var(--amber);"></div></div><span class="prog-pct">46%</span></div>
+          <div class="prog-row"><span class="prog-lbl">Doorlooptijd</span><div class="prog-track"><div class="prog-fill" style="width:70%;background:var(--green);"></div></div><span class="prog-pct">6 wk</span></div>
+          <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:10px;">Maandelijks gerapporteerd aan MT &middot; peildatum juni 2026</p>
+        </div>
+        <div class="d-card">
+          <div class="d-card-title">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Realisatie vs. doelstelling 2026
+          </div>
+          <div class="chart-d">
+            <canvas id="internGrowthChart" aria-label="Realisatie vs doelstelling werkplekken per maand"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Waarde boxes -->
+      <div class="value-duo">
+        <div class="vbox-wk vbox-forest">
+          <div class="vbox-lbl">Pipelinewaarde (bij realisatie)</div>
+          <div class="vbox-amount">&euro;1,2M</div>
+          <div class="vbox-sub">43 verwachte plekken &times; &euro;29.000 MKBA &middot; mits volledig gerealiseerd</div>
+        </div>
+        <div class="vbox-wk vbox-mint2">
+          <div class="vbox-lbl">Verbeterpotentieel conversie</div>
+          <div class="vbox-amount">&euro;377K</div>
+          <div class="vbox-sub">13 niet-geconverteerde leads &times; gem. &euro;29.000 &mdash; focus: gespreksprotocol</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═ TACTISCH ═╗ -->
+    <div id="intern-tactisch" class="intern-panel">
+
+      <div class="dash-two" style="margin-bottom:1.5rem;">
+        <div class="d-card">
+          <div class="d-card-title">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="9" y1="10.5" x2="15" y2="7.5"/><line x1="9" y1="13.5" x2="15" y2="16.5"/></svg>
+            Commercie (wekelijks)
+          </div>
+          <table class="pip-tbl">
+            <thead><tr><th>KPI</th><th>Deze week</th><th>Trend</th></tr></thead>
+            <tbody>
+              <tr><td>Nieuwe leads</td><td>3</td><td class="pos">&#8593; +1</td></tr>
+              <tr><td>Actieve gesprekken</td><td>8</td><td class="pos">Stabiel</td></tr>
+              <tr><td>Conversie lead&rarr;opdracht</td><td>46%</td><td style="color:var(--amber);">&#8595; &minus;4%</td></tr>
+              <tr><td>Gewonnen opdrachten</td><td>2</td><td class="pos">&#8593; +1</td></tr>
+              <tr><td>Pipeline (verwachte plekken)</td><td>43</td><td class="pos">&#8593; +5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-card">
+          <div class="d-card-title">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
+            Realisatie (wekelijks)
+          </div>
+          <table class="pip-tbl">
+            <thead><tr><th>KPI</th><th>Stand</th><th>Trend</th></tr></thead>
+            <tbody>
+              <tr><td>Opdrachten in implementatie</td><td>7</td><td class="pos">&#8593; +2</td></tr>
+              <tr><td>Plekken in aanbouw</td><td>19</td><td class="pos">&#8593; +4</td></tr>
+              <tr><td>Gerealiseerd deze maand</td><td>+8</td><td class="pos">Doel: +10</td></tr>
+              <tr><td>Doorlooptijd opdracht&rarr;plek</td><td>6 wk</td><td class="pos">&#8595; &minus;0,5 wk</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pipeline tabel -->
+      <div class="d-card" style="margin-bottom:1.5rem;">
+        <div class="d-card-title">
+          <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Actieve pipeline &mdash; leads &amp; opdrachten
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="pip-tbl">
+            <thead><tr><th>Organisatie</th><th>Fase</th><th>Verwachte plekken</th><th>Kans</th><th>Verwacht start</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Gemeente Rotterdam</strong></td><td>Offerte</td><td>15</td><td>75%</td><td>aug 2026</td><td><span class="pip-badge pip-g"><span class="pip-dot2 dot-g"></span>Op schema</span></td></tr>
+              <tr><td><strong>WOB Haaglanden</strong></td><td>Gesprek</td><td>8</td><td>50%</td><td>sep 2026</td><td><span class="pip-badge pip-o"><span class="pip-dot2 dot-o"></span>Aandacht</span></td></tr>
+              <tr><td><strong>Gemeente Utrecht</strong></td><td>Verkenning</td><td>12</td><td>40%</td><td>okt 2026</td><td><span class="pip-badge pip-o"><span class="pip-dot2 dot-o"></span>Aandacht</span></td></tr>
+              <tr><td><strong>Participatie Groep NL</strong></td><td>Contract</td><td>6</td><td>90%</td><td>jul 2026</td><td><span class="pip-badge pip-g"><span class="pip-dot2 dot-g"></span>Op schema</span></td></tr>
+              <tr><td><strong>SW Midden Nederland</strong></td><td>Verkenning</td><td>2</td><td>25%</td><td>nov 2026</td><td><span class="pip-badge pip-r"><span class="pip-dot2 dot-r"></span>Risico</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bottlenecks -->
+      <div class="bneck-wrap">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;vertical-align:-1px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Bottlenecks &amp; actiepunten (wekelijks)
+        </h3>
+        <div id="bneck-list">
+          <div class="bneck-row"><input class="bneck-input" type="text" value="Conversie lead&rarr;opdracht daalt &mdash; revisie gespreksprotocol nodig" /><button class="bneck-del" onclick="bneckDel(this)">&#10005;</button></div>
+          <div class="bneck-row"><input class="bneck-input" type="text" value="WOB Haaglanden: besluitvorming vertraagd, escaleer naar directeur" /><button class="bneck-del" onclick="bneckDel(this)">&#10005;</button></div>
+        </div>
+        <button class="bneck-add" onclick="bneckAdd('bneck-list','Omschrijf bottleneck of actiepunt...')">+ Voeg bottleneck toe</button>
+      </div>
+    </div>
+
+    <!-- ╔═ OPERATIONEEL ═╗ -->
+    <div id="intern-operationeel" class="intern-panel">
+
+      <!-- Status per opdracht -->
+      <div class="d-card" style="margin-bottom:1.5rem;">
+        <div class="d-card-title">
+          <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Status per actieve opdracht (dagelijks)
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="pip-tbl">
+            <thead><tr><th>Opdracht</th><th>Gemeente</th><th>Doel</th><th>Gerealiseerd</th><th>Restant</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Bijstand naar Werk</strong></td><td>Den Haag</td><td>20</td><td>16</td><td>4</td><td><span class="pip-badge pip-g"><span class="pip-dot2 dot-g"></span>Groen</span></td></tr>
+              <tr><td><strong>Statushouders traject</strong></td><td>Den Haag</td><td>12</td><td>6</td><td>6</td><td><span class="pip-badge pip-o"><span class="pip-dot2 dot-o"></span>Oranje</span></td></tr>
+              <tr><td><strong>WIA/WGA plaatsing</strong></td><td>Utrecht</td><td>8</td><td>5</td><td>3</td><td><span class="pip-badge pip-g"><span class="pip-dot2 dot-g"></span>Groen</span></td></tr>
+              <tr><td><strong>Jongeren naar werk</strong></td><td>Rotterdam</td><td>10</td><td>4</td><td>6</td><td><span class="pip-badge pip-o"><span class="pip-dot2 dot-o"></span>Oranje</span></td></tr>
+              <tr><td><strong>Beschut werk uitbreiding</strong></td><td>Amsterdam</td><td>5</td><td>1</td><td>4</td><td><span class="pip-badge pip-r"><span class="pip-dot2 dot-r"></span>Rood</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:.75rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
+          <span><span class="pip-dot2 dot-g" style="display:inline-block;vertical-align:middle;margin-right:4px;"></span>Groen = op schema</span>
+          <span><span class="pip-dot2 dot-o" style="display:inline-block;vertical-align:middle;margin-right:4px;"></span>Oranje = aandacht nodig</span>
+          <span><span class="pip-dot2 dot-r" style="display:inline-block;vertical-align:middle;margin-right:4px;"></span>Rood = actie vereist</span>
+        </div>
+      </div>
+
+      <!-- Acties vandaag -->
+      <div class="bneck-wrap">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;vertical-align:-1px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Concrete acties &amp; follow-ups vandaag
+        </h3>
+        <div id="actie-list">
+          <div class="bneck-row"><input class="bneck-input" type="text" value="Beschut werk Amsterdam: contact opnemen met WOB-partner over vertraging" /><button class="bneck-del" onclick="bneckDel(this)">&#10005;</button></div>
+          <div class="bneck-row"><input class="bneck-input" type="text" value="Statushouders Den Haag: taalcoach inplannen voor 3 nieuwe deelnemers" /><button class="bneck-del" onclick="bneckDel(this)">&#10005;</button></div>
+        </div>
+        <button class="bneck-add" onclick="bneckAdd('actie-list','Omschrijf actie + verantwoordelijke...')">+ Voeg actie toe</button>
+      </div>
+
+      <!-- Capaciteitsverdeling -->
+      <div class="d-card" style="margin-bottom:1.5rem;">
+        <div class="d-card-title">
+          <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Capaciteitsverdeling team
+        </div>
+        <div class="cap-grid">
+          <div class="cap-card"><div class="cap-role">Directeur</div><div class="cap-name">Strategisch</div><div class="cap-focus">Acquisitie &amp; MT</div><div class="cap-bar"><div class="cap-bar-fill" style="width:85%;"></div></div><div class="cap-pct">85% bezet</div></div>
+          <div class="cap-card"><div class="cap-role">Projectleider A</div><div class="cap-name">Realisatie</div><div class="cap-focus">Begeleiding &amp; uitvoering</div><div class="cap-bar"><div class="cap-bar-fill" style="width:90%;background:var(--amber);"></div></div><div class="cap-pct" style="color:var(--amber);">90% &mdash; let op</div></div>
+          <div class="cap-card"><div class="cap-role">Projectleider B</div><div class="cap-name">Commercie</div><div class="cap-focus">Pipeline &amp; gesprekken</div><div class="cap-bar"><div class="cap-bar-fill" style="width:70%;"></div></div><div class="cap-pct">70% bezet</div></div>
+          <div class="cap-card"><div class="cap-role">Flex inzet</div><div class="cap-name">WOB-partners</div><div class="cap-focus">Uitvoering op locatie</div><div class="cap-bar"><div class="cap-bar-fill" style="width:60%;background:var(--greenLt);"></div></div><div class="cap-pct">60% ingevuld</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔═ OVERLEG & TEAM ═╗ -->
+    <div id="intern-overleg" class="intern-panel">
+
+      <div class="overleg-grid">
+        <div class="overleg-card">
+          <div class="overleg-freq">Wekelijks overleg</div>
+          <h3>Pipeline &amp; uitvoering</h3>
+          <ul class="overleg-list">
+            <li>Bespreken actieve pipeline &amp; nieuwe leads</li>
+            <li>Status rood/oranje/groen per opdracht</li>
+            <li>Identificeren bottlenecks in realisatie</li>
+            <li>Concrete acties en verantwoordelijken bepalen</li>
+            <li>Capaciteitsvraagstukken signaleren</li>
+          </ul>
+        </div>
+        <div class="overleg-card mt">
+          <div class="overleg-freq">Maandelijks MT-overleg</div>
+          <h3>Strategie &amp; groei</h3>
+          <ul class="overleg-list">
+            <li>Evalueren groei vs. doelstelling (KPI-dashboard)</li>
+            <li>Bijstellen strategie op basis van pipelinedata</li>
+            <li>Capaciteitsplanning komend kwartaal</li>
+            <li>MKBA-rapportage en externe verantwoording</li>
+            <li>Besluitvorming nieuwe markten &amp; partners</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Overlegkalender -->
+      <div class="d-card" style="margin-bottom:1.5rem;">
+        <div class="d-card-title">
+          <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Overlegkalender Q2 &ndash; Q3 2026
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="pip-tbl">
+            <thead><tr><th>Overleg</th><th>Frequentie</th><th>Deelnemers</th><th>Eerstvolgende</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Wekelijks team</strong></td><td>Elke maandag</td><td>Heel team</td><td>9 jun 2026</td><td><span class="pip-badge pip-g"><span class="pip-dot2 dot-g"></span>Gepland</span></td></tr>
+              <tr><td><strong>Pipeline review</strong></td><td>Elke donderdag</td><td>Commercie</td><td>12 jun 2026</td><td><span class="pip-badge pip-g"><span class="pip-dot2 dot-g"></span>Gepland</span></td></tr>
+              <tr><td><strong>MT-overleg</strong></td><td>Maandelijks</td><td>Management</td><td>30 jun 2026</td><td><span class="pip-badge pip-o"><span class="pip-dot2 dot-o"></span>Inplannen</span></td></tr>
+              <tr><td><strong>Kwartaalrapportage</strong></td><td>Per kwartaal</td><td>MT + partners</td><td>1 jul 2026</td><td><span class="pip-badge pip-o"><span class="pip-dot2 dot-o"></span>Inplannen</span></td></tr>
+              <tr><td><strong>Stakeholder sessie</strong></td><td>Per kwartaal</td><td>MT + gemeenten</td><td>15 sep 2026</td><td><span class="pip-badge pip-r"><span class="pip-dot2 dot-r"></span>Nog niet gepland</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Centrale sturingsvraag banner -->
+      <div class="transp-strip">
+        <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px;flex-shrink:0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p><strong>Centrale sturingsvraag:</strong> &ldquo;Waar verliezen we werkplekken in de keten?&rdquo; &mdash; Stel deze vraag structureel in elk overleg. Systematische analyse van waar leads afhaken, opdrachten stagneren of realisaties vertragen, geeft de basis voor gerichte verbetering van conversie, snelheid en schaalbaarheid.</p>
+      </div>
+    </div>
+
+    <div class="dash-foot" style="margin-top:1.5rem;">
+      <p>
+        <svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;vertical-align:-1px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Intern besloten &middot; WerkKracht Nederland &middot; Niet voor externe verspreiding
+      </p>
+      <div class="dash-foot-btns">
+        <button class="dbtn" onclick="showPage('login')">&larr; Uitloggen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="page-gemeente" class="page">
   <div class="dash-wrap">
     <div class="dash-topbar">
@@ -4086,10 +4513,56 @@ function loginAs(role) {
     initDashboard(); showPage('dashboard');
   } else if (role === 'gemeente') {
     initGem(); showPage('gemeente');
+  } else if (role === 'intern') {
+    initIntern(); showPage('intern');
   } else {
     initOpd(); showPage('opdrachtgever');
   }
 }
+
+// ── INTERN STURINGSMODEL ─────────────────────────────────────
+function initIntern() {
+  const el = document.getElementById('intern-dt');
+  if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  if (window._internChartDone) return;
+  window._internChartDone = true;
+  setTimeout(function() {
+    if (typeof Chart === 'undefined') return;
+    new Chart(document.getElementById('internGrowthChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Jan','Feb','Mrt','Apr','Mei','Jun'],
+        datasets: [
+          { label: 'Realisatie', data: [52,59,64,71,83,87], backgroundColor: '#27AE60', borderRadius:4, borderSkipped:false },
+          { label: 'Doelstelling', data: [60,70,80,95,110,120], backgroundColor: 'rgba(26,92,56,0.15)', borderRadius:4, borderSkipped:false }
+        ]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{ display:true, labels:{ font:{size:11}, color:'#6B7C75', boxWidth:12 } } },
+        scales:{
+          x:{ grid:{display:false}, ticks:{font:{size:11},color:'#6B7C75'} },
+          y:{ grid:{color:'rgba(107,124,117,.12)'}, ticks:{font:{size:11},color:'#6B7C75',stepSize:30}, min:0, max:150 }
+        }
+      }
+    });
+  }, 200);
+}
+function internLevel(btn, panelId) {
+  document.querySelectorAll('.intern-level-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.intern-panel').forEach(function(p){ p.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+function bneckAdd(listId, placeholder) {
+  var list = document.getElementById(listId);
+  var row = document.createElement('div');
+  row.className = 'bneck-row';
+  row.innerHTML = '<input class="bneck-input" type="text" placeholder="' + placeholder + '" /><button class="bneck-del" onclick="bneckDel(this)">&#10005;</button>';
+  list.appendChild(row);
+  row.querySelector('input').focus();
+}
+function bneckDel(btn) { btn.closest('.bneck-row').remove(); }
 function initGem() {
   const el = document.getElementById('gem-dt');
   if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
