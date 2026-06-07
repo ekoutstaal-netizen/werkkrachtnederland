@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WerkKracht Nederland — Landelijk Platform Werkontwikkelbedrijven</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Red+Hat+Display:wght@400;500;700;900&family=Red+Hat+Text:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   TOKENS & RESET
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest:    #1A5C38;
+  --green:     #27AE60;
+  --greenDk:   #0D3320;
+  --greenLt:   #A9DFBF;
+  --mint:      #E8F8F0;
+  --sage:      #D5F5E3;
+  --white:     #FFFFFF;
+  --gray:      #6B7C75;
+  --grayLt:    #B2C4BB;
+  --charcoal:  #1E2D26;
+  --offwhite:  #F4FAF7;
+  --amber:     #D4AC0D;
+
+  --f-display: 'Syne', sans-serif;
+  --f-head:    'Red Hat Display', sans-serif;
+  --f-body:    'Red Hat Text', sans-serif;
+
+  --nav-h: 72px;
+  --radius: 14px;
+  --trans:  all 0.28s cubic-bezier(.4,0,.2,1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-body);
+  color: var(--charcoal);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--greenDk);
+  border-bottom: 3px solid var(--green);
+  display: flex; align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+  transition: var(--trans);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+}
+.nav-wordmark {
+  font-family: var(--f-display);
+  font-size: 1.15rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.nav-wordmark span {
+  display: block;
+  font-family: var(--f-head);
+  font-size: 0.5rem; font-weight: 400;
+  color: var(--greenLt);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2px;
+  margin-left: auto;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--greenLt);
+  font-family: var(--f-head);
+  font-size: 0.82rem; font-weight: 500;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  transition: var(--trans);
+  white-space: nowrap;
+}
+.nav-link:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+.nav-link.active { background: var(--green); color: var(--white); }
+.nav-cta {
+  margin-left: 1rem;
+  background: var(--green);
+  color: var(--white);
+  font-family: var(--f-display);
+  font-size: 0.82rem; font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: var(--trans);
+}
+.nav-cta:hover { background: var(--forest); }
+
+/* ═══════════════════════════════════════════════
+   PAGE SECTIONS (single-page nav)
+═══════════════════════════════════════════════ */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--greenDk);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: var(--nav-h);
+  position: relative;
+  overflow: hidden;
+}
+/* Background geometric shapes */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -160px; right: -160px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: var(--forest);
+  opacity: 0.5;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -200px; left: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: #0A2918;
+  opacity: 0.6;
+}
+
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 6% 5% 6% 8%;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  font-family: var(--f-head);
+  font-size: 0.75rem; font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-h1 {
+  font-family: var(--f-display);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+.hero-h1 em {
+  color: var(--green);
+  font-style: normal;
+}
+.hero-lead {
+  font-family: var(--f-body);
+  font-size: 1.1rem;
+  color: var(--greenLt);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--f-display);
+  font-size: 0.9rem; font-weight: 700;
+  background: var(--green);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none; cursor: pointer;
+  transition: var(--trans);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--forest); transform: translateY(-2px); }
+.btn-outline {
+  font-family: var(--f-display);
+  font-size: 0.9rem; font-weight: 700;
+  background: transparent;
+  color: var(--white);
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: var(--trans);
+}
+.btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+/* Hero stats strip */
+.hero-stats {
+  display: flex; gap: 0; margin-top: 3.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+}
+.hero-stat { flex: 1; }
+.hero-stat + .hero-stat {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  padding-left: 1.5rem;
+}
+.hero-stat .num {
+  font-family: var(--f-display);
+  font-size: 2.2rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hero-stat .lbl {
+  font-family: var(--f-body);
+  font-size: 0.7rem;
+  color: var(--greenLt);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Hero right: visual staircase */
+.hero-right {
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  padding: 6%;
+}
+.hero-visual {
+  width: 100%; max-width: 420px;
+  position: relative;
+}
+/* Stair cards */
+.stair {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 1rem;
+  transition: var(--trans);
+  animation: slideIn 0.6s both;
+}
+.stair:hover { background: rgba(39,174,96,0.12); border-color: var(--green); transform: translateX(8px); }
+.stair:nth-child(1) { animation-delay: 0.1s; margin-left: 0; }
+.stair:nth-child(2) { animation-delay: 0.2s; margin-left: 24px; }
+.stair:nth-child(3) { animation-delay: 0.3s; margin-left: 48px; }
+.stair:nth-child(4) { animation-delay: 0.4s; margin-left: 72px; }
+.stair:nth-child(5) { animation-delay: 0.5s; margin-left: 96px; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.stair-icon {
+  width: 40px; height: 40px;
+  background: var(--green);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.stair-text strong {
+  display: block;
+  font-family: var(--f-head);
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--white);
+}
+.stair-text span {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  color: var(--greenLt);
+}
+
+/* Arrow down */
+.scroll-hint {
+  text-align: center;
+  margin-top: 2rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.72rem;
+  font-family: var(--f-body);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.scroll-hint::after {
+  content: '↓';
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 6px;
+  animation: bounce 1.8s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* ═══════════════════════════════════════════════
+   GENERAL LAYOUT
+═══════════════════════════════════════════════ */
+.section { padding: 7rem 8%; }
+.section-sm { padding: 4rem 8%; }
+.section-alt { background: var(--offwhite); }
+.section-dark { background: var(--greenDk); color: var(--white); }
+.section-forest { background: var(--forest); color: var(--white); }
+
+.section-label {
+  font-family: var(--f-head);
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before {
+  content: '';
+  width: 28px; height: 3px;
+  background: var(--green);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--charcoal);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.section-title.light { color: var(--white); }
+
+.section-sub {
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  color: var(--gray);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 3rem;
+}
+.section-sub.light { color: var(--greenLt); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* ═══════════════════════════════════════════════
+   OVER ONS BANNER
+═══════════════════════════════════════════════ */
+.over-strip {
+  background: var(--green);
+  padding: 1.2rem 8%;
+  display: flex; align-items: center; gap: 2rem;
+}
+.over-strip p {
+  font-family: var(--f-head);
+  font-size: 1rem; font-weight: 700;
+  color: var(--white);
+  flex: 1;
+}
+.over-strip a {
+  font-family: var(--f-display);
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 6px;
+  transition: var(--trans);
+  white-space: nowrap;
+}
+.over-strip a:hover { background: var(--white); color: var(--green); }
+
+/* ═══════════════════════════════════════════════
+   CARDS
+═══════════════════════════════════════════════ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--trans);
+}
+.card:hover { border-color: var(--green); box-shadow: 0 12px 40px rgba(26,92,56,0.12); transform: translateY(-4px); }
+
+.card-accent { border-top: 4px solid var(--green); }
+
+.card-head {
+  background: var(--forest);
+  padding: 1.4rem 1.6rem;
+}
+.card-head .icon {
+  width: 44px; height: 44px;
+  background: var(--green);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.card-head h3 {
+  font-family: var(--f-display);
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+.card-head p {
+  font-family: var(--f-body);
+  font-size: 0.78rem;
+  color: var(--greenLt);
+  margin-top: 4px;
+}
+
+.card-body {
+  padding: 1.4rem 1.6rem;
+}
+.card-body p {
+  font-family: var(--f-body);
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.feature-list {
+  list-style: none;
+}
+.feature-list li {
+  font-family: var(--f-body);
+  font-size: 0.84rem;
+  color: var(--charcoal);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--sage);
+  display: flex; align-items: center; gap: 8px;
+}
+.feature-list li:last-child { border-bottom: none; }
+.feature-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f-head);
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--green);
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: var(--trans);
+}
+.card-link:hover { gap: 10px; }
+
+/* ═══════════════════════════════════════════════
+   BUSINESS LINES SECTION
+═══════════════════════════════════════════════ */
+.bl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.bl-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--trans);
+  cursor: pointer;
+}
+.bl-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+
+.bl-num {
+  font-family: var(--f-display);
+  font-size: 0.7rem; font-weight: 800;
+  letter-spacing: 0.18em;
+  opacity: 0.5;
+  margin-bottom: 0.6rem;
+}
+.bl-icon-row {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.bl-title {
+  font-family: var(--f-display);
+  font-size: 1.25rem; font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+  line-height: 1.15;
+}
+.bl-desc {
+  font-family: var(--f-body);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  opacity: 0.8;
+  margin-bottom: 1.2rem;
+}
+.bl-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.bl-tag {
+  font-family: var(--f-body);
+  font-size: 0.66rem; font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+}
+
+/* Color variants */
+.bl-dark {
+  background: var(--forest);
+  padding: 2rem;
+  color: var(--white);
+}
+.bl-dark .bl-tag { background: rgba(255,255,255,0.12); color: var(--greenLt); }
+
+.bl-green {
+  background: var(--green);
+  padding: 2rem;
+  color: var(--white);
+}
+.bl-green .bl-tag { background: rgba(0,0,0,0.15); color: var(--white); }
+
+.bl-light {
+  background: var(--mint);
+  border: 1px solid var(--sage);
+  padding: 2rem;
+  color: var(--charcoal);
+}
+.bl-light .bl-desc { opacity: 0.7; }
+.bl-light .bl-tag { background: var(--sage); color: var(--forest); }
+
+.bl-sage {
+  background: var(--sage);
+  border: 1px solid #b8e8cc;
+  padding: 2rem;
+  color: var(--charcoal);
+}
+.bl-sage .bl-tag { background: rgba(26,92,56,0.12); color: var(--forest); }
+
+/* ═══════════════════════════════════════════════
+   PROCESS STEPS
+═══════════════════════════════════════════════ */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 14%;
+  right: 14%;
+  height: 2px;
+  background: linear-gradient(to right, var(--green), var(--greenLt));
+}
+.step {
+  text-align: center;
+  padding: 0 0.5rem;
+  position: relative;
+}
+.step-circle {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--forest);
+  border: 3px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  font-family: var(--f-display);
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--white);
+  position: relative; z-index: 1;
+}
+.step h4 {
+  font-family: var(--f-head);
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 0.3rem;
+}
+.step p {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════════════ */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--forest);
+}
+.stat-item {
+  padding: 3rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--f-display);
+  font-size: 3rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.stat-num .accent { color: var(--green); }
+.stat-lbl {
+  font-family: var(--f-body);
+  font-size: 0.78rem;
+  color: var(--greenLt);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+.stat-src {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   QUOTE SECTION
+═══════════════════════════════════════════════ */
+.big-quote {
+  padding: 7rem 8%;
+  background: var(--greenDk);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.big-quote::before {
+  content: '"';
+  position: absolute;
+  top: -40px; left: 5%;
+  font-family: var(--f-display);
+  font-size: 20rem;
+  color: rgba(39,174,96,0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+.big-quote blockquote {
+  max-width: 800px; margin: 0 auto;
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  position: relative; z-index: 1;
+}
+.big-quote blockquote em { color: var(--green); font-style: normal; }
+.big-quote cite {
+  display: block;
+  margin-top: 1.5rem;
+  font-family: var(--f-body);
+  font-size: 0.85rem;
+  color: var(--greenLt);
+  letter-spacing: 0.08em;
+  font-style: normal;
+  position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════
+   PROOF POINTS
+═══════════════════════════════════════════════ */
+.proof-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--sage);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 3rem;
+}
+.proof-item {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+}
+.proof-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.proof-item h3 {
+  font-family: var(--f-display);
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+.proof-item p {
+  font-family: var(--f-body);
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════
+   CONTACT SECTION
+═══════════════════════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact-info h2 {
+  font-family: var(--f-display);
+  font-size: 2.5rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.contact-info p {
+  font-family: var(--f-body);
+  font-size: 1rem;
+  color: var(--greenLt);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin-bottom: 1rem;
+}
+.contact-detail .icon {
+  width: 36px; height: 36px;
+  background: var(--green);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.contact-detail div { font-family: var(--f-body); font-size: 0.88rem; }
+.contact-detail strong { display: block; color: var(--white); margin-bottom: 2px; }
+.contact-detail span { color: var(--greenLt); }
+
+.contact-form {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+}
+.form-row { margin-bottom: 1.2rem; }
+.form-row label {
+  display: block;
+  font-family: var(--f-head);
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--greenLt);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+  color: var(--white);
+  outline: none;
+  transition: var(--trans);
+}
+.form-row input::placeholder,
+.form-row textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus { border-color: var(--green); background: rgba(39,174,96,0.08); }
+.form-row textarea { min-height: 110px; resize: vertical; }
+.form-row select { appearance: none; cursor: pointer; }
+option { background: var(--greenDk); }
+.form-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  background: var(--greenDk);
+  border-top: 3px solid var(--green);
+  padding: 4rem 8% 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand .wordmark {
+  font-family: var(--f-display);
+  font-size: 1.4rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.footer-brand .sub {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  color: var(--greenLt);
+  margin-top: 4px;
+  letter-spacing: 0.15em;
+}
+.footer-brand p {
+  font-family: var(--f-body);
+  font-size: 0.82rem;
+  color: var(--grayLt);
+  line-height: 1.65;
+  margin-top: 1rem;
+  max-width: 260px;
+}
+.footer-col h4 {
+  font-family: var(--f-head);
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.footer-col a, .footer-col p {
+  display: block;
+  font-family: var(--f-body);
+  font-size: 0.82rem;
+  color: var(--grayLt);
+  text-decoration: none;
+  margin-bottom: 0.55rem;
+  transition: var(--trans);
+}
+.footer-col a:hover { color: var(--green); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ═══════════════════════════════════════════════
+   INNER PAGES
+═══════════════════════════════════════════════ */
+.page-hero {
+  background: var(--forest);
+  padding: calc(var(--nav-h) + 4rem) 8% 4rem;
+  position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute; bottom: -80px; right: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.page-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  max-width: 700px;
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+.page-hero p {
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  color: var(--greenLt);
+  max-width: 560px;
+  line-height: 1.7;
+  position: relative; z-index: 1;
+}
+.breadcrumb {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  color: var(--greenLt);
+  margin-bottom: 1rem;
+  display: flex; gap: 6px; align-items: center;
+  position: relative; z-index: 1;
+}
+.breadcrumb a { color: var(--green); text-decoration: none; cursor: pointer; }
+
+/* Diensten detail */
+.dienst-detail {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  padding: 5rem 8%;
+  align-items: start;
+}
+.dienst-content h2 {
+  font-family: var(--f-display);
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--forest);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.dienst-content p {
+  font-family: var(--f-body);
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.dienst-content ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.dienst-content ul li {
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--sage);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.dienst-content ul li::before {
+  content: '→';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.dienst-sidebar {
+  position: sticky; top: calc(var(--nav-h) + 2rem);
+}
+.sidebar-card {
+  background: var(--forest);
+  border-radius: var(--radius);
+  padding: 2rem;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.sidebar-card h3 {
+  font-family: var(--f-display);
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.sidebar-card p {
+  font-family: var(--f-body);
+  font-size: 0.84rem;
+  color: var(--greenLt);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.sidebar-meta {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.sidebar-meta-item {
+  display: flex; justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-family: var(--f-body); font-size: 0.8rem;
+}
+.sidebar-meta-item .key { color: var(--greenLt); }
+.sidebar-meta-item .val { color: var(--white); font-weight: 500; }
+
+/* Accordion */
+.accordion-item {
+  border: 1px solid var(--sage);
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+.accordion-btn {
+  width: 100%; background: var(--white);
+  border: none; cursor: pointer;
+  padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--f-head);
+  font-size: 0.9rem; font-weight: 700;
+  color: var(--forest);
+  text-align: left;
+  transition: var(--trans);
+}
+.accordion-btn:hover { background: var(--mint); }
+.accordion-btn .chevron {
+  transition: var(--trans);
+  color: var(--green);
+  font-size: 1.1rem;
+}
+.accordion-btn.open .chevron { transform: rotate(180deg); }
+.accordion-body {
+  display: none;
+  padding: 0 1.5rem 1.2rem;
+  font-family: var(--f-body);
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+  background: var(--white);
+}
+.accordion-body.open { display: block; }
+
+/* Team cards */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+.team-card {
+  text-align: center;
+}
+.team-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: var(--forest);
+  margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-display);
+  font-size: 2rem; font-weight: 800;
+  color: var(--white);
+  border: 4px solid var(--green);
+}
+.team-card h3 {
+  font-family: var(--f-head);
+  font-size: 1rem; font-weight: 700;
+  color: var(--charcoal);
+}
+.team-card .role {
+  font-family: var(--f-body);
+  font-size: 0.78rem;
+  color: var(--green);
+  margin-top: 3px;
+}
+.team-card p {
+  font-family: var(--f-body);
+  font-size: 0.8rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-top: 0.8rem;
+}
+
+/* ═══════════════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════════════ */
+.text-center { text-align: center; }
+.text-center .section-sub { margin-left: auto; margin-right: auto; }
+.green { color: var(--green); }
+.mb-sm { margin-bottom: 1rem; }
+.mb { margin-bottom: 2rem; }
+.mb-lg { margin-bottom: 3rem; }
+
+/* ═══════════════════════════════════════════════
+   HAMBURGER MENU (mobile)
+═══════════════════════════════════════════════ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2.5px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--trans);
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  background: var(--greenDk);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  z-index: 999;
+  padding: 1rem 5%;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu .nav-link {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+/* ═══════════════════════════════════════════════
+   INTAKE PAGE (embedded in website)
+═══════════════════════════════════════════════ */
+.intake-banner {
+  background: var(--forest);
+  border: 2px dashed var(--green);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+  font-size: 0.82rem; color: var(--greenLt);
+}
+.intake-banner strong { color: var(--white); }
+.intake-banner .lock-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+/* Intake form within website uses same green palette */
+.intake-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 0 4rem;
+}
+.intake-progress-wrap {
+  background: var(--forest);
+  padding: 0.9rem 0;
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  padding: 0.9rem 1.5rem;
+}
+.intake-progress-track {
+  flex: 1; height: 6px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px; overflow: hidden;
+}
+.intake-progress-fill {
+  height: 100%; background: var(--green);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 12.5%;
+}
+.intake-progress-label {
+  font-size: 0.72rem; color: var(--greenLt);
+  white-space: nowrap; min-width: 100px; text-align: right;
+}
+
+.iblock {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: none;
+}
+.iblock.active { display: block; }
+
+.iblock-header {
+  background: var(--forest);
+  padding: 1.3rem 1.8rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.iblock-num {
+  background: var(--green);
+  color: #fff;
+  font-family: var(--f-display);
+  font-weight: 700; font-size: 1.1rem;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.iblock-title { font-family: var(--f-display); font-size: 1.25rem; font-weight: 700; color: #fff; }
+.iblock-sub   { font-size: 0.78rem; color: var(--greenLt); margin-top: 3px; }
+.iblock-body  { padding: 1.6rem 1.8rem; }
+
+.iq { margin-bottom: 1.6rem; padding-bottom: 1.4rem; border-bottom: 1px solid var(--sage); }
+.iq:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.iq-label { display: flex; gap: 0.6rem; align-items: baseline; margin-bottom: 0.4rem; }
+.iq-num { font-family: var(--f-display); font-size: 0.8rem; font-weight: 700; color: var(--green); white-space: nowrap; min-width: 28px; }
+.iq-text { font-size: 0.9rem; font-weight: 600; color: var(--forest); line-height: 1.4; }
+.iq-hint { font-size: 0.75rem; color: var(--gray); margin-bottom: 0.55rem; margin-left: 34px; font-style: italic; line-height: 1.5; }
+
+.ifield {
+  width: 100%;
+  font-family: var(--f-body);
+  font-size: 0.88rem;
+  color: var(--charcoal);
+  border: 1.5px solid #C8EDD7;
+  border-radius: 7px;
+  padding: 0.6rem 0.8rem;
+  background: var(--mint);
+  transition: border-color 0.2s, background 0.2s;
+  outline: none;
+  resize: vertical;
+}
+.ifield:focus { border-color: var(--green); background: #fff; box-shadow: 0 0 0 3px rgba(39,174,96,0.1); }
+.ifield.error { border-color: #C0392B; background: #FDF2F2; }
+textarea.ifield { min-height: 90px; }
+
+.itwo-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .itwo-col { grid-template-columns: 1fr; } }
+
+.icheck-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-left: 34px; }
+.icheck-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: var(--mint); border: 1.5px solid #C8EDD7;
+  border-radius: 6px; padding: 0.35rem 0.7rem;
+  cursor: pointer; transition: all 0.15s;
+  font-size: 0.83rem; color: var(--charcoal);
+}
+.icheck-item:hover { border-color: var(--green); background: var(--sage); }
+.icheck-item input { width: auto; background: none; border: none; margin: 0; padding: 0; accent-color: var(--green); }
+
+.iscore-group { display: flex; gap: 0.4rem; margin-left: 34px; flex-wrap: wrap; }
+.iscore-btn {
+  flex: 1; min-width: 52px; max-width: 80px;
+  background: var(--mint); border: 1.5px solid #C8EDD7;
+  border-radius: 8px; padding: 0.5rem 0.4rem;
+  text-align: center; cursor: pointer; transition: all 0.15s;
+  font-size: 0.8rem; color: var(--gray); font-family: var(--f-body);
+}
+.iscore-btn .sn { display: block; font-family: var(--f-display); font-size: 1.2rem; font-weight: 700; color: var(--forest); }
+.iscore-btn:hover { border-color: var(--green); background: var(--sage); }
+.iscore-btn.active { border-color: var(--green); background: var(--forest); color: var(--greenLt); }
+.iscore-btn.active .sn { color: #fff; }
+
+.iadvies-group { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-left: 34px; }
+.iadvies-btn {
+  flex: 1; min-width: 160px;
+  border: 2px solid #C8EDD7; border-radius: 10px; padding: 1rem;
+  text-align: center; cursor: pointer; transition: all 0.2s; background: var(--mint);
+}
+.iadvies-btn .ab-icon { font-size: 1.6rem; display: block; margin-bottom: 0.3rem; }
+.iadvies-btn .ab-label { font-family: var(--f-display); font-weight: 700; font-size: 0.9rem; }
+.iadvies-btn .ab-sub   { font-size: 0.72rem; color: var(--gray); margin-top: 2px; }
+.iadvies-btn.ija.active   { background: #D5F5E3; border-color: var(--green); }
+.iadvies-btn.inader.active{ background: #FEF9E7; border-color: var(--amber); }
+.iadvies-btn.inee.active  { background: #FDEDEC; border-color: #C0392B; }
+
+.inav-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 1.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--sage);
+}
+.ibtn {
+  font-family: var(--f-display); font-size: 0.9rem; font-weight: 700;
+  padding: 0.65rem 1.4rem; border-radius: 8px; border: none;
+  cursor: pointer; transition: all 0.18s;
+}
+.ibtn-prev { background: var(--sage); color: var(--forest); }
+.ibtn-prev:hover { background: var(--greenLt); }
+.ibtn-next { background: var(--green); color: #fff; }
+.ibtn-next:hover { background: var(--forest); }
+.ibtn-export { background: var(--forest); color: #fff; font-size: 1rem; padding: 0.75rem 2rem; }
+.ibtn-export:hover { background: var(--greenDk); }
+
+.ival-msg { font-size: 0.72rem; color: #C0392B; margin-top: 0.25rem; margin-left: 34px; display: none; }
+.ival-msg.show { display: block; }
+
+.iinfo-box {
+  background: var(--sage); border-radius: 8px; padding: 1rem 1.2rem;
+  margin-bottom: 1.4rem; font-size: 0.8rem; color: var(--charcoal); line-height: 1.6;
+}
+.iinfo-box strong { color: var(--forest); font-family: var(--f-display); }
+
+.icompletion {
+  display: none; background: #fff; border-radius: var(--radius);
+  padding: 3rem 2rem; text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.icompletion.visible { display: block; }
+.icompletion h2 { font-family: var(--f-display); font-size: 2rem; color: var(--forest); margin-bottom: 0.5rem; }
+.icompletion p { color: var(--gray); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.iexport-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.isummary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin: 1.5rem 0; }
+.isummary-stat { background: var(--mint); border: 1px solid var(--sage); border-radius: 10px; padding: 1rem; text-align: center; }
+.isummary-stat .ss-num { font-family: var(--f-display); font-size: 2rem; font-weight: 700; color: var(--forest); line-height: 1; }
+.isummary-stat .ss-lbl { font-size: 0.72rem; color: var(--gray); margin-top: 4px; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — improved
+═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-bottom: 4rem; }
+  .hero-right { display: none; }
+  .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+  .three-col { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); }
+  .process-steps::before { display: none; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .dienst-detail { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none !important; }
+  .nav-cta { font-size: 0.75rem; padding: 0.4rem 0.9rem; margin-left: 0; }
+  nav { padding: 0 4%; }
+}
+@media (max-width: 640px) {
+  .section { padding: 3rem 5%; }
+  .hero-left { padding: 3rem 5%; }
+  .hero-h1 { font-size: 2.4rem; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .three-col, .four-col { grid-template-columns: 1fr; }
+  .form-two { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .proof-grid { grid-template-columns: 1fr; }
+  .bl-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .big-quote blockquote { font-size: clamp(1.4rem, 5vw, 2.2rem); }
+  .over-strip { flex-direction: column; text-align: center; gap: 1rem; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .page-hero { padding: calc(var(--nav-h) + 2.5rem) 5% 2.5rem; }
+  .page-hero h1 { font-size: 2rem; }
+  .iblock-body { padding: 1.2rem 1rem; }
+  .iscore-group { margin-left: 0; }
+  .icheck-group { margin-left: 0; }
+  .iadvies-group { margin-left: 0; }
+  .iadvies-btn { min-width: 120px; }
+}
+</style>
+</head>
+
+<body>
+<!-- ════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home')">
+    <svg class="nav-logo-icon" viewBox="0 0 72 72">
+      <rect x="2"  y="56" width="22" height="9" rx="2.5" fill="#27AE60"/>
+      <rect x="14" y="42" width="22" height="9" rx="2.5" fill="#A9DFBF"/>
+      <rect x="26" y="28" width="22" height="9" rx="2.5" fill="white"/>
+      <circle cx="56" cy="22" r="7" fill="white"/>
+      <line x1="56" y1="29" x2="56" y2="44" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="56" y1="35" x2="47" y2="28" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="56" y1="35" x2="65" y2="28" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="51" y1="44" x2="46" y2="60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <line x1="61" y1="44" x2="66" y2="60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-wordmark">WerkKracht<span>Nederland</span></div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link active" href="#" onclick="showPage('home')">Home</a>
+    <a class="nav-link" href="#" onclick="showPage('diensten')">Diensten</a>
+    <a class="nav-link" href="#" onclick="showPage('over')">Over ons</a>
+    <a class="nav-link" href="#" onclick="showPage('kennisbank')">Kennisbank</a>
+    <a class="nav-link" href="#" onclick="showPage('partners')">Partners</a>
+    <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="nav-cta" href="#" onclick="showPage('contact');closeMobileMenu()">Meld je aan →</a>
+</nav>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="#" onclick="showPage('home');closeMobileMenu()">🏠 Home</a>
+  <a class="nav-link" href="#" onclick="showPage('diensten');closeMobileMenu()">🔧 Diensten</a>
+  <a class="nav-link" href="#" onclick="showPage('over');closeMobileMenu()">ℹ️ Over ons</a>
+  <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()">📚 Kennisbank</a>
+  <a class="nav-link" href="#" onclick="showPage('partners');closeMobileMenu()">🤝 Partners</a>
+  <a class="nav-link" href="#" onclick="showPage('contact');closeMobileMenu()">📧 Contact</a>
+</div>
+
+<!-- ════════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Landelijk platform · Werkontwikkelbedrijven</p>
+      <h1 class="hero-h1">Elke stap <em>telt.</em></h1>
+      <p class="hero-lead">WerkKracht Nederland verbindt werkontwikkelbedrijven, bundelt werkgeversvraag en schaalt bewezen werkconcepten op — zodat meer mensen duurzaam aan het werk gaan.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#" onclick="showPage('diensten')">Bekijk onze diensten →</a>
+        <a class="btn-outline" href="#" onclick="showPage('over')">Over ons platform</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">~100</div>
+          <div class="lbl">Aangesloten<br>ontwikkelbedrijven</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">114K</div>
+          <div class="lbl">Mensen begeleid<br>naar werk (2024)</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">5–7×</div>
+          <div class="lbl">Maatschappelijk<br>rendement</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="stair">
+          <div class="stair-icon">🔍</div>
+          <div class="stair-text">
+            <strong>Intake & analyse</strong>
+            <span>Organisatie in kaart brengen</span>
+          </div>
+        </div>
+        <div class="stair">
+          <div class="stair-icon">🔗</div>
+          <div class="stair-text">
+            <strong>Vraagbundeling</strong>
+            <span>Werkgevers koppelen</span>
+          </div>
+        </div>
+        <div class="stair">
+          <div class="stair-icon">🚀</div>
+          <div class="stair-text">
+            <strong>Implementatie</strong>
+            <span>Hands-on uitvoering</span>
+          </div>
+        </div>
+        <div class="stair">
+          <div class="stair-icon">📚</div>
+          <div class="stair-text">
+            <strong>Kennisdeling</strong>
+            <span>Bewezen aanpakken delen</span>
+          </div>
+        </div>
+        <div class="stair">
+          <div class="stair-icon">📈</div>
+          <div class="stair-text">
+            <strong>Opschaling</strong>
+            <span>Landelijke uitrol</span>
+          </div>
+        </div>
+        <div class="scroll-hint">Ontdek meer</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">€<span class="accent">289</span>M</div>
+      <div class="stat-lbl">Rijksimpulsbudget<br>beschikbaar 2025–2034</div>
+      <div class="stat-src">Bron: Ministerie SZW</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">270<span class="accent">K</span></div>
+      <div class="stat-lbl">Mensen in het<br>doelgroepregister</div>
+      <div class="stat-src">Bron: UWV 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">€<span class="accent">13</span>K</div>
+      <div class="stat-lbl">BUIG-besparing<br>per plaatsing</div>
+      <div class="stat-src">Bron: Berenschot 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3<span class="accent">rd</span></div>
+      <div class="stat-lbl">Jaar meer vacatures<br>dan werklozen</div>
+      <div class="stat-src">Bron: CBS 2025</div>
+    </div>
+  </div>
+
+  <!-- BUSINESSLINES PREVIEW -->
+  <section class="section">
+    <div class="section-label">Onze diensten</div>
+    <h2 class="section-title">Vier businesslines.<br>Één richting.</h2>
+    <p class="section-sub">Van strategisch advies tot hands-on projectleiding — WerkKracht Nederland ondersteunt werkontwikkelbedrijven op alle niveaus.</p>
+
+    <div class="bl-grid">
+      <div class="bl-card bl-dark" onclick="showDienst('vraagbundeling')">
+        <div class="bl-num">01</div>
+        <div class="bl-icon-row">🔗</div>
+        <div class="bl-title">Werkgeversvraag bundelen</div>
+        <div class="bl-desc">Wij verbinden werkgevers met werkontwikkelbedrijven op schaal. Door vraag te bundelen ontstaan opdrachten die voor individuele bedrijven buiten bereik lagen.</div>
+        <div class="bl-tags">
+          <span class="bl-tag">Acquisitie</span>
+          <span class="bl-tag">Matching</span>
+          <span class="bl-tag">SROI</span>
+        </div>
+      </div>
+
+      <div class="bl-card bl-green" onclick="showDienst('opschaling')">
+        <div class="bl-num">02</div>
+        <div class="bl-icon-row">📈</div>
+        <div class="bl-title">Werkconcepten opopschalen</div>
+        <div class="bl-desc">Bewezen aanpakken uit Rotterdam, Amsterdam of Eindhoven worden beschikbaar voor de hele sector. Van pilot naar landelijk uitgerold werkconcept.</div>
+        <div class="bl-tags">
+          <span class="bl-tag">Implementatie</span>
+          <span class="bl-tag">Standaardisatie</span>
+          <span class="bl-tag">Schaal</span>
+        </div>
+      </div>
+
+      <div class="bl-card bl-light" onclick="showDienst('kennisplatform')">
+        <div class="bl-num">03</div>
+        <div class="bl-icon-row">📚</div>
+        <div class="bl-title">Kennisplatform & formats</div>
+        <div class="bl-desc">Een digitale kennisbank met formats, praktijkcases, businesscases en tools — speciaal ontwikkeld voor werkontwikkelbedrijven. Altijd up-to-date, altijd toepasbaar.</div>
+        <div class="bl-tags">
+          <span class="bl-tag">Kennisbank</span>
+          <span class="bl-tag">Formats</span>
+          <span class="bl-tag">Benchmarking</span>
+        </div>
+      </div>
+
+      <div class="bl-card bl-sage" onclick="showDienst('projectleiding')">
+        <div class="bl-num">04</div>
+        <div class="bl-icon-row">👷</div>
+        <div class="bl-title">Projectleiding & advies</div>
+        <div class="bl-desc">Flexibele projectleiders die tijdelijk worden ingezet bij de implementatie van organisatieverandering, nieuwe werkstromen of businesscase-ontwikkeling.</div>
+        <div class="bl-tags">
+          <span class="bl-tag">Projectmanagement</span>
+          <span class="bl-tag">Advies</span>
+          <span class="bl-tag">Flexibel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOE WE WERKEN -->
+  <section class="section section-alt">
+    <div class="text-center mb-lg">
+      <div class="section-label" style="justify-content:center">Onze werkwijze</div>
+      <h2 class="section-title">Van intake tot opschaling</h2>
+      <p class="section-sub">Elk traject begint met een intake en eindigt met aantoonbare impact — en een aanpak die anderen kunnen hergebruiken.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <h4>Intake</h4>
+        <p>Vraagstuk in kaart brengen bij het ontwikkelbedrijf</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <h4>Analyse</h4>
+        <p>Businesscase uitwerken en passende aanpak bepalen</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <h4>Matching</h4>
+        <p>Werkgevers en kandidaten verbinden via ons netwerk</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">4</div>
+        <h4>Implementatie</h4>
+        <p>Hands-on begeleiding bij de uitvoering op locatie</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">5</div>
+        <h4>Evaluatie</h4>
+        <p>Meten, leren en verbeteren met KPI-rapportage</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">6</div>
+        <h4>Opschaling</h4>
+        <p>Succesvolle aanpak landelijk uitrollen via het platform</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="big-quote">
+    <blockquote>
+      "Klein beginnen. Snel bewijzen. <em>Dan opschalen.</em>"
+    </blockquote>
+    <cite>— WerkKracht Nederland</cite>
+  </div>
+
+  <!-- BEWIJS VAN WAARDE -->
+  <section class="section">
+    <div class="text-center mb">
+      <div class="section-label" style="justify-content:center">Onze aanpak werkt</div>
+      <h2 class="section-title">Bewijs van waarde</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-item">
+        <div class="proof-icon">🏗</div>
+        <h3>Organisatieprobleem oplossen</h3>
+        <p>Berenschot (2025) bevestigde: het tekort aan impact in de sector is geen beleidsprobleem, maar een organisatieprobleem. WerkKracht levert de ontbrekende uitvoeringsstructuur.</p>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">💰</div>
+        <h3>Aantoonbaar rendement</h3>
+        <p>€13.000 BUIG-besparing per geplaatste persoon. €13 miljoen maatschappelijk voordeel per jaar bij volledige inzet. Berekend conform de Berenschot/Cedris MKBA-methode.</p>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">🔗</div>
+        <h3>Gelijkgerichtheid als sleutel</h3>
+        <p>"Gelijkgerichtheid op alle niveaus is een voorwaarde voor het succes van welke inrichtingskeuze dan ook." WerkKracht brengt die gelijkgerichtheid landelijk tot stand.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="over-strip">
+    <p>Klaar om de volgende stap te zetten? Meld uw organisatie aan als deelnemer of partner.</p>
+    <a href="#" onclick="showPage('contact')">Neem contact op →</a>
+  </div>
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════════════════
+     DIENSTEN PAGE
+════════════════════════════════════════════ -->
+<div id="page-diensten" class="page">
+  <div class="page-hero">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Diensten</div>
+    <h1>Diensten & businesslines</h1>
+    <p>WerkKracht Nederland werkt met vier samenhangende businesslines — van vraagbundeling tot kennisplatform. Elke lijn versterkt de andere.</p>
+  </div>
+
+  <!-- Dienst detail: Vraagbundeling -->
+  <div id="dienst-vraagbundeling">
+  <div class="dienst-detail">
+    <div class="dienst-content">
+      <div class="section-label">Businessline 01</div>
+      <h2>Werkgeversvraag bundelen</h2>
+      <p>Werkontwikkelbedrijven zijn sterk in uitvoering, maar missen vaak de schaal om grote werkgevers structureel te bedienen. WerkKracht Nederland bundelt de vraag van werkgevers en vertaalt die naar opdrachten die één of meerdere ontwikkelbedrijven gezamenlijk kunnen uitvoeren.</p>
+      <p>Door vraag te bundelen krijgen werkgevers één aanspreekpunt, terwijl ontwikkelbedrijven toegang krijgen tot opdrachten die voor hen individueel niet haalbaar zouden zijn. Het resultaat: meer mensen aan het werk, meer omzet voor de sector, betere SROI-realisatie voor werkgevers.</p>
+
+      <h2>Wat wij doen</h2>
+      <ul>
+        <li>Actief acquireren van werkgeversvraag via ons landelijke netwerk</li>
+        <li>Vertalen van werkgeversbehoefte naar concrete werkstromen</li>
+        <li>Koppelen van vraag aan de juiste ontwikkelbedrijven per regio</li>
+        <li>Ondersteunen bij contractvorming en SROI-onderbouwing</li>
+        <li>Monitoring van plaatsingen en rapportage aan opdrachtgever</li>
+      </ul>
+
+      <h2>Voor wie?</h2>
+      <p>Voor werkontwikkelbedrijven die hun opdrachtenportfolio willen uitbreiden, én voor werkgevers die hun SROI-verplichting willen invullen met aantoonbare maatschappelijke impact.</p>
+    </div>
+    <div class="dienst-sidebar">
+      <div class="sidebar-card">
+        <h3>🔗 Vraagbundeling</h3>
+        <p>Wij verbinden werkgevers met werkontwikkelbedrijven op schaal die voor individuele bedrijven niet haalbaar is.</p>
+        <div class="sidebar-meta">
+          <div class="sidebar-meta-item"><span class="key">Doorlooptijd</span><span class="val">6–12 weken</span></div>
+          <div class="sidebar-meta-item"><span class="key">Inzet</span><span class="val">Projectleider WKN</span></div>
+          <div class="sidebar-meta-item"><span class="key">Resultaat</span><span class="val">Opdracht + plaatsingen</span></div>
+          <div class="sidebar-meta-item"><span class="key">Doelgroep</span><span class="val">SOB + Werkgevers</span></div>
+        </div>
+      </div>
+      <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;">
+        <h3 style="font-family:var(--f-display);font-weight:800;color:var(--forest);margin-bottom:.8rem">Interesse?</h3>
+        <p style="font-family:var(--f-body);font-size:.84rem;color:var(--gray);margin-bottom:1rem">Neem contact op voor een vrijblijvend kennismakingsgesprek.</p>
+        <a class="btn-primary" href="#" onclick="showPage('contact')" style="font-size:.82rem;padding:.6rem 1.2rem">Gesprek aanvragen →</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Businesslines overview -->
+  <section class="section section-alt">
+    <div class="section-label">Alle diensten</div>
+    <h2 class="section-title mb">Kies uw businessline</h2>
+    <div class="bl-grid">
+      <div class="bl-card bl-dark" onclick="scrollToDienst('vraagbundeling')">
+        <div class="bl-num">01</div>
+        <div class="bl-icon-row">🔗</div>
+        <div class="bl-title">Werkgeversvraag bundelen</div>
+        <div class="bl-desc">Landelijke acquisitie en koppeling van werkgeversvraag aan werkontwikkelbedrijven.</div>
+        <div class="bl-tags"><span class="bl-tag">Acquisitie</span><span class="bl-tag">Matching</span></div>
+      </div>
+      <div class="bl-card bl-green">
+        <div class="bl-num">02</div>
+        <div class="bl-icon-row">📈</div>
+        <div class="bl-title">Werkconcepten opopschalen</div>
+        <div class="bl-desc">Bewezen pilots landelijk beschikbaar maken via het WerkKracht-platform.</div>
+        <div class="bl-tags"><span class="bl-tag">Implementatie</span><span class="bl-tag">Opschaling</span></div>
+      </div>
+      <div class="bl-card bl-light">
+        <div class="bl-num">03</div>
+        <div class="bl-icon-row">📚</div>
+        <div class="bl-title">Kennisplatform & formats</div>
+        <div class="bl-desc">Digitale kennisbank met formats, businesscases en praktijkcases voor de sector.</div>
+        <div class="bl-tags"><span class="bl-tag">Kennisbank</span><span class="bl-tag">Tools</span></div>
+      </div>
+      <div class="bl-card bl-sage">
+        <div class="bl-num">04</div>
+        <div class="bl-icon-row">👷</div>
+        <div class="bl-title">Projectleiding & advies</div>
+        <div class="bl-desc">Flexibele projectleiders voor implementatie, organisatieverandering en advies.</div>
+        <div class="bl-tags"><span class="bl-tag">Projectmanagement</span><span class="bl-tag">Flexibel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-label">Veelgestelde vragen</div>
+    <h2 class="section-title mb">Hoe werkt het?</h2>
+    <div style="max-width:720px">
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Hoe sluit ik mijn organisatie aan bij WerkKracht Nederland?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="accordion-body">
+          Aanmelden begint met een intakegesprek van circa 60–90 minuten. Daarin brengen wij uw organisatie, vraagstukken en ambities in kaart. Na de intake ontvangt u een advies over de samenwerking en de meest passende businessline. U kunt zich aanmelden via het contactformulier.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Wat kost deelname aan het platform?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="accordion-body">
+          WerkKracht Nederland werkt met een partnerbijdrage die afhankelijk is van de omvang van uw organisatie en de gekozen businessline. Bij de intake bespreken wij de financiële afspraken. Voor informatie kunt u contact opnemen via info@werkkrachtnederland.nl.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Welke resultaten kan ik verwachten?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="accordion-body">
+          Op basis van de Berenschot MKBA-methode berekenen wij per project het verwachte maatschappelijk rendement. In de praktijk realiseren wij voor deelnemende organisaties een hogere opdrachtenportefeuille, hogere bedrijfsopbrengsten en meer plaatsingen — gemiddeld binnen 6–12 weken na start.
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          Hoe verhoudt WerkKracht zich tot Cedris en VNG?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="accordion-body">
+          WerkKracht Nederland is geen concurrent van Cedris of VNG, maar een uitvoerende partner. Wij werken samen met Cedris voor toegang tot het netwerk en met VNG voor gemeentelijke verbindingen. Onze rol is de uitvoeringslaag die nu ontbreekt: van beleid naar daadwerkelijke werkplekken.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="over-strip">
+    <p>Klaar voor een eerste gesprek? Wij plannen graag een intake in.</p>
+    <a href="#" onclick="showPage('contact')">Intake aanvragen →</a>
+  </div>
+</div><!-- /page-diensten -->
+
+
+<!-- ════════════════════════════════════════════
+     OVER ONS PAGE
+════════════════════════════════════════════ -->
+<div id="page-over" class="page">
+  <div class="page-hero">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Over ons</div>
+    <h1>Over WerkKracht Nederland</h1>
+    <p>Wij zijn het landelijk platform dat werkontwikkelbedrijven verbindt, versterkt en opschaalt. Niet door boven hen te staan — maar door naast hen te werken.</p>
+  </div>
+
+  <section class="section">
+    <div class="two-col">
+      <div>
+        <div class="section-label">Onze missie</div>
+        <h2 class="section-title">Van versnippering naar landelijke schaal</h2>
+        <p style="font-family:var(--f-body);font-size:1rem;color:var(--gray);line-height:1.8;margin-bottom:1.5rem">Nederland telt circa 100 werkontwikkelbedrijven die dagelijks mensen met een afstand tot de arbeidsmarkt begeleiden naar werk. Ze doen dit met toewijding en lokale kennis — maar ieder voor zich.</p>
+        <p style="font-family:var(--f-body);font-size:1rem;color:var(--gray);line-height:1.8;margin-bottom:1.5rem">WerkKracht Nederland doorbreekt deze versnippering. Wij organiseren wat de markt niet heeft opgelost: een landelijke uitvoeringsstructuur die vraag en aanbod verbindt, kennisdeling faciliteert en bewezen werkconcepten opschaalt.</p>
+        <p style="font-family:var(--f-body);font-size:1rem;color:var(--gray);line-height:1.8">Niet als bureaucratische laag bovenop bestaande structuren — maar als licht, slagvaardig platform dat bewijst wat werkt en dat vervolgens opschaalt.</p>
+      </div>
+      <div style="background:var(--greenDk);border-radius:var(--radius);padding:3rem;color:var(--white)">
+        <div class="section-label" style="color:var(--green)">Onze kernwaarden</div>
+        <div style="margin-top:1.5rem">
+          <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:1.2rem 0">
+            <div style="font-family:var(--f-display);font-weight:800;font-size:1rem;color:var(--white);margin-bottom:4px">Verbinding boven systemen</div>
+            <div style="font-family:var(--f-body);font-size:0.82rem;color:var(--greenLt)">Mensen en organisaties verbinden is onze motor — structuur volgt daarna.</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:1.2rem 0">
+            <div style="font-family:var(--f-display);font-weight:800;font-size:1rem;color:var(--white);margin-bottom:4px">Resultaat boven proces</div>
+            <div style="font-family:var(--f-body);font-size:0.82rem;color:var(--greenLt)">We meten succes in mensen aan het werk, niet in vergaderingen.</div>
+          </div>
+          <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:1.2rem 0">
+            <div style="font-family:var(--f-display);font-weight:800;font-size:1rem;color:var(--white);margin-bottom:4px">Klein beginnen, dan opschalen</div>
+            <div style="font-family:var(--f-body);font-size:0.82rem;color:var(--greenLt)">Bewijs van werking gaat voor brede beloften.</div>
+          </div>
+          <div style="padding:1.2rem 0 0">
+            <div style="font-family:var(--f-display);font-weight:800;font-size:1rem;color:var(--white);margin-bottom:4px">Transparantie in alles</div>
+            <div style="font-family:var(--f-body);font-size:0.82rem;color:var(--greenLt)">We rapporteren eerlijk over wat werkt en wat beter kan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section-alt">
+    <div class="section-label">Het team</div>
+    <h2 class="section-title mb">Mensen die het doen</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">E</div>
+        <h3>Edwin</h3>
+        <div class="role">Directeur & Oprichter</div>
+        <p>40+ jaar ervaring in begeleiding en bemiddeling van werk. Initiatiefnemer van WerkKracht Nederland vanuit Rotterdam Inclusief.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">PM</div>
+        <h3>[Naam]</h3>
+        <div class="role">Programmamanager</div>
+        <p>Verantwoordelijk voor de dagelijkse aansturing en de vertaling van strategie naar concrete uitvoering.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">PL</div>
+        <h3>Flexibele projectleiders</h3>
+        <div class="role">Uitvoering op locatie</div>
+        <p>Ervaren projectleiders ingezet bij deelnemende ontwikkelbedrijven — hands-on, resultaatgericht, tijdelijk.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">SG</div>
+        <h3>Stuurgroep</h3>
+        <div class="role">Strategische sturing</div>
+        <p>Vertegenwoordigers van Cedris, directeuren van deelnemende bedrijven en onafhankelijke experts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tijdlijn -->
+  <section class="section">
+    <div class="section-label">Roadmap</div>
+    <h2 class="section-title mb">Van start naar landelijke dekking</h2>
+    <div class="three-col">
+      <div style="border-left:4px solid var(--green);padding-left:1.5rem">
+        <div style="font-family:var(--f-display);font-weight:800;font-size:0.85rem;color:var(--green);letter-spacing:.1em;margin-bottom:.5rem">FASE 1 · 2025–2026</div>
+        <div style="font-family:var(--f-head);font-weight:700;font-size:1.1rem;color:var(--forest);margin-bottom:.6rem">Fundament & pilot</div>
+        <div style="font-family:var(--f-body);font-size:0.85rem;color:var(--gray);line-height:1.65">5 koploperbedrijven. Eerste opdrachten. Platform MVP. Stuurgroep actief. Bewijs van werking.</div>
+      </div>
+      <div style="border-left:4px solid var(--greenLt);padding-left:1.5rem">
+        <div style="font-family:var(--f-display);font-weight:800;font-size:0.85rem;color:var(--forest);letter-spacing:.1em;margin-bottom:.5rem">FASE 2 · 2026–2027</div>
+        <div style="font-family:var(--f-head);font-weight:700;font-size:1.1rem;color:var(--forest);margin-bottom:.6rem">Groei & validatie</div>
+        <div style="font-family:var(--f-body);font-size:0.85rem;color:var(--gray);line-height:1.65">Uitbreiden naar 20+ bedrijven. Alle regio's actief. Kennisbank gevuld. 250+ plaatsingen per jaar.</div>
+      </div>
+      <div style="border-left:4px solid var(--sage);padding-left:1.5rem">
+        <div style="font-family:var(--f-display);font-weight:800;font-size:0.85rem;color:var(--gray);letter-spacing:.1em;margin-bottom:.5rem">FASE 3 · 2028+</div>
+        <div style="font-family:var(--f-head);font-weight:700;font-size:1.1rem;color:var(--forest);margin-bottom:.6rem">Landelijke opschaling</div>
+        <div style="font-family:var(--f-body);font-size:0.85rem;color:var(--gray);line-height:1.65">Volledige landelijke dekking. 500+ plaatsingen per jaar. Financieel zelfstandig. ROI 5–7×.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="over-strip">
+    <p>Wil je meer weten over onze aanpak of het businessmodel? Bekijk de businesscase.</p>
+    <a href="#" onclick="showPage('kennisbank')">Naar de kennisbank →</a>
+  </div>
+</div><!-- /page-over -->
+
+
+<!-- ════════════════════════════════════════════
+     KENNISBANK PAGE
+════════════════════════════════════════════ -->
+<div id="page-kennisbank" class="page">
+  <div class="page-hero">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Kennisbank</div>
+    <h1>Kennisbank</h1>
+    <p>Praktijkcases, formats, businesscases en onderzoeksrapporten — speciaal voor werkontwikkelbedrijven. Toegankelijk voor alle deelnemers.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-label">Uitgelicht</div>
+    <h2 class="section-title mb">Actueel & relevant</h2>
+
+    <div class="three-col">
+      <div class="card card-accent">
+        <div class="card-head">
+          <div class="icon">📊</div>
+          <h3>Businesscase — Landelijk Platform</h3>
+          <p>WerkKracht Nederland · Juni 2026</p>
+        </div>
+        <div class="card-body">
+          <p>De volledige businesscase inclusief MKBA, meerjarenmodel en Berenschot-validatie. Conform publieke businesscase-methodologie.</p>
+          <ul class="feature-list">
+            <li>10 hoofdstukken + bijlagen</li>
+            <li>MKBA-berekening inclusief BUIG-besparing</li>
+            <li>Berenschot externe validatie verwerkt</li>
+            <li>Conform Ministerie van Financiën standaard</li>
+          </ul>
+          <a class="card-link" href="#">Download PDF →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-head">
+          <div class="icon">🔬</div>
+          <h3>Berenschot Adviesrapport RI 2025</h3>
+          <p>Berenschot · Oktober 2025</p>
+        </div>
+        <div class="card-body">
+          <p>Onafhankelijk adviesrapport over Rotterdam Inclusief met scenarioanalyse en MKBA. Externe validatie van de WerkKracht-propositie.</p>
+          <ul class="feature-list">
+            <li>Drie toekomstscenario's uitgewerkt</li>
+            <li>MKBA €13 mln maatschappelijk voordeel</li>
+            <li>€13.000 BUIG-besparing per plaatsing</li>
+            <li>Gelijkgerichtheid als succesfactor</li>
+          </ul>
+          <a class="card-link" href="#">Samenvatting →</a>
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-head">
+          <div class="icon">📋</div>
+          <h3>Intakeformulier sociaal ODB</h3>
+          <p>WerkKracht Nederland · Format</p>
+        </div>
+        <div class="card-body">
+          <p>Gestandaardiseerd intakeformulier voor het eerste gesprek met een sociaal ontwikkelbedrijf. Inclusief digitale versie en Excel-rapportage.</p>
+          <ul class="feature-list">
+            <li>8 gespreksblokken, 35 vragen</li>
+            <li>5-punts scoretabel</li>
+            <li>Digitaal formulier + CSV-export</li>
+            <li>Excel-dashboard met rapportage</li>
+          </ul>
+          <a class="card-link" href="#">Download format →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kennisbank categorieën -->
+    <div style="margin-top:4rem">
+      <div class="section-label">Alle categorieën</div>
+      <div class="four-col" style="margin-top:1.5rem">
+        <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;margin-bottom:.8rem">📊</div>
+          <div style="font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--forest)">Businesscases</div>
+          <div style="font-family:var(--f-body);font-size:.75rem;color:var(--gray);margin-top:4px">3 documenten</div>
+        </div>
+        <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;margin-bottom:.8rem">📋</div>
+          <div style="font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--forest)">Formats & tools</div>
+          <div style="font-family:var(--f-body);font-size:.75rem;color:var(--gray);margin-top:4px">8 documenten</div>
+        </div>
+        <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;margin-bottom:.8rem">🔬</div>
+          <div style="font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--forest)">Onderzoek & data</div>
+          <div style="font-family:var(--f-body);font-size:.75rem;color:var(--gray);margin-top:4px">5 documenten</div>
+        </div>
+        <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;text-align:center">
+          <div style="font-size:2rem;margin-bottom:.8rem">📖</div>
+          <div style="font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--forest)">Praktijkcases</div>
+          <div style="font-family:var(--f-body);font-size:.75rem;color:var(--gray);margin-top:4px">Binnenkort</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-kennisbank -->
+
+
+<!-- ════════════════════════════════════════════
+     PARTNERS PAGE
+════════════════════════════════════════════ -->
+<div id="page-partners" class="page">
+  <div class="page-hero">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Partners</div>
+    <h1>Partners & stakeholders</h1>
+    <p>WerkKracht Nederland werkt samen met een breed netwerk van organisaties die elk vanuit hun eigen rol bijdragen aan een inclusievere arbeidsmarkt.</p>
+  </div>
+
+  <section class="section">
+    <div class="section-label">Strategische partners</div>
+    <h2 class="section-title mb">Samenwerken aan impact</h2>
+
+    <div class="three-col">
+      <div class="card">
+        <div class="card-head">
+          <div class="icon">🏛</div>
+          <h3>Cedris</h3>
+          <p>Brancheorganisatie · ~100 leden</p>
+        </div>
+        <div class="card-body">
+          <p>Cedris is de brancheorganisatie voor werkontwikkelbedrijven. WerkKracht werkt samen met Cedris voor toegang tot het netwerk en legitimiteit richting het Ministerie van SZW.</p>
+          <ul class="feature-list">
+            <li>Stuurgroepzetel WerkKracht NL</li>
+            <li>Co-selectie deelnemende bedrijven</li>
+            <li>Kennisdeling via sectorinformatie</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="icon">🏗</div>
+          <h3>Ministerie van SZW</h3>
+          <p>Opdrachtgever & financier</p>
+        </div>
+        <div class="card-body">
+          <p>Het Ministerie van SZW heeft €289,7 miljoen impulsbudget beschikbaar gesteld voor de transformatie van de sociale infrastructuur. WerkKracht zet dit budget om in concrete uitvoering.</p>
+          <ul class="feature-list">
+            <li>Impulsbudget 2025–2034</li>
+            <li>Lerend netwerk en adviesteam</li>
+            <li>Aansluiting Participatiewet in Balans</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="icon">🏘</div>
+          <h3>VNG & gemeenten</h3>
+          <p>Financier & afnemer</p>
+        </div>
+        <div class="card-body">
+          <p>Gemeenten ontvangen via de DU-bijdragen middelen voor de transformatie van werkontwikkelbedrijven. WerkKracht helpt gemeenten deze middelen effectief in te zetten.</p>
+          <ul class="feature-list">
+            <li>Ondersteuning BUIG-besparing</li>
+            <li>Kennisuitwisseling met gemeenten</li>
+            <li>Aansluiting transitieagenda</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem">
+      <div class="three-col">
+        <div class="card">
+          <div class="card-head">
+            <div class="icon">📊</div>
+            <h3>Divosa</h3>
+            <p>Kennispartner</p>
+          </div>
+          <div class="card-body">
+            <p>Samenwerking via het lerend netwerk en de MKBA-rekenmethodiek die Berenschot voor Cedris en Divosa heeft ontwikkeld.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="icon">🔬</div>
+            <h3>Berenschot</h3>
+            <p>Externe validatie</p>
+          </div>
+          <div class="card-body">
+            <p>Berenschot valideerde in 2025 de WerkKracht-propositie via het adviesrapport Rotterdam Inclusief en de MKBA-methode.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="icon">🏢</div>
+            <h3>VNO-NCW</h3>
+            <p>Werkgeversnetwerk</p>
+          </div>
+          <div class="card-body">
+            <p>Contacten met VNO-NCW voor werkgeversbenadering, SROI-invulling en het activeren van het landelijke werkgeversnetwerk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="text-center">
+      <div class="section-label" style="justify-content:center">Word partner</div>
+      <h2 class="section-title">Meewerken aan de beweging?</h2>
+      <p class="section-sub">Of u nu een sociaal ontwikkelbedrijf bent, gemeente, werkgever of kennisinstelling — er is een rol voor u in het WerkKracht-netwerk.</p>
+      <a class="btn-primary" href="#" onclick="showPage('contact')">Neem contact op →</a>
+    </div>
+  </section>
+</div><!-- /page-partners -->
+
+
+<!-- ════════════════════════════════════════════
+     CONTACT PAGE
+════════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <section style="background:var(--greenDk);padding:calc(var(--nav-h) + 5rem) 8% 5rem">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label" style="color:var(--green)">Contact</div>
+        <h2>Zet de eerste stap</h2>
+        <p>Bent u directeur van een sociaal ontwikkelbedrijf, beleidsmaker, werkgever of potentiële partner? Wij gaan graag het gesprek aan.</p>
+
+        <div class="contact-detail">
+          <div class="icon">📧</div>
+          <div>
+            <strong>E-mail</strong>
+            <span>info@werkkrachtnederland.nl</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📞</div>
+          <div>
+            <strong>Telefoon</strong>
+            <span>+31 (0)70 000 00 00</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📍</div>
+          <div>
+            <strong>Adres</strong>
+            <span>Postbus 1234, 2500 AA Den Haag</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">🔗</div>
+          <div>
+            <strong>LinkedIn</strong>
+            <span>linkedin.com/company/werkkrachtnl</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div style="font-family:var(--f-display);font-weight:800;font-size:1.4rem;color:var(--white);margin-bottom:1.5rem">Stuur een bericht</div>
+        <div class="form-two">
+          <div class="form-row">
+            <label>Naam</label>
+            <input type="text" placeholder="Uw naam">
+          </div>
+          <div class="form-row">
+            <label>Organisatie</label>
+            <input type="text" placeholder="Naam organisatie">
+          </div>
+        </div>
+        <div class="form-two">
+          <div class="form-row">
+            <label>E-mail</label>
+            <input type="email" placeholder="u@organisatie.nl">
+          </div>
+          <div class="form-row">
+            <label>Telefoon</label>
+            <input type="tel" placeholder="+31 6 ...">
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Interesse in</label>
+          <select>
+            <option>Selecteer een onderwerp...</option>
+            <option>Deelnemen als sociaal ontwikkelbedrijf</option>
+            <option>Werkgeversvraag bundelen (businessline 01)</option>
+            <option>Werkconcepten opopschalen (businessline 02)</option>
+            <option>Kennisplatform (businessline 03)</option>
+            <option>Projectleiding & advies (businessline 04)</option>
+            <option>Partnership / samenwerking</option>
+            <option>Andere vraag</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Bericht</label>
+          <textarea placeholder="Beschrijf uw vraag of organisatie in het kort..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center" onclick="alert('Bedankt! In de live versie wordt uw bericht verstuurd.')">Bericht versturen →</button>
+        <p style="font-family:var(--f-body);font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:1rem;text-align:center">U ontvangt binnen 2 werkdagen een reactie.</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+
+<!-- ════════════════════════════════════════════
+     INTAKE PAGE (intern — verborgen link)
+════════════════════════════════════════════ -->
+<div id="page-intake" class="page">
+  <div class="page-hero">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Intake</div>
+    <h1>Digitaal Intakeformulier</h1>
+    <p>Intern instrument voor WerkKracht Nederland medewerkers. Vul het formulier in tijdens of direct na het intakegesprek met een sociaal ontwikkelbedrijf.</p>
+  </div>
+
+  <section class="section">
+    <div class="intake-wrap">
+
+      <!-- Interne banner -->
+      <div class="intake-banner">
+        <span class="lock-icon">🔒</span>
+        <div><strong>Intern gebruik</strong> — Dit formulier is uitsluitend bedoeld voor WerkKracht Nederland medewerkers. Na invulling kunt u de data als CSV downloaden en importeren in het Excel-rapportagesjabloon.</div>
+      </div>
+
+      <!-- Voortgangsbalk -->
+      <div class="intake-progress-wrap">
+        <div class="intake-progress-track">
+          <div class="intake-progress-fill" id="iProgressFill"></div>
+        </div>
+        <div class="intake-progress-label" id="iProgressLabel">Blok 1 van 8</div>
+      </div>
+
+      <!-- ══ BLOK 1: BASISGEGEVENS ══ -->
+      <div class="iblock active" id="iblok1">
+        <div class="iblock-header">
+          <div class="iblock-num">1</div>
+          <div><div class="iblock-title">Basisgegevens</div><div class="iblock-sub">Algemene informatie over de organisatie en het gesprek</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">1.1</span><span class="iq-text">Organisatienaam <span style="color:#C0392B">*</span></span></div>
+            <input class="ifield" type="text" id="iq1_1" name="q1_1" placeholder="Naam van de organisatie">
+            <div class="ival-msg" id="iv1_1">Dit veld is verplicht.</div>
+          </div>
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">1.2</span><span class="iq-text">Type organisatie</span></div>
+            <div class="icheck-group">
+              <label class="icheck-item"><input type="radio" name="iq1_2" value="SW-bedrijf"> SW-bedrijf</label>
+              <label class="icheck-item"><input type="radio" name="iq1_2" value="Gemeente"> Gemeente</label>
+              <label class="icheck-item"><input type="radio" name="iq1_2" value="Werkgever"> Werkgever</label>
+              <label class="icheck-item"><input type="radio" name="iq1_2" value="Anders"> Anders</label>
+            </div>
+            <input class="ifield" type="text" id="iq1_2_anders" name="q1_2_anders" placeholder="Toelichting type..." style="margin-top:0.5rem">
+          </div>
+          <div class="iq">
+            <div class="itwo-col">
+              <div>
+                <div class="iq-label"><span class="iq-num">1.3</span><span class="iq-text">Contactpersoon <span style="color:#C0392B">*</span></span></div>
+                <input class="ifield" type="text" id="iq1_3" name="q1_3" placeholder="Naam + functie">
+              </div>
+              <div>
+                <div class="iq-label"><span class="iq-num">1.4</span><span class="iq-text">E-mailadres</span></div>
+                <input class="ifield" type="email" id="iq1_4" name="q1_4" placeholder="contactpersoon@organisatie.nl">
+              </div>
+            </div>
+          </div>
+          <div class="iq">
+            <div class="itwo-col">
+              <div>
+                <div class="iq-label"><span class="iq-num">1.5</span><span class="iq-text">Datum intake <span style="color:#C0392B">*</span></span></div>
+                <input class="ifield" type="date" id="iq1_5" name="q1_5">
+              </div>
+              <div>
+                <div class="iq-label"><span class="iq-num">1.6</span><span class="iq-text">Gespreksleider WerkKracht</span></div>
+                <input class="ifield" type="text" id="iq1_6" name="q1_6" placeholder="Naam consultant">
+              </div>
+            </div>
+          </div>
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">1.7</span><span class="iq-text">Aanleiding voor dit gesprek</span></div>
+            <div class="iq-hint">Wat heeft de organisatie gemotiveerd contact op te nemen?</div>
+            <textarea class="ifield" id="iq1_7" name="q1_7" placeholder="Beschrijf de aanleiding..."></textarea>
+          </div>
+          <div class="inav-row"><span></span><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(1)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 2: ORGANISATIE & CONTEXT ══ -->
+      <div class="iblock" id="iblok2">
+        <div class="iblock-header">
+          <div class="iblock-num">2</div>
+          <div><div class="iblock-title">Organisatie & Context</div><div class="iblock-sub">Omvang, activiteiten en positie van de organisatie</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iq">
+            <div class="itwo-col">
+              <div><div class="iq-label"><span class="iq-num">2.1</span><span class="iq-text">Aantal medewerkers (fte)</span></div><input class="ifield" type="text" id="iq2_1" name="q2_1" placeholder="Bijv. 250 fte"></div>
+              <div><div class="iq-label"><span class="iq-num">2.2</span><span class="iq-text">Omvang doelgroep (# personen)</span></div><input class="ifield" type="text" id="iq2_2" name="q2_2" placeholder="Bijv. 400 personen"></div>
+            </div>
+          </div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">2.3</span><span class="iq-text">Belangrijkste werksoorten / activiteiten</span></div><div class="iq-hint">Denk aan: productie, logistiek, assemblage, groen, schoonmaak, facilitair, dienstverlening.</div><textarea class="ifield" id="iq2_3" name="q2_3" placeholder="Beschrijf de werksoorten..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">2.4</span><span class="iq-text">Huidige positionering in de markt</span></div><div class="iq-hint">Wat zijn de sterke kanten? Waarmee onderscheidt de organisatie zich?</div><textarea class="ifield" id="iq2_4" name="q2_4" placeholder="Beschrijf de marktpositie..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">2.5</span><span class="iq-text">Welke ontwikkelbehoefte speelt nu het sterkst?</span></div><div class="iq-hint">Wat wil de organisatie de komende 12 maanden bereiken?</div><textarea class="ifield" id="iq2_5" name="q2_5" placeholder="Beschrijf de ontwikkelbehoefte..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">2.6</span><span class="iq-text">Financiële doelstellingen bij nieuwe opdrachten</span></div><div class="iq-hint">Denk aan: dekkingsbijdrage, uitkeringsreductie, opdrachtvolume, omzetgroei.</div><textarea class="ifield" id="iq2_6" name="q2_6" placeholder="Beschrijf de financiële doelstellingen..."></textarea></div>
+          <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(2)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(2)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 3: WERK & ONTWIKKELMODEL ══ -->
+      <div class="iblock" id="iblok3">
+        <div class="iblock-header">
+          <div class="iblock-num">3</div>
+          <div><div class="iblock-title">Werk & Ontwikkelmodel</div><div class="iblock-sub">Aansluiting van werkzaamheden op arbeidsmarkt en doelgroepbehoefte</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">3.1</span><span class="iq-text">Welke typen werk biedt de organisatie aan?</span></div>
+            <div class="icheck-group">
+              <label class="icheck-item"><input type="checkbox" name="iq3_1" value="Inhouse werk"> Inhouse werk</label>
+              <label class="icheck-item"><input type="checkbox" name="iq3_1" value="Detachering"> Detachering</label>
+              <label class="icheck-item"><input type="checkbox" name="iq3_1" value="Beschut werk"> Beschut werk</label>
+              <label class="icheck-item"><input type="checkbox" name="iq3_1" value="Hybride"> Hybride</label>
+            </div>
+          </div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">3.2</span><span class="iq-text">Wat is de ontwikkelwaarde van de huidige werkzaamheden?</span></div><div class="iq-hint">In welke mate leren mensen nieuwe vaardigheden die hen dichter bij de arbeidsmarkt brengen?</div><textarea class="ifield" id="iq3_2" name="q3_2" placeholder="Beschrijf de ontwikkelwaarde..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">3.3</span><span class="iq-text">In hoeverre sluiten de werkzaamheden aan op de actuele arbeidsmarktvraag?</span></div><div class="iq-hint">Zijn er werksoorten die werkgevers zoeken maar de organisatie (nog) niet aanbiedt?</div><textarea class="ifield" id="iq3_3" name="q3_3" placeholder="Beschrijf de aansluiting..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">3.4</span><span class="iq-text">Waar zit nu onderbenutting van potentieel bij de doelgroep?</span></div><div class="iq-hint">Welke talenten of mogelijkheden worden onvoldoende benut?</div><textarea class="ifield" id="iq3_4" name="q3_4" placeholder="Beschrijf de onderbenutting..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">3.5</span><span class="iq-text">Hoe verloopt de uitstroom naar regulier werk?</span></div><div class="iq-hint">Gemiddelde uitstroomratio? Wat zijn de grootste barrières voor doorstroom?</div><textarea class="ifield" id="iq3_5" name="q3_5" placeholder="Beschrijf de uitstroom..."></textarea></div>
+          <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(3)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(3)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 4: ARBEIDSMARKT & SAMENWERKING ══ -->
+      <div class="iblock" id="iblok4">
+        <div class="iblock-header">
+          <div class="iblock-num">4</div>
+          <div><div class="iblock-title">Arbeidsmarkt & Samenwerking</div><div class="iblock-sub">Werkgeversrelaties, kansen en knelpunten</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iq"><div class="iq-label"><span class="iq-num">4.1</span><span class="iq-text">Met welke type werkgevers wordt er samengewerkt?</span></div><div class="iq-hint">Sectoren, omvang, publiek/privaat, lokaal/regionaal/nationaal.</div><textarea class="ifield" id="iq4_1" name="q4_1" placeholder="Beschrijf de werkgeverstypen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">4.2</span><span class="iq-text">Hoe structureel zijn de bestaande samenwerkingen?</span></div><div class="iq-hint">Vaste raamcontracten of projectmatige, eenmalige afspraken?</div><textarea class="ifield" id="iq4_2" name="q4_2" placeholder="Beschrijf de structuur..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">4.3</span><span class="iq-text">Waar liggen de grootste kansen voor uitbreiding van werk?</span></div><div class="iq-hint">Welke sectoren of werkgevers zijn interessant maar nog niet bereikt?</div><textarea class="ifield" id="iq4_3" name="q4_3" placeholder="Beschrijf de kansen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">4.4</span><span class="iq-text">Waar loopt de samenwerking met werkgevers nu vast?</span></div><div class="iq-hint">Meest genoemde bezwaren of drempels bij werkgevers?</div><textarea class="ifield" id="iq4_4" name="q4_4" placeholder="Beschrijf de knelpunten..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">4.5</span><span class="iq-text">Hoe wordt SROI ingezet bij het aantrekken van werkgevers?</span></div><div class="iq-hint">Wordt SROI actief als argument gebruikt? Zo ja, hoe?</div><textarea class="ifield" id="iq4_5" name="q4_5" placeholder="Beschrijf het SROI-gebruik..."></textarea></div>
+          <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(4)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(4)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 5: ORGANISATIEKRACHT & OPSCHALING ══ -->
+      <div class="iblock" id="iblok5">
+        <div class="iblock-header">
+          <div class="iblock-num">5</div>
+          <div><div class="iblock-title">Organisatiekracht & Opschaling</div><div class="iblock-sub">Interne capaciteit, processen en groeipotentieel</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iq"><div class="iq-label"><span class="iq-num">5.1</span><span class="iq-text">Hoe efficiënt is de huidige bedrijfsvoering?</span></div><div class="iq-hint">Zijn er duidelijke KPI's? Wordt er gemeten op output en kwaliteit?</div><textarea class="ifield" id="iq5_1" name="q5_1" placeholder="Beschrijf de efficiëntie..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">5.2</span><span class="iq-text">In welke mate zijn processen gestandaardiseerd?</span></div><div class="iq-hint">Zijn werkprocessen vastgelegd? Is er een kwaliteitssysteem?</div><textarea class="ifield" id="iq5_2" name="q5_2" placeholder="Beschrijf de standaardisatie..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">5.3</span><span class="iq-text">Wat is het opschaalpotentieel van de organisatie?</span></div><div class="iq-hint">Kan de organisatie meer volume aan zonder evenredige kostengroei?</div><textarea class="ifield" id="iq5_3" name="q5_3" placeholder="Beschrijf het opschaalpotentieel..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">5.4</span><span class="iq-text">Wat zijn de grootste belemmeringen voor groei?</span></div><div class="iq-hint">Denk aan: personeel, financiering, systemen, locatie, bestuur.</div><textarea class="ifield" id="iq5_4" name="q5_4" placeholder="Beschrijf de belemmeringen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">5.5</span><span class="iq-text">Hoe is de organisatie voorbereid op de Wsw-transitie?</span></div><div class="iq-hint">Is er een transitieplan? Wordt er actief gewerkt aan herpositionering?</div><textarea class="ifield" id="iq5_5" name="q5_5" placeholder="Beschrijf de voorbereiding..."></textarea></div>
+          <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(5)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(5)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 6: FINANCIËN & IMPLEMENTATIEVERMOGEN ══ -->
+      <div class="iblock" id="iblok6">
+        <div class="iblock-header">
+          <div class="iblock-num">6</div>
+          <div><div class="iblock-title">Financiën & Implementatievermogen</div><div class="iblock-sub">Financiële ruimte en snelheid van verandering</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iq"><div class="iq-label"><span class="iq-num">6.1</span><span class="iq-text">Wat is de financiële ruimte voor samenwerking / investering?</span></div><div class="iq-hint">Is er budget beschikbaar voor trajecten? Wat is de maximale investering?</div><textarea class="ifield" id="iq6_1" name="q6_1" placeholder="Beschrijf de financiële ruimte..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">6.2</span><span class="iq-text">Welke middelen ontbreken om door te pakken?</span></div><div class="iq-hint">Capaciteit, kennis, netwerk, financiering, technologie?</div><textarea class="ifield" id="iq6_2" name="q6_2" placeholder="Beschrijf de ontbrekende middelen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">6.3</span><span class="iq-text">Hoe snel kan de organisatie dingen implementeren?</span></div><div class="iq-hint">Zijn er veel besluitvormingslagen? Hoe lang duurt een gemiddeld verandertraject?</div><textarea class="ifield" id="iq6_3" name="q6_3" placeholder="Beschrijf de implementatiesnelheid..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">6.4</span><span class="iq-text">Wat zou de organisatie helpen om sneller te bewegen?</span></div><div class="iq-hint">Welke ondersteuning of hulpmiddelen zouden het verschil maken?</div><textarea class="ifield" id="iq6_4" name="q6_4" placeholder="Beschrijf de benodigde versnelling..."></textarea></div>
+          <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(6)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(6)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 7: STRATEGISCHE REFLECTIE ══ -->
+      <div class="iblock" id="iblok7">
+        <div class="iblock-header">
+          <div class="iblock-num">7</div>
+          <div><div class="iblock-title">Strategische Reflectie</div><div class="iblock-sub">Diepere drijfveren, kansen en bereidheid tot verandering</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iinfo-box"><strong>Let op:</strong> deze vragen zijn bedoeld om een genuanceerd beeld te vormen van de strategische positie en veranderingsbereidheid van de organisatie.</div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">7.1</span><span class="iq-text">Welke kansen mist de organisatie nu aantoonbaar?</span></div><div class="iq-hint">Opdrachten die zijn afgewezen, trajecten die niet van de grond kwamen?</div><textarea class="ifield" id="iq7_1" name="q7_1" placeholder="Beschrijf de gemiste kansen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">7.2</span><span class="iq-text">Wat belemmert de organisatie in haar ontwikkeling?</span></div><div class="iq-hint">Cultuur, structuur, leiderschap, externe factoren?</div><textarea class="ifield" id="iq7_2" name="q7_2" placeholder="Beschrijf de belemmeringen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">7.3</span><span class="iq-text">In welke mate wordt de doelgroep als belemmering gezien in plaats van als kracht?</span></div><div class="iq-hint">Wordt de doelgroep soms als excuus gebruikt voor gebrek aan resultaat?</div><textarea class="ifield" id="iq7_3" name="q7_3" placeholder="Beschrijf de houding ten opzichte van de doelgroep..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">7.4</span><span class="iq-text">Wat zou de organisatie morgen anders doen als er geen beperkingen waren?</span></div><div class="iq-hint">Vrije vraag — laat de gesprekspartner vrij antwoorden.</div><textarea class="ifield" id="iq7_4" name="q7_4" placeholder="Noteer het antwoord..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">7.5</span><span class="iq-text">Is de organisatie bereid kennis en ervaring te delen met andere SOBs?</span></div><div class="iq-hint">Kennisdeling is een kernwaarde van WerkKracht Nederland.</div><textarea class="ifield" id="iq7_5" name="q7_5" placeholder="Beschrijf de bereidheid..."></textarea></div>
+          <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(7)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(7)">Volgende blok →</button></div>
+        </div>
+      </div>
+
+      <!-- ══ BLOK 8: CONSULTANT BEOORDELING ══ -->
+      <div class="iblock" id="iblok8">
+        <div class="iblock-header">
+          <div class="iblock-num">8</div>
+          <div><div class="iblock-title">Consultant Beoordeling</div><div class="iblock-sub">Scoretabel, kansen, risico's en advies — intern invullen</div></div>
+        </div>
+        <div class="iblock-body">
+          <div class="iinfo-box"><strong>Intern:</strong> Dit blok wordt na het gesprek ingevuld door de WerkKracht consultant. De scores vormen de basis voor de rapportage.</div>
+
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">8.1</span><span class="iq-text">Veranderbereidheid van de organisatie</span></div>
+            <div class="iscore-group" id="iscore_8_1">
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_1',1)"><span class="sn">1</span>Zeer laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_1',2)"><span class="sn">2</span>Laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_1',3)"><span class="sn">3</span>Neutraal</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_1',4)"><span class="sn">4</span>Hoog</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_1',5)"><span class="sn">5</span>Zeer hoog</button>
+            </div>
+            <input type="hidden" id="iq8_1" name="q8_1" value="">
+          </div>
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">8.2</span><span class="iq-text">Kans op succesvolle samenwerking</span></div>
+            <div class="iscore-group" id="iscore_8_2">
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_2',1)"><span class="sn">1</span>Zeer laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_2',2)"><span class="sn">2</span>Laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_2',3)"><span class="sn">3</span>Neutraal</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_2',4)"><span class="sn">4</span>Hoog</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_2',5)"><span class="sn">5</span>Zeer hoog</button>
+            </div>
+            <input type="hidden" id="iq8_2" name="q8_2" value="">
+          </div>
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">8.3</span><span class="iq-text">Strategische fit met WerkKracht Nederland</span></div>
+            <div class="iscore-group" id="iscore_8_3">
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_3',1)"><span class="sn">1</span>Zeer laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_3',2)"><span class="sn">2</span>Laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_3',3)"><span class="sn">3</span>Neutraal</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_3',4)"><span class="sn">4</span>Hoog</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_3',5)"><span class="sn">5</span>Zeer hoog</button>
+            </div>
+            <input type="hidden" id="iq8_3" name="q8_3" value="">
+          </div>
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">8.4</span><span class="iq-text">Urgentie / timing (is het moment rijp?)</span></div>
+            <div class="iscore-group" id="iscore_8_4">
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_4',1)"><span class="sn">1</span>Zeer laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_4',2)"><span class="sn">2</span>Laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_4',3)"><span class="sn">3</span>Neutraal</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_4',4)"><span class="sn">4</span>Hoog</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_4',5)"><span class="sn">5</span>Zeer hoog</button>
+            </div>
+            <input type="hidden" id="iq8_4" name="q8_4" value="">
+          </div>
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">8.5</span><span class="iq-text">Realisatiekracht (kunnen zij het waarmaken?)</span></div>
+            <div class="iscore-group" id="iscore_8_5">
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_5',1)"><span class="sn">1</span>Zeer laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_5',2)"><span class="sn">2</span>Laag</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_5',3)"><span class="sn">3</span>Neutraal</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_5',4)"><span class="sn">4</span>Hoog</button>
+              <button type="button" class="iscore-btn" onclick="iSetScore('8_5',5)"><span class="sn">5</span>Zeer hoog</button>
+            </div>
+            <input type="hidden" id="iq8_5" name="q8_5" value="">
+          </div>
+
+          <div class="iq"><div class="iq-label"><span class="iq-num">8.6</span><span class="iq-text">Belangrijkste ontwikkelkansen</span></div><div class="iq-hint">De twee of drie meest concrete kansen die WerkKracht Nederland kan helpen verzilveren.</div><textarea class="ifield" id="iq8_6" name="q8_6" placeholder="Noteer de ontwikkelkansen..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">8.7</span><span class="iq-text">Aandachtspunten en risico's</span></div><div class="iq-hint">Welke factoren kunnen samenwerking bemoeilijken?</div><textarea class="ifield" id="iq8_7" name="q8_7" placeholder="Noteer aandachtspunten..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">8.8</span><span class="iq-text">Concrete eerste actiepunten</span></div><div class="iq-hint">Wie doet wat, wanneer?</div><textarea class="ifield" id="iq8_8" name="q8_8" placeholder="Noteer de actiepunten..."></textarea></div>
+
+          <div class="iq">
+            <div class="iq-label"><span class="iq-num">8.9</span><span class="iq-text">Advies: starten met samenwerking?</span></div>
+            <div class="iadvies-group">
+              <div class="iadvies-btn ija" onclick="iSetAdvies('JA')"><span class="ab-icon">✅</span><div class="ab-label">JA</div><div class="ab-sub">Starten met samenwerking</div></div>
+              <div class="iadvies-btn inader" onclick="iSetAdvies('NADER')"><span class="ab-icon">🔍</span><div class="ab-label">NADER ONDERZOEK</div><div class="ab-sub">Eerst meer informatie ophalen</div></div>
+              <div class="iadvies-btn inee" onclick="iSetAdvies('NEE')"><span class="ab-icon">❌</span><div class="ab-label">NEE</div><div class="ab-sub">Op dit moment niet adviseren</div></div>
+            </div>
+            <input type="hidden" id="iq8_9" name="q8_9" value="">
+          </div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">8.10</span><span class="iq-text">Toelichting op het advies</span></div><div class="iq-hint">Welke factoren waren doorslaggevend in het advies?</div><textarea class="ifield" id="iq8_10" name="q8_10" placeholder="Licht het advies toe..."></textarea></div>
+
+          <div class="inav-row">
+            <button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(8)">← Vorige</button>
+            <button type="button" class="ibtn ibtn-next" onclick="iSubmitForm()" style="background:var(--forest)">Formulier afronden ✓</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ COMPLETION ══ -->
+      <div class="icompletion" id="iCompletionScreen">
+        <svg width="64" height="64" viewBox="0 0 72 72" style="margin:0 auto 1rem">
+          <rect x="2" y="56" width="22" height="9" rx="2.5" fill="#27AE60"/>
+          <rect x="14" y="42" width="22" height="9" rx="2.5" fill="#A9DFBF"/>
+          <rect x="26" y="28" width="22" height="9" rx="2.5" fill="#1A5C38"/>
+          <circle cx="56" cy="22" r="7" fill="#1A5C38"/>
+          <line x1="56" y1="29" x2="56" y2="44" stroke="#1A5C38" stroke-width="4.5" stroke-linecap="round"/>
+          <line x1="56" y1="35" x2="47" y2="28" stroke="#1A5C38" stroke-width="4" stroke-linecap="round"/>
+          <line x1="56" y1="35" x2="65" y2="28" stroke="#1A5C38" stroke-width="4" stroke-linecap="round"/>
+          <line x1="51" y1="44" x2="46" y2="60" stroke="#1A5C38" stroke-width="4" stroke-linecap="round"/>
+          <line x1="61" y1="44" x2="66" y2="60" stroke="#1A5C38" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <h2>Intake voltooid ✓</h2>
+        <p id="iCompletionOrg">Het intakeformulier is ingevuld en klaar voor export.</p>
+        <div class="isummary-grid" id="iSummaryGrid"></div>
+        <p style="font-size:0.82rem;color:var(--gray);margin-bottom:1.2rem">Download het CSV-bestand en open het in Excel. De kolommen sluiten direct aan op het WerkKracht rapportagesjabloon.</p>
+        <div class="iexport-row">
+          <button class="ibtn ibtn-export" onclick="iExportCSV()">⬇ Download CSV voor Excel</button>
+          <button class="ibtn ibtn-next" onclick="iExportJSON()">⬇ Download JSON (backup)</button>
+          <button class="ibtn ibtn-prev" onclick="iResetForm()">↩ Nieuw formulier</button>
+        </div>
+      </div>
+
+    </div><!-- /intake-wrap -->
+  </section>
+</div><!-- /page-intake -->
+
+
+<!-- ════════════════════════════════════════════
+     FOOTER (shared)
+════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark">WerkKracht</div>
+      <div class="sub">NEDERLAND</div>
+      <p>Landelijk platform voor werkontwikkelbedrijven. Van versnippering naar landelijke schaal en impact.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Diensten</h4>
+      <a href="#" onclick="showPage('diensten')">Vraagbundeling</a>
+      <a href="#" onclick="showPage('diensten')">Werkconcepten opopschalen</a>
+      <a href="#" onclick="showPage('diensten')">Kennisplatform</a>
+      <a href="#" onclick="showPage('diensten')">Projectleiding & advies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Organisatie</h4>
+      <a href="#" onclick="showPage('over')">Over ons</a>
+      <a href="#" onclick="showPage('over')">Het team</a>
+      <a href="#" onclick="showPage('partners')">Partners</a>
+      <a href="#" onclick="showPage('kennisbank')">Kennisbank</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>info@werkkrachtnederland.nl</p>
+      <p>+31 (0)70 000 00 00</p>
+      <p>Postbus 1234<br>2500 AA Den Haag</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 WerkKracht Nederland · KvK 12345678 · Alle rechten voorbehouden</p>
+    <p>Privacy · Algemene voorwaarden</p>
+  </div>
+</footer>
+
+<script>
+// ── PAGE NAVIGATION ───────────────────────────────────────────
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+  const target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Update active nav link
+  const links = document.querySelectorAll('.nav-link');
+  links.forEach(l => {
+    if (l.getAttribute('onclick') && l.getAttribute('onclick').includes("'" + pageId + "'")) {
+      l.classList.add('active');
+    }
+  });
+}
+
+// ── MOBILE MENU ───────────────────────────────────────────────
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn  = document.getElementById('hamburgerBtn');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+}
+
+// Close mobile menu on outside click
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const btn  = document.getElementById('hamburgerBtn');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
+// ── HIDDEN INTAKE ROUTE: /#intake ──────────────────────────────
+(function() {
+  if (window.location.hash === '#intake') showPage('intake');
+})();
+
+function showDienst(id) {
+  showPage('diensten');
+}
+
+function scrollToDienst(id) {
+  // Scroll to dienst section
+  const el = document.getElementById('dienst-' + id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── ACCORDION ─────────────────────────────────────────────────
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.accordion-btn').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+
+  if (!isOpen) {
+    btn.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+// ── NAV SCROLL EFFECT ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 20) {
+    nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+});
+
+// ══════════════════════════════════════════════════════════════
+// INTAKE FORM LOGIC
+// ══════════════════════════════════════════════════════════════
+let iCurrentBlock = 1;
+const iTotalBlocks = 8;
+const iScores = {};
+let iAdviesValue = '';
+
+function iShowBlock(n) {
+  document.querySelectorAll('.iblock').forEach(b => b.classList.remove('active'));
+  const bl = document.getElementById('iblok' + n);
+  if (bl) { bl.classList.add('active'); bl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  iCurrentBlock = n;
+  iUpdateProgress();
+}
+
+function iNextBlock(from) {
+  if (from === 1 && !iValidateBlock1()) return;
+  if (from < iTotalBlocks) iShowBlock(from + 1);
+}
+
+function iPrevBlock(from) {
+  if (from > 1) iShowBlock(from - 1);
+}
+
+function iUpdateProgress() {
+  const pct = (iCurrentBlock / iTotalBlocks) * 100;
+  document.getElementById('iProgressFill').style.width = pct + '%';
+  document.getElementById('iProgressLabel').textContent = 'Blok ' + iCurrentBlock + ' van ' + iTotalBlocks;
+}
+
+function iValidateBlock1() {
+  let ok = true;
+  const el  = document.getElementById('iq1_1');
+  const vm  = document.getElementById('iv1_1');
+  if (!el.value.trim()) { el.classList.add('error'); vm.classList.add('show'); ok = false; }
+  else { el.classList.remove('error'); vm.classList.remove('show'); }
+  const dt = document.getElementById('iq1_5');
+  if (!dt.value) { dt.classList.add('error'); ok = false; } else dt.classList.remove('error');
+  return ok;
+}
+
+function iSetScore(key, val) {
+  iScores[key] = val;
+  document.getElementById('iq8_' + key.split('_')[1]).value = val;
+  const group = document.getElementById('iscore_' + key);
+  group.querySelectorAll('.iscore-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i + 1 === val);
+  });
+}
+
+function iSetAdvies(val) {
+  iAdviesValue = val;
+  document.getElementById('iq8_9').value = val;
+  document.querySelectorAll('.iadvies-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.classList.contains('i' + val.toLowerCase())) btn.classList.add('active');
+  });
+}
+
+function iCollectData() {
+  const data = {};
+  document.querySelectorAll('[id^="iq"]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      data[el.name || el.id.replace('i','')] = el.value;
+    }
+  });
+  // Checkboxen
+  const cbVals = [];
+  document.querySelectorAll('input[name="iq3_1"]:checked').forEach(cb => cbVals.push(cb.value));
+  data['q3_1'] = cbVals.join(', ');
+  // Radio type organisatie
+  const r = document.querySelector('input[name="iq1_2"]:checked');
+  data['q1_2'] = r ? r.value : '';
+  // Gemiddelde score
+  const sc = [1,2,3,4,5].map(n => parseInt(data['q8_' + n]) || 0).filter(v => v > 0);
+  data['score_gemiddeld'] = sc.length ? (sc.reduce((a,b)=>a+b,0)/sc.length).toFixed(1) : '';
+  data['advies'] = iAdviesValue;
+  data['ingevuld_op'] = new Date().toLocaleDateString('nl-NL');
+  return data;
+}
+
+function iSubmitForm() {
+  const data = iCollectData();
+  const scores_display = [
+    ['Veranderbereidheid', data.q8_1],
+    ['Kans samenwerking',  data.q8_2],
+    ['Strategische fit',   data.q8_3],
+    ['Urgentie / timing',  data.q8_4],
+    ['Realisatiekracht',   data.q8_5],
+    ['Gemiddeld',          data.score_gemiddeld],
+  ];
+  let gridHTML = '';
+  scores_display.forEach(([lbl, val]) => {
+    const color = !val ? '#ccc' : val >= 4 ? '#27AE60' : val >= 3 ? '#D4AC0D' : '#C0392B';
+    gridHTML += `<div class="isummary-stat"><div class="ss-num" style="color:${color}">${val || '—'}</div><div class="ss-lbl">${lbl}</div></div>`;
+  });
+  document.getElementById('iSummaryGrid').innerHTML = gridHTML;
+  document.getElementById('iCompletionOrg').textContent =
+    (data.q1_1 || 'Organisatie') + ' — Intake ' + (data.q1_5 || data.ingevuld_op);
+  document.querySelectorAll('.iblock').forEach(b => b.classList.remove('active'));
+  document.getElementById('iCompletionScreen').classList.add('visible');
+  document.getElementById('iProgressFill').style.width = '100%';
+  document.getElementById('iProgressLabel').textContent = 'Voltooid ✓';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function iExportCSV() {
+  const d = iCollectData();
+  const fields = [
+    ['q1_1','Organisatienaam'],['q1_2','Type organisatie'],['q1_3','Contactpersoon'],
+    ['q1_4','E-mailadres'],['q1_5','Datum intake'],['q1_6','Gespreksleider'],
+    ['q1_7','Aanleiding gesprek'],['q2_1','Aantal medewerkers (fte)'],
+    ['q2_2','Omvang doelgroep'],['q2_3','Werksoorten'],['q2_4','Marktpositie'],
+    ['q2_5','Ontwikkelbehoefte'],['q2_6','Financiële doelstellingen'],
+    ['q3_1','Typen werk'],['q3_2','Ontwikkelwaarde werkzaamheden'],
+    ['q3_3','Aansluiting arbeidsmarkt'],['q3_4','Onderbenutting doelgroep'],
+    ['q3_5','Uitstroom naar regulier werk'],['q4_1','Type werkgevers'],
+    ['q4_2','Structuur samenwerkingen'],['q4_3','Kansen uitbreiding'],
+    ['q4_4','Knelpunten samenwerking'],['q4_5','SROI-gebruik'],
+    ['q5_1','Efficiëntie organisatie'],['q5_2','Standaardisatie processen'],
+    ['q5_3','Opschaalpotentieel'],['q5_4','Belemmeringen groei'],
+    ['q5_5','Wsw-transitie voorbereiding'],['q6_1','Financiële ruimte'],
+    ['q6_2','Ontbrekende middelen'],['q6_3','Implementatiesnelheid'],
+    ['q6_4','Benodigde versnelling'],['q7_1','Gemiste kansen'],
+    ['q7_2','Belemmeringen ontwikkeling'],['q7_3','Doelgroep als excuus'],
+    ['q7_4','Morgen anders'],['q7_5','Bereidheid kennisdeling'],
+    ['q8_1','Score: Veranderbereidheid (1-5)'],['q8_2','Score: Kans samenwerking (1-5)'],
+    ['q8_3','Score: Strategische fit (1-5)'],['q8_4','Score: Urgentie/timing (1-5)'],
+    ['q8_5','Score: Realisatiekracht (1-5)'],['score_gemiddeld','Score: Gemiddeld'],
+    ['q8_6','Ontwikkelkansen'],['q8_7','Aandachtspunten & risicos'],
+    ['q8_8','Actiepunten'],['advies','Advies samenwerking'],
+    ['q8_10','Toelichting advies'],['ingevuld_op','Datum export'],
+  ];
+  const esc = v => '"' + String(v || '').replace(/"/g, '""').replace(/\n/g, ' ') + '"';
+  const csv = '\uFEFF' + fields.map(([,lbl]) => esc(lbl)).join(',') + '\r\n' +
+              fields.map(([key]) => esc(d[key] || '')).join(',');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  const org  = (d.q1_1 || 'intake').replace(/[^a-zA-Z0-9]/g, '_');
+  const dat  = (d.q1_5 || new Date().toISOString().slice(0,10));
+  a.href = url; a.download = 'WerkKracht_Intake_' + org + '_' + dat + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function iExportJSON() {
+  const d = iCollectData();
+  const blob = new Blob([JSON.stringify(d, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url;
+  a.download = 'WerkKracht_Intake_' + (d.q1_1||'backup').replace(/[^a-zA-Z0-9]/g,'_') + '.json';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function iResetForm() {
+  document.getElementById('iCompletionScreen').classList.remove('visible');
+  document.querySelectorAll('.iblock').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.ifield').forEach(f => f.value = '');
+  document.querySelectorAll('input[name="iq1_2"], input[name="iq3_1"]').forEach(c => c.checked = false);
+  document.querySelectorAll('.iscore-btn, .iadvies-btn').forEach(b => b.classList.remove('active'));
+  iScores['8_1'] = iScores['8_2'] = iScores['8_3'] = iScores['8_4'] = iScores['8_5'] = 0;
+  iAdviesValue = '';
+  iCurrentBlock = 1;
+  document.getElementById('iq1_5').value = new Date().toISOString().slice(0,10);
+  document.getElementById('iblok1').classList.add('active');
+  iUpdateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Init intake form
+document.getElementById('iq1_5').value = new Date().toISOString().slice(0,10);
+iUpdateProgress();
+</script>
+</body>
+</html>
