@@ -236,7 +236,8 @@ nav {
   font-size: 2.2rem; font-weight: 800;
   color: var(--white);
   letter-spacing: -0.03em;
-  line-height: 1;
+  line-height: 1.2;
+  overflow: visible;
 }
 .hero-stat .lbl {
   font-family: var(--f-body);
@@ -323,6 +324,7 @@ nav {
    GENERAL LAYOUT
 ═══════════════════════════════════════════════ */
 .section { padding: 7rem 8%; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
 .section-sm { padding: 4rem 8%; }
 .section-alt { background: var(--offwhite); }
 .section-dark { background: var(--greenDk); color: var(--white); }
@@ -629,7 +631,8 @@ nav {
   font-size: 3rem; font-weight: 800;
   color: var(--white);
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.2;
+  overflow: visible;
 }
 .stat-num .accent { color: var(--green); }
 .stat-lbl {
@@ -1308,10 +1311,12 @@ textarea.ifield { min-height: 90px; }
   .dienst-detail { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  .hamburger { display: flex; }
+  .hamburger { display: flex; margin-left: auto; margin-right: 0; }
   .nav-links { display: none !important; }
-  .nav-cta { font-size: 0.75rem; padding: 0.4rem 0.9rem; margin-left: 0; }
-  nav { padding: 0 4%; }
+  .nav-cta { display: none; }
+  nav { padding: 0 4%; gap: 0; }
+  .nav-wordmark { font-size: 1rem; }
+  .nav-logo-icon { width: 30px; height: 30px; }
 }
 @media (max-width: 640px) {
   .section { padding: 3rem 5%; }
@@ -1395,7 +1400,7 @@ textarea.ifield { min-height: 90px; }
   <a class="nav-link" href="#" onclick="showPage('home');closeMobileMenu()">🏠 Home</a>
   <a class="nav-link" href="#" onclick="showPage('diensten');closeMobileMenu()">🔧 Diensten</a>
   <a class="nav-link" href="#" onclick="showPage('over');closeMobileMenu()">ℹ️ Over ons</a>
-  <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()">📚 Kennisbank</a>
+  <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M4 8 C4 8 10 6 16 8 C22 6 28 8 28 8 L28 26 C28 26 22 24 16 26 C10 24 4 26 4 26 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="2"/><line x1="8" y1="12" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><line x1="8" y1="16" x2="14" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg> Kennisbank</a>
   <a class="nav-link" href="#" onclick="showPage('partners');closeMobileMenu()">🤝 Partners</a>
   <a class="nav-link" href="#" onclick="showPage('contact');closeMobileMenu()">📧 Contact</a>
 </div>
@@ -1440,7 +1445,7 @@ textarea.ifield { min-height: 90px; }
           </div>
         </div>
         <div class="stair">
-          <div class="stair-icon">🔗</div>
+          <div class="stair-icon"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
           <div class="stair-text">
             <strong>Vraagbundeling</strong>
             <span>Werkgevers koppelen</span>
@@ -1454,14 +1459,14 @@ textarea.ifield { min-height: 90px; }
           </div>
         </div>
         <div class="stair">
-          <div class="stair-icon">📚</div>
+          <div class="stair-icon"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M4 8 C4 8 10 6 16 8 C22 6 28 8 28 8 L28 26 C28 26 22 24 16 26 C10 24 4 26 4 26 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="2"/><line x1="8" y1="12" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><line x1="8" y1="16" x2="14" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg></div>
           <div class="stair-text">
             <strong>Kennisdeling</strong>
             <span>Bewezen aanpakken delen</span>
           </div>
         </div>
         <div class="stair">
-          <div class="stair-icon">📈</div>
+          <div class="stair-icon"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M16 4 L16 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 10 L16 4 L22 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 28 L26 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 22 L23 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></div>
           <div class="stair-text">
             <strong>Opschaling</strong>
             <span>Landelijke uitrol</span>
@@ -1505,7 +1510,7 @@ textarea.ifield { min-height: 90px; }
     <div class="bl-grid">
       <div class="bl-card bl-dark" onclick="showDienst('vraagbundeling')">
         <div class="bl-num">01</div>
-        <div class="bl-icon-row">🔗</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div class="bl-title">Werkgeversvraag bundelen</div>
         <div class="bl-desc">Wij verbinden werkgevers met werkontwikkelbedrijven op schaal. Door vraag te bundelen ontstaan opdrachten die voor individuele bedrijven buiten bereik lagen.</div>
         <div class="bl-tags">
@@ -1517,7 +1522,7 @@ textarea.ifield { min-height: 90px; }
 
       <div class="bl-card bl-green" onclick="showDienst('opschaling')">
         <div class="bl-num">02</div>
-        <div class="bl-icon-row">📈</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M16 4 L16 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 10 L16 4 L22 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 28 L26 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 22 L23 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></div>
         <div class="bl-title">Werkconcepten opopschalen</div>
         <div class="bl-desc">Bewezen aanpakken uit Rotterdam, Amsterdam of Eindhoven worden beschikbaar voor de hele sector. Van pilot naar landelijk uitgerold werkconcept.</div>
         <div class="bl-tags">
@@ -1529,7 +1534,7 @@ textarea.ifield { min-height: 90px; }
 
       <div class="bl-card bl-light" onclick="showDienst('kennisplatform')">
         <div class="bl-num">03</div>
-        <div class="bl-icon-row">📚</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M4 8 C4 8 10 6 16 8 C22 6 28 8 28 8 L28 26 C28 26 22 24 16 26 C10 24 4 26 4 26 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="2"/><line x1="8" y1="12" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><line x1="8" y1="16" x2="14" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg></div>
         <div class="bl-title">Kennisplatform & formats</div>
         <div class="bl-desc">Een digitale kennisbank met formats, praktijkcases, businesscases en tools — speciaal ontwikkeld voor werkontwikkelbedrijven. Altijd up-to-date, altijd toepasbaar.</div>
         <div class="bl-tags">
@@ -1541,9 +1546,9 @@ textarea.ifield { min-height: 90px; }
 
       <div class="bl-card bl-sage" onclick="showDienst('projectleiding')">
         <div class="bl-num">04</div>
-        <div class="bl-icon-row">👷</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><rect x="7" y="6" width="18" height="22" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 4 L12 8 M20 4 L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="4" x2="21" y2="4" stroke="currentColor" stroke-width="2"/><path d="M11 16 L14 19 L21 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="bl-title">Projectleiding & advies</div>
-        <div class="bl-desc">Flexibele projectleiders die tijdelijk worden ingezet bij de implementatie van organisatieverandering, nieuwe werkstromen of businesscase-ontwikkeling.</div>
+        <div class="bl-desc">Flexibele projectleiders die tijdelijk worden ingezet bij de implementatie van organisatieverandering, nieuwe werksoorten of businesscase-ontwikkeling.</div>
         <div class="bl-tags">
           <span class="bl-tag">Projectmanagement</span>
           <span class="bl-tag">Advies</span>
@@ -1558,7 +1563,7 @@ textarea.ifield { min-height: 90px; }
     <div class="text-center mb-lg">
       <div class="section-label" style="justify-content:center">Onze werkwijze</div>
       <h2 class="section-title">Van intake tot opschaling</h2>
-      <p class="section-sub">Elk traject begint met een intake en eindigt met aantoonbare impact — en een aanpak die anderen kunnen hergebruiken.</p>
+      <p class="section-sub">Elk traject start met een heldere intake, leidt tot aantoonbare impact en levert een aanpak op die andere organisaties direct kunnen toepassen.</p>
     </div>
     <div class="process-steps">
       <div class="step">
@@ -1620,7 +1625,7 @@ textarea.ifield { min-height: 90px; }
         <p>€13.000 BUIG-besparing per geplaatste persoon. €13 miljoen maatschappelijk voordeel per jaar bij volledige inzet. Berekend conform de Berenschot/Cedris MKBA-methode.</p>
       </div>
       <div class="proof-item">
-        <div class="proof-icon">🔗</div>
+        <div class="proof-icon"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <h3>Gelijkgerichtheid als sleutel</h3>
         <p>"Gelijkgerichtheid op alle niveaus is een voorwaarde voor het succes van welke inrichtingskeuze dan ook." WerkKracht brengt die gelijkgerichtheid landelijk tot stand.</p>
       </div>
@@ -1658,7 +1663,7 @@ textarea.ifield { min-height: 90px; }
       <h2>Wat wij doen</h2>
       <ul>
         <li>Actief acquireren van werkgeversvraag via ons landelijke netwerk</li>
-        <li>Vertalen van werkgeversbehoefte naar concrete werkstromen</li>
+        <li>Vertalen van werkgeversbehoefte naar concrete werksoorten</li>
         <li>Koppelen van vraag aan de juiste ontwikkelbedrijven per regio</li>
         <li>Ondersteunen bij contractvorming en SROI-onderbouwing</li>
         <li>Monitoring van plaatsingen en rapportage aan opdrachtgever</li>
@@ -1669,13 +1674,13 @@ textarea.ifield { min-height: 90px; }
     </div>
     <div class="dienst-sidebar">
       <div class="sidebar-card">
-        <h3>🔗 Vraagbundeling</h3>
+        <h3><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Vraagbundeling</h3>
         <p>Wij verbinden werkgevers met werkontwikkelbedrijven op schaal die voor individuele bedrijven niet haalbaar is.</p>
         <div class="sidebar-meta">
           <div class="sidebar-meta-item"><span class="key">Doorlooptijd</span><span class="val">6–12 weken</span></div>
           <div class="sidebar-meta-item"><span class="key">Inzet</span><span class="val">Projectleider WKN</span></div>
           <div class="sidebar-meta-item"><span class="key">Resultaat</span><span class="val">Opdracht + plaatsingen</span></div>
-          <div class="sidebar-meta-item"><span class="key">Doelgroep</span><span class="val">SOB + Werkgevers</span></div>
+          <div class="sidebar-meta-item"><span class="key">Doelgroep</span><span class="val">WOB (Werkontwikkelbedrijf) + Werkgevers</span></div>
         </div>
       </div>
       <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;">
@@ -1694,28 +1699,28 @@ textarea.ifield { min-height: 90px; }
     <div class="bl-grid">
       <div class="bl-card bl-dark" onclick="scrollToDienst('vraagbundeling')">
         <div class="bl-num">01</div>
-        <div class="bl-icon-row">🔗</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div class="bl-title">Werkgeversvraag bundelen</div>
         <div class="bl-desc">Landelijke acquisitie en koppeling van werkgeversvraag aan werkontwikkelbedrijven.</div>
         <div class="bl-tags"><span class="bl-tag">Acquisitie</span><span class="bl-tag">Matching</span></div>
       </div>
       <div class="bl-card bl-green">
         <div class="bl-num">02</div>
-        <div class="bl-icon-row">📈</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M16 4 L16 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 10 L16 4 L22 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 28 L26 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 22 L23 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></div>
         <div class="bl-title">Werkconcepten opopschalen</div>
         <div class="bl-desc">Bewezen pilots landelijk beschikbaar maken via het WerkKracht-platform.</div>
         <div class="bl-tags"><span class="bl-tag">Implementatie</span><span class="bl-tag">Opschaling</span></div>
       </div>
       <div class="bl-card bl-light">
         <div class="bl-num">03</div>
-        <div class="bl-icon-row">📚</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><path d="M4 8 C4 8 10 6 16 8 C22 6 28 8 28 8 L28 26 C28 26 22 24 16 26 C10 24 4 26 4 26 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="2"/><line x1="8" y1="12" x2="14" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><line x1="8" y1="16" x2="14" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg></div>
         <div class="bl-title">Kennisplatform & formats</div>
         <div class="bl-desc">Digitale kennisbank met formats, businesscases en praktijkcases voor de sector.</div>
         <div class="bl-tags"><span class="bl-tag">Kennisbank</span><span class="bl-tag">Tools</span></div>
       </div>
       <div class="bl-card bl-sage">
         <div class="bl-num">04</div>
-        <div class="bl-icon-row">👷</div>
+        <div class="bl-icon-row"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><rect x="7" y="6" width="18" height="22" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 4 L12 8 M20 4 L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="4" x2="21" y2="4" stroke="currentColor" stroke-width="2"/><path d="M11 16 L14 19 L21 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="bl-title">Projectleiding & advies</div>
         <div class="bl-desc">Flexibele projectleiders voor implementatie, organisatieverandering en advies.</div>
         <div class="bl-tags"><span class="bl-tag">Projectmanagement</span><span class="bl-tag">Flexibel</span></div>
@@ -1937,7 +1942,7 @@ textarea.ifield { min-height: 90px; }
           <p>WerkKracht Nederland · Format</p>
         </div>
         <div class="card-body">
-          <p>Gestandaardiseerd intakeformulier voor het eerste gesprek met een sociaal ontwikkelbedrijf. Inclusief digitale versie en Excel-rapportage.</p>
+          <p>Gestandaardiseerd intakeformulier voor het eerste gesprek met een Werkontwikkelbedrijf. Inclusief digitale versie en Excel-rapportage.</p>
           <ul class="feature-list">
             <li>8 gespreksblokken, 35 vragen</li>
             <li>5-punts scoretabel</li>
@@ -2017,7 +2022,7 @@ textarea.ifield { min-height: 90px; }
           <p>Opdrachtgever & financier</p>
         </div>
         <div class="card-body">
-          <p>Het Ministerie van SZW heeft €289,7 miljoen impulsbudget beschikbaar gesteld voor de transformatie van de sociale infrastructuur. WerkKracht zet dit budget om in concrete uitvoering.</p>
+          <p>Het Ministerie van SZW heeft €289,7 miljoen impulsbudget beschikbaar gesteld voor de transformatie van de sociale infrastructuur. WerkKracht helpt Werkontwikkelbedrijven en gemeenten dit budget optimaal te benutten door kennis, samenwerking en bewezen werkconcepten samen te brengen.</p>
           <ul class="feature-list">
             <li>Impulsbudget 2025–2034</li>
             <li>Lerend netwerk en adviesteam</li>
@@ -2083,7 +2088,7 @@ textarea.ifield { min-height: 90px; }
     <div class="text-center">
       <div class="section-label" style="justify-content:center">Word partner</div>
       <h2 class="section-title">Meewerken aan de beweging?</h2>
-      <p class="section-sub">Of u nu een sociaal ontwikkelbedrijf bent, gemeente, werkgever of kennisinstelling — er is een rol voor u in het WerkKracht-netwerk.</p>
+      <p class="section-sub">Of u nu een Werkontwikkelbedrijf bent, gemeente, werkgever of kennisinstelling — er is een rol voor u in het WerkKracht-netwerk.</p>
       <a class="btn-primary" href="#" onclick="showPage('contact')">Neem contact op →</a>
     </div>
   </section>
@@ -2099,7 +2104,7 @@ textarea.ifield { min-height: 90px; }
       <div class="contact-info">
         <div class="section-label" style="color:var(--green)">Contact</div>
         <h2>Zet de eerste stap</h2>
-        <p>Bent u directeur van een sociaal ontwikkelbedrijf, beleidsmaker, werkgever of potentiële partner? Wij gaan graag het gesprek aan.</p>
+        <p>Bent u directeur van een Werkontwikkelbedrijf, beleidsmaker, werkgever of potentiële partner? Wij gaan graag het gesprek aan.</p>
 
         <div class="contact-detail">
           <div class="icon">📧</div>
@@ -2123,7 +2128,7 @@ textarea.ifield { min-height: 90px; }
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">🔗</div>
+          <div class="icon"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
           <div>
             <strong>LinkedIn</strong>
             <span>linkedin.com/company/werkkrachtnl</span>
@@ -2157,7 +2162,7 @@ textarea.ifield { min-height: 90px; }
           <label>Interesse in</label>
           <select>
             <option>Selecteer een onderwerp...</option>
-            <option>Deelnemen als sociaal ontwikkelbedrijf</option>
+            <option>Deelnemen als Werkontwikkelbedrijf</option>
             <option>Werkgeversvraag bundelen (businessline 01)</option>
             <option>Werkconcepten opopschalen (businessline 02)</option>
             <option>Kennisplatform (businessline 03)</option>
@@ -2185,7 +2190,7 @@ textarea.ifield { min-height: 90px; }
   <div class="page-hero">
     <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Intake</div>
     <h1>Digitaal Intakeformulier</h1>
-    <p>Intern instrument voor WerkKracht Nederland medewerkers. Vul het formulier in tijdens of direct na het intakegesprek met een sociaal ontwikkelbedrijf.</p>
+    <p>Intern instrument voor WerkKracht Nederland medewerkers. Vul het formulier in tijdens of direct na het intakegesprek met een Werkontwikkelbedrijf.</p>
   </div>
 
   <section class="section">
@@ -2364,7 +2369,7 @@ textarea.ifield { min-height: 90px; }
           <div class="iq"><div class="iq-label"><span class="iq-num">7.2</span><span class="iq-text">Wat belemmert de organisatie in haar ontwikkeling?</span></div><div class="iq-hint">Cultuur, structuur, leiderschap, externe factoren?</div><textarea class="ifield" id="iq7_2" name="q7_2" placeholder="Beschrijf de belemmeringen..."></textarea></div>
           <div class="iq"><div class="iq-label"><span class="iq-num">7.3</span><span class="iq-text">In welke mate wordt de doelgroep als belemmering gezien in plaats van als kracht?</span></div><div class="iq-hint">Wordt de doelgroep soms als excuus gebruikt voor gebrek aan resultaat?</div><textarea class="ifield" id="iq7_3" name="q7_3" placeholder="Beschrijf de houding ten opzichte van de doelgroep..."></textarea></div>
           <div class="iq"><div class="iq-label"><span class="iq-num">7.4</span><span class="iq-text">Wat zou de organisatie morgen anders doen als er geen beperkingen waren?</span></div><div class="iq-hint">Vrije vraag — laat de gesprekspartner vrij antwoorden.</div><textarea class="ifield" id="iq7_4" name="q7_4" placeholder="Noteer het antwoord..."></textarea></div>
-          <div class="iq"><div class="iq-label"><span class="iq-num">7.5</span><span class="iq-text">Is de organisatie bereid kennis en ervaring te delen met andere SOBs?</span></div><div class="iq-hint">Kennisdeling is een kernwaarde van WerkKracht Nederland.</div><textarea class="ifield" id="iq7_5" name="q7_5" placeholder="Beschrijf de bereidheid..."></textarea></div>
+          <div class="iq"><div class="iq-label"><span class="iq-num">7.5</span><span class="iq-text">Is de organisatie bereid kennis en ervaring te delen met andere WOB (Werkontwikkelbedrijf)s?</span></div><div class="iq-hint">Kennisdeling is een kernwaarde van WerkKracht Nederland.</div><textarea class="ifield" id="iq7_5" name="q7_5" placeholder="Beschrijf de bereidheid..."></textarea></div>
           <div class="inav-row"><button type="button" class="ibtn ibtn-prev" onclick="iPrevBlock(7)">← Vorige</button><button type="button" class="ibtn ibtn-next" onclick="iNextBlock(7)">Volgende blok →</button></div>
         </div>
       </div>
