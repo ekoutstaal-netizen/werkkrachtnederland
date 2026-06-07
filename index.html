@@ -692,18 +692,17 @@ nav {
 ═══════════════════════════════════════════════ */
 .proof-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1px;
-  background: var(--sage);
-  border-radius: var(--radius);
-  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-top: 3rem;
+  width: 100%;
 }
 .proof-item {
   background: var(--white);
   border: 1px solid var(--sage);
   border-radius: var(--radius);
   padding: 2.5rem 2rem 3rem;
+  min-width: 0;
 }
 .proof-icon {
   font-size: 1.8rem;
