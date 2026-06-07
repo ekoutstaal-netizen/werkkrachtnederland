@@ -117,6 +117,81 @@ nav {
 }
 .nav-cta:hover { background: var(--forest); }
 
+/* ─── PORTAAL DROPDOWN NAV ───────────────────── */
+.portal-nav-wrap {
+  position: relative;
+  margin-left: .5rem;
+}
+.portal-nav-btn {
+  display: flex; align-items: center;
+  font-family: var(--f-head);
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--white);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 7px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition: var(--trans);
+  white-space: nowrap;
+}
+.portal-nav-btn:hover { background: var(--green); border-color: var(--green); }
+.portal-nav-btn.open { background: var(--green); border-color: var(--green); }
+.portal-nav-btn.open #portalChevron { transform: rotate(180deg); }
+
+.portal-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--greenDk);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  min-width: 230px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  z-index: 2000;
+  animation: ddFadeIn .15s ease;
+}
+.portal-dropdown.open { display: block; }
+@keyframes ddFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.portal-dd-label {
+  font-family: var(--f-head);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 0.8rem 1rem 0.4rem;
+}
+.portal-dd-item {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 0.7rem 1rem;
+  background: none; border: none; cursor: pointer;
+  transition: var(--trans);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-align: left;
+}
+.portal-dd-item:last-child { border-bottom: none; }
+.portal-dd-item:hover { background: rgba(39,174,96,0.15); }
+.portal-dd-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.portal-dd-icon svg { width: 16px; height: 16px; stroke: var(--greenLt); }
+.portal-dd-item strong {
+  display: block;
+  font-family: var(--f-head); font-size: 0.82rem; font-weight: 700;
+  color: var(--white);
+}
+.portal-dd-item small {
+  font-family: var(--f-body); font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+}
+
+
 /* ═══════════════════════════════════════════════
    PAGE SECTIONS (single-page nav)
 ═══════════════════════════════════════════════ */
@@ -1587,6 +1662,7 @@ textarea.ifield { min-height: 90px; }
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   font-size: 0.85rem;
 }
+.pchip-ico svg { width:16px; height:16px; }
 .pi-g { background: var(--mint); }
 .pi-t { background: var(--sage); }
 .pi-a { background: #FEF9E7; }
@@ -1710,7 +1786,8 @@ textarea.ifield { min-height: 90px; }
   display: flex; align-items: center; gap: 12px;
   padding: 10px; border: 1px solid var(--sage); border-radius: 10px; margin-bottom: 8px;
 }
-.doc-ico { font-size: 1.4rem; flex-shrink: 0; }
+.doc-ico { font-size: 1.4rem; flex-shrink: 0; display:flex; align-items:center; }
+.doc-ico svg { width:22px; height:22px; color:var(--green); }
 .doc-name { font-family: var(--f-head); font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
 .doc-meta { font-family: var(--f-body); font-size: 0.68rem; color: var(--gray); margin-top: 1px; }
 
@@ -1805,7 +1882,43 @@ textarea.ifield { min-height: 90px; }
     <a class="nav-link" href="#" onclick="showPage('partners')">Partners</a>
     <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
   </div>
-  <a class="nav-link" href="#" onclick="showPage('login');closeMobileMenu()" style="border:1px solid rgba(255,255,255,0.2);margin-left:.5rem">🔒 Portaal</a>
+  <div class="portal-nav-wrap" id="portalNavWrap">
+    <button class="portal-nav-btn" onclick="togglePortalMenu(event)" aria-haspopup="true" aria-expanded="false" id="portalNavBtn">
+      <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Portaal
+      <svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px;vertical-align:-1px;margin-left:3px;transition:transform .2s" id="portalChevron" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="portal-dropdown" id="portalDropdown">
+      <div class="portal-dd-label">Inloggen als</div>
+      <button class="portal-dd-item" onclick="loginAs('stakeholder')">
+        <span class="portal-dd-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <span>
+          <strong>Stakeholder</strong>
+          <small>Transparantie dashboard</small>
+        </span>
+      </button>
+      <button class="portal-dd-item" onclick="loginAs('opdrachtgever')">
+        <span class="portal-dd-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+        </span>
+        <span>
+          <strong>Opdrachtgever</strong>
+          <small>Projectvoortgang</small>
+        </span>
+      </button>
+      <button class="portal-dd-item" onclick="loginAs('gemeente')">
+        <span class="portal-dd-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <span>
+          <strong>Gemeente</strong>
+          <small>Gemeentelijk portaal</small>
+        </span>
+      </button>
+    </div>
+  </div>
   <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1814,12 +1927,12 @@ textarea.ifield { min-height: 90px; }
 
 <!-- Mobile dropdown menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a class="nav-link" href="#" onclick="showPage('home');closeMobileMenu()">🏠 Home</a>
-  <a class="nav-link" href="#" onclick="showPage('diensten');closeMobileMenu()">🔧 Diensten</a>
+  <a class="nav-link" href="#" onclick="showPage('home');closeMobileMenu()">Home</a>
+  <a class="nav-link" href="#" onclick="showPage('diensten');closeMobileMenu()">Diensten</a>
   <a class="nav-link" href="#" onclick="showPage('over');closeMobileMenu()">ℹ️ Over ons</a>
   <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px"><path d="M4 8C4 8 10 6 16 8C22 6 28 8 28 8L28 26C28 26 22 24 16 26C10 24 4 26 4 26Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="2"/><line x1="8" y1="13" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><line x1="8" y1="18" x2="14" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg> Kennisbank</a>
   <a class="nav-link" href="#" onclick="showPage('partners');closeMobileMenu()"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px"><path d="M4 20l5-5 4 2 6-6 5 1 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="11" r="3" stroke="currentColor" stroke-width="2"/><circle cx="23" cy="11" r="3" stroke="currentColor" stroke-width="2"/><path d="M6 27c0-3.3 3-6 6.5-6h7c3.5 0 6.5 2.7 6.5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Partners</a>
-  <a class="nav-link" href="#" onclick="showPage('contact');closeMobileMenu()">📧 Contact</a>
+  <a class="nav-link" href="#" onclick="showPage('contact');closeMobileMenu()">Contact</a>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -1855,7 +1968,7 @@ textarea.ifield { min-height: 90px; }
     <div class="hero-right">
       <div class="hero-visual">
         <div class="stair">
-          <div class="stair-icon">🔍</div>
+          <div class="stair-icon"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="8"/><line x1="20" y1="20" x2="28" y2="28"/><line x1="10" y1="14" x2="18" y2="14" stroke-width="1.5" opacity="0.5"/><line x1="14" y1="10" x2="14" y2="18" stroke-width="1.5" opacity="0.5"/></svg></div>
           <div class="stair-text">
             <strong>Intake & analyse</strong>
             <span>Organisatie in kaart brengen</span>
@@ -1869,7 +1982,7 @@ textarea.ifield { min-height: 90px; }
           </div>
         </div>
         <div class="stair">
-          <div class="stair-icon">🚀</div>
+          <div class="stair-icon"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4C16 4 22 8 22 16C22 21 19 25 16 28C13 25 10 21 10 16C10 8 16 4 16 4Z"/><circle cx="16" cy="16" r="3"/><path d="M10 22L6 26M22 22L26 26"/><path d="M10 16C7 17 5 20 5 23M22 16C25 17 27 20 27 23"/></svg></div>
           <div class="stair-text">
             <strong>Implementatie</strong>
             <span>Hands-on uitvoering</span>
@@ -2391,7 +2504,7 @@ textarea.ifield { min-height: 90px; }
           <div style="font-family:var(--f-body);font-size:.75rem;color:var(--gray);margin-top:4px">5 documenten</div>
         </div>
         <div style="background:var(--mint);border:1px solid var(--sage);border-radius:var(--radius);padding:1.5rem;text-align:center">
-          <div style="font-size:2rem;margin-bottom:.8rem">📖</div>
+          <div style="margin-bottom:.8rem;display:flex;justify-content:center"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
           <div style="font-family:var(--f-head);font-weight:700;font-size:.95rem;color:var(--forest)">Praktijkcases</div>
           <div style="font-family:var(--f-body);font-size:.75rem;color:var(--gray);margin-top:4px">Binnenkort</div>
         </div>
@@ -2524,28 +2637,28 @@ textarea.ifield { min-height: 90px; }
         <p>Bent u directeur van een sociaal ontwikkelbedrijf, beleidsmaker, werkgever of potentiële partner? Wij gaan graag het gesprek aan.</p>
 
         <div class="contact-detail">
-          <div class="icon">📧</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <strong>E-mail</strong>
             <span>info@werkkrachtnederland.nl</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">📞</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <strong>Telefoon</strong>
             <span>+31 (0)70 000 00 00</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon">📍</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <strong>Adres</strong>
             <span>Postbus 1234, 2500 AA Den Haag</span>
           </div>
         </div>
         <div class="contact-detail">
-          <div class="icon"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px"><circle cx="6" cy="16" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="8" r="4" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="24" r="4" stroke="currentColor" stroke-width="2"/><line x1="10" y1="14" x2="22" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="18" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
           <div>
             <strong>LinkedIn</strong>
             <span>linkedin.com/company/werkkrachtnl</span>
@@ -2615,7 +2728,7 @@ textarea.ifield { min-height: 90px; }
 
       <!-- Interne banner -->
       <div class="intake-banner">
-        <span class="lock-icon">🔒</span>
+        <span class="lock-icon"><svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
         <div><strong>Intern gebruik</strong> — Dit formulier is uitsluitend bedoeld voor WerkKracht Nederland medewerkers. Na invulling kunt u de data als CSV downloaden en importeren in het Excel-rapportagesjabloon.</div>
       </div>
 
@@ -2863,9 +2976,9 @@ textarea.ifield { min-height: 90px; }
           <div class="iq">
             <div class="iq-label"><span class="iq-num">8.9</span><span class="iq-text">Advies: starten met samenwerking?</span></div>
             <div class="iadvies-group">
-              <div class="iadvies-btn ija" onclick="iSetAdvies('JA')"><span class="ab-icon">✅</span><div class="ab-label">JA</div><div class="ab-sub">Starten met samenwerking</div></div>
-              <div class="iadvies-btn inader" onclick="iSetAdvies('NADER')"><span class="ab-icon">🔍</span><div class="ab-label">NADER ONDERZOEK</div><div class="ab-sub">Eerst meer informatie ophalen</div></div>
-              <div class="iadvies-btn inee" onclick="iSetAdvies('NEE')"><span class="ab-icon">❌</span><div class="ab-label">NEE</div><div class="ab-sub">Op dit moment niet adviseren</div></div>
+              <div class="iadvies-btn ija" onclick="iSetAdvies('JA')"><span class="ab-icon"><svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div class="ab-label">JA</div><div class="ab-sub">Starten met samenwerking</div></div>
+              <div class="iadvies-btn inader" onclick="iSetAdvies('NADER')"><span class="ab-icon"><svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><div class="ab-label">NADER ONDERZOEK</div><div class="ab-sub">Eerst meer informatie ophalen</div></div>
+              <div class="iadvies-btn inee" onclick="iSetAdvies('NEE')"><span class="ab-icon"><svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span><div class="ab-label">NEE</div><div class="ab-sub">Op dit moment niet adviseren</div></div>
             </div>
             <input type="hidden" id="iq8_9" name="q8_9" value="">
           </div>
@@ -2914,7 +3027,7 @@ textarea.ifield { min-height: 90px; }
   <div class="portal-wrap">
     <div class="portal-card">
       <button class="portal-back" onclick="showPage('home')">← Terug naar website</button>
-      <div class="portal-icon">🔒</div>
+      <div class="portal-icon"><svg viewBox="0 0 24 24" fill="none" style="width:28px;height:28px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       <h2>Beveiligd portaal</h2>
       <p>Log in met uw toegangsgegevens voor het stakeholder-dashboard of het opdrachtgeversportaal.</p>
       <div class="portal-error" id="login-err">Gebruikersnaam of wachtwoord onjuist. Probeer het opnieuw.</div>
@@ -2928,8 +3041,7 @@ textarea.ifield { min-height: 90px; }
       </div>
       <button class="portal-login-btn" onclick="doPortalLogin()">Inloggen →</button>
       <p class="portal-hint">
-        Demo stakeholders: <strong style="color:rgba(255,255,255,.5)">stakeholder</strong> / <strong style="color:rgba(255,255,255,.5)">werkkracht2026</strong><br>
-        Demo opdrachtgever: <strong style="color:rgba(255,255,255,.5)">opdrachtgever</strong> / <strong style="color:rgba(255,255,255,.5)">gemeente2026</strong>
+        Vul uw naam in en klik op inloggen. Voor het opdrachtgeversportaal: vermeld 'opdrachtgever' of uw gemeentenaam.
       </p>
     </div>
   </div>
@@ -2947,7 +3059,7 @@ textarea.ifield { min-height: 90px; }
         <p>WerkKracht Nederland · Transparantie &amp; verantwoording · Kwartaalrapportage</p>
       </div>
       <div class="dash-meta-right">
-        <div><span class="dash-badge-pill pill-green">🔒 Afgeschermd portaal</span></div>
+        <div><span class="dash-badge-pill pill-green"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;vertical-align:-3px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Stakeholder portaal</span></div>
         <div class="date-str" style="margin-top:6px;" id="dash-dt"></div>
         <div class="quarter-str">Kwartaal 2 · 2026</div>
       </div>
@@ -2955,29 +3067,29 @@ textarea.ifield { min-height: 90px; }
 
     <div class="kpi-strip">
       <div class="kpi-tile">
-        <div class="kpi-lbl">🏢 Werkplekken</div>
+        <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg> Werkplekken</div>
         <div class="kpi-num">87</div>
         <div class="kpi-delta">↑ +4 deze maand</div>
       </div>
       <div class="kpi-tile">
-        <div class="kpi-lbl">👥 Deelnemers</div>
+        <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Deelnemers</div>
         <div class="kpi-num">124</div>
         <div class="kpi-delta">↑ +12% dit kwartaal</div>
       </div>
       <div class="kpi-tile">
-        <div class="kpi-lbl">📈 MKBA-waarde</div>
+        <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> MKBA-waarde</div>
         <div class="kpi-num">€2,5M</div>
         <div class="kpi-delta neutral">Divosa/Beerenschot</div>
       </div>
       <div class="kpi-tile">
-        <div class="kpi-lbl">💰 Loonwaarde</div>
+        <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Loonwaarde</div>
         <div class="kpi-num">€2,4M</div>
         <div class="kpi-delta neutral">WML 2026</div>
       </div>
     </div>
 
     <div class="transp-strip">
-      <span class="ts-icon">✅</span>
+      <span class="ts-icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;vertical-align:-3px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
       <p><strong>Transparante aanpak:</strong> Alle cijfers zijn gebaseerd op geverifieerde werkplekdata en gevalideerde MKBA-methoden (Divosa/Beerenschot). De loonwaarde is berekend op basis van het Wettelijk Minimumloon 2026 (€27.415/plek/jaar).</p>
     </div>
 
@@ -2996,13 +3108,13 @@ textarea.ifield { min-height: 90px; }
 
     <div class="dash-two">
       <div class="d-card">
-        <div class="d-card-title">📊 Groei werkplekken 2026</div>
+        <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Groei werkplekken 2026</div>
         <div class="chart-d">
           <canvas id="dashGrowthChart" role="img" aria-label="Groei werkplekken per maand 2026: jan 52, feb 59, mrt 64, apr 71, mei 83, jun 87">Groei per maand.</canvas>
         </div>
       </div>
       <div class="d-card">
-        <div class="d-card-title">📅 Projectplanning</div>
+        <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Projectplanning</div>
         <ul class="phase-ul">
           <li class="phase-li">
             <div class="ph-dot ph-done"></div>
@@ -3030,7 +3142,7 @@ textarea.ifield { min-height: 90px; }
 
     <div class="dash-two">
       <div class="d-card">
-        <div class="d-card-title">🎯 Doelrealisatie per doelgroep</div>
+        <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Doelrealisatie per doelgroep</div>
         <div class="prog-row">
           <span class="prog-lbl">Bijstand</span>
           <div class="prog-track"><div class="prog-fill" style="width:72%;background:var(--green);"></div></div>
@@ -3054,30 +3166,30 @@ textarea.ifield { min-height: 90px; }
         <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:10px;">% van jaardoelstelling 2026 behaald</p>
       </div>
       <div class="d-card">
-        <div class="d-card-title">🤝 Betrokken partijen</div>
+        <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l4-4 4 4"/><path d="M7 17l4 4 4-4"/><path d="M3 12h18"/></svg> Betrokken partijen</div>
         <div class="pchip-grid">
           <div class="pchip-wk">
-            <div class="pchip-ico pi-g">🏛️</div>
+            <div class="pchip-ico pi-g"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div>
             <div><div class="pchip-nm">Gemeenten</div><div class="pchip-rl">Opdrachtgever</div></div>
           </div>
           <div class="pchip-wk" title="Werkontwikkelbedrijven">
-            <div class="pchip-ico pi-t">🔧</div>
+            <div class="pchip-ico pi-t"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
             <div><div class="pchip-nm">WOB-bedrijven</div><div class="pchip-rl">Werkontwikkelbedrijven</div></div>
           </div>
           <div class="pchip-wk">
-            <div class="pchip-ico pi-a">💼</div>
+            <div class="pchip-ico pi-a"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
             <div><div class="pchip-nm">Werkgevers</div><div class="pchip-rl">Werkplekken</div></div>
           </div>
           <div class="pchip-wk">
-            <div class="pchip-ico pi-g">🤲</div>
+            <div class="pchip-ico pi-g"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div><div class="pchip-nm">UWV</div><div class="pchip-rl">Uitkering</div></div>
           </div>
           <div class="pchip-wk">
-            <div class="pchip-ico pi-t">🎓</div>
+            <div class="pchip-ico pi-t"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
             <div><div class="pchip-nm">Opleiders</div><div class="pchip-rl">Ontwikkeling</div></div>
           </div>
           <div class="pchip-wk">
-            <div class="pchip-ico pi-a">📊</div>
+            <div class="pchip-ico pi-a"><svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px;vertical-align:-1px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
             <div><div class="pchip-nm">Divosa</div><div class="pchip-rl">Kennispartner</div></div>
           </div>
         </div>
@@ -3085,7 +3197,7 @@ textarea.ifield { min-height: 90px; }
     </div>
 
     <div class="dash-foot">
-      <p>🔒 Afgeschermd portaal · Data geverifieerd · Volgende update: september 2026</p>
+      <p><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;vertical-align:-3px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Afgeschermd portaal · Data geverifieerd · Volgende update: september 2026</p>
       <div class="dash-foot-btns">
         <button class="dbtn" onclick="showPage('login')">← Uitloggen</button>
         <button class="dbtn">⬇ Exporteer PDF</button>
@@ -3106,7 +3218,7 @@ textarea.ifield { min-height: 90px; }
         <p>WerkKracht Nederland · Voortgang van uw projecten · Gemeente Den Haag</p>
       </div>
       <div class="dash-meta-right">
-        <div><span class="dash-badge-pill pill-forest">🏛️ Opdrachtgever</span></div>
+        <div><span class="dash-badge-pill pill-forest"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> Opdrachtgever</span></div>
         <div class="date-str" style="margin-top:6px;" id="opd-dt"></div>
       </div>
     </div>
@@ -3123,22 +3235,22 @@ textarea.ifield { min-height: 90px; }
 
       <div class="kpi-strip" style="margin-bottom:1.5rem;">
         <div class="kpi-tile">
-          <div class="kpi-lbl">🏢 Uw werkplekken</div>
+          <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg> Uw werkplekken</div>
           <div class="kpi-num">32</div>
           <div class="kpi-delta">↑ +3 t.o.v. Q1</div>
         </div>
         <div class="kpi-tile">
-          <div class="kpi-lbl">🎯 Doelstelling 2026</div>
+          <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Doelstelling 2026</div>
           <div class="kpi-num">50</div>
           <div class="kpi-delta" style="color:var(--amber);">64% behaald</div>
         </div>
         <div class="kpi-tile">
-          <div class="kpi-lbl">📈 MKBA-waarde</div>
+          <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> MKBA-waarde</div>
           <div class="kpi-num">€928K</div>
           <div class="kpi-delta neutral">32 × €29.000</div>
         </div>
         <div class="kpi-tile">
-          <div class="kpi-lbl">📅 Volgende rapportage</div>
+          <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Volgende rapportage</div>
           <div class="kpi-num">1 sep</div>
           <div class="kpi-delta neutral">Kwartaalrapport Q3</div>
         </div>
@@ -3169,17 +3281,17 @@ textarea.ifield { min-height: 90px; }
           <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">Mijlpalen</p>
           <ul class="ms-ul">
             <li class="ms-li">
-              <div class="ms-ico ms-done3">✓</div>
+              <div class="ms-ico ms-done3"><svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div><div class="ms-nm">Intakegesprekken afgerond</div><div class="ms-dt">Februari 2025</div></div>
               <span class="ph-pill pp-done" style="margin-left:auto;">Klaar</span>
             </li>
             <li class="ms-li">
-              <div class="ms-ico ms-done3">✓</div>
+              <div class="ms-ico ms-done3"><svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div><div class="ms-nm">Eerste 10 plaatsingen gerealiseerd</div><div class="ms-dt">Juni 2025</div></div>
               <span class="ph-pill pp-done" style="margin-left:auto;">Klaar</span>
             </li>
             <li class="ms-li">
-              <div class="ms-ico ms-act3">↻</div>
+              <div class="ms-ico ms-act3"><svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 6.3 2.5"/><polyline points="21 3 21 9 15 9"/></svg></div>
               <div>
                 <div class="ms-nm">Opschaling naar 20 plaatsingen</div>
                 <div class="ms-dt">Doel: oktober 2026</div>
@@ -3188,7 +3300,7 @@ textarea.ifield { min-height: 90px; }
               <span class="ph-pill pp-active" style="margin-left:auto;">Lopend</span>
             </li>
             <li class="ms-li">
-              <div class="ms-ico ms-fut3">○</div>
+              <div class="ms-ico ms-fut3"><span style="width:6px;height:6px;border-radius:50%;background:var(--grayLt);display:inline-block;"></span></div>
               <div><div class="ms-nm">Eindrapportage &amp; MKBA-audit</div><div class="ms-dt">December 2026</div></div>
               <span class="ph-pill pp-future" style="margin-left:auto;">Gepland</span>
             </li>
@@ -3219,12 +3331,12 @@ textarea.ifield { min-height: 90px; }
           <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">Mijlpalen</p>
           <ul class="ms-ul">
             <li class="ms-li">
-              <div class="ms-ico ms-done3">✓</div>
+              <div class="ms-ico ms-done3"><svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
               <div><div class="ms-nm">Selectie deelnemers &amp; intake</div><div class="ms-dt">December 2025</div></div>
               <span class="ph-pill pp-done" style="margin-left:auto;">Klaar</span>
             </li>
             <li class="ms-li">
-              <div class="ms-ico ms-act3">↻</div>
+              <div class="ms-ico ms-act3"><svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 6.3 2.5"/><polyline points="21 3 21 9 15 9"/></svg></div>
               <div>
                 <div class="ms-nm">Eerste 6 plaatsingen + taaltraject</div>
                 <div class="ms-dt">Doel: augustus 2026</div>
@@ -3233,7 +3345,7 @@ textarea.ifield { min-height: 90px; }
               <span class="ph-pill pp-active" style="margin-left:auto;">Lopend</span>
             </li>
             <li class="ms-li">
-              <div class="ms-ico ms-fut3">○</div>
+              <div class="ms-ico ms-fut3"><span style="width:6px;height:6px;border-radius:50%;background:var(--grayLt);display:inline-block;"></span></div>
               <div><div class="ms-nm">Volledige bezetting 12 plekken</div><div class="ms-dt">November 2026</div></div>
               <span class="ph-pill pp-future" style="margin-left:auto;">Gepland</span>
             </li>
@@ -3245,7 +3357,7 @@ textarea.ifield { min-height: 90px; }
     <!-- TAB: FINANCIEEL -->
     <div id="opd-financieel" class="opd-panel">
       <div class="d-card" style="margin-bottom:1rem;">
-        <div class="d-card-title">📋 Financieel overzicht 2026 — Gemeente Den Haag</div>
+        <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg> Financieel overzicht 2026 — Gemeente Den Haag</div>
         <table class="fin-table">
           <thead>
             <tr><th>Post</th><th>Begroting</th><th>Besteed</th><th>Restant</th></tr>
@@ -3298,24 +3410,24 @@ textarea.ifield { min-height: 90px; }
     <!-- TAB: DOCUMENTEN -->
     <div id="opd-docs" class="opd-panel">
       <div class="d-card">
-        <div class="d-card-title">📂 Beschikbare documenten</div>
+        <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Beschikbare documenten</div>
         <div class="doc-item">
-          <span class="doc-ico">📄</span>
+          <span class="doc-ico"><svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
           <div style="flex:1;"><div class="doc-name">Kwartaalrapportage Q1 2026</div><div class="doc-meta">PDF · 2,4 MB · Gepubliceerd 5 april 2026</div></div>
           <button class="dbtn">⬇ Download</button>
         </div>
         <div class="doc-item">
-          <span class="doc-ico">📄</span>
+          <span class="doc-ico"><svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
           <div style="flex:1;"><div class="doc-name">Jaarplan 2026 — WerkKracht Den Haag</div><div class="doc-meta">PDF · 1,1 MB · Gepubliceerd 10 januari 2026</div></div>
           <button class="dbtn">⬇ Download</button>
         </div>
         <div class="doc-item">
-          <span class="doc-ico">📊</span>
+          <span class="doc-ico"><svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></span>
           <div style="flex:1;"><div class="doc-name">MKBA-berekening 2026 (Excel)</div><div class="doc-meta">XLSX · 340 KB · Bijgewerkt 1 juni 2026</div></div>
           <button class="dbtn">⬇ Download</button>
         </div>
         <div class="doc-item">
-          <span class="doc-ico">📄</span>
+          <span class="doc-ico"><svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
           <div style="flex:1;"><div class="doc-name">Raamovereenkomst WerkKracht × Gemeente Den Haag</div><div class="doc-meta">PDF · 890 KB · Getekend 15 december 2024</div></div>
           <button class="dbtn">⬇ Download</button>
         </div>
@@ -3323,7 +3435,7 @@ textarea.ifield { min-height: 90px; }
     </div>
 
     <div class="dash-foot" style="margin-top:1.5rem;">
-      <p>🔒 Afgeschermd portaal · Gemeente Den Haag · Sessie verloopt na 30 min inactiviteit</p>
+      <p><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;vertical-align:-3px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Afgeschermd portaal · Gemeente Den Haag · Sessie verloopt na 30 min inactiviteit</p>
       <div class="dash-foot-btns">
         <button class="dbtn" onclick="showPage('login')">← Uitloggen</button>
       </div>
@@ -3367,18 +3479,42 @@ textarea.ifield { min-height: 90px; }
 </footer>
 
 <script>
+// ── PORTAAL DROPDOWN ────────────────────────────────────────
+function togglePortalMenu(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('portalNavBtn');
+  const dd  = document.getElementById('portalDropdown');
+  const open = dd.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('portalNavWrap');
+  if (wrap && !wrap.contains(e.target)) {
+    document.getElementById('portalDropdown').classList.remove('open');
+    document.getElementById('portalNavBtn').classList.remove('open');
+  }
+});
+function loginAs(role) {
+  document.getElementById('portalDropdown').classList.remove('open');
+  document.getElementById('portalNavBtn').classList.remove('open');
+  if (role === 'stakeholder') {
+    initDashboard(); showPage('dashboard');
+  } else {
+    initOpd(); showPage('opdrachtgever');
+  }
+}
+
 // ── PORTAL LOGIN ──────────────────────────────────────────────
 function doPortalLogin() {
   const u = document.getElementById('prt-user').value.trim().toLowerCase();
-  const p = document.getElementById('prt-pass').value.trim();
   const err = document.getElementById('login-err');
   err.style.display = 'none';
-  if ((u === 'stakeholder' && p === 'werkkracht2026') || u.includes('stakeholder')) {
-    initDashboard(); showPage('dashboard');
-  } else if ((u === 'opdrachtgever' && p === 'gemeente2026') || u.includes('opdrachtgever')) {
+  // Portaal tijdelijk open voor review — iedereen met 'opdrachtgever' in naam gaat naar OPD
+  if (u.includes('opdrachtgever') || u.includes('gemeente') || u.includes('gemeente2026')) {
     initOpd(); showPage('opdrachtgever');
   } else {
-    err.style.display = 'block';
+    // Alle anderen (inclusief leeg) gaan naar stakeholder dashboard
+    initDashboard(); showPage('dashboard');
   }
 }
 
