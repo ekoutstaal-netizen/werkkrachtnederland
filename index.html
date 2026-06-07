@@ -2216,6 +2216,238 @@ textarea.ifield { min-height: 90px; }
   .funnel-wrap { grid-template-columns:1fr 1fr; }
   .funnel-arrow { display:none; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE-FIRST FIXES  — alle portaal, dashboard & planning
+   Breakpoints: 480px (xs) · 640px (sm) · 768px (md)
+═══════════════════════════════════════════════════════════ */
+
+/* ── Navigatie ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .portal-nav-wrap { margin-left: 0; }
+  .portal-nav-btn  { font-size: 0.72rem; padding: 0.4rem 0.7rem; }
+  .portal-dropdown { min-width: 200px; right: 0; left: auto; }
+  nav { gap: 0.5rem; }
+}
+
+/* ── Dash-wrap padding ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .dash-wrap { padding: calc(var(--nav-h) + 1.25rem) 4% 3rem; }
+  .dash-topbar { flex-direction: column; gap: 0.75rem; padding-bottom: 1rem; margin-bottom: 1.25rem; }
+  .dash-topbar-left h1 { font-size: 1.3rem; }
+  .dash-meta-right { text-align: left; }
+  .dash-badge-pill { font-size: 0.65rem; }
+}
+
+/* ── KPI strip ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .kpi-strip { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .kpi-tile .kpi-num { font-size: 1.4rem; }
+  .kpi-tile { padding: 0.75rem 0.8rem; }
+}
+@media (max-width: 380px) {
+  .kpi-strip { grid-template-columns: 1fr; }
+}
+
+/* ── Dash two-col ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dash-two { grid-template-columns: 1fr; gap: 10px; }
+  .value-duo { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* ── Login portaal ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .portal-wrap { padding: calc(var(--nav-h) + 1rem) 1rem 1.5rem; }
+  .portal-card { padding: 1.75rem 1.25rem; }
+}
+
+/* ── Opdrachtgever tabs ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .opd-tabs-bar { gap: 2px; }
+  .opd-tab-btn  { font-size: 0.7rem; padding: 6px 10px; }
+  .proj-head    { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .proj-right   { width: 100%; justify-content: space-between; }
+  .proj-pb-wrap { flex: 1; }
+  .proj-kpis    { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .opd-tab-btn  { font-size: 0.62rem; padding: 5px 7px; }
+  .proj-kpis    { grid-template-columns: 1fr; }
+}
+
+/* ── Financiële tabel ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .fin-table th:nth-child(3),
+  .fin-table td:nth-child(3) { display: none; }     /* verberg Restant-kolom */
+  .fin-table { font-size: 0.75rem; }
+  .fin-table th, .fin-table td { padding: 7px 5px; }
+}
+
+/* ── Berichten ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .msg-from { font-size: 0.72rem; }
+  .msg-txt  { font-size: 0.78rem; }
+  .msg-inp-row { flex-direction: column; }
+  .msg-send { width: 100%; }
+}
+
+/* ── Intern sturingsmodel ───────────────────────────────── */
+@media (max-width: 768px) {
+  .intern-level-tabs { gap: 4px; }
+  .intern-level-btn  { font-size: 0.68rem; padding: 6px 10px; }
+}
+@media (max-width: 480px) {
+  .intern-level-btn  { font-size: 0.62rem; padding: 5px 8px; }
+  .intern-level-btn svg { display: none; }
+}
+
+/* ── Funnel keten ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .funnel-wrap  { grid-template-columns: 1fr 1fr; }
+  .funnel-arrow { display: none; }
+  .funnel-step  { border-right: none; border-bottom: 1px solid var(--sage); }
+  .funnel-step:nth-child(odd)  { border-right: 1px solid var(--sage); }
+  .funnel-step:nth-last-child(-n+2) { border-bottom: none; }
+  .funnel-num   { font-size: 1.3rem; }
+}
+@media (max-width: 380px) {
+  .funnel-wrap { grid-template-columns: 1fr; }
+  .funnel-step { border-right: none !important; border-bottom: 1px solid var(--sage); }
+  .funnel-step:last-child { border-bottom: none; }
+}
+
+/* ── Pipeline tabellen ──────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Verberg minder-kritieke kolommen */
+  .pip-tbl th:nth-child(4),
+  .pip-tbl td:nth-child(4),
+  .pip-tbl th:nth-child(5),
+  .pip-tbl td:nth-child(5) { display: none; }
+  .pip-tbl { font-size: 0.75rem; }
+  .pip-tbl th, .pip-tbl td { padding: 7px 6px; }
+  .pip-badge { font-size: 0.6rem; padding: 2px 6px; }
+}
+@media (max-width: 400px) {
+  .pip-tbl th:nth-child(3),
+  .pip-tbl td:nth-child(3) { display: none; }
+}
+
+/* ── Bottleneck invoervelden ────────────────────────────── */
+@media (max-width: 480px) {
+  .bneck-row { flex-direction: column; align-items: stretch; gap: 4px; }
+  .bneck-del { width: 100%; background: var(--offwhite); border: 1px solid var(--sage); border-radius: 6px; }
+}
+
+/* ── Capaciteitskaarten ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .cap-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 380px) {
+  .cap-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Overleg grid ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .overleg-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Projectplanning intro ──────────────────────────────── */
+@media (max-width: 640px) {
+  .plan-intro { padding: calc(var(--nav-h) + 1.5rem) 5% 2rem; }
+  .plan-intro h1 { font-size: 1.6rem; }
+  .plan-meta-strip { gap: 0.75rem; }
+  .plan-meta-item .pm-val { font-size: 0.88rem; }
+  .plan-bl-tabs { padding: 0 4%; }
+  .plan-bl-tab  { font-size: 0.7rem; padding: 0.75rem 0.8rem; }
+  .plan-bl-tab svg { display: none; }
+  .plan-main    { padding: 0 4% 3rem; }
+  .plan-legend  { padding: 0.75rem 4%; flex-direction: column; gap: 0.5rem; }
+}
+
+/* ── Businessline header ────────────────────────────────── */
+@media (max-width: 640px) {
+  .bl-header-wk { flex-direction: column; padding: 1.5rem 0 1.25rem; gap: 1rem; }
+  .bl-header-left h2 { font-size: 1.2rem; }
+  .bl-progress-wrap { text-align: left; min-width: unset; width: 100%; }
+  .bl-progress-bar { width: 100%; margin-left: 0; }
+  .bl-progress-pct { font-size: 1.8rem; }
+}
+
+/* ── Fase headers in planning ───────────────────────────── */
+@media (max-width: 640px) {
+  .plan-phase-header { flex-wrap: wrap; gap: 4px; }
+  .plan-phase-period { width: 100%; font-size: 0.68rem; margin-left: 2px; }
+  .plan-phase-chev   { margin-left: auto; }
+}
+
+/* ── Mijlpalen grid ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .plan-milestone { grid-template-columns: 24px 1fr; gap: 0 0.75rem; }
+  .m-date, .m-status { display: none; }
+  .m-name { font-size: 0.82rem; }
+  .m-desc { font-size: 0.73rem; }
+  .m-btn  { font-size: 0.62rem; padding: 3px 8px; }
+}
+
+/* ── Gemeente / stakeholder portaal value boxes ─────────── */
+@media (max-width: 480px) {
+  .vbox-wk .vbox-amount { font-size: 1.2rem; }
+  .vbox-wk .vbox-lbl    { font-size: 0.65rem; }
+}
+
+/* ── Progress bars labels ───────────────────────────────── */
+@media (max-width: 480px) {
+  .prog-lbl { width: 78px; font-size: 0.72rem; }
+}
+
+/* ── Partner chips ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .pchip-grid { grid-template-columns: 1fr 1fr; }
+  .pchip-nm   { font-size: 0.7rem; }
+  .pchip-rl   { font-size: 0.6rem; }
+}
+
+/* ── Dash footer ────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dash-foot { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .dash-foot-btns { width: 100%; }
+  .dbtn { flex: 1; justify-content: center; }
+}
+
+/* ── Gemeente beleidsadvies cards ───────────────────────── */
+@media (max-width: 480px) {
+  div[style*="grid-template-columns:1fr 1fr"][style*="gap:12px"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns:1fr 1fr"][style*="gap:12px"] > div {
+    margin-bottom: 10px;
+  }
+}
+
+/* ── Plan notes sectie ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .plan-notes { padding: 1rem; }
+  .plan-notes-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .plan-notes-save { width: 100%; text-align: center; }
+}
+
+/* ── Transp-strip ───────────────────────────────────────── */
+@media (max-width: 480px) {
+  .transp-strip { padding: 0.75rem; }
+  .transp-strip p { font-size: 0.75rem; }
+}
+
+/* ── D-card titels ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .d-card-title { font-size: 0.65rem; }
+  .d-card { padding: 0.9rem 0.9rem; }
+}
+
+/* ── Portal-login kaart ─────────────────────────────────── */
+@media (max-width: 400px) {
+  .portal-card h2 { font-size: 1.4rem; }
+}
+
 </style>
 </head>
 
