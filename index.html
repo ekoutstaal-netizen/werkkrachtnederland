@@ -4254,29 +4254,29 @@ textarea.ifield { min-height: 90px; }
       <div class="dash-meta-right">
         <div><span class="dash-badge-pill pill-green"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;vertical-align:-3px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Stakeholder portaal</span></div>
         <div class="date-str" style="margin-top:6px;" id="dash-dt"></div>
-        <div class="quarter-str">Kwartaal 2 · 2026</div>
+        <div class="quarter-str" id="sh-kwartaal">Kwartaal 2 · 2026</div>
       </div>
     </div>
 
     <div class="kpi-strip">
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg> Werkplekken</div>
-        <div class="kpi-num">87</div>
-        <div class="kpi-delta">↑ +4 deze maand</div>
+        <div class="kpi-num" id="sh-werkplekken">87</div>
+        <div class="kpi-delta" id="sh-delta-plekken">↑ +4 deze maand</div>
       </div>
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Deelnemers</div>
-        <div class="kpi-num">124</div>
-        <div class="kpi-delta">↑ +12% dit kwartaal</div>
+        <div class="kpi-num" id="sh-deelnemers">124</div>
+        <div class="kpi-delta" id="sh-delta-deel">↑ +12% dit kwartaal</div>
       </div>
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> MKBA-waarde</div>
-        <div class="kpi-num">€2,5M</div>
+        <div class="kpi-num" id="sh-mkba-kpi">€2,5M</div>
         <div class="kpi-delta neutral">Divosa/Beerenschot</div>
       </div>
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Loonwaarde</div>
-        <div class="kpi-num">€2,4M</div>
+        <div class="kpi-num" id="sh-loon-kpi">€2,4M</div>
         <div class="kpi-delta neutral">WML 2026</div>
       </div>
     </div>
@@ -4289,13 +4289,13 @@ textarea.ifield { min-height: 90px; }
     <div class="value-duo">
       <div class="vbox-wk vbox-forest">
         <div class="vbox-lbl">Maatschappelijke waarde (MKBA)</div>
-        <div class="vbox-amount">€2.523.000</div>
-        <div class="vbox-sub">87 werkplekken × €29.000 per jaar · Berenschot/Cedris methode</div>
+        <div class="vbox-amount" id="sh-mkba-box">€2.523.000</div>
+        <div class="vbox-sub" id="sh-mkba-sub">87 werkplekken × €29.000 per jaar · Berenschot/Cedris methode</div>
       </div>
       <div class="vbox-wk vbox-mint2">
         <div class="vbox-lbl">Economische waarde (loonwaarde)</div>
-        <div class="vbox-amount">€2.385.105</div>
-        <div class="vbox-sub">87 werkplekken × €27.415 per jaar · WML 2026</div>
+        <div class="vbox-amount" id="sh-loon-box">€2.385.105</div>
+        <div class="vbox-sub" id="sh-loon-sub">87 werkplekken × €27.415 per jaar · WML 2026</div>
       </div>
     </div>
 
@@ -4338,23 +4338,23 @@ textarea.ifield { min-height: 90px; }
         <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Doelrealisatie per doelgroep</div>
         <div class="prog-row">
           <span class="prog-lbl">Bijstand</span>
-          <div class="prog-track"><div class="prog-fill" style="width:72%;background:var(--green);"></div></div>
-          <span class="prog-pct">72%</span>
+          <div class="prog-track"><div class="prog-fill" id="sh-fill-bijstand" style="width:72%;background:var(--green);"></div></div>
+          <span class="prog-pct" id="sh-pct-bijstand">72%</span>
         </div>
         <div class="prog-row">
           <span class="prog-lbl">WIA / WGA</span>
-          <div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--forest);"></div></div>
-          <span class="prog-pct">58%</span>
+          <div class="prog-track"><div class="prog-fill" id="sh-fill-wia" style="width:58%;background:var(--forest);"></div></div>
+          <span class="prog-pct" id="sh-pct-wia">58%</span>
         </div>
         <div class="prog-row">
           <span class="prog-lbl">Statushouders</span>
-          <div class="prog-track"><div class="prog-fill" style="width:45%;background:var(--amber);"></div></div>
-          <span class="prog-pct">45%</span>
+          <div class="prog-track"><div class="prog-fill" id="sh-fill-status" style="width:45%;background:var(--amber);"></div></div>
+          <span class="prog-pct" id="sh-pct-status">45%</span>
         </div>
         <div class="prog-row">
           <span class="prog-lbl">Jongeren</span>
-          <div class="prog-track"><div class="prog-fill" style="width:61%;background:var(--green);"></div></div>
-          <span class="prog-pct">61%</span>
+          <div class="prog-track"><div class="prog-fill" id="sh-fill-jongeren" style="width:61%;background:var(--green);"></div></div>
+          <span class="prog-pct" id="sh-pct-jongeren">61%</span>
         </div>
         <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:10px;">% van jaardoelstelling 2026 behaald</p>
       </div>
@@ -5426,29 +5426,91 @@ function doPortalLogin() {
   }
 }
 
+// ── GOOGLE SHEETS KOPPELING ──────────────────────────────────
+const SHEETS_API = 'https://script.google.com/macros/s/AKfycbx43nFaaoCG22LsG_cw5uQFofBsjDJ8wtu4RPfmjOrweoZqIbR9AJoKLYc72W0xL3gNag/exec';
+
+function fmtEur(n) {
+  n = Number(n);
+  if (n >= 1000000) return '€' + (n/1000000).toFixed(1).replace('.',',') + 'M';
+  if (n >= 1000) return '€' + Math.round(n/1000).toLocaleString('nl-NL') + 'K';
+  return '€' + n;
+}
+function shText(id, val) {
+  const el = document.getElementById(id);
+  if (el && val !== undefined) el.textContent = val;
+}
+function shBar(fillId, pctId, val) {
+  const pct = Math.min(100, Math.max(0, Number(val) || 0));
+  const f = document.getElementById(fillId);
+  const p = document.getElementById(pctId);
+  if (f) f.style.width = pct + '%';
+  if (p) p.textContent = pct + '%';
+}
+function buildDashChart(groeiData) {
+  if (typeof Chart === 'undefined') return;
+  const ctx = document.getElementById('dashGrowthChart');
+  if (!ctx) return;
+  if (window._dashChart) {
+    window._dashChart.data.datasets[0].data = groeiData;
+    window._dashChart.update();
+    return;
+  }
+  window._dashChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Jan','Feb','Mrt','Apr','Mei','Jun'],
+      datasets: [{ label: 'Werkplekken', data: groeiData, backgroundColor: '#27AE60', borderRadius: 5, borderSkipped: false }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font:{size:11}, color:'#6B7C75' } },
+        y: { grid: { color:'rgba(107,124,117,.15)' }, ticks: { font:{size:11}, color:'#6B7C75', stepSize:20 }, min:0, max:110 }
+      }
+    }
+  });
+}
+function applyDashData(d) {
+  const wp   = Number(d.werkplekken)  || 87;
+  const dl   = Number(d.deelnemers)   || 124;
+  const mkba = Number(d.mkba_waarde)  || 2523000;
+  const loon = Number(d.loonwaarde)   || 2385105;
+  // KPI tiles
+  shText('sh-werkplekken', wp);
+  shText('sh-deelnemers', dl);
+  shText('sh-mkba-kpi', fmtEur(mkba));
+  shText('sh-loon-kpi', fmtEur(loon));
+  shText('sh-delta-plekken', '↑ ' + (d.delta_plekken || '+4 deze maand'));
+  shText('sh-delta-deel',    '↑ ' + (d.delta_deelnemers || '+12% dit kwartaal'));
+  if (d.kwartaal) shText('sh-kwartaal', d.kwartaal);
+  // Value boxes
+  shText('sh-mkba-box', '€' + mkba.toLocaleString('nl-NL'));
+  shText('sh-loon-box', '€' + loon.toLocaleString('nl-NL'));
+  shText('sh-mkba-sub', wp + ' werkplekken × €29.000 per jaar · Berenschot/Cedris methode');
+  shText('sh-loon-sub', wp + ' werkplekken × €27.415 per jaar · WML 2026');
+  // Progress bars doelgroepen
+  shBar('sh-fill-bijstand', 'sh-pct-bijstand', d.doel_bijstand);
+  shBar('sh-fill-wia',      'sh-pct-wia',      d.doel_wia);
+  shBar('sh-fill-status',   'sh-pct-status',   d.doel_statushouders);
+  shBar('sh-fill-jongeren', 'sh-pct-jongeren', d.doel_jongeren);
+  // Groeigraaf
+  const groei = [
+    Number(d.groei_jan)||52, Number(d.groei_feb)||59,
+    Number(d.groei_mrt)||64, Number(d.groei_apr)||71,
+    Number(d.groei_mei)||83, Number(d.groei_jun)||87
+  ];
+  setTimeout(() => buildDashChart(groei), 200);
+}
 function initDashboard() {
   const el = document.getElementById('dash-dt');
   if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
-  if (window._dashChartDone) return;
-  window._dashChartDone = true;
-  setTimeout(() => {
-    if (typeof Chart === 'undefined') return;
-    new Chart(document.getElementById('dashGrowthChart'), {
-      type: 'bar',
-      data: {
-        labels: ['Jan','Feb','Mrt','Apr','Mei','Jun'],
-        datasets: [{ label: 'Werkplekken', data: [52,59,64,71,83,87], backgroundColor: '#27AE60', borderRadius: 5, borderSkipped: false }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { display: false }, ticks: { font:{size:11}, color:'#6B7C75' } },
-          y: { grid: { color:'rgba(107,124,117,.15)' }, ticks: { font:{size:11}, color:'#6B7C75', stepSize:20 }, min:0, max:110 }
-        }
-      }
-    });
-  }, 200);
+  // Eerst standaardgraaf tonen, dan live data ophalen
+  setTimeout(() => buildDashChart([52,59,64,71,83,87]), 200);
+  fetch(SHEETS_API)
+    .then(r => r.json())
+    .then(d => applyDashData(d))
+    .catch(e => console.warn('Sheets niet bereikbaar, standaarddata actief:', e));
 }
 
 function initOpd() {
