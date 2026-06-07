@@ -4983,11 +4983,11 @@ textarea.ifield { min-height: 90px; }
             <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             Top-5 KPI&apos;s &mdash; MT niveau (maandelijks)
           </div>
-          <div class="prog-row"><span class="prog-lbl">Nieuwe plekken/mnd</span><div class="prog-track"><div class="prog-fill" style="width:80%;background:var(--green);"></div></div><span class="prog-pct">+8</span></div>
-          <div class="prog-row"><span class="prog-lbl">Actieve werkplekken</span><div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--forest);"></div></div><span class="prog-pct">87</span></div>
-          <div class="prog-row"><span class="prog-lbl">Pipeline (verwacht)</span><div class="prog-track"><div class="prog-fill" style="width:73%;background:var(--green);"></div></div><span class="prog-pct">+43</span></div>
-          <div class="prog-row"><span class="prog-lbl">Lead&rarr;opdracht conv.</span><div class="prog-track"><div class="prog-fill" style="width:46%;background:var(--amber);"></div></div><span class="prog-pct">46%</span></div>
-          <div class="prog-row"><span class="prog-lbl">Doorlooptijd</span><div class="prog-track"><div class="prog-fill" style="width:70%;background:var(--green);"></div></div><span class="prog-pct">6 wk</span></div>
+          <div class="prog-row"><span class="prog-lbl">Nieuwe plekken/mnd</span><div class="prog-track"><div class="prog-fill" id="int-fill-nieuw" style="width:80%;background:var(--green);"></div></div><span class="prog-pct" id="int-pct-nieuw">+8</span></div>
+          <div class="prog-row"><span class="prog-lbl">Actieve werkplekken</span><div class="prog-track"><div class="prog-fill" id="int-fill-actief" style="width:58%;background:var(--forest);"></div></div><span class="prog-pct" id="int-pct-actief">87</span></div>
+          <div class="prog-row"><span class="prog-lbl">Pipeline (verwacht)</span><div class="prog-track"><div class="prog-fill" id="int-fill-pipeline" style="width:73%;background:var(--green);"></div></div><span class="prog-pct" id="int-pct-pipeline">+43</span></div>
+          <div class="prog-row"><span class="prog-lbl">Lead&#8594;opdracht conv.</span><div class="prog-track"><div class="prog-fill" id="int-fill-conv" style="width:46%;background:var(--amber);"></div></div><span class="prog-pct" id="int-pct-conv">46%</span></div>
+          <div class="prog-row"><span class="prog-lbl">Doorlooptijd</span><div class="prog-track"><div class="prog-fill" id="int-fill-doorloop" style="width:70%;background:var(--green);"></div></div><span class="prog-pct" id="int-pct-doorloop">6 wk</span></div>
           <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:10px;">Maandelijks gerapporteerd aan MT &middot; peildatum juni 2026</p>
         </div>
         <div class="d-card">
@@ -5226,33 +5226,33 @@ textarea.ifield { min-height: 90px; }
     <div class="kpi-strip">
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Uitstroom bijstand</div>
-        <div class="kpi-num">23</div>
-        <div class="kpi-delta">&#8593; +7 dit kwartaal</div>
+        <div class="kpi-num" id="gem-uitstroom">23</div>
+        <div class="kpi-delta" id="gem-delta-uitstroom">&#8593; +7 dit kwartaal</div>
       </div>
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> BUIG-besparing</div>
-        <div class="kpi-num">&euro;299K</div>
-        <div class="kpi-delta">23 &times; &euro;13.000</div>
+        <div class="kpi-num" id="gem-buig">&#8364;299K</div>
+        <div class="kpi-delta" id="gem-buig-sub">23 &times; &#8364;13.000</div>
       </div>
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Maatsch. waarde</div>
-        <div class="kpi-num">&euro;928K</div>
+        <div class="kpi-num" id="gem-mkba">&#8364;928K</div>
         <div class="kpi-delta neutral">MKBA Berenschot</div>
       </div>
       <div class="kpi-tile">
         <div class="kpi-lbl"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Besteding DU</div>
-        <div class="kpi-num">61%</div>
-        <div class="kpi-delta neutral">&euro;150K van &euro;247K</div>
+        <div class="kpi-num" id="gem-du-pct">61%</div>
+        <div class="kpi-delta neutral" id="gem-du-sub">&#8364;150K van &#8364;247K</div>
       </div>
     </div>
 
     <div class="dash-two">
       <div class="d-card">
         <div class="d-card-title"><svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Beleidsdoelen 2026</div>
-        <div class="prog-row"><span class="prog-lbl">Uitstroom bijstand</span><div class="prog-track"><div class="prog-fill" style="width:76%;background:var(--green);"></div></div><span class="prog-pct">76%</span></div>
-        <div class="prog-row"><span class="prog-lbl">BUIG-reductie</span><div class="prog-track"><div class="prog-fill" style="width:61%;background:var(--forest);"></div></div><span class="prog-pct">61%</span></div>
-        <div class="prog-row"><span class="prog-lbl">WOB-bezetting</span><div class="prog-track"><div class="prog-fill" style="width:64%;background:var(--green);"></div></div><span class="prog-pct">64%</span></div>
-        <div class="prog-row"><span class="prog-lbl">Statushouders</span><div class="prog-track"><div class="prog-fill" style="width:50%;background:var(--amber);"></div></div><span class="prog-pct">50%</span></div>
+        <div class="prog-row"><span class="prog-lbl">Uitstroom bijstand</span><div class="prog-track"><div class="prog-fill" id="gem-fill-uitstroom" style="width:76%;background:var(--green);"></div></div><span class="prog-pct" id="gem-pct-uitstroom">76%</span></div>
+        <div class="prog-row"><span class="prog-lbl">BUIG-reductie</span><div class="prog-track"><div class="prog-fill" id="gem-fill-buig" style="width:61%;background:var(--forest);"></div></div><span class="prog-pct" id="gem-pct-buig">61%</span></div>
+        <div class="prog-row"><span class="prog-lbl">WOB-bezetting</span><div class="prog-track"><div class="prog-fill" id="gem-fill-wob" style="width:64%;background:var(--green);"></div></div><span class="prog-pct" id="gem-pct-wob">64%</span></div>
+        <div class="prog-row"><span class="prog-lbl">Statushouders</span><div class="prog-track"><div class="prog-fill" id="gem-fill-status" style="width:50%;background:var(--amber);"></div></div><span class="prog-pct" id="gem-pct-status">50%</span></div>
         <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:10px;">% van jaardoelstelling Participatiewet 2026</p>
       </div>
       <div class="d-card">
@@ -5398,6 +5398,10 @@ function loginAs(role) {
 function initIntern() {
   const el = document.getElementById('intern-dt');
   if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  fetch(SHEETS_API + '?tab=intern')
+    .then(r => r.json())
+    .then(d => applyInternData(d))
+    .catch(e => console.warn('Sheets intern niet bereikbaar:', e));
   if (window._internChartDone) return;
   window._internChartDone = true;
   setTimeout(function() {
@@ -5422,6 +5426,49 @@ function initIntern() {
     });
   }, 200);
 }
+function applyInternData(d) {
+  function st(id, v) { const e = document.getElementById(id); if (e && v !== undefined) e.textContent = v; }
+  function sb(fillId, pctId, val, suffix) {
+    const pct = Math.min(100, Math.max(0, Number(val) || 0));
+    const f = document.getElementById(fillId);
+    const p = document.getElementById(pctId);
+    if (f) f.style.width = pct + '%';
+    if (p) p.textContent = suffix ? val + suffix : pct + '%';
+  }
+
+  const leads      = Number(d.leads)       || 24;
+  const opdrachten = Number(d.opdrachten)  || 11;
+  const werkplekken= Number(d.werkplekken) || 87;
+  const doel_wp    = Number(d.doel_werkplekken) || 150;
+  const conv       = Number(d.conversie_pct)    || 46;
+  const mkba       = Number(d.mkba_waarde)       || 2500000;
+  const pipeline   = Number(d.pipeline)          || 43;
+  const nieuw_mnd  = d.nieuwe_plekken_mnd        || '+8';
+  const doorloop   = d.doorlooptijd              || '6 wk';
+
+  // Funnel
+  st('int-leads', leads);
+  st('int-leads-conv', 'kwaliteit: ' + (d.lead_kwaliteit || '68%'));
+  st('int-opdrachten', opdrachten);
+  st('int-conv-pct', 'conversie: ' + conv + '%');
+  st('int-werkplekken', werkplekken);
+  st('int-wp-conv', 'doel ' + doel_wp + ' → ' + Math.round((werkplekken/doel_wp)*100) + '%');
+  st('int-mkba-funnel', fmtEur(mkba));
+
+  // KPI progress bars
+  const wpPct = Math.round((werkplekken/doel_wp)*100);
+  const pipPct = Math.round((pipeline/(pipeline + 20))*100); // relatieve balk
+  if (document.getElementById('int-fill-nieuw'))     { document.getElementById('int-fill-nieuw').style.width = '80%'; }
+  st('int-pct-nieuw', nieuw_mnd);
+  if (document.getElementById('int-fill-actief'))    { document.getElementById('int-fill-actief').style.width = wpPct + '%'; }
+  st('int-pct-actief', werkplekken);
+  if (document.getElementById('int-fill-pipeline'))  { document.getElementById('int-fill-pipeline').style.width = pipPct + '%'; }
+  st('int-pct-pipeline', '+' + pipeline);
+  if (document.getElementById('int-fill-conv'))      { document.getElementById('int-fill-conv').style.width = conv + '%'; }
+  st('int-pct-conv', conv + '%');
+  st('int-pct-doorloop', doorloop);
+}
+
 function internLevel(btn, panelId) {
   document.querySelectorAll('.intern-level-btn').forEach(function(b){ b.classList.remove('active'); });
   document.querySelectorAll('.intern-panel').forEach(function(p){ p.classList.remove('active'); });
@@ -5440,6 +5487,43 @@ function bneckDel(btn) { btn.closest('.bneck-row').remove(); }
 function initGem() {
   const el = document.getElementById('gem-dt');
   if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  fetch(SHEETS_API + '?tab=gemeente')
+    .then(r => r.json())
+    .then(d => applyGemData(d))
+    .catch(e => console.warn('Sheets gemeente niet bereikbaar:', e));
+}
+
+function applyGemData(d) {
+  function st(id, v) { const e = document.getElementById(id); if (e && v !== undefined) e.textContent = v; }
+  function sb(fillId, pctId, val) {
+    const pct = Math.min(100, Math.max(0, Number(val) || 0));
+    const f = document.getElementById(fillId);
+    const p = document.getElementById(pctId);
+    if (f) f.style.width = pct + '%';
+    if (p) p.textContent = pct + '%';
+  }
+
+  const uitstroom = Number(d.uitstroom_bijstand) || 23;
+  const buig      = Number(d.buig_besparing)     || 299000;
+  const mkba      = Number(d.mkba_waarde)         || 928000;
+  const duPct     = Number(d.besteding_du_pct)    || 61;
+  const duBedrag  = Number(d.besteding_du_bedrag) || 150000;
+  const duTotaal  = Number(d.besteding_du_totaal) || 247000;
+
+  // KPI tiles
+  st('gem-uitstroom', uitstroom);
+  st('gem-buig', fmtEur(buig));
+  st('gem-buig-sub', uitstroom + ' × €13.000');
+  st('gem-mkba', fmtEur(mkba));
+  st('gem-du-pct', duPct + '%');
+  st('gem-du-sub', fmtEur(duBedrag) + ' van ' + fmtEur(duTotaal));
+  if (d.delta_uitstroom) st('gem-delta-uitstroom', '↑ ' + d.delta_uitstroom);
+
+  // Progress bars beleidsdoelen
+  sb('gem-fill-uitstroom', 'gem-pct-uitstroom', d.doel_uitstroom);
+  sb('gem-fill-buig',      'gem-pct-buig',      d.doel_buig);
+  sb('gem-fill-wob',       'gem-pct-wob',       d.doel_wob);
+  sb('gem-fill-status',    'gem-pct-status',    d.doel_statushouders);
 }
 
 // ── PORTAL LOGIN ──────────────────────────────────────────────
