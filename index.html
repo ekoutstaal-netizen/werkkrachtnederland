@@ -1808,7 +1808,8 @@ textarea.ifield { min-height: 90px; }
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   .nav-links { display: none !important; }
-  .nav-cta { font-size: 0.75rem; padding: 0.4rem 0.9rem; margin-left: 0; }
+  .portal-nav-wrap { display: none !important; }
+  .nav-cta { display: none !important; }
   nav { padding: 0 4%; }
 }
 @media (max-width: 640px) {
@@ -2700,6 +2701,51 @@ textarea.ifield { min-height: 90px; }
 }
 .netwerk-cta p { font-family: var(--f-body); font-size: 1rem; color: var(--greenLt); margin-bottom: 2rem; }
 
+
+/* ── Mobiel menu — opgeschoond ───────────────────────────── */
+.mobile-menu-divider {
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 8px 0;
+}
+.mobile-menu-label {
+  font-family: var(--f-head);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  padding: 4px 1.5rem 6px;
+}
+.mobile-portal-item {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 10px 1.5rem;
+  background: none; border: none; cursor: pointer;
+  text-align: left; transition: background .15s;
+}
+.mobile-portal-item:hover { background: rgba(39,174,96,.12); }
+.mpi-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.mpi-icon svg { width: 15px; height: 15px; stroke: var(--greenLt); }
+.mpi-text strong {
+  display: block;
+  font-family: var(--f-head); font-size: 0.82rem; font-weight: 700;
+  color: var(--white);
+}
+.mpi-text small {
+  font-family: var(--f-body); font-size: 0.68rem;
+  color: rgba(255,255,255,.4);
+}
+.mobile-menu-cta {
+  display: block; margin: 10px 1.5rem 4px;
+  background: var(--green); color: var(--white);
+  font-family: var(--f-display); font-size: 0.9rem; font-weight: 800;
+  padding: 12px 20px; border-radius: 10px; text-decoration: none;
+  text-align: center; transition: background .15s;
+}
+.mobile-menu-cta:hover { background: var(--forest); }
+
 </style>
 </head>
 
@@ -2787,10 +2833,51 @@ textarea.ifield { min-height: 90px; }
 <!-- Mobile dropdown menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a class="nav-link" href="#" onclick="showPage('diensten');closeMobileMenu()">Diensten</a>
-  <a class="nav-link" href="#" onclick="showPage('over');closeMobileMenu()">ℹ️ Over ons</a>
-  <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px"><path d="M4 8C4 8 10 6 16 8C22 6 28 8 28 8L28 26C28 26 22 24 16 26C10 24 4 26 4 26Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="8" x2="16" y2="26" stroke="currentColor" stroke-width="2"/><line x1="8" y1="13" x2="14" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><line x1="8" y1="18" x2="14" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg> Kennisbank</a>
-  <a class="nav-link" href="#" onclick="showPage('partners');closeMobileMenu()"><svg viewBox="0 0 32 32" fill="none" style="width:28px;height:28px"><path d="M4 20l5-5 4 2 6-6 5 1 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="11" r="3" stroke="currentColor" stroke-width="2"/><circle cx="23" cy="11" r="3" stroke="currentColor" stroke-width="2"/><path d="M6 27c0-3.3 3-6 6.5-6h7c3.5 0 6.5 2.7 6.5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Partners</a>
+  <a class="nav-link" href="#" onclick="showPage('planning');closeMobileMenu()">Projectplanning</a>
+  <a class="nav-link" href="#" onclick="showPage('over');closeMobileMenu()">Over ons</a>
+  <a class="nav-link" href="#" onclick="showPage('netwerk');closeMobileMenu()">Netwerk</a>
+  <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()">Kennisbank</a>
+  <a class="nav-link" href="#" onclick="showPage('partners');closeMobileMenu()">Partners</a>
   <a class="nav-link" href="#" onclick="showPage('contact');closeMobileMenu()">Contact</a>
+  <div class="mobile-menu-divider"></div>
+  <div class="mobile-menu-label">Portaal</div>
+  <button class="mobile-portal-item" onclick="loginAs('stakeholder');closeMobileMenu()">
+    <span class="mpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </span>
+    <span class="mpi-text">
+      <strong>Stakeholder</strong>
+      <small>Transparantie dashboard</small>
+    </span>
+  </button>
+  <button class="mobile-portal-item" onclick="loginAs('opdrachtgever');closeMobileMenu()">
+    <span class="mpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+    </span>
+    <span class="mpi-text">
+      <strong>Opdrachtgever</strong>
+      <small>Projectvoortgang</small>
+    </span>
+  </button>
+  <button class="mobile-portal-item" onclick="loginAs('gemeente');closeMobileMenu()">
+    <span class="mpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+    </span>
+    <span class="mpi-text">
+      <strong>Gemeente</strong>
+      <small>Gemeentelijk portaal</small>
+    </span>
+  </button>
+  <button class="mobile-portal-item" onclick="loginAs('intern');closeMobileMenu()">
+    <span class="mpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    </span>
+    <span class="mpi-text">
+      <strong>Intern dashboard</strong>
+      <small>Sturingsmodel</small>
+    </span>
+  </button>
+  <a class="mobile-menu-cta" href="#" onclick="showPage('contact');closeMobileMenu()">Meld je aan →</a>
 </div>
 
 <!-- ════════════════════════════════════════════
