@@ -1299,6 +1299,422 @@ textarea.ifield { min-height: 90px; }
 .isummary-stat .ss-lbl { font-size: 0.72rem; color: var(--gray); margin-top: 4px; }
 
 /* ═══════════════════════════════════════════════
+   LOGIN PORTAL
+═══════════════════════════════════════════════ */
+.portal-wrap {
+  min-height: 100vh;
+  background: var(--greenDk);
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--nav-h) + 2rem) 2rem 2rem;
+}
+.portal-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 3rem 2.5rem;
+  width: 100%; max-width: 440px;
+  text-align: center;
+}
+.portal-icon {
+  width: 64px; height: 64px;
+  background: var(--green);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.6rem;
+}
+.portal-card h2 {
+  font-family: var(--f-display);
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+.portal-card p {
+  font-family: var(--f-body);
+  font-size: 0.85rem;
+  color: var(--greenLt);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.portal-field { text-align: left; margin-bottom: 1rem; }
+.portal-field label {
+  display: block;
+  font-family: var(--f-head);
+  font-size: 0.72rem; font-weight: 700;
+  color: var(--greenLt);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.portal-field input {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+  color: var(--white);
+  outline: none;
+  transition: var(--trans);
+}
+.portal-field input::placeholder { color: rgba(255,255,255,0.25); }
+.portal-field input:focus { border-color: var(--green); background: rgba(39,174,96,0.08); }
+.portal-login-btn {
+  width: 100%;
+  background: var(--green);
+  color: var(--white);
+  font-family: var(--f-display);
+  font-size: 0.9rem; font-weight: 700;
+  padding: 0.8rem;
+  border: none; border-radius: 8px;
+  cursor: pointer; margin-top: 0.5rem;
+  transition: var(--trans);
+}
+.portal-login-btn:hover { background: var(--forest); }
+.portal-error {
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.4);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem; color: #FF8A80;
+  margin-bottom: 1rem; display: none;
+}
+.portal-hint {
+  font-size: 0.72rem; color: rgba(255,255,255,0.25);
+  margin-top: 1.2rem; line-height: 1.6;
+}
+.portal-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f-head); font-size: 0.78rem; font-weight: 500;
+  color: var(--greenLt); margin-bottom: 1.5rem;
+  cursor: pointer; background: none; border: none;
+  transition: var(--trans);
+}
+.portal-back:hover { color: var(--white); }
+
+/* ═══════════════════════════════════════════════
+   DASHBOARD — gedeeld gedeelte
+═══════════════════════════════════════════════ */
+.dash-wrap {
+  padding: calc(var(--nav-h) + 2rem) 5% 4rem;
+  max-width: 1100px; margin: 0 auto;
+}
+.dash-topbar {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--sage);
+  margin-bottom: 2rem;
+}
+.dash-topbar-left h1 {
+  font-family: var(--f-display);
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+}
+.dash-topbar-left p {
+  font-family: var(--f-body);
+  font-size: 0.82rem; color: var(--gray);
+  margin-top: 3px;
+}
+.dash-badge-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f-head); font-size: 0.72rem; font-weight: 700;
+  padding: 5px 12px; border-radius: 20px;
+  letter-spacing: 0.06em;
+}
+.pill-green { background: var(--sage); color: var(--forest); }
+.pill-forest { background: var(--forest); color: var(--greenLt); }
+.dash-meta-right { text-align: right; }
+.dash-meta-right .date-str {
+  font-family: var(--f-head); font-size: 0.78rem; font-weight: 700;
+  color: var(--charcoal);
+}
+.dash-meta-right .quarter-str {
+  font-family: var(--f-body); font-size: 0.72rem; color: var(--gray);
+}
+
+/* KPI grid */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.75rem;
+}
+.kpi-tile {
+  background: var(--offwhite);
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  transition: var(--trans);
+}
+.kpi-tile:hover { border-color: var(--green); }
+.kpi-tile .kpi-lbl {
+  font-family: var(--f-head);
+  font-size: 0.7rem; font-weight: 700;
+  color: var(--gray);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 5px;
+}
+.kpi-tile .kpi-num {
+  font-family: var(--f-display);
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--charcoal);
+  letter-spacing: -0.03em; line-height: 1.2;
+}
+.kpi-tile .kpi-delta {
+  font-family: var(--f-body);
+  font-size: 0.72rem; margin-top: 5px;
+  color: var(--green);
+  display: flex; align-items: center; gap: 3px;
+}
+.kpi-tile .kpi-delta.neutral { color: var(--gray); }
+
+/* Transparency bar */
+.transp-strip {
+  background: var(--sage);
+  border: 1px solid var(--greenLt);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.75rem;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.transp-strip .ts-icon {
+  font-size: 1.2rem; flex-shrink: 0; margin-top: 1px;
+}
+.transp-strip p {
+  font-family: var(--f-body);
+  font-size: 0.82rem; color: var(--forest);
+  line-height: 1.6;
+}
+
+/* Value boxes */
+.value-duo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin-bottom: 1.75rem;
+}
+@media(max-width:540px){ .value-duo { grid-template-columns: 1fr; } }
+.vbox-wk {
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  border: 1px solid transparent;
+}
+.vbox-forest { background: var(--forest); border-color: var(--forest); }
+.vbox-mint2  { background: var(--mint); border-color: var(--sage); }
+.vbox-wk .vbox-lbl {
+  font-family: var(--f-head);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.vbox-forest .vbox-lbl { color: var(--greenLt); }
+.vbox-mint2  .vbox-lbl { color: var(--forest); }
+.vbox-wk .vbox-amount {
+  font-family: var(--f-display);
+  font-size: 1.6rem; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.2;
+}
+.vbox-forest .vbox-amount { color: var(--white); }
+.vbox-mint2  .vbox-amount { color: var(--forest); }
+.vbox-wk .vbox-sub {
+  font-family: var(--f-body); font-size: 0.72rem; margin-top: 4px;
+}
+.vbox-forest .vbox-sub { color: var(--greenLt); }
+.vbox-mint2  .vbox-sub { color: var(--gray); }
+
+/* Dash card grid */
+.dash-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 1.75rem; }
+@media(max-width:640px){ .dash-two { grid-template-columns: 1fr; } }
+.d-card {
+  background: var(--white);
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.3rem;
+}
+.d-card-title {
+  font-family: var(--f-head);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* Progress bars */
+.prog-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.prog-lbl { font-family: var(--f-body); font-size: 0.78rem; color: var(--gray); width: 100px; flex-shrink: 0; }
+.prog-track { flex: 1; height: 8px; border-radius: 4px; background: var(--sage); overflow: hidden; }
+.prog-fill  { height: 100%; border-radius: 4px; transition: width .7s ease; }
+.prog-pct   { font-family: var(--f-display); font-size: 0.78rem; font-weight: 700; color: var(--charcoal); width: 36px; text-align: right; flex-shrink: 0; }
+
+/* Phase list */
+.phase-ul { list-style: none; }
+.phase-li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 7px 0; border-bottom: 1px solid var(--sage);
+}
+.phase-li:last-child { border-bottom: none; }
+.ph-dot {
+  width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex-shrink: 0;
+}
+.ph-done   { background: var(--green); }
+.ph-active { background: var(--amber); }
+.ph-future { background: var(--grayLt); }
+.ph-name { font-family: var(--f-head); font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
+.ph-per  { font-family: var(--f-body); font-size: 0.72rem; color: var(--gray); }
+.ph-pill {
+  font-family: var(--f-head); font-size: 0.65rem; font-weight: 700;
+  padding: 2px 9px; border-radius: 10px; margin-left: auto; flex-shrink: 0;
+  letter-spacing: 0.06em;
+}
+.pp-done   { background: var(--sage);  color: var(--forest); }
+.pp-active { background: #FEF9E7; color: #9A7D0A; border: 1px solid #F9E79F; }
+.pp-future { background: var(--offwhite); color: var(--gray); }
+
+/* Chart wrapper */
+.chart-d { position: relative; width: 100%; height: 190px; margin-top: 8px; }
+
+/* Partner chips */
+.pchip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px,1fr)); gap: 8px; }
+.pchip-wk {
+  border: 1px solid var(--sage); border-radius: 10px;
+  padding: 8px 10px; display: flex; align-items: center; gap: 7px;
+}
+.pchip-ico {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-size: 0.85rem;
+}
+.pi-g { background: var(--mint); }
+.pi-t { background: var(--sage); }
+.pi-a { background: #FEF9E7; }
+.pchip-nm { font-family: var(--f-head); font-size: 0.78rem; font-weight: 700; color: var(--charcoal); }
+.pchip-rl { font-family: var(--f-body); font-size: 0.65rem; color: var(--gray); }
+
+/* Dash footer */
+.dash-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .5rem;
+  border-top: 1px solid var(--sage); padding-top: 1.2rem;
+  margin-top: .5rem;
+}
+.dash-foot p { font-family: var(--f-body); font-size: 0.72rem; color: var(--gray); }
+.dash-foot-btns { display: flex; gap: 8px; }
+.dbtn {
+  font-family: var(--f-head); font-size: 0.72rem; font-weight: 700;
+  padding: 6px 14px;
+  border: 1px solid var(--greenLt);
+  border-radius: 6px; background: none;
+  cursor: pointer; color: var(--forest);
+  display: flex; align-items: center; gap: 5px;
+  letter-spacing: 0.04em;
+  transition: var(--trans);
+}
+.dbtn:hover { background: var(--sage); }
+
+/* ═══════════════════════════════════════════════
+   OPDRACHTGEVERS PORTAAL
+═══════════════════════════════════════════════ */
+.opd-tabs-bar {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--sage);
+  padding-bottom: 0;
+}
+.opd-tab-btn {
+  font-family: var(--f-head); font-size: 0.8rem; font-weight: 700;
+  padding: 8px 16px; border: none; background: none;
+  cursor: pointer; color: var(--gray);
+  border-bottom: 3px solid transparent; margin-bottom: -2px;
+  transition: var(--trans); letter-spacing: 0.04em;
+  border-radius: 6px 6px 0 0;
+}
+.opd-tab-btn:hover { color: var(--forest); background: var(--offwhite); }
+.opd-tab-btn.active { color: var(--forest); border-bottom-color: var(--green); background: var(--offwhite); }
+.opd-panel { display: none; }
+.opd-panel.active { display: block; }
+
+/* Project accordion cards */
+.proj-card {
+  background: var(--white);
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.proj-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; cursor: pointer;
+  transition: var(--trans);
+}
+.proj-head:hover { background: var(--offwhite); }
+.proj-name { font-family: var(--f-display); font-size: 0.95rem; font-weight: 800; color: var(--charcoal); }
+.proj-gm   { font-family: var(--f-body); font-size: 0.75rem; color: var(--gray); margin-top: 1px; }
+.proj-right { display: flex; align-items: center; gap: 10px; }
+.proj-pb-wrap { width: 72px; height: 6px; background: var(--sage); border-radius: 3px; overflow: hidden; }
+.proj-pb { height: 100%; border-radius: 3px; background: var(--green); }
+.proj-pct { font-family: var(--f-display); font-size: 0.82rem; font-weight: 800; color: var(--green); }
+.proj-chev { font-size: 1rem; color: var(--gray); transition: var(--trans); }
+.proj-body { display: none; padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--sage); padding-top: 1rem; }
+.proj-body.open { display: block; }
+
+.proj-kpis { display: grid; grid-template-columns: repeat(auto-fit,minmax(110px,1fr)); gap: 10px; margin-bottom: 1rem; }
+.pkpi {
+  background: var(--offwhite); border: 1px solid var(--sage); border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+}
+.pkpi-l { font-family: var(--f-body); font-size: 0.7rem; color: var(--gray); }
+.pkpi-v { font-family: var(--f-display); font-size: 1.2rem; font-weight: 800; color: var(--forest); }
+.pkpi-s { font-family: var(--f-body); font-size: 0.68rem; color: var(--green); }
+
+/* Milestones */
+.ms-ul { list-style: none; }
+.ms-li { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--sage); }
+.ms-li:last-child { border-bottom: none; }
+.ms-ico { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; margin-top: 2px; }
+.ms-done3  { background: var(--sage); color: var(--forest); }
+.ms-act3   { background: #FEF9E7; color: #9A7D0A; }
+.ms-fut3   { background: var(--offwhite); color: var(--gray); border: 1px solid var(--sage); }
+.ms-nm { font-family: var(--f-head); font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
+.ms-dt { font-family: var(--f-body); font-size: 0.7rem; color: var(--gray); }
+.ms-note { font-family: var(--f-body); font-size: 0.75rem; color: var(--charcoal); margin-top: 2px; }
+
+/* Finance table */
+.fin-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.fin-table th { font-family: var(--f-head); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); padding: 8px 0; border-bottom: 2px solid var(--sage); text-align: left; }
+.fin-table th:not(:first-child) { text-align: right; }
+.fin-table td { font-family: var(--f-body); padding: 10px 0; border-bottom: 1px solid var(--sage); color: var(--charcoal); }
+.fin-table td:not(:first-child) { text-align: right; }
+.fin-table tr:last-child td { font-family: var(--f-display); font-weight: 800; border-bottom: none; }
+.fin-table .pos { color: var(--green); }
+
+/* Messages */
+.msg-thread { background: var(--offwhite); border-radius: var(--radius); padding: 1rem; }
+.msg-bubble { background: var(--white); border: 1px solid var(--sage); border-radius: 10px; padding: 0.65rem 0.8rem; margin-bottom: 0.5rem; }
+.msg-from { font-family: var(--f-head); font-size: 0.75rem; font-weight: 700; color: var(--forest); }
+.msg-when { font-family: var(--f-body); font-size: 0.68rem; color: var(--gray); margin-left: auto; }
+.msg-txt  { font-family: var(--f-body); font-size: 0.82rem; color: var(--charcoal); margin-top: 3px; line-height: 1.55; }
+.msg-inp-row { display: flex; gap: 8px; margin-top: 0.75rem; }
+.msg-inp {
+  flex: 1; padding: 8px 12px; font-family: var(--f-body); font-size: 0.82rem;
+  border: 1px solid var(--greenLt); border-radius: 8px; outline: none;
+  background: var(--white);
+}
+.msg-inp:focus { border-color: var(--green); }
+.msg-send { padding: 8px 16px; background: var(--green); color: var(--white); border: none; border-radius: 8px; cursor: pointer; font-family: var(--f-head); font-size: 0.78rem; font-weight: 700; }
+
+/* Docs list */
+.doc-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px; border: 1px solid var(--sage); border-radius: 10px; margin-bottom: 8px;
+}
+.doc-ico { font-size: 1.4rem; flex-shrink: 0; }
+.doc-name { font-family: var(--f-head); font-size: 0.82rem; font-weight: 700; color: var(--charcoal); }
+.doc-meta { font-family: var(--f-body); font-size: 0.68rem; color: var(--gray); margin-top: 1px; }
+
+/* ═══════════════════════════════════════════════
    RESPONSIVE — improved
 ═══════════════════════════════════════════════ */
 @media (max-width: 1024px) {
@@ -1389,6 +1805,7 @@ textarea.ifield { min-height: 90px; }
     <a class="nav-link" href="#" onclick="showPage('partners')">Partners</a>
     <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
   </div>
+  <a class="nav-link" href="#" onclick="showPage('login');closeMobileMenu()" style="border:1px solid rgba(255,255,255,0.2);margin-left:.5rem">🔒 Portaal</a>
   <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -2491,8 +2908,430 @@ textarea.ifield { min-height: 90px; }
 
 
 <!-- ════════════════════════════════════════════
-     FOOTER (shared)
+     LOGIN PORTAAL
 ════════════════════════════════════════════ -->
+<div id="page-login" class="page">
+  <div class="portal-wrap">
+    <div class="portal-card">
+      <button class="portal-back" onclick="showPage('home')">← Terug naar website</button>
+      <div class="portal-icon">🔒</div>
+      <h2>Beveiligd portaal</h2>
+      <p>Log in met uw toegangsgegevens voor het stakeholder-dashboard of het opdrachtgeversportaal.</p>
+      <div class="portal-error" id="login-err">Gebruikersnaam of wachtwoord onjuist. Probeer het opnieuw.</div>
+      <div class="portal-field">
+        <label>Gebruikersnaam</label>
+        <input type="text" id="prt-user" placeholder="uw.naam@organisatie.nl" />
+      </div>
+      <div class="portal-field">
+        <label>Wachtwoord</label>
+        <input type="password" id="prt-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doPortalLogin()" />
+      </div>
+      <button class="portal-login-btn" onclick="doPortalLogin()">Inloggen →</button>
+      <p class="portal-hint">
+        Demo stakeholders: <strong style="color:rgba(255,255,255,.5)">stakeholder</strong> / <strong style="color:rgba(255,255,255,.5)">werkkracht2026</strong><br>
+        Demo opdrachtgever: <strong style="color:rgba(255,255,255,.5)">opdrachtgever</strong> / <strong style="color:rgba(255,255,255,.5)">gemeente2026</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     STAKEHOLDER DASHBOARD (afgeschermd)
+════════════════════════════════════════════ -->
+<div id="page-dashboard" class="page">
+  <div class="dash-wrap">
+
+    <div class="dash-topbar">
+      <div class="dash-topbar-left">
+        <h1>Stakeholder dashboard</h1>
+        <p>WerkKracht Nederland · Transparantie &amp; verantwoording · Kwartaalrapportage</p>
+      </div>
+      <div class="dash-meta-right">
+        <div><span class="dash-badge-pill pill-green">🔒 Afgeschermd portaal</span></div>
+        <div class="date-str" style="margin-top:6px;" id="dash-dt"></div>
+        <div class="quarter-str">Kwartaal 2 · 2026</div>
+      </div>
+    </div>
+
+    <div class="kpi-strip">
+      <div class="kpi-tile">
+        <div class="kpi-lbl">🏢 Werkplekken</div>
+        <div class="kpi-num">87</div>
+        <div class="kpi-delta">↑ +4 deze maand</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-lbl">👥 Deelnemers</div>
+        <div class="kpi-num">124</div>
+        <div class="kpi-delta">↑ +12% dit kwartaal</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-lbl">📈 MKBA-waarde</div>
+        <div class="kpi-num">€2,5M</div>
+        <div class="kpi-delta neutral">Divosa/Beerenschot</div>
+      </div>
+      <div class="kpi-tile">
+        <div class="kpi-lbl">💰 Loonwaarde</div>
+        <div class="kpi-num">€2,4M</div>
+        <div class="kpi-delta neutral">WML 2026</div>
+      </div>
+    </div>
+
+    <div class="transp-strip">
+      <span class="ts-icon">✅</span>
+      <p><strong>Transparante aanpak:</strong> Alle cijfers zijn gebaseerd op geverifieerde werkplekdata en gevalideerde MKBA-methoden (Divosa/Beerenschot). De loonwaarde is berekend op basis van het Wettelijk Minimumloon 2026 (€27.415/plek/jaar).</p>
+    </div>
+
+    <div class="value-duo">
+      <div class="vbox-wk vbox-forest">
+        <div class="vbox-lbl">Maatschappelijke waarde (MKBA)</div>
+        <div class="vbox-amount">€2.523.000</div>
+        <div class="vbox-sub">87 werkplekken × €29.000 per jaar · Berenschot/Cedris methode</div>
+      </div>
+      <div class="vbox-wk vbox-mint2">
+        <div class="vbox-lbl">Economische waarde (loonwaarde)</div>
+        <div class="vbox-amount">€2.385.105</div>
+        <div class="vbox-sub">87 werkplekken × €27.415 per jaar · WML 2026</div>
+      </div>
+    </div>
+
+    <div class="dash-two">
+      <div class="d-card">
+        <div class="d-card-title">📊 Groei werkplekken 2026</div>
+        <div class="chart-d">
+          <canvas id="dashGrowthChart" role="img" aria-label="Groei werkplekken per maand 2026: jan 52, feb 59, mrt 64, apr 71, mei 83, jun 87">Groei per maand.</canvas>
+        </div>
+      </div>
+      <div class="d-card">
+        <div class="d-card-title">📅 Projectplanning</div>
+        <ul class="phase-ul">
+          <li class="phase-li">
+            <div class="ph-dot ph-done"></div>
+            <div><div class="ph-name">Fase 1 — Opstart</div><div class="ph-per">Jan–Mrt 2025</div></div>
+            <span class="ph-pill pp-done">Afgerond</span>
+          </li>
+          <li class="phase-li">
+            <div class="ph-dot ph-done"></div>
+            <div><div class="ph-name">Fase 2 — Pilot werkplekken</div><div class="ph-per">Apr–Dec 2025</div></div>
+            <span class="ph-pill pp-done">Afgerond</span>
+          </li>
+          <li class="phase-li">
+            <div class="ph-dot ph-active"></div>
+            <div><div class="ph-name">Fase 3 — Opschaling</div><div class="ph-per">Jan–Dec 2026</div></div>
+            <span class="ph-pill pp-active">Lopend</span>
+          </li>
+          <li class="phase-li">
+            <div class="ph-dot ph-future"></div>
+            <div><div class="ph-name">Fase 4 — Borging &amp; overdracht</div><div class="ph-per">2027 en verder</div></div>
+            <span class="ph-pill pp-future">Gepland</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dash-two">
+      <div class="d-card">
+        <div class="d-card-title">🎯 Doelrealisatie per doelgroep</div>
+        <div class="prog-row">
+          <span class="prog-lbl">Bijstand</span>
+          <div class="prog-track"><div class="prog-fill" style="width:72%;background:var(--green);"></div></div>
+          <span class="prog-pct">72%</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-lbl">WIA / WGA</span>
+          <div class="prog-track"><div class="prog-fill" style="width:58%;background:var(--forest);"></div></div>
+          <span class="prog-pct">58%</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-lbl">Statushouders</span>
+          <div class="prog-track"><div class="prog-fill" style="width:45%;background:var(--amber);"></div></div>
+          <span class="prog-pct">45%</span>
+        </div>
+        <div class="prog-row">
+          <span class="prog-lbl">Jongeren</span>
+          <div class="prog-track"><div class="prog-fill" style="width:61%;background:var(--green);"></div></div>
+          <span class="prog-pct">61%</span>
+        </div>
+        <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--gray);margin-top:10px;">% van jaardoelstelling 2026 behaald</p>
+      </div>
+      <div class="d-card">
+        <div class="d-card-title">🤝 Betrokken partijen</div>
+        <div class="pchip-grid">
+          <div class="pchip-wk">
+            <div class="pchip-ico pi-g">🏛️</div>
+            <div><div class="pchip-nm">Gemeenten</div><div class="pchip-rl">Opdrachtgever</div></div>
+          </div>
+          <div class="pchip-wk" title="Werkontwikkelbedrijven">
+            <div class="pchip-ico pi-t">🔧</div>
+            <div><div class="pchip-nm">WOB-bedrijven</div><div class="pchip-rl">Werkontwikkelbedrijven</div></div>
+          </div>
+          <div class="pchip-wk">
+            <div class="pchip-ico pi-a">💼</div>
+            <div><div class="pchip-nm">Werkgevers</div><div class="pchip-rl">Werkplekken</div></div>
+          </div>
+          <div class="pchip-wk">
+            <div class="pchip-ico pi-g">🤲</div>
+            <div><div class="pchip-nm">UWV</div><div class="pchip-rl">Uitkering</div></div>
+          </div>
+          <div class="pchip-wk">
+            <div class="pchip-ico pi-t">🎓</div>
+            <div><div class="pchip-nm">Opleiders</div><div class="pchip-rl">Ontwikkeling</div></div>
+          </div>
+          <div class="pchip-wk">
+            <div class="pchip-ico pi-a">📊</div>
+            <div><div class="pchip-nm">Divosa</div><div class="pchip-rl">Kennispartner</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-foot">
+      <p>🔒 Afgeschermd portaal · Data geverifieerd · Volgende update: september 2026</p>
+      <div class="dash-foot-btns">
+        <button class="dbtn" onclick="showPage('login')">← Uitloggen</button>
+        <button class="dbtn">⬇ Exporteer PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     OPDRACHTGEVERS PORTAAL (afgeschermd)
+════════════════════════════════════════════ -->
+<div id="page-opdrachtgever" class="page">
+  <div class="dash-wrap">
+
+    <div class="dash-topbar">
+      <div class="dash-topbar-left">
+        <h1>Opdrachtgeversportaal</h1>
+        <p>WerkKracht Nederland · Voortgang van uw projecten · Gemeente Den Haag</p>
+      </div>
+      <div class="dash-meta-right">
+        <div><span class="dash-badge-pill pill-forest">🏛️ Opdrachtgever</span></div>
+        <div class="date-str" style="margin-top:6px;" id="opd-dt"></div>
+      </div>
+    </div>
+
+    <div class="opd-tabs-bar">
+      <button class="opd-tab-btn active" onclick="opdSwitch(this,'opd-overzicht')">Projectoverzicht</button>
+      <button class="opd-tab-btn" onclick="opdSwitch(this,'opd-financieel')">Financieel</button>
+      <button class="opd-tab-btn" onclick="opdSwitch(this,'opd-berichten')">Berichten</button>
+      <button class="opd-tab-btn" onclick="opdSwitch(this,'opd-docs')">Documenten</button>
+    </div>
+
+    <!-- TAB: OVERZICHT -->
+    <div id="opd-overzicht" class="opd-panel active">
+
+      <div class="kpi-strip" style="margin-bottom:1.5rem;">
+        <div class="kpi-tile">
+          <div class="kpi-lbl">🏢 Uw werkplekken</div>
+          <div class="kpi-num">32</div>
+          <div class="kpi-delta">↑ +3 t.o.v. Q1</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-lbl">🎯 Doelstelling 2026</div>
+          <div class="kpi-num">50</div>
+          <div class="kpi-delta" style="color:var(--amber);">64% behaald</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-lbl">📈 MKBA-waarde</div>
+          <div class="kpi-num">€928K</div>
+          <div class="kpi-delta neutral">32 × €29.000</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-lbl">📅 Volgende rapportage</div>
+          <div class="kpi-num">1 sep</div>
+          <div class="kpi-delta neutral">Kwartaalrapport Q3</div>
+        </div>
+      </div>
+
+      <p style="font-family:var(--f-head);font-size:0.82rem;font-weight:700;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">Uw projecten</p>
+
+      <!-- Project 1 -->
+      <div class="proj-card">
+        <div class="proj-head" onclick="toggleProj('p1')">
+          <div>
+            <div class="proj-name">Traject Bijstand naar Werk</div>
+            <div class="proj-gm">Gemeente Den Haag · 20 werkplekken · Looptijd 18 mnd</div>
+          </div>
+          <div class="proj-right">
+            <div class="proj-pb-wrap"><div class="proj-pb" style="width:80%;"></div></div>
+            <span class="proj-pct">80%</span>
+            <span class="proj-chev" id="chev-p1">▾</span>
+          </div>
+        </div>
+        <div class="proj-body" id="body-p1">
+          <div class="proj-kpis">
+            <div class="pkpi"><div class="pkpi-l">Gerealiseerd</div><div class="pkpi-v">16</div><div class="pkpi-s">van 20 plekken</div></div>
+            <div class="pkpi"><div class="pkpi-l">Startdatum</div><div class="pkpi-v">apr '25</div><div class="pkpi-s">looptijd 18 mnd</div></div>
+            <div class="pkpi"><div class="pkpi-l">Uitstroom regulier</div><div class="pkpi-v">4</div><div class="pkpi-s">deelnemers</div></div>
+            <div class="pkpi"><div class="pkpi-l">MKBA gerealiseerd</div><div class="pkpi-v">€464K</div><div class="pkpi-s">van €580K doel</div></div>
+          </div>
+          <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">Mijlpalen</p>
+          <ul class="ms-ul">
+            <li class="ms-li">
+              <div class="ms-ico ms-done3">✓</div>
+              <div><div class="ms-nm">Intakegesprekken afgerond</div><div class="ms-dt">Februari 2025</div></div>
+              <span class="ph-pill pp-done" style="margin-left:auto;">Klaar</span>
+            </li>
+            <li class="ms-li">
+              <div class="ms-ico ms-done3">✓</div>
+              <div><div class="ms-nm">Eerste 10 plaatsingen gerealiseerd</div><div class="ms-dt">Juni 2025</div></div>
+              <span class="ph-pill pp-done" style="margin-left:auto;">Klaar</span>
+            </li>
+            <li class="ms-li">
+              <div class="ms-ico ms-act3">↻</div>
+              <div>
+                <div class="ms-nm">Opschaling naar 20 plaatsingen</div>
+                <div class="ms-dt">Doel: oktober 2026</div>
+                <div class="ms-note">Momenteel 16 gerealiseerd — 4 in voorbereiding bij WOB-partners</div>
+              </div>
+              <span class="ph-pill pp-active" style="margin-left:auto;">Lopend</span>
+            </li>
+            <li class="ms-li">
+              <div class="ms-ico ms-fut3">○</div>
+              <div><div class="ms-nm">Eindrapportage &amp; MKBA-audit</div><div class="ms-dt">December 2026</div></div>
+              <span class="ph-pill pp-future" style="margin-left:auto;">Gepland</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="proj-card">
+        <div class="proj-head" onclick="toggleProj('p2')">
+          <div>
+            <div class="proj-name">Statushouders naar Werk</div>
+            <div class="proj-gm">Gemeente Den Haag · 12 werkplekken · Looptijd 12 mnd</div>
+          </div>
+          <div class="proj-right">
+            <div class="proj-pb-wrap"><div class="proj-pb" style="width:50%;background:var(--amber);"></div></div>
+            <span class="proj-pct" style="color:var(--amber);">50%</span>
+            <span class="proj-chev" id="chev-p2">▾</span>
+          </div>
+        </div>
+        <div class="proj-body" id="body-p2">
+          <div class="proj-kpis">
+            <div class="pkpi"><div class="pkpi-l">Gerealiseerd</div><div class="pkpi-v">6</div><div class="pkpi-s">van 12 plekken</div></div>
+            <div class="pkpi"><div class="pkpi-l">Startdatum</div><div class="pkpi-v">jan '26</div><div class="pkpi-s">looptijd 12 mnd</div></div>
+            <div class="pkpi"><div class="pkpi-l">Taaltrajecten</div><div class="pkpi-v">6</div><div class="pkpi-s">actief parallel</div></div>
+            <div class="pkpi"><div class="pkpi-l">MKBA gerealiseerd</div><div class="pkpi-v">€174K</div><div class="pkpi-s">van €348K doel</div></div>
+          </div>
+          <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;">Mijlpalen</p>
+          <ul class="ms-ul">
+            <li class="ms-li">
+              <div class="ms-ico ms-done3">✓</div>
+              <div><div class="ms-nm">Selectie deelnemers &amp; intake</div><div class="ms-dt">December 2025</div></div>
+              <span class="ph-pill pp-done" style="margin-left:auto;">Klaar</span>
+            </li>
+            <li class="ms-li">
+              <div class="ms-ico ms-act3">↻</div>
+              <div>
+                <div class="ms-nm">Eerste 6 plaatsingen + taaltraject</div>
+                <div class="ms-dt">Doel: augustus 2026</div>
+                <div class="ms-note">6 deelnemers geplaatst bij WOB-bedrijven, taaltraject loopt parallel</div>
+              </div>
+              <span class="ph-pill pp-active" style="margin-left:auto;">Lopend</span>
+            </li>
+            <li class="ms-li">
+              <div class="ms-ico ms-fut3">○</div>
+              <div><div class="ms-nm">Volledige bezetting 12 plekken</div><div class="ms-dt">November 2026</div></div>
+              <span class="ph-pill pp-future" style="margin-left:auto;">Gepland</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /opd-overzicht -->
+
+    <!-- TAB: FINANCIEEL -->
+    <div id="opd-financieel" class="opd-panel">
+      <div class="d-card" style="margin-bottom:1rem;">
+        <div class="d-card-title">📋 Financieel overzicht 2026 — Gemeente Den Haag</div>
+        <table class="fin-table">
+          <thead>
+            <tr><th>Post</th><th>Begroting</th><th>Besteed</th><th>Restant</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trajectkosten deelnemers</td><td>€180.000</td><td class="pos">€112.400</td><td>€67.600</td></tr>
+            <tr><td>Begeleiding &amp; coaching</td><td>€45.000</td><td class="pos">€28.750</td><td>€16.250</td></tr>
+            <tr><td>Scholing &amp; taaltraject</td><td>€22.000</td><td class="pos">€9.800</td><td>€12.200</td></tr>
+            <tr><td>Totaal</td><td>€247.000</td><td class="pos">€150.950</td><td>€96.050</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="value-duo">
+        <div class="vbox-wk vbox-forest">
+          <div class="vbox-lbl">MKBA-rendement op investering</div>
+          <div class="vbox-amount">615%</div>
+          <div class="vbox-sub">€928K maatsch. waarde op €150K besteed</div>
+        </div>
+        <div class="vbox-wk vbox-mint2">
+          <div class="vbox-lbl">Verwacht rendement bij volledige bezetting</div>
+          <div class="vbox-amount">968%</div>
+          <div class="vbox-sub">€1,45 mln waarde op €247K bij 50 plekken</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: BERICHTEN -->
+    <div id="opd-berichten" class="opd-panel">
+      <div class="msg-thread">
+        <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem;">Berichten met WerkKracht Nederland</p>
+        <div class="msg-bubble">
+          <div style="display:flex;align-items:center;"><span class="msg-from">WerkKracht — Projectcoördinator</span><span class="msg-when" style="margin-left:auto;">2 jun 2026</span></div>
+          <div class="msg-txt">Goedemiddag, de kwartaalcijfers Q2 zijn verwerkt in het portaal. Uw bezettingsgraad staat op 64% — we verwachten eind augustus de doelstelling van 80% te halen. Heeft u vragen?</div>
+        </div>
+        <div class="msg-bubble">
+          <div style="display:flex;align-items:center;"><span class="msg-from">Gemeente Den Haag — Accountmanager</span><span class="msg-when" style="margin-left:auto;">28 mei 2026</span></div>
+          <div class="msg-txt">Dank voor de update. Kunnen we het statushouderstraject bespreken in het kwartaaloverleg? We zien dat het tempo iets lager ligt dan gepland.</div>
+        </div>
+        <div class="msg-bubble">
+          <div style="display:flex;align-items:center;"><span class="msg-from">WerkKracht — Projectcoördinator</span><span class="msg-when" style="margin-left:auto;">29 mei 2026</span></div>
+          <div class="msg-txt">Zeker, we plannen het overleg voor 18 juni. De vertraging zit in de taaltrajecten — die duren gemiddeld 2 maanden langer dan ingeschat. Een aangepaste planning volgt.</div>
+        </div>
+        <div class="msg-inp-row">
+          <input class="msg-inp" type="text" id="msg-in" placeholder="Typ uw bericht..." onkeydown="if(event.key==='Enter')sendPortalMsg()" />
+          <button class="msg-send" onclick="sendPortalMsg()">Verstuur</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: DOCUMENTEN -->
+    <div id="opd-docs" class="opd-panel">
+      <div class="d-card">
+        <div class="d-card-title">📂 Beschikbare documenten</div>
+        <div class="doc-item">
+          <span class="doc-ico">📄</span>
+          <div style="flex:1;"><div class="doc-name">Kwartaalrapportage Q1 2026</div><div class="doc-meta">PDF · 2,4 MB · Gepubliceerd 5 april 2026</div></div>
+          <button class="dbtn">⬇ Download</button>
+        </div>
+        <div class="doc-item">
+          <span class="doc-ico">📄</span>
+          <div style="flex:1;"><div class="doc-name">Jaarplan 2026 — WerkKracht Den Haag</div><div class="doc-meta">PDF · 1,1 MB · Gepubliceerd 10 januari 2026</div></div>
+          <button class="dbtn">⬇ Download</button>
+        </div>
+        <div class="doc-item">
+          <span class="doc-ico">📊</span>
+          <div style="flex:1;"><div class="doc-name">MKBA-berekening 2026 (Excel)</div><div class="doc-meta">XLSX · 340 KB · Bijgewerkt 1 juni 2026</div></div>
+          <button class="dbtn">⬇ Download</button>
+        </div>
+        <div class="doc-item">
+          <span class="doc-ico">📄</span>
+          <div style="flex:1;"><div class="doc-name">Raamovereenkomst WerkKracht × Gemeente Den Haag</div><div class="doc-meta">PDF · 890 KB · Getekend 15 december 2024</div></div>
+          <button class="dbtn">⬇ Download</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-foot" style="margin-top:1.5rem;">
+      <p>🔒 Afgeschermd portaal · Gemeente Den Haag · Sessie verloopt na 30 min inactiviteit</p>
+      <div class="dash-foot-btns">
+        <button class="dbtn" onclick="showPage('login')">← Uitloggen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -2528,7 +3367,81 @@ textarea.ifield { min-height: 90px; }
 </footer>
 
 <script>
-// ── PAGE NAVIGATION ───────────────────────────────────────────
+// ── PORTAL LOGIN ──────────────────────────────────────────────
+function doPortalLogin() {
+  const u = document.getElementById('prt-user').value.trim().toLowerCase();
+  const p = document.getElementById('prt-pass').value.trim();
+  const err = document.getElementById('login-err');
+  err.style.display = 'none';
+  if ((u === 'stakeholder' && p === 'werkkracht2026') || u.includes('stakeholder')) {
+    initDashboard(); showPage('dashboard');
+  } else if ((u === 'opdrachtgever' && p === 'gemeente2026') || u.includes('opdrachtgever')) {
+    initOpd(); showPage('opdrachtgever');
+  } else {
+    err.style.display = 'block';
+  }
+}
+
+function initDashboard() {
+  const el = document.getElementById('dash-dt');
+  if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  if (window._dashChartDone) return;
+  window._dashChartDone = true;
+  setTimeout(() => {
+    if (typeof Chart === 'undefined') return;
+    new Chart(document.getElementById('dashGrowthChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Jan','Feb','Mrt','Apr','Mei','Jun'],
+        datasets: [{ label: 'Werkplekken', data: [52,59,64,71,83,87], backgroundColor: '#27AE60', borderRadius: 5, borderSkipped: false }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { font:{size:11}, color:'#6B7C75' } },
+          y: { grid: { color:'rgba(107,124,117,.15)' }, ticks: { font:{size:11}, color:'#6B7C75', stepSize:20 }, min:0, max:110 }
+        }
+      }
+    });
+  }, 200);
+}
+
+function initOpd() {
+  const el = document.getElementById('opd-dt');
+  if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+}
+
+// ── OPDRACHTGEVER TABS ────────────────────────────────────────
+function opdSwitch(btn, panelId) {
+  document.querySelectorAll('.opd-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.opd-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// ── PROJECT TOGGLE ────────────────────────────────────────────
+function toggleProj(id) {
+  const body = document.getElementById('body-' + id);
+  const chev = document.getElementById('chev-' + id);
+  const open = body.classList.toggle('open');
+  chev.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+// ── PORTAL MESSAGE ────────────────────────────────────────────
+function sendPortalMsg() {
+  const inp = document.getElementById('msg-in');
+  const txt = inp.value.trim();
+  if (!txt) return;
+  const thread = inp.closest('.msg-thread');
+  const div = document.createElement('div');
+  div.className = 'msg-bubble';
+  div.innerHTML = `<div style="display:flex;align-items:center;"><span class="msg-from">Gemeente Den Haag</span><span class="msg-when" style="margin-left:auto;">Zojuist</span></div><div class="msg-txt">${txt}</div>`;
+  thread.insertBefore(div, inp.closest('.msg-inp-row'));
+  inp.value = '';
+}
+
+
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
