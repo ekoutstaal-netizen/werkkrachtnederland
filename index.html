@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WerkKracht Nederland — Landelijk Platform Werkontwikkelbedrijven</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1A5C38">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WerkKracht">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Red+Hat+Display:wght@400;500;700;900&family=Red+Hat+Text:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <style>
@@ -1358,7 +1364,6 @@ textarea.ifield { min-height: 90px; }
     <a class="nav-link" href="#" onclick="showPage('over')">Over ons</a>
     <a class="nav-link" href="#" onclick="showPage('kennisbank')">Kennisbank</a>
     <a class="nav-link" href="#" onclick="showPage('partners')">Partners</a>
-    <a class="nav-link" href="#" onclick="showPage('planning')">Projectplanning</a>
     <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
   </div>
   <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -1374,7 +1379,6 @@ textarea.ifield { min-height: 90px; }
   <a class="nav-link" href="#" onclick="showPage('over');closeMobileMenu()">ℹ️ Over ons</a>
   <a class="nav-link" href="#" onclick="showPage('kennisbank');closeMobileMenu()">📚 Kennisbank</a>
   <a class="nav-link" href="#" onclick="showPage('partners');closeMobileMenu()">🤝 Partners</a>
-  <a class="nav-link" href="#" onclick="showPage('planning');closeMobileMenu()">📋 Projectplanning</a>
   <a class="nav-link" href="#" onclick="showPage('contact');closeMobileMenu()">📧 Contact</a>
 </div>
 
@@ -2464,88 +2468,6 @@ textarea.ifield { min-height: 90px; }
 
 
 <!-- ════════════════════════════════════════════
-     PROJECTPLANNING PAGE
-════════════════════════════════════════════ -->
-<div id="page-planning" class="page">
-  <div class="page-hero">
-    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / Projectplanning</div>
-    <h1>Projectplanning</h1>
-    <p>Overzicht van fases, mijlpalen en voortgang per businessline. Opdrachtgevers kunnen de actuele status hier live volgen.</p>
-  </div>
-
-  <section class="section">
-    <div style="max-width:1000px;margin:0 auto">
-
-      <!-- Meta info -->
-      <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;padding:1.5rem 2rem;background:var(--greenDk);border-radius:14px">
-        <div><div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);font-family:var(--f-head)">Startdatum</div><div style="font-family:var(--f-display);font-size:0.95rem;font-weight:800;color:var(--white)">Juni 2025</div></div>
-        <div><div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);font-family:var(--f-head)">Einddatum</div><div style="font-family:var(--f-display);font-size:0.95rem;font-weight:800;color:var(--white)">December 2026</div></div>
-        <div><div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);font-family:var(--f-head)">Businesslines</div><div style="font-family:var(--f-display);font-size:0.95rem;font-weight:800;color:var(--white)">4</div></div>
-        <div style="margin-left:auto;display:flex;align-items:center"><span style="font-size:0.78rem;color:var(--greenLt);background:rgba(255,255,255,0.08);padding:0.3rem 0.9rem;border-radius:20px;border:1px solid rgba(255,255,255,0.12);font-family:var(--f-head)" id="pl-last-saved">Live dashboard</span></div>
-      </div>
-
-      <!-- Status legend -->
-      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:center">
-        <span style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gray)">Status:</span>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap">
-          <span style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gray)"><span style="width:10px;height:10px;border-radius:50%;background:#CBD5D0;display:inline-block"></span>Nog te starten</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gray)"><span style="width:10px;height:10px;border-radius:50%;background:var(--amber);display:inline-block"></span>In uitvoering</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gray)"><span style="width:10px;height:10px;border-radius:50%;background:#5B9BD5;display:inline-block"></span>In review</span>
-          <span style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gray)"><span style="width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block"></span>Afgerond</span>
-        </div>
-      </div>
-
-      <!-- BL Tabs -->
-      <div style="display:flex;gap:0;border-bottom:2px solid var(--greenDk);margin-bottom:1.5rem;overflow-x:auto">
-        <button class="pl-tab active" onclick="plShowBL(0)" style="flex-shrink:0;font-family:var(--f-head);font-size:0.82rem;font-weight:500;color:var(--gray);padding:0.75rem 1.2rem;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;margin-bottom:-2px">🔗 Vraag bundelen</button>
-        <button class="pl-tab" onclick="plShowBL(1)" style="flex-shrink:0;font-family:var(--f-head);font-size:0.82rem;font-weight:500;color:var(--gray);padding:0.75rem 1.2rem;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;margin-bottom:-2px">📈 Opschalen</button>
-        <button class="pl-tab" onclick="plShowBL(2)" style="flex-shrink:0;font-family:var(--f-head);font-size:0.82rem;font-weight:500;color:var(--gray);padding:0.75rem 1.2rem;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;margin-bottom:-2px">📚 Kennisplatform</button>
-        <button class="pl-tab" onclick="plShowBL(3)" style="flex-shrink:0;font-family:var(--f-head);font-size:0.82rem;font-weight:500;color:var(--gray);padding:0.75rem 1.2rem;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;white-space:nowrap;margin-bottom:-2px">👷 Projectleiding</button>
-      </div>
-
-      <!-- BL Panels -->
-      <div id="pl-bl-0" class="pl-panel">
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;border-left:5px solid var(--green);margin-bottom:1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-          <div><div style="font-family:var(--f-display);font-size:0.68rem;font-weight:800;letter-spacing:0.18em;color:var(--green);text-transform:uppercase;margin-bottom:0.4rem">Businessline 01</div><h2 style="font-family:var(--f-display);font-size:1.4rem;font-weight:800;color:var(--charcoal);margin-bottom:0.4rem">Werkgeversvraag bundelen</h2><p style="font-size:0.88rem;color:var(--gray);line-height:1.6;max-width:500px">Landelijke acquisitie en koppeling van werkgeversvraag aan werkontwikkelbedrijven.</p></div>
-          <div style="min-width:140px;text-align:right"><div style="font-family:var(--f-display);font-size:2rem;font-weight:800;color:var(--green);line-height:1" id="pl-pct-0">0%</div><div style="font-size:0.7rem;color:var(--gray);margin-top:2px">mijlpalen afgerond</div><div style="height:6px;background:#E8F0EC;border-radius:3px;margin-top:8px;overflow:hidden"><div style="height:100%;background:var(--green);border-radius:3px;transition:width 1s ease" id="pl-fill-0"></div></div></div>
-        </div>
-        <div id="pl-phases-0"></div>
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;margin-top:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)"><h3 style="font-family:var(--f-head);font-size:0.88rem;font-weight:700;color:var(--charcoal);margin-bottom:0.75rem">📝 Notities & voortgangscommentaar</h3><textarea id="pl-notes-0" style="width:100%;min-height:80px;border:1px solid #D5E5DC;border-radius:8px;padding:0.75rem;font-family:var(--f-body);font-size:0.85rem;color:var(--charcoal);resize:vertical;background:var(--offwhite);outline:none" placeholder="Voeg notities toe..."></textarea><button onclick="plSaveNotes(0)" style="margin-top:0.5rem;font-family:var(--f-head);font-size:0.78rem;font-weight:700;background:var(--green);color:var(--white);border:none;padding:0.4rem 1rem;border-radius:6px;cursor:pointer">Opslaan</button><span id="pl-saved-0" style="font-size:0.75rem;color:var(--green);margin-left:0.5rem;opacity:0;transition:opacity 0.5s">✓ Opgeslagen</span></div>
-      </div>
-
-      <div id="pl-bl-1" class="pl-panel" style="display:none">
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;border-left:5px solid var(--green);margin-bottom:1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-          <div><div style="font-family:var(--f-display);font-size:0.68rem;font-weight:800;letter-spacing:0.18em;color:var(--green);text-transform:uppercase;margin-bottom:0.4rem">Businessline 02</div><h2 style="font-family:var(--f-display);font-size:1.4rem;font-weight:800;color:var(--charcoal);margin-bottom:0.4rem">Werkconcepten opschalen</h2><p style="font-size:0.88rem;color:var(--gray);line-height:1.6;max-width:500px">Bewezen aanpakken worden beschikbaar voor de hele sector. Van pilot naar landelijk uitgerold werkconcept.</p></div>
-          <div style="min-width:140px;text-align:right"><div style="font-family:var(--f-display);font-size:2rem;font-weight:800;color:var(--green);line-height:1" id="pl-pct-1">0%</div><div style="font-size:0.7rem;color:var(--gray);margin-top:2px">mijlpalen afgerond</div><div style="height:6px;background:#E8F0EC;border-radius:3px;margin-top:8px;overflow:hidden"><div style="height:100%;background:var(--green);border-radius:3px;transition:width 1s ease" id="pl-fill-1"></div></div></div>
-        </div>
-        <div id="pl-phases-1"></div>
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;margin-top:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)"><h3 style="font-family:var(--f-head);font-size:0.88rem;font-weight:700;color:var(--charcoal);margin-bottom:0.75rem">📝 Notities & voortgangscommentaar</h3><textarea id="pl-notes-1" style="width:100%;min-height:80px;border:1px solid #D5E5DC;border-radius:8px;padding:0.75rem;font-family:var(--f-body);font-size:0.85rem;color:var(--charcoal);resize:vertical;background:var(--offwhite);outline:none" placeholder="Voeg notities toe..."></textarea><button onclick="plSaveNotes(1)" style="margin-top:0.5rem;font-family:var(--f-head);font-size:0.78rem;font-weight:700;background:var(--green);color:var(--white);border:none;padding:0.4rem 1rem;border-radius:6px;cursor:pointer">Opslaan</button><span id="pl-saved-1" style="font-size:0.75rem;color:var(--green);margin-left:0.5rem;opacity:0;transition:opacity 0.5s">✓ Opgeslagen</span></div>
-      </div>
-
-      <div id="pl-bl-2" class="pl-panel" style="display:none">
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;border-left:5px solid var(--green);margin-bottom:1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-          <div><div style="font-family:var(--f-display);font-size:0.68rem;font-weight:800;letter-spacing:0.18em;color:var(--green);text-transform:uppercase;margin-bottom:0.4rem">Businessline 03</div><h2 style="font-family:var(--f-display);font-size:1.4rem;font-weight:800;color:var(--charcoal);margin-bottom:0.4rem">Kennisplatform & formats</h2><p style="font-size:0.88rem;color:var(--gray);line-height:1.6;max-width:500px">Een digitale kennisbank met formats, praktijkcases en tools — speciaal voor werkontwikkelbedrijven.</p></div>
-          <div style="min-width:140px;text-align:right"><div style="font-family:var(--f-display);font-size:2rem;font-weight:800;color:var(--green);line-height:1" id="pl-pct-2">0%</div><div style="font-size:0.7rem;color:var(--gray);margin-top:2px">mijlpalen afgerond</div><div style="height:6px;background:#E8F0EC;border-radius:3px;margin-top:8px;overflow:hidden"><div style="height:100%;background:var(--green);border-radius:3px;transition:width 1s ease" id="pl-fill-2"></div></div></div>
-        </div>
-        <div id="pl-phases-2"></div>
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;margin-top:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)"><h3 style="font-family:var(--f-head);font-size:0.88rem;font-weight:700;color:var(--charcoal);margin-bottom:0.75rem">📝 Notities & voortgangscommentaar</h3><textarea id="pl-notes-2" style="width:100%;min-height:80px;border:1px solid #D5E5DC;border-radius:8px;padding:0.75rem;font-family:var(--f-body);font-size:0.85rem;color:var(--charcoal);resize:vertical;background:var(--offwhite);outline:none" placeholder="Voeg notities toe..."></textarea><button onclick="plSaveNotes(2)" style="margin-top:0.5rem;font-family:var(--f-head);font-size:0.78rem;font-weight:700;background:var(--green);color:var(--white);border:none;padding:0.4rem 1rem;border-radius:6px;cursor:pointer">Opslaan</button><span id="pl-saved-2" style="font-size:0.75rem;color:var(--green);margin-left:0.5rem;opacity:0;transition:opacity 0.5s">✓ Opgeslagen</span></div>
-      </div>
-
-      <div id="pl-bl-3" class="pl-panel" style="display:none">
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;border-left:5px solid var(--green);margin-bottom:1.5rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 12px rgba(0,0,0,0.04)">
-          <div><div style="font-family:var(--f-display);font-size:0.68rem;font-weight:800;letter-spacing:0.18em;color:var(--green);text-transform:uppercase;margin-bottom:0.4rem">Businessline 04</div><h2 style="font-family:var(--f-display);font-size:1.4rem;font-weight:800;color:var(--charcoal);margin-bottom:0.4rem">Projectleiding & advies</h2><p style="font-size:0.88rem;color:var(--gray);line-height:1.6;max-width:500px">Flexibele projectleiders ingezet bij organisatieverandering, nieuwe werkstromen of businesscase-ontwikkeling.</p></div>
-          <div style="min-width:140px;text-align:right"><div style="font-family:var(--f-display);font-size:2rem;font-weight:800;color:var(--green);line-height:1" id="pl-pct-3">0%</div><div style="font-size:0.7rem;color:var(--gray);margin-top:2px">mijlpalen afgerond</div><div style="height:6px;background:#E8F0EC;border-radius:3px;margin-top:8px;overflow:hidden"><div style="height:100%;background:var(--green);border-radius:3px;transition:width 1s ease" id="pl-fill-3"></div></div></div>
-        </div>
-        <div id="pl-phases-3"></div>
-        <div style="background:var(--white);border-radius:14px;padding:1.5rem 2rem;margin-top:1rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)"><h3 style="font-family:var(--f-head);font-size:0.88rem;font-weight:700;color:var(--charcoal);margin-bottom:0.75rem">📝 Notities & voortgangscommentaar</h3><textarea id="pl-notes-3" style="width:100%;min-height:80px;border:1px solid #D5E5DC;border-radius:8px;padding:0.75rem;font-family:var(--f-body);font-size:0.85rem;color:var(--charcoal);resize:vertical;background:var(--offwhite);outline:none" placeholder="Voeg notities toe..."></textarea><button onclick="plSaveNotes(3)" style="margin-top:0.5rem;font-family:var(--f-head);font-size:0.78rem;font-weight:700;background:var(--green);color:var(--white);border:none;padding:0.4rem 1rem;border-radius:6px;cursor:pointer">Opslaan</button><span id="pl-saved-3" style="font-size:0.75rem;color:var(--green);margin-left:0.5rem;opacity:0;transition:opacity 0.5s">✓ Opgeslagen</span></div>
-      </div>
-
-    </div>
-  </section>
-</div><!-- /page-planning -->
-
-
-<!-- ════════════════════════════════════════════
      FOOTER (shared)
 ════════════════════════════════════════════ -->
 <footer>
@@ -2837,182 +2759,18 @@ function iResetForm() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ══════════════════════════════════════════════════════════════
-// PROJECTPLANNING LOGIC
-// ══════════════════════════════════════════════════════════════
-const plData = [
-  { bl: 0, phases: [
-    { name: 'Verkenning & marktanalyse', period: 'Jun – Aug 2025', milestones: [
-      { id:'pl-m-0-0-0', name:'Inventarisatie werkgeversnetwerk', desc:'Breng in kaart welke werkgevers al samenwerken met werkontwikkelbedrijven.', date:'Juli 2025' },
-      { id:'pl-m-0-0-1', name:'SROI-kansen analyse', desc:'Identificeer sectoren met SROI-verplichtingen als kansrijke instroom.', date:'Aug 2025' },
-      { id:'pl-m-0-0-2', name:'Vraagbundelingsmodel ontwikkelen', desc:'Eerste opzet van het matchingmodel: hoe wordt vraag gebundeld?', date:'Aug 2025' },
-    ]},
-    { name: 'Pilotaanpak & eerste matches', period: 'Sep – Dec 2025', milestones: [
-      { id:'pl-m-0-1-0', name:'Pilotregio selecteren', desc:'Keuze van 2–3 pilotregio\'s voor eerste vraagbundeling en matching.', date:'Sep 2025' },
-      { id:'pl-m-0-1-1', name:'Eerste werkgeverscontracten', desc:'Minimaal 5 werkgevers gecontracteerd voor deelname aan het bundelprogramma.', date:'Nov 2025' },
-      { id:'pl-m-0-1-2', name:'Evaluatie pilotfase', desc:'Tussentijdse evaluatie: wat werkt, wat moet worden aangepast?', date:'Dec 2025' },
-    ]},
-    { name: 'Landelijke uitrol', period: 'Jan – Dec 2026', milestones: [
-      { id:'pl-m-0-2-0', name:'Opschaling naar alle regio\'s', desc:'Vraagbundelingsmodel actief in alle 35 arbeidsmarktregio\'s.', date:'Jun 2026' },
-      { id:'pl-m-0-2-1', name:'Jaarrapportage & impact', desc:'Eindrapportage met aantallen matches, gecreëerde werkplekken en SROI-realisatie.', date:'Dec 2026' },
-    ]},
-  ]},
-  { bl: 1, phases: [
-    { name: 'Bewezen concepten identificeren', period: 'Jun – Sep 2025', milestones: [
-      { id:'pl-m-1-0-0', name:'Inventarisatie werkconcepten', desc:'Overzicht van bewezen werkconcepten bij toonaangevende werkontwikkelbedrijven.', date:'Aug 2025' },
-      { id:'pl-m-1-0-1', name:'Selectie top-5 opschaalbare concepten', desc:'Beoordeling op schaalbaarheid, impact en overdraagbaarheid.', date:'Sep 2025' },
-    ]},
-    { name: 'Standaardisatie & implementatieformat', period: 'Okt 2025 – Mrt 2026', milestones: [
-      { id:'pl-m-1-1-0', name:'Implementatiehandleidingen schrijven', desc:'Per werkconcept een gestandaardiseerde handleiding inclusief tools en formats.', date:'Jan 2026' },
-      { id:'pl-m-1-1-1', name:'Pilotimplementatie 3 regio\'s', desc:'Eerste toepassing van gestandaardiseerde werkconcepten in 3 regio\'s.', date:'Mrt 2026' },
-    ]},
-    { name: 'Landelijke beschikbaarheid', period: 'Apr – Dec 2026', milestones: [
-      { id:'pl-m-1-2-0', name:'Concepten beschikbaar in kennisplatform', desc:'Alle uitgewerkte werkconcepten toegankelijk via het WerkKracht kennisplatform.', date:'Jun 2026' },
-      { id:'pl-m-1-2-1', name:'Impact- en bereiksmeting', desc:'Meting van het aantal geïmplementeerde concepten en bereikte medewerkers.', date:'Dec 2026' },
-    ]},
-  ]},
-  { bl: 2, phases: [
-    { name: 'Platform opzet & structuur', period: 'Jun – Sep 2025', milestones: [
-      { id:'pl-m-2-0-0', name:'Platformarchitectuur bepalen', desc:'Keuze van technisch platform, toegankelijkheidsmodel en beheerstructuur.', date:'Jul 2025' },
-      { id:'pl-m-2-0-1', name:'Eerste 10 formats ontwikkeld', desc:'Praktische formats voor intakegesprekken, businesscase-opbouw en SROI-berekening.', date:'Sep 2025' },
-    ]},
-    { name: 'Lancering & community', period: 'Okt 2025 – Mrt 2026', milestones: [
-      { id:'pl-m-2-1-0', name:'Soft launch kennisplatform', desc:'Eerste versie beschikbaar voor 10 werkontwikkelbedrijven als testpanel.', date:'Nov 2025' },
-      { id:'pl-m-2-1-1', name:'25 aangesloten organisaties', desc:'Bereiken van 25 actieve gebruikersorganisaties binnen het kennisplatform.', date:'Mrt 2026' },
-    ]},
-    { name: 'Groei & benchmarking', period: 'Apr – Dec 2026', milestones: [
-      { id:'pl-m-2-2-0', name:'Benchmarktool live', desc:'Werkontwikkelbedrijven vergelijken hun prestaties met sectorgemiddelden.', date:'Sep 2026' },
-      { id:'pl-m-2-2-1', name:'100 organisaties bereikt', desc:'Minimaal 100 werkontwikkelbedrijven actief gebruiker van het kennisplatform.', date:'Dec 2026' },
-    ]},
-  ]},
-  { bl: 3, phases: [
-    { name: 'Netwerk & positionering', period: 'Jun – Sep 2025', milestones: [
-      { id:'pl-m-3-0-0', name:'Netwerk projectleiders opbouwen', desc:'Pool van minimaal 10 gekwalificeerde projectleiders met sectorkennis.', date:'Sep 2025' },
-      { id:'pl-m-3-0-1', name:'Dienstverleningsmodel uitwerken', desc:'Heldere propositie, tariefstructuur en opdrachtmodaliteiten.', date:'Sep 2025' },
-    ]},
-    { name: 'Eerste opdrachten & referenties', period: 'Okt 2025 – Mrt 2026', milestones: [
-      { id:'pl-m-3-1-0', name:'5 eerste adviesopdrachten', desc:'Minimaal 5 afgeronde advies- of projectleidingsopdrachten als referentieprojecten.', date:'Feb 2026' },
-      { id:'pl-m-3-1-1', name:'Klanttevredenheidsonderzoek', desc:'Meting van tevredenheid bij opdrachtgevers en bijstelling van het model.', date:'Mrt 2026' },
-    ]},
-    { name: 'Structurele groei', period: 'Apr – Dec 2026', milestones: [
-      { id:'pl-m-3-2-0', name:'20 actieve opdrachten per jaar', desc:'Structurele capaciteit van minimaal 20 opdrachten per jaar.', date:'Dec 2026' },
-      { id:'pl-m-3-2-1', name:'Jaarlijkse impactrapportage', desc:'Publicatie van jaarrapport met bereikte organisaties en maatschappelijke impact.', date:'Dec 2026' },
-    ]},
-  ]},
-];
-
-const plState = JSON.parse(localStorage.getItem('wk-pl-state') || '{}');
-
-function plSaveState(){ localStorage.setItem('wk-pl-state', JSON.stringify(plState)); }
-
-function plStatusLabel(s){ return {todo:'Te starten',active:'In uitvoering',done:'Afgerond',review:'In review'}[s]||'Te starten'; }
-function plStatusIcon(s){ return {todo:'○',active:'▶',done:'✓',review:'◉'}[s]||'○'; }
-function plIconStyle(s){ return {todo:'background:#F0F4F2;color:var(--gray)',active:'background:#FFF8E1;color:var(--amber)',done:'background:var(--mint);color:var(--green)',review:'background:#EBF3FB;color:#185FA5'}[s]||'background:#F0F4F2;color:var(--gray)'; }
-function plBadgeStyle(s){ return {todo:'background:#F0F4F2;color:var(--gray)',active:'background:#FFF8E1;color:#8B6914',done:'background:var(--mint);color:var(--forest)',review:'background:#EBF3FB;color:#185FA5'}[s]||'background:#F0F4F2;color:var(--gray)'; }
-
-function plRenderPhases(blIdx){
-  const container = document.getElementById('pl-phases-' + blIdx);
-  if(!container) return;
-  const phases = plData[blIdx].phases;
-  container.innerHTML = phases.map((phase, pi) => {
-    const mHtml = phase.milestones.map(m => {
-      const s = plState[m.id] || 'todo';
-      return `<div class="pl-milestone" id="${m.id}" style="display:grid;grid-template-columns:32px 1fr auto auto;align-items:start;gap:1rem;padding:0.9rem 1.25rem;border-bottom:1px solid var(--mint);transition:all 0.2s">
-        <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;flex-shrink:0;${plIconStyle(s)}">${plStatusIcon(s)}</div>
-        <div>
-          <div style="font-family:var(--f-head);font-size:0.88rem;font-weight:700;color:var(--charcoal);margin-bottom:2px">${m.name}</div>
-          <div style="font-size:0.78rem;color:var(--gray);line-height:1.5;margin-bottom:6px">${m.desc}</div>
-          <div style="display:flex;gap:6px">
-            <button onclick="plSetStatus('${m.id}','active',${blIdx})" style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:2px 8px;border-radius:4px;background:#FFF8E1;color:#8B6914;border:1px solid #F0D060;cursor:pointer;font-family:var(--f-head)">▶ Actief</button>
-            <button onclick="plSetStatus('${m.id}','done',${blIdx})" style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:2px 8px;border-radius:4px;background:var(--mint);color:var(--forest);border:1px solid var(--greenLt);cursor:pointer;font-family:var(--f-head)">✓ Gereed</button>
-            <button onclick="plSetStatus('${m.id}','todo',${blIdx})" style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:2px 8px;border-radius:4px;background:#F0F4F2;color:var(--gray);border:1px solid #CBD5D0;cursor:pointer;font-family:var(--f-head)">↺ Reset</button>
-          </div>
-        </div>
-        <div style="font-size:0.75rem;color:var(--gray);text-align:right;white-space:nowrap"><strong style="display:block;font-family:var(--f-head);font-size:0.82rem;font-weight:700;color:var(--charcoal)">${m.date}</strong>deadline</div>
-        <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:3px 10px;border-radius:20px;white-space:nowrap;${plBadgeStyle(s)}">${plStatusLabel(s)}</div>
-      </div>`;
-    }).join('');
-    return `<div style="margin-bottom:1rem">
-      <div onclick="plTogglePhase(this)" style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1.25rem;background:var(--white);border-radius:${pi===0?'10px 10px 0 0':'10px 10px 0 0'};border-bottom:1px solid var(--mint);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.04)">
-        <span style="font-family:var(--f-display);font-size:0.65rem;font-weight:800;letter-spacing:0.15em;color:var(--white);background:var(--forest);padding:2px 8px;border-radius:4px;text-transform:uppercase">Fase ${pi+1}</span>
-        <span style="font-family:var(--f-head);font-size:0.95rem;font-weight:700;color:var(--charcoal);flex:1">${phase.name}</span>
-        <span style="font-size:0.75rem;color:var(--gray);white-space:nowrap">${phase.period}</span>
-        <span class="pl-chev" style="font-size:0.7rem;color:var(--gray);transition:all 0.2s">${pi===0?'▲':'▼'}</span>
-      </div>
-      <div class="pl-mlist" style="background:var(--white);border-radius:0 0 10px 10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);${pi===0?'':'display:none'}">${mHtml}</div>
-    </div>`;
-  }).join('');
-  plUpdateProgress(blIdx);
-}
-
-function plTogglePhase(header){
-  const mlist = header.nextElementSibling;
-  const chev = header.querySelector('.pl-chev');
-  const open = mlist.style.display !== 'none';
-  mlist.style.display = open ? 'none' : 'block';
-  chev.textContent = open ? '▼' : '▲';
-}
-
-function plSetStatus(id, status, blIdx){
-  plState[id] = status;
-  plSaveState();
-  const el = document.getElementById(id);
-  if(!el) return;
-  el.querySelector('div:first-child').style.cssText = 'width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;flex-shrink:0;' + plIconStyle(status);
-  el.querySelector('div:first-child').textContent = plStatusIcon(status);
-  const badge = el.querySelector('div:last-child');
-  badge.style.cssText = 'font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:3px 10px;border-radius:20px;white-space:nowrap;' + plBadgeStyle(status);
-  badge.textContent = plStatusLabel(status);
-  plUpdateProgress(blIdx);
-  plUpdateTimestamp();
-}
-
-function plUpdateProgress(blIdx){
-  const allMs = plData[blIdx].phases.flatMap(p => p.milestones);
-  const total = allMs.length;
-  const done = allMs.filter(m => (plState[m.id]||'todo') === 'done').length;
-  const pct = total ? Math.round((done/total)*100) : 0;
-  const pctEl = document.getElementById('pl-pct-' + blIdx);
-  const fillEl = document.getElementById('pl-fill-' + blIdx);
-  if(pctEl) pctEl.textContent = pct + '%';
-  if(fillEl) fillEl.style.width = pct + '%';
-}
-
-function plShowBL(idx){
-  document.querySelectorAll('.pl-panel').forEach(p => p.style.display = 'none');
-  document.querySelectorAll('.pl-tab').forEach(t => { t.style.color='var(--gray)'; t.style.borderBottomColor='transparent'; });
-  document.getElementById('pl-bl-' + idx).style.display = 'block';
-  const tabs = document.querySelectorAll('.pl-tab');
-  tabs[idx].style.color = 'var(--charcoal)';
-  tabs[idx].style.borderBottomColor = 'var(--green)';
-}
-
-function plSaveNotes(idx){
-  plState['pl-notes-' + idx] = document.getElementById('pl-notes-' + idx).value;
-  plSaveState();
-  const s = document.getElementById('pl-saved-' + idx);
-  s.style.opacity = '1';
-  plUpdateTimestamp();
-  setTimeout(() => s.style.opacity = '0', 2000);
-}
-
-function plUpdateTimestamp(){
-  const now = new Date().toLocaleString('nl-NL');
-  const el = document.getElementById('pl-last-saved');
-  if(el) el.textContent = 'Bijgewerkt: ' + now;
-}
-
-// Init planning
-for(let i=0;i<4;i++){
-  plRenderPhases(i);
-  const n = plState['pl-notes-' + i];
-  const nEl = document.getElementById('pl-notes-' + i);
-  if(n && nEl) nEl.value = n;
-}
-
 // Init intake form
 document.getElementById('iq1_5').value = new Date().toISOString().slice(0,10);
 iUpdateProgress();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('WerkKracht PWA ready'))
+      .catch(e => console.log('SW error:', e));
+  });
+}
 </script>
 </body>
 </html>
