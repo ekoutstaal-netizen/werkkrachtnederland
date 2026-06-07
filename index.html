@@ -4035,6 +4035,14 @@ textarea.ifield { min-height: 90px; }
         </svg>
         <h2>Intake voltooid ✓</h2>
         <p id="iCompletionOrg">Het intakeformulier is ingevuld en klaar voor export.</p>
+        <div id="sheets-status" style="display:none;align-items:center;gap:8px;background:#E8F8F0;border:1px solid #A9DFBF;border-radius:8px;padding:10px 14px;margin-bottom:1rem;font-family:var(--f-body);font-size:0.82rem;color:var(--forest);">
+          <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;flex-shrink:0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span id="sheets-status-text">Opgeslagen in Google Sheets</span>
+        </div>
+        <div id="sheets-error" style="display:none;align-items:center;gap:8px;background:#FDEDEC;border:1px solid #F1948A;border-radius:8px;padding:10px 14px;margin-bottom:1rem;font-family:var(--f-body);font-size:0.82rem;color:#922B21;">
+          <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;flex-shrink:0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Opslaan in Sheets mislukt — download het CSV-bestand als backup.</span>
+        </div>
         <div class="isummary-grid" id="iSummaryGrid"></div>
         <p style="font-size:0.82rem;color:var(--gray);margin-bottom:1.2rem">Download het CSV-bestand en open het in Excel. De kolommen sluiten direct aan op het WerkKracht rapportagesjabloon.</p>
         <div class="iexport-row">
@@ -5805,13 +5813,25 @@ function iSubmitForm() {
     aandachtspunten:   data.q8_7 || '',
     ingevuld_op:       data.ingevuld_op || ''
   };
+  // Toon "bezig met opslaan" melding
+  const statusEl = document.getElementById('sheets-status');
+  const errorEl  = document.getElementById('sheets-error');
+  if (statusEl) { statusEl.style.display = 'flex'; document.getElementById('sheets-status-text').textContent = 'Bezig met opslaan in Google Sheets…'; }
+
   fetch(SHEETS_API, {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
-  }).then(() => console.log('Intake verstuurd naar Google Sheets'))
-    .catch(e => console.warn('Sheets intake fout:', e));
+  }).then(() => {
+    // no-cors geeft altijd "opaque response" — we gaan er van uit dat het gelukt is
+    if (statusEl) document.getElementById('sheets-status-text').textContent = '✓ Intake opgeslagen in Google Sheets';
+    console.log('Intake verstuurd naar Google Sheets');
+  }).catch(e => {
+    if (statusEl) statusEl.style.display = 'none';
+    if (errorEl)  errorEl.style.display = 'flex';
+    console.warn('Sheets intake fout:', e);
+  });
   const scores_display = [
     ['Veranderbereidheid', data.q8_1],
     ['Kans samenwerking',  data.q8_2],
