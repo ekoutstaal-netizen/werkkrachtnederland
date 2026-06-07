@@ -1318,7 +1318,7 @@ textarea.ifield { min-height: 90px; }
   .hero-left { padding: 3rem 5%; }
   .hero-h1 { font-size: 2rem; }
 
-  /* Hero stats: 2 kolommen op mobiel */
+  /* Hero stats: 2 kolommen */
   .hero-stats {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
@@ -1329,10 +1329,12 @@ textarea.ifield { min-height: 90px; }
   .hero-stat .num { font-size: 1.6rem; }
   .hero-stat .lbl { font-size: 0.7rem; }
 
-  /* Stats bar: 2 kolommen */
-  .stats-bar { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .stat-item { padding: 1.2rem; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .stat-item .stat-num { font-size: 2rem; }
+  /* Stats bar: 2 kolommen, kleinere nummers */
+  .stats-bar { grid-template-columns: 1fr 1fr; gap: 0; }
+  .stat-item { padding: 1.2rem 0.8rem; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+  .stat-num { font-size: clamp(1.4rem, 7vw, 2rem) !important; letter-spacing: -0.03em; }
+  .stat-lbl { font-size: 0.7rem; }
+  .stat-source { font-size: 0.6rem; }
 
   /* Algemeen */
   .three-col, .four-col { grid-template-columns: 1fr; }
@@ -1351,13 +1353,6 @@ textarea.ifield { min-height: 90px; }
   .icheck-group { margin-left: 0; }
   .iadvies-group { margin-left: 0; }
   .iadvies-btn { min-width: 120px; }
-
-  /* Projectplanning mobiel */
-  .pl-milestone { grid-template-columns: 28px 1fr !important; }
-
-  /* Nav CTA kleiner */
-  .nav-cta { display: none; }
-  .hamburger { display: flex; }
 }
 </style>
 </head>
