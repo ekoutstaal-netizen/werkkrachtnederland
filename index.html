@@ -3022,7 +3022,7 @@ textarea.ifield { min-height: 90px; }
 .keten-track {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0;
 }
 .keten-track::before {
@@ -3125,10 +3125,12 @@ textarea.ifield { min-height: 90px; }
 
 /* Output tag */
 .keten-output {
-  margin-top: .6rem;
+  margin-top: auto;
+  padding-top: .6rem;
   font-family: var(--f-head); font-size: .58rem; font-weight: 700;
   letter-spacing: .06em; text-transform: uppercase;
-  padding: 3px 8px; border-radius: 10px;
+  padding: .6rem 8px 3px;
+  border-radius: 10px;
   background: rgba(39,174,96,0);
   color: rgba(255,255,255,0);
   border: 1px solid rgba(39,174,96,0);
