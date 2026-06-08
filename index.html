@@ -3894,84 +3894,136 @@ textarea.ifield { min-height: 90px; }
      CONTACT PAGE
 ════════════════════════════════════════════ -->
 <div id="page-contact" class="page">
-  <section style="background:var(--greenDk);padding:calc(var(--nav-h) + 5rem) 8% 5rem">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="section-label" style="color:var(--green)">Contact</div>
-        <h2>Zet de eerste stap</h2>
-        <p>Bent u directeur van een sociaal ontwikkelbedrijf, beleidsmaker, werkgever of potentiële partner? Wij gaan graag het gesprek aan.</p>
 
+  <!-- ── HERO: Persoonlijk welkomstgevoel ── -->
+  <section style="background:var(--greenDk);padding:calc(var(--nav-h) + 4rem) 8% 0;">
+
+    <!-- Bovenste laag: persoonlijke belofte -->
+    <div style="max-width:900px;margin:0 auto;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <div class="section-label" style="color:var(--green);">Persoonlijk contact</div>
+      <h1 style="font-family:var(--f-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem;">
+        U bent niet een lead.<br>
+        <span style="color:var(--green);">U bent onze prioriteit.</span>
+      </h1>
+      <p style="font-family:var(--f-body);font-size:1rem;color:var(--greenLt);max-width:540px;line-height:1.75;margin-bottom:2rem;">
+        Elk gesprek dat wij voeren verdient volledige aandacht. Geen standaard intake-traject, geen wachtrij. Wij nemen binnen &eacute;&eacute;n werkdag persoonlijk contact op.
+      </p>
+
+      <!-- Belofte-badges -->
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;">
+          <svg viewBox="0 0 24 24" fill="none" style="width:15px;height:15px;flex-shrink:0" stroke="#27AE60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--white);letter-spacing:.04em;">Reactie binnen 1 werkdag</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;">
+          <svg viewBox="0 0 24 24" fill="none" style="width:15px;height:15px;flex-shrink:0" stroke="#27AE60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--white);letter-spacing:.04em;">Altijd een persoonlijk gesprek</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;">
+          <svg viewBox="0 0 24 24" fill="none" style="width:15px;height:15px;flex-shrink:0" stroke="#27AE60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;color:var(--white);letter-spacing:.04em;">Geen verkooppraatje, wel een eerlijk gesprek</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contactgrid -->
+    <div class="contact-grid" style="padding-top:3.5rem;padding-bottom:4rem;">
+      <div class="contact-info">
+
+        <!-- Contactpersoon kaart -->
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.5rem;margin-bottom:2rem;">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-family:var(--f-display);font-size:1.2rem;font-weight:800;color:white;">EK</span>
+            </div>
+            <div>
+              <div style="font-family:var(--f-display);font-size:1rem;font-weight:800;color:var(--white);">Edwin Koutstaal</div>
+              <div style="font-family:var(--f-body);font-size:0.78rem;color:var(--greenLt);">Directeur &amp; initiatiefnemer WerkKracht Nederland</div>
+            </div>
+          </div>
+          <p style="font-family:var(--f-body);font-size:0.82rem;color:var(--greenLt);line-height:1.7;margin-bottom:1rem;font-style:italic;">
+            &ldquo;Ik praat graag zelf met organisaties die de sector willen versterken. Bel me gerust direct &mdash; dat vind ik fijn.&rdquo;
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="tel:+31700000000" style="display:inline-flex;align-items:center;gap:6px;background:var(--green);color:white;font-family:var(--f-display);font-size:0.78rem;font-weight:800;padding:8px 14px;border-radius:7px;text-decoration:none;">
+              <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Bel Edwin
+            </a>
+            <a href="https://wa.me/31700000000?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;font-family:var(--f-display);font-size:0.78rem;font-weight:800;padding:8px 14px;border-radius:7px;text-decoration:none;">
+              <svg viewBox="0 0 32 32" fill="white" style="width:13px;height:13px"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.28 19.43c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43s-1.2 1.17-1.2 2.86 1.23 3.31 1.4 3.54 2.42 3.7 5.86 5.19c.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
+              App Edwin
+            </a>
+          </div>
+        </div>
+
+        <!-- Contactgegevens -->
         <div class="contact-detail">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div>
-            <strong>E-mail</strong>
-            <span>info@werkkrachtnederland.nl</span>
-          </div>
+          <div><strong>E-mail</strong><span>info@werkkrachtnederland.nl</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div>
-            <strong>Telefoon</strong>
-            <span>+31 (0)70 000 00 00</span>
-          </div>
+          <div><strong>Telefoon</strong><span>+31 (0)70 000 00 00</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div>
-            <strong>Adres</strong>
-            <span>Postbus 1234, 4000 AA Tiel (Rivierenland)</span>
-          </div>
+          <div><strong>Adres</strong><span>Postbus 1234, 4000 AA Tiel (Rivierenland)</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-          <div>
-            <strong>LinkedIn</strong>
-            <span>linkedin.com/company/werkkrachtnl</span>
-          </div>
+          <div><strong>LinkedIn</strong><span>linkedin.com/company/werkkrachtnl</span></div>
         </div>
       </div>
 
+      <!-- Formulier -->
       <div class="contact-form">
-        <div style="font-family:var(--f-display);font-weight:800;font-size:1.4rem;color:var(--white);margin-bottom:1.5rem">Stuur een bericht</div>
+        <div style="font-family:var(--f-display);font-weight:800;font-size:1.3rem;color:var(--white);margin-bottom:.4rem;">Stuur een bericht</div>
+        <p style="font-family:var(--f-body);font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:1.5rem;">Edwin leest uw bericht persoonlijk en reageert binnen &eacute;&eacute;n werkdag.</p>
         <div class="form-two">
           <div class="form-row">
-            <label>Naam</label>
-            <input type="text" placeholder="Uw naam">
+            <label>Uw naam</label>
+            <input type="text" id="cf-naam" placeholder="Voornaam en achternaam">
           </div>
           <div class="form-row">
             <label>Organisatie</label>
-            <input type="text" placeholder="Naam organisatie">
+            <input type="text" id="cf-org" placeholder="Naam van uw organisatie">
           </div>
         </div>
         <div class="form-two">
           <div class="form-row">
-            <label>E-mail</label>
-            <input type="email" placeholder="u@organisatie.nl">
+            <label>E-mailadres</label>
+            <input type="email" id="cf-email" placeholder="u@organisatie.nl">
           </div>
           <div class="form-row">
-            <label>Telefoon</label>
-            <input type="tel" placeholder="+31 6 ...">
+            <label>Telefoonnummer</label>
+            <input type="tel" id="cf-tel" placeholder="+31 6 ...">
           </div>
         </div>
         <div class="form-row">
-          <label>Interesse in</label>
-          <select>
-            <option>Selecteer een onderwerp...</option>
-            <option>Deelnemen als sociaal ontwikkelbedrijf</option>
-            <option>Werkgeversvraag bundelen (businessline 01)</option>
-            <option>Werkconcepten opschalen (businessline 02)</option>
-            <option>Kennisplatform (businessline 03)</option>
-            <option>Projectleiding & advies (businessline 04)</option>
-            <option>Partnership / samenwerking</option>
-            <option>Andere vraag</option>
+          <label>Waarmee kunnen wij u helpen?</label>
+          <select id="cf-onderwerp">
+            <option value="">Kies een onderwerp...</option>
+            <option>Ik wil aansluiten als WOB-bedrijf</option>
+            <option>Ik vertegenwoordig een gemeente of opdrachtgever</option>
+            <option>Ik ben werkgever en wil vraag bundelen</option>
+            <option>Ik wil meer weten over werkconcepten opschalen</option>
+            <option>Ik wil toegang tot het kennisplatform</option>
+            <option>Ik zoek projectleiding of advies</option>
+            <option>Ik heb een andere vraag</option>
           </select>
         </div>
         <div class="form-row">
-          <label>Bericht</label>
-          <textarea placeholder="Beschrijf uw vraag of organisatie in het kort..."></textarea>
+          <label>Uw bericht</label>
+          <textarea id="cf-bericht" placeholder="Vertel ons in uw eigen woorden wat u bezighoudt. Er is geen verkeerd antwoord." style="min-height:110px;"></textarea>
         </div>
-        <button class="btn-primary" style="width:100%;justify-content:center" onclick="alert('Bedankt! In de live versie wordt uw bericht verstuurd.')">Bericht versturen →</button>
-        <p style="font-family:var(--f-body);font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:1rem;text-align:center">U ontvangt binnen 2 werkdagen een reactie.</p>
+        <button class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" onclick="submitContactForm()">
+          Verstuur mijn bericht →
+        </button>
+        <div id="cf-bevestiging" style="display:none;margin-top:1rem;background:rgba(39,174,96,0.15);border:1px solid rgba(39,174,96,0.4);border-radius:8px;padding:.9rem 1rem;">
+          <div style="font-family:var(--f-head);font-size:0.78rem;font-weight:700;color:var(--green);margin-bottom:3px;">&#10003; Bericht ontvangen!</div>
+          <div style="font-family:var(--f-body);font-size:0.78rem;color:var(--greenLt);">Edwin neemt binnen &eacute;&eacute;n werkdag persoonlijk contact met u op.</div>
+        </div>
+        <p style="font-family:var(--f-body);font-size:0.68rem;color:rgba(255,255,255,0.2);margin-top:1rem;text-align:center;">Uw gegevens worden uitsluitend gebruikt voor contact en nooit gedeeld met derden.</p>
       </div>
     </div>
   </section>
@@ -3982,62 +4034,48 @@ textarea.ifield { min-height: 90px; }
       <div class="section-label">Van interesse naar partnerschap</div>
       <h2 class="section-title" style="margin-bottom:.5rem;">Zo werkt de samenwerking</h2>
       <p style="font-family:var(--f-body);font-size:.95rem;color:var(--gray);margin-bottom:2.5rem;max-width:520px;line-height:1.7;">
-        Van eerste kennismaking tot concrete opdracht — een helder en overzichtelijk proces zonder verrassingen.
+        Van eerste kennismaking tot concrete opdracht &mdash; een helder en overzichtelijk proces zonder verrassingen.
       </p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;position:relative;">
-
-        <div style="padding:1.5rem 1.75rem 1.5rem 0;border-right:2px solid var(--sage);position:relative;">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-            <span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">1</span>
-          </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;">
+        <div style="padding:1.5rem 1.75rem 1.5rem 0;border-right:2px solid var(--sage);">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;"><span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">1</span></div>
           <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.4rem;">Stap 1</div>
           <div style="font-family:var(--f-display);font-size:1rem;font-weight:800;color:var(--charcoal);margin-bottom:.5rem;">Kennismaking</div>
-          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Een informeel gesprek van 30 minuten — telefonisch of op locatie. Wij leren uw organisatie kennen en u leert wat WerkKracht voor u kan betekenen.</div>
-          <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;color:var(--grayLt);margin-top:.75rem;letter-spacing:.06em;">&#x231A; BINNEN 2 WERKDAGEN</div>
+          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Een informeel gesprek van 30 minuten &mdash; telefonisch of op locatie. Geen verplichtingen, wel een eerlijk gesprek.</div>
+          <div style="font-family:var(--f-head);font-size:.68rem;font-weight:700;color:var(--grayLt);margin-top:.75rem;letter-spacing:.05em;">&#x231A; BINNEN 2 WERKDAGEN</div>
         </div>
-
-        <div style="padding:1.5rem 1.75rem;border-right:2px solid var(--sage);position:relative;">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-            <span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">2</span>
-          </div>
+        <div style="padding:1.5rem 1.75rem;border-right:2px solid var(--sage);">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;"><span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">2</span></div>
           <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);margin-bottom:.4rem;">Stap 2</div>
           <div style="font-family:var(--f-display);font-size:1rem;font-weight:800;color:var(--charcoal);margin-bottom:.5rem;">Intakegesprek</div>
-          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Een gestructureerd gesprek op locatie. Samen brengen we uw organisatie, vraagstuk en ambities in kaart via ons gestandaardiseerde intakeformat.</div>
-          <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;color:var(--grayLt);margin-top:.75rem;letter-spacing:.06em;">&#x231A; BINNEN 2 WEKEN</div>
+          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Een gestructureerd gesprek op locatie. Samen brengen we uw organisatie en ambitie in kaart.</div>
+          <div style="font-family:var(--f-head);font-size:.68rem;font-weight:700;color:var(--grayLt);margin-top:.75rem;letter-spacing:.05em;">&#x231A; BINNEN 2 WEKEN</div>
         </div>
-
-        <div style="padding:1.5rem 1.75rem;border-right:2px solid var(--sage);position:relative;">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-            <span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">3</span>
-          </div>
+        <div style="padding:1.5rem 1.75rem;border-right:2px solid var(--sage);">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;"><span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">3</span></div>
           <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.4rem;">Stap 3</div>
           <div style="font-family:var(--f-display);font-size:1rem;font-weight:800;color:var(--charcoal);margin-bottom:.5rem;">Voorstel op maat</div>
-          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Op basis van de intake werken we een concreet voorstel uit — inclusief businesscase, MKBA-raming en een helder tijdpad voor de samenwerking.</div>
-          <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;color:var(--grayLt);margin-top:.75rem;letter-spacing:.06em;">&#x231A; BINNEN 3 WEKEN</div>
+          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Een concreet voorstel met businesscase, MKBA-raming en helder tijdpad. Speciaal voor uw situatie.</div>
+          <div style="font-family:var(--f-head);font-size:.68rem;font-weight:700;color:var(--grayLt);margin-top:.75rem;letter-spacing:.05em;">&#x231A; BINNEN 3 WEKEN</div>
         </div>
-
         <div style="padding:1.5rem 0 1.5rem 1.75rem;">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-            <span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">4</span>
-          </div>
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;"><span style="font-family:var(--f-display);font-size:.9rem;font-weight:800;color:white;">4</span></div>
           <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);margin-bottom:.4rem;">Stap 4</div>
           <div style="font-family:var(--f-display);font-size:1rem;font-weight:800;color:var(--charcoal);margin-bottom:.5rem;">Aan de slag</div>
-          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Na akkoord starten we de samenwerking op. U krijgt toegang tot het opdrachtgeversportaal en uw eigen projectplanning met KPI-structuur.</div>
-          <div style="font-family:var(--f-head);font-size:.7rem;font-weight:700;color:var(--green);margin-top:.75rem;letter-spacing:.06em;">&#10003; INCLUSIEF DASHBOARD-TOEGANG</div>
+          <div style="font-family:var(--f-body);font-size:.82rem;color:var(--gray);line-height:1.6;">Samenwerking van start, toegang tot uw persoonlijk portaal en een vaste contactpersoon vanuit WerkKracht.</div>
+          <div style="font-family:var(--f-head);font-size:.68rem;font-weight:700;color:var(--green);margin-top:.75rem;letter-spacing:.05em;">&#10003; INCLUSIEF DASHBOARD-TOEGANG</div>
         </div>
-
       </div>
-      <!-- CTA onder de stappen -->
       <div style="text-align:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--sage);">
-        <p style="font-family:var(--f-body);font-size:.88rem;color:var(--gray);margin-bottom:1.25rem;">Klaar voor stap 1? Vul het formulier in of bel ons direct.</p>
+        <p style="font-family:var(--f-body);font-size:.88rem;color:var(--gray);margin-bottom:1.25rem;">Klaar voor stap 1? Vul het formulier in of bereik Edwin direct.</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="https://wa.me/31700000000" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;">
+          <a href="https://wa.me/31700000000?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;">
             <svg viewBox="0 0 32 32" fill="white" style="width:18px;height:18px"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.28 19.43c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43s-1.2 1.17-1.2 2.86 1.23 3.31 1.4 3.54 2.42 3.7 5.86 5.19c.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
-            App ons op WhatsApp
+            App Edwin op WhatsApp
           </a>
           <a href="tel:+31700000000" style="display:inline-flex;align-items:center;gap:8px;background:none;color:var(--forest);font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;border:2px solid var(--sage);">
             <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Bel ons direct
+            Bel Edwin direct
           </a>
         </div>
       </div>
@@ -5840,6 +5878,42 @@ function calcUpdate() {
   document.getElementById('calc-rend').textContent  = rend + '\u00d7';
 }
 
+
+
+// ── CONTACTFORMULIER ──────────────────────────────────────────
+function submitContactForm() {
+  const naam     = document.getElementById('cf-naam')    ? document.getElementById('cf-naam').value.trim()    : '';
+  const org      = document.getElementById('cf-org')     ? document.getElementById('cf-org').value.trim()     : '';
+  const email    = document.getElementById('cf-email')   ? document.getElementById('cf-email').value.trim()   : '';
+  const tel      = document.getElementById('cf-tel')     ? document.getElementById('cf-tel').value.trim()     : '';
+  const onderw   = document.getElementById('cf-onderwerp')? document.getElementById('cf-onderwerp').value     : '';
+  const bericht  = document.getElementById('cf-bericht') ? document.getElementById('cf-bericht').value.trim() : '';
+
+  if (!email) {
+    alert('Vul uw e-mailadres in zodat wij u kunnen bereiken.');
+    return;
+  }
+
+  // Stuur naar Google Sheets
+  fetch(SHEETS_API, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      tab: 'intakes',
+      contactpersoon: naam, organisatie: org, email: email,
+      ingevuld_op: new Date().toLocaleDateString('nl-NL'),
+      advies: onderw,
+      aandachtspunten: bericht,
+      score_gemiddeld: 'Contactformulier'
+    })
+  });
+
+  // Toon bevestiging
+  const btn = document.querySelector('[onclick="submitContactForm()"]');
+  if (btn) btn.style.display = 'none';
+  const bev = document.getElementById('cf-bevestiging');
+  if (bev) bev.style.display = 'block';
+}
 
 // ── MAATWERK MODAL ───────────────────────────────────────────
 function openMaatwerk() {
