@@ -4684,53 +4684,106 @@ textarea.ifield { min-height: 90px; }
 
       <!-- Formulier -->
       <div class="contact-form">
-        <div style="font-family:var(--f-display);font-weight:800;font-size:1.3rem;color:var(--white);margin-bottom:.4rem;">Stuur een bericht</div>
-        <p style="font-family:var(--f-body);font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:1.5rem;">Edwin leest uw bericht persoonlijk en reageert binnen &eacute;&eacute;n werkdag.</p>
-        <div class="form-two">
-          <div class="form-row">
-            <label>Uw naam</label>
-            <input type="text" id="cf-naam" placeholder="Voornaam en achternaam">
-          </div>
-          <div class="form-row">
-            <label>Organisatie</label>
-            <input type="text" id="cf-org" placeholder="Naam van uw organisatie">
-          </div>
-        </div>
-        <div class="form-two">
-          <div class="form-row">
-            <label>E-mailadres</label>
-            <input type="email" id="cf-email" placeholder="u@organisatie.nl">
-          </div>
-          <div class="form-row">
-            <label>Telefoonnummer</label>
-            <input type="tel" id="cf-tel" placeholder="+31 6 ...">
+        <!-- ── CONTACT OPTIES ── -->
+        <div style="margin-bottom:1.5rem;">
+          <div style="font-family:var(--f-head);font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:.3rem;">Neem direct contact op</div>
+          <p style="font-family:var(--f-body);font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:1.25rem;">Kies hoe u het liefst contact opneemt.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;">
+            <!-- Bellen -->
+            <a href="tel:+31646101135" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;background:var(--green);color:white;border-radius:12px;padding:1.1rem .75rem;text-decoration:none;transition:all .2s ease;" onmouseover="this.style.background='#1e9c52'" onmouseout="this.style.background='var(--green)'">
+              <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px;flex-shrink:0" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span style="font-family:var(--f-head);font-size:.82rem;font-weight:700;">Bel Edwin</span>
+              <span style="font-family:var(--f-body);font-size:.7rem;opacity:.85;">06-46101135</span>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/31646101135?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;background:#25D366;color:white;border-radius:12px;padding:1.1rem .75rem;text-decoration:none;transition:all .2s ease;" onmouseover="this.style.background='#1fba5a'" onmouseout="this.style.background='#25D366'">
+              <svg viewBox="0 0 32 32" fill="white" style="width:22px;height:22px;flex-shrink:0"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.28 19.43c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43s-1.2 1.17-1.2 2.86 1.23 3.31 1.4 3.54 2.42 3.7 5.86 5.19c.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
+              <span style="font-family:var(--f-head);font-size:.82rem;font-weight:700;">App Edwin</span>
+              <span style="font-family:var(--f-body);font-size:.7rem;opacity:.85;">WhatsApp</span>
+            </a>
           </div>
         </div>
-        <div class="form-row">
-          <label>Waarmee kunnen wij u helpen?</label>
-          <select id="cf-onderwerp">
-            <option value="">Kies een onderwerp...</option>
-            <option>Ik wil aansluiten als WOB-bedrijf</option>
-            <option>Ik vertegenwoordig een werkgever of opdrachtgever</option>
-            <option>Ik ben werkgever en wil vraag bundelen</option>
-            <option>Ik wil meer weten over werkconcepten opschalen</option>
-            <option>Ik wil toegang tot het kennisplatform</option>
-            <option>Ik zoek projectleiding of advies</option>
-            <option>Ik heb een andere vraag</option>
-          </select>
+
+        <!-- ── GESPREK PLANNEN ── -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:1.4rem;">
+          <div style="font-family:var(--f-head);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.25rem;">Gesprek plannen</div>
+          <p style="font-family:var(--f-body);font-size:0.78rem;color:rgba(255,255,255,0.5);margin-bottom:1.2rem;">Geef uw naam, e-mail en drie momenten die u uitkomen &mdash; Edwin bevestigt binnen &eacute;&eacute;n werkdag.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.65rem;">
+            <div class="form-row" style="margin:0;">
+              <label style="font-size:.72rem;">Uw naam</label>
+              <input type="text" id="gp-naam" placeholder="Naam" style="padding:.6rem .8rem;font-size:.82rem;">
+            </div>
+            <div class="form-row" style="margin:0;">
+              <label style="font-size:.72rem;">E-mail of telefoon</label>
+              <input type="text" id="gp-contact" placeholder="e-mail of 06-..." style="padding:.6rem .8rem;font-size:.82rem;">
+            </div>
+          </div>
+
+          <!-- Gespreksvorm -->
+          <div style="margin-bottom:.9rem;">
+            <div style="font-family:var(--f-head);font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem;">Gespreksvorm</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+              <label style="display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:9px;padding:.7rem .9rem;cursor:pointer;transition:all .2s;" id="gp-lbl-online">
+                <input type="radio" name="gp-vorm" id="gp-online" value="Online (video)" style="accent-color:var(--green);width:16px;height:16px;">
+                <span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.85);">
+                  <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+                  Online
+                </span>
+              </label>
+              <label style="display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:9px;padding:.7rem .9rem;cursor:pointer;transition:all .2s;" id="gp-lbl-persoonlijk">
+                <input type="radio" name="gp-vorm" id="gp-persoonlijk" value="Persoonlijk" style="accent-color:var(--green);width:16px;height:16px;">
+                <span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.85);">
+                  <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Persoonlijk
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div style="font-family:var(--f-head);font-size:.72rem;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem;">Drie mogelijke momenten</div>
+
+          <div id="gp-slots" style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;">
+            <div class="gp-slot-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+              <input type="date" class="gp-date" placeholder="Datum" style="padding:.6rem .75rem;font-size:.8rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:white;font-family:var(--f-body);color-scheme:dark;">
+              <select class="gp-tijd" style="padding:.6rem .75rem;font-size:.8rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:white;font-family:var(--f-body);">
+                <option value="">Tijdvoorkeur</option>
+                <option>Ochtend (9:00–12:00)</option>
+                <option>Middag (12:00–17:00)</option>
+                <option>Avond (17:00–19:00)</option>
+              </select>
+            </div>
+            <div class="gp-slot-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+              <input type="date" class="gp-date" style="padding:.6rem .75rem;font-size:.8rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:white;font-family:var(--f-body);color-scheme:dark;">
+              <select class="gp-tijd" style="padding:.6rem .75rem;font-size:.8rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:white;font-family:var(--f-body);">
+                <option value="">Tijdvoorkeur</option>
+                <option>Ochtend (9:00–12:00)</option>
+                <option>Middag (12:00–17:00)</option>
+                <option>Avond (17:00–19:00)</option>
+              </select>
+            </div>
+            <div class="gp-slot-row" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+              <input type="date" class="gp-date" style="padding:.6rem .75rem;font-size:.8rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:white;font-family:var(--f-body);color-scheme:dark;">
+              <select class="gp-tijd" style="padding:.6rem .75rem;font-size:.8rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:white;font-family:var(--f-body);">
+                <option value="">Tijdvoorkeur</option>
+                <option>Ochtend (9:00–12:00)</option>
+                <option>Middag (12:00–17:00)</option>
+                <option>Avond (17:00–19:00)</option>
+              </select>
+            </div>
+          </div>
+
+          <button onclick="submitGesprek()" style="width:100%;background:var(--green);color:white;font-family:var(--f-head);font-size:.9rem;font-weight:700;padding:.85rem;border-radius:9px;border:none;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='#1e9c52'" onmouseout="this.style.background='var(--green)'">
+            Gesprek aanvragen →
+          </button>
+
+          <div id="gp-bevestiging" style="display:none;margin-top:.9rem;background:rgba(39,174,96,0.15);border:1px solid rgba(39,174,96,0.35);border-radius:9px;padding:.9rem 1rem;">
+            <div style="font-family:var(--f-head);font-size:.8rem;font-weight:700;color:var(--green);margin-bottom:3px;">&#10003; Verzoek ontvangen!</div>
+            <div style="font-family:var(--f-body);font-size:.78rem;color:rgba(255,255,255,0.7);">Edwin bevestigt uw gesprek binnen één werkdag.</div>
+          </div>
+          <p style="font-family:var(--f-body);font-size:.65rem;color:rgba(255,255,255,0.2);margin-top:.9rem;text-align:center;">Uw gegevens worden uitsluitend gebruikt voor contact en nooit gedeeld met derden.</p>
         </div>
-        <div class="form-row">
-          <label>Uw bericht</label>
-          <textarea id="cf-bericht" placeholder="Vertel ons in uw eigen woorden wat u bezighoudt. Er is geen verkeerd antwoord." style="min-height:110px;"></textarea>
-        </div>
-        <button class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" onclick="submitContactForm()">
-          Verstuur mijn bericht →
-        </button>
-        <div id="cf-bevestiging" style="display:none;margin-top:1rem;background:rgba(39,174,96,0.15);border:1px solid rgba(39,174,96,0.4);border-radius:8px;padding:.9rem 1rem;">
-          <div style="font-family:var(--f-head);font-size:0.78rem;font-weight:700;color:var(--green);margin-bottom:3px;">&#10003; Bericht ontvangen!</div>
-          <div style="font-family:var(--f-body);font-size:0.78rem;color:var(--greenLt);">Edwin neemt binnen &eacute;&eacute;n werkdag persoonlijk contact met u op.</div>
-        </div>
-        <p style="font-family:var(--f-body);font-size:0.68rem;color:rgba(255,255,255,0.2);margin-top:1rem;text-align:center;">Uw gegevens worden uitsluitend gebruikt voor contact en nooit gedeeld met derden.</p>
       </div>
     </div>
   </section>
@@ -6620,6 +6673,42 @@ function submitContactForm() {
   if (btn) btn.style.display = 'none';
   const bev = document.getElementById('cf-bevestiging');
   if (bev) bev.style.display = 'block';
+}
+
+// ── GESPREK PLANNEN ──────────────────────────────────────────
+function submitGesprek() {
+  const naam    = document.getElementById('gp-naam')?.value.trim() || '';
+  const contact = document.getElementById('gp-contact')?.value.trim() || '';
+  const dates   = Array.from(document.querySelectorAll('.gp-date')).map(d => d.value);
+  const tijden  = Array.from(document.querySelectorAll('.gp-tijd')).map(t => t.value);
+  const vorm    = document.querySelector('input[name="gp-vorm"]:checked')?.value || 'Niet opgegeven';
+
+  if (!naam || !contact) {
+    alert('Vul uw naam en e-mail of telefoonnummer in.');
+    return;
+  }
+  const slots = dates.map((d, i) => d ? `${d} ${tijden[i] || ''}`.trim() : '').filter(Boolean);
+  if (!slots.length) {
+    alert('Kies minimaal één datum.');
+    return;
+  }
+
+  fetch(SHEETS_API, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      tab: 'gesprekken',
+      contactpersoon: naam,
+      email: contact,
+      ingevuld_op: new Date().toLocaleDateString('nl-NL'),
+      advies: 'Gespreksverzoek — ' + vorm,
+      aandachtspunten: 'Momenten: ' + slots.join(' | '),
+      score_gemiddeld: 'Gespreksplanner'
+    })
+  });
+
+  document.querySelector('[onclick="submitGesprek()"]').style.display = 'none';
+  document.getElementById('gp-bevestiging').style.display = 'block';
 }
 
 // ── MAATWERK MODAL ───────────────────────────────────────────
