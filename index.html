@@ -2967,6 +2967,211 @@ textarea.ifield { min-height: 90px; }
 .usp-compare-item:last-child { border-bottom: none; }
 .usp-compare-item svg { flex-shrink: 0; margin-top: 2px; }
 
+
+/* ═══════════════════════════════════════════════
+   KETEN INFOGRAPHIC — geanimeerd bij scroll
+═══════════════════════════════════════════════ */
+.keten-section {
+  background: var(--greenDk);
+  padding: 5rem 8%;
+  overflow: hidden;
+  position: relative;
+}
+.keten-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(39,174,96,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.keten-inner { max-width: 1040px; margin: 0 auto; position: relative; z-index: 1; }
+.keten-header { text-align: center; margin-bottom: 3.5rem; }
+.keten-header h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800;
+  color: var(--white); letter-spacing: -.025em; margin-bottom: .75rem;
+}
+.keten-header p {
+  font-family: var(--f-body); font-size: .95rem;
+  color: var(--greenLt); max-width: 500px; margin: 0 auto; line-height: 1.7;
+}
+
+/* Verbindingslijn achter de stappen */
+.keten-track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+.keten-track::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 28px; right: 28px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  z-index: 0;
+}
+/* De voortgangslijn die animeert */
+.keten-progress-line {
+  position: absolute;
+  top: 28px; left: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--greenLt));
+  width: 0%;
+  z-index: 1;
+  transition: width 1.6s cubic-bezier(.4,0,.2,1);
+  border-radius: 1px;
+}
+.keten-progress-line.animated { width: calc(100% - 56px); }
+
+/* Individuele stap */
+.keten-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.keten-step.visible { opacity: 1; transform: translateY(0); }
+
+/* Icoon cirkel */
+.keten-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+  transition: background .4s ease, border-color .4s ease, transform .3s ease;
+  position: relative;
+}
+.keten-step.visible .keten-icon {
+  background: rgba(39,174,96,0.15);
+  border-color: var(--green);
+}
+/* Pulse ring na animatie */
+.keten-icon::after {
+  content: '';
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  opacity: 0;
+  transform: scale(.8);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.keten-step.visible .keten-icon::after {
+  opacity: .25; transform: scale(1);
+}
+.keten-icon svg { color: var(--greenLt); transition: color .4s ease; }
+.keten-step.visible .keten-icon svg { color: var(--green); }
+
+/* Stap nummer */
+.keten-num {
+  font-family: var(--f-head);
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: .35rem;
+  transition: color .4s ease;
+}
+.keten-step.visible .keten-num { color: var(--green); }
+
+/* Stap titel */
+.keten-title {
+  font-family: var(--f-display);
+  font-size: .9rem; font-weight: 800;
+  color: rgba(255,255,255,.5);
+  margin-bottom: .35rem;
+  transition: color .4s ease;
+  line-height: 1.2;
+}
+.keten-step.visible .keten-title { color: var(--white); }
+
+/* Stap beschrijving */
+.keten-desc {
+  font-family: var(--f-body);
+  font-size: .72rem; color: rgba(255,255,255,.25);
+  line-height: 1.55;
+  transition: color .4s ease;
+  max-width: 100px;
+}
+.keten-step.visible .keten-desc { color: var(--greenLt); }
+
+/* Output tag */
+.keten-output {
+  margin-top: .6rem;
+  font-family: var(--f-head); font-size: .58rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 10px;
+  background: rgba(39,174,96,0);
+  color: rgba(255,255,255,0);
+  border: 1px solid rgba(39,174,96,0);
+  transition: all .5s ease;
+  white-space: nowrap;
+}
+.keten-step.visible .keten-output {
+  background: rgba(39,174,96,.12);
+  color: var(--green);
+  border-color: rgba(39,174,96,.3);
+}
+
+/* Pijl tussen stappen */
+.keten-arrow {
+  position: absolute; top: 20px; right: -10px;
+  opacity: 0; transition: opacity .4s ease .3s;
+  z-index: 3;
+}
+.keten-step.visible .keten-arrow { opacity: 1; }
+
+/* Resultaat balk onderaan */
+.keten-result {
+  margin-top: 3rem;
+  background: rgba(39,174,96,.1);
+  border: 1px solid rgba(39,174,96,.25);
+  border-radius: 12px;
+  padding: 1.25rem 1.75rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  flex-wrap: wrap;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .6s ease 1.8s, transform .6s ease 1.8s;
+}
+.keten-result.visible { opacity: 1; transform: translateY(0); }
+.keten-result-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--green); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.keten-result-text strong {
+  font-family: var(--f-display); font-size: .95rem; font-weight: 800;
+  color: var(--white); display: block; margin-bottom: 2px;
+}
+.keten-result-text span {
+  font-family: var(--f-body); font-size: .78rem; color: var(--greenLt);
+}
+.keten-result-stats {
+  margin-left: auto; display: flex; gap: 2rem; flex-wrap: wrap;
+}
+.keten-result-stat .rv {
+  font-family: var(--f-display); font-size: 1.3rem; font-weight: 800;
+  color: var(--white); letter-spacing: -.02em; display: block;
+}
+.keten-result-stat .rl {
+  font-family: var(--f-body); font-size: .68rem; color: var(--greenLt);
+}
+
+@media(max-width:768px){
+  .keten-track { flex-direction: column; align-items: center; gap: 1.5rem; }
+  .keten-track::before { top: 28px; left: 50%; width: 2px; height: calc(100% - 28px); right: auto; }
+  .keten-progress-line { top: 28px; left: 50%; width: 2px; height: 0; transition: height 1.6s cubic-bezier(.4,0,.2,1); }
+  .keten-progress-line.animated { width: 2px; height: calc(100% - 56px); }
+  .keten-arrow { display: none; }
+  .keten-result-stats { margin-left: 0; }
+  .keten-desc { max-width: 200px; }
+}
+
 </style>
 </head>
 
@@ -3347,6 +3552,106 @@ textarea.ifield { min-height: 90px; }
           <div class="usp-compare-item">
             <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             Kennis gedeeld via kennisplatform
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KETEN INFOGRAPHIC -->
+  <section class="keten-section" id="ketenSection">
+    <div class="keten-inner">
+      <div class="keten-header">
+        <div class="section-label" style="color:var(--green);justify-content:center;">Van eerste gesprek tot meetbare impact</div>
+        <h2>Zo werkt de WerkKracht-keten</h2>
+        <p>Elke stap in ons proces is verbonden &mdash; van intake tot MKBA-rapportage. Transparant, meetbaar en herhaalbaar in elke regio.</p>
+      </div>
+
+      <div class="keten-track" id="ketenTrack">
+        <div class="keten-progress-line" id="ketenLine"></div>
+
+        <!-- Stap 1: Intake -->
+        <div class="keten-step" id="ks-1" style="transition-delay:.0s">
+          <div class="keten-icon">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="keten-num">Stap 01</div>
+          <div class="keten-title">Intake &amp;<br>analyse</div>
+          <div class="keten-desc">Organisatie in kaart, vraag helder</div>
+          <div class="keten-output">Intakerapport</div>
+          <svg class="keten-arrow" viewBox="0 0 24 24" fill="none" style="width:16px;height:16px" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <!-- Stap 2: Vraagbundeling -->
+        <div class="keten-step" id="ks-2" style="transition-delay:.3s">
+          <div class="keten-icon">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="9" y1="10.5" x2="15" y2="7.5"/><line x1="9" y1="13.5" x2="15" y2="16.5"/></svg>
+          </div>
+          <div class="keten-num">Stap 02</div>
+          <div class="keten-title">Vraag&shy;bundeling</div>
+          <div class="keten-desc">Werkgevers gekoppeld aan WOB&apos;s</div>
+          <div class="keten-output">Opdracht</div>
+          <svg class="keten-arrow" viewBox="0 0 24 24" fill="none" style="width:16px;height:16px" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <!-- Stap 3: Implementatie -->
+        <div class="keten-step" id="ks-3" style="transition-delay:.6s">
+          <div class="keten-icon">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="keten-num">Stap 03</div>
+          <div class="keten-title">Implementatie</div>
+          <div class="keten-desc">WOB voert uit, WerkKracht stuurt</div>
+          <div class="keten-output">Live dashboard</div>
+          <svg class="keten-arrow" viewBox="0 0 24 24" fill="none" style="width:16px;height:16px" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <!-- Stap 4: Meting -->
+        <div class="keten-step" id="ks-4" style="transition-delay:.9s">
+          <div class="keten-icon">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="keten-num">Stap 04</div>
+          <div class="keten-title">Meting &amp;<br>sturing</div>
+          <div class="keten-desc">KPI&apos;s bewaakt, bijgestuurd</div>
+          <div class="keten-output">Voortgangsrapport</div>
+          <svg class="keten-arrow" viewBox="0 0 24 24" fill="none" style="width:16px;height:16px" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <!-- Stap 5: MKBA -->
+        <div class="keten-step" id="ks-5" style="transition-delay:1.2s">
+          <div class="keten-icon">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="keten-num">Stap 05</div>
+          <div class="keten-title">MKBA &amp;<br>rapportage</div>
+          <div class="keten-desc">Impact berekend, verantwoord</div>
+          <div class="keten-output">MKBA-audit</div>
+        </div>
+      </div>
+
+      <!-- Resultaat balk -->
+      <div class="keten-result" id="ketenResult">
+        <div class="keten-result-icon">
+          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="keten-result-text">
+          <strong>Het eindresultaat: meetbare maatschappelijke waarde</strong>
+          <span>Elke stap gedocumenteerd, elke euro verantwoord &mdash; voor gemeente, opdrachtgever en stakeholder.</span>
+        </div>
+        <div class="keten-result-stats">
+          <div class="keten-result-stat">
+            <span class="rv">5&ndash;7&times;</span>
+            <span class="rl">Maatsch. rendement</span>
+          </div>
+          <div class="keten-result-stat">
+            <span class="rv">&euro;29K</span>
+            <span class="rl">MKBA per werkplek</span>
+          </div>
+          <div class="keten-result-stat">
+            <span class="rv">100%</span>
+            <span class="rl">Transparant</span>
           </div>
         </div>
       </div>
@@ -6287,6 +6592,49 @@ function initOpdPlanning() {
   var el = document.getElementById('opdplan-dt');
   if (el) el.textContent = new Date().toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
 }
+
+
+// ── KETEN INFOGRAPHIC ANIMATIE ───────────────────────────────
+(function() {
+  var triggered = false;
+  var section = document.getElementById('ketenSection');
+  if (!section) return;
+
+  function runKeten() {
+    if (triggered) return;
+    triggered = true;
+
+    var steps = [1,2,3,4,5];
+    steps.forEach(function(n) {
+      setTimeout(function() {
+        var el = document.getElementById('ks-' + n);
+        if (el) el.classList.add('visible');
+      }, (n-1) * 300);
+    });
+
+    // Voortgangslijn
+    setTimeout(function() {
+      var line = document.getElementById('ketenLine');
+      if (line) line.classList.add('animated');
+    }, 100);
+
+    // Resultaat balk
+    setTimeout(function() {
+      var result = document.getElementById('ketenResult');
+      if (result) result.classList.add('visible');
+    }, 1800);
+  }
+
+  // IntersectionObserver — alleen animeren als sectie in beeld komt
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      runKeten();
+      observer.disconnect();
+    }
+  }, { threshold: 0.25 });
+
+  observer.observe(section);
+})();
 
 // ── PORTAAL DROPDOWN ────────────────────────────────────────
 function togglePortalMenu(e) {
