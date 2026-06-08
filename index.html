@@ -3172,6 +3172,91 @@ textarea.ifield { min-height: 90px; }
   .keten-desc { max-width: 200px; }
 }
 
+
+/* ═══════════════════════════════════════════════════════
+   MOBIELE FIXES — keten infographic + USP sectie
+═══════════════════════════════════════════════════════ */
+
+/* USP sectie */
+@media(max-width:640px){
+  .usp-section { padding: 3rem 5%; }
+  .usp-statement { font-size: 1.4rem; }
+  .usp-desc { font-size: .85rem; }
+  .usp-compare { padding: 1.25rem; gap: 1rem; }
+  .usp-compare-item { font-size: .78rem; }
+  .usp-pillar { padding: 1.25rem; }
+  .usp-pillar h3 { font-size: .95rem; }
+}
+
+/* Keten infographic */
+@media(max-width:640px){
+  .keten-section { padding: 3rem 5%; }
+  .keten-header h2 { font-size: 1.4rem; }
+  .keten-header p { font-size: .85rem; }
+  .keten-icon { width: 44px; height: 44px; }
+  .keten-title { font-size: .82rem; }
+  .keten-desc { font-size: .68rem; max-width: 160px; }
+  .keten-output { font-size: .55rem; }
+  .keten-result { padding: 1rem; gap: .75rem; }
+  .keten-result-text strong { font-size: .85rem; }
+  .keten-result-text span { font-size: .72rem; }
+  .keten-result-stat .rv { font-size: 1.1rem; }
+}
+
+/* Maatwerk modal */
+@media(max-width:480px){
+  .maatwerk-modal { padding: 1.5rem 1.25rem; }
+  .maatwerk-modal h2 { font-size: 1.2rem; }
+  .maatwerk-btns { flex-direction: column; }
+  .maatwerk-close { width: 100%; text-align: center; }
+}
+
+/* WhatsApp knop niet over exit banner */
+@media(max-width:640px){
+  .whatsapp-btn { bottom: 80px; }
+  .exit-banner.visible ~ .whatsapp-btn { bottom: 16px; }
+}
+
+/* Netwerk pagina */
+@media(max-width:640px){
+  .map-section { padding: 2.5rem 5%; }
+  .netwerk-hero { padding: calc(var(--nav-h) + 2rem) 5% 2rem; }
+  .netwerk-stats { gap: 1.25rem; }
+  .netwerk-stat .ns-val { font-size: 1.5rem; }
+  .stories-section { padding: 2.5rem 5%; }
+  .stories-grid { grid-template-columns: 1fr; }
+  .story-card { padding: 1.25rem; }
+}
+
+/* Contactpagina Edwin kaart */
+@media(max-width:480px){
+  .keten-result-stats { flex-direction: column; gap: .75rem; }
+  .usp-compare { grid-template-columns: 1fr; }
+}
+
+/* Projectplanning intro */
+@media(max-width:480px){
+  .plan-intro h1 { font-size: 1.4rem; }
+  .plan-meta-strip { gap: .5rem; }
+  .plan-meta-item .pm-val { font-size: .82rem; }
+}
+
+/* Opdrachtgevers projectplanning KPI grid */
+@media(max-width:480px){
+  .proj-kpis { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pkpi-v { font-size: 1rem; }
+}
+
+/* Tabellen op mobiel horizontaal scrollbaar */
+@media(max-width:640px){
+  .pip-tbl, .fin-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: .72rem;
+  }
+}
+
 </style>
 </head>
 
@@ -6560,31 +6645,59 @@ function initCounters() {
 
 // ── EXIT INTENT ───────────────────────────────────────────────
 (function() {
-  var shown = sessionStorage.getItem('wk-exit-shown');
-  if (shown) return;
+  // Max 2x tonen, daarna 30 dagen rust via localStorage
+  var STORAGE_KEY  = 'wk-exit-count';
+  var COOLDOWN_KEY = 'wk-exit-cooldown';
+  var MAX_SHOWS    = 2;
+  var COOLDOWN_MS  = 30 * 24 * 60 * 60 * 1000; // 30 dagen
+
+  function shouldShow() {
+    // Cooldown actief?
+    var cooldown = localStorage.getItem(COOLDOWN_KEY);
+    if (cooldown && Date.now() < parseInt(cooldown)) return false;
+    // Sessie al getoond?
+    if (sessionStorage.getItem('wk-exit-session')) return false;
+    // Max bereikt?
+    var count = parseInt(localStorage.getItem(STORAGE_KEY) || '0');
+    if (count >= MAX_SHOWS) {
+      // Zet cooldown en reset teller voor volgend bezoek na 30 dagen
+      localStorage.setItem(COOLDOWN_KEY, Date.now() + COOLDOWN_MS);
+      localStorage.removeItem(STORAGE_KEY);
+      return false;
+    }
+    return true;
+  }
+
+  if (!shouldShow()) return;
+
   var timer = null;
   // Desktop: muis verlaat venster bovenaan
   document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 5 && !shown) {
+    if (e.clientY <= 5) {
       clearTimeout(timer);
-      timer = setTimeout(showExitBanner, 300);
+      timer = setTimeout(showExitBanner, 400);
     }
   });
-  // Mobiel: 40 sec inactiviteit
-  var mobileTimer = setTimeout(function() {
-    if (!shown) showExitBanner();
-  }, 40000);
+  // Mobiel: 50 sec inactiviteit (minder opdringerig dan 40s)
+  setTimeout(function() {
+    if (shouldShow()) showExitBanner();
+  }, 50000);
 })();
 
 function showExitBanner() {
-  if (sessionStorage.getItem('wk-exit-shown')) return;
+  if (sessionStorage.getItem('wk-exit-session')) return;
   var banner = document.getElementById('exitBanner');
-  if (banner) banner.classList.add('visible');
+  if (!banner) return;
+  banner.classList.add('visible');
+  // Tel dit bezoek mee
+  var count = parseInt(localStorage.getItem('wk-exit-count') || '0');
+  localStorage.setItem('wk-exit-count', count + 1);
+  sessionStorage.setItem('wk-exit-session', '1');
 }
 function hideExitBanner() {
   var banner = document.getElementById('exitBanner');
   if (banner) banner.classList.remove('visible');
-  sessionStorage.setItem('wk-exit-shown', '1');
+  sessionStorage.setItem('wk-exit-session', '1');
 }
 
 // ── OPDRACHTGEVER PROJECTPLANNING LINK ────────────────────────
