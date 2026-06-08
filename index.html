@@ -2840,6 +2840,133 @@ textarea.ifield { min-height: 90px; }
 .maatwerk-close:hover { border-color: var(--charcoal); color: var(--charcoal); }
 
 @media(max-width:640px){.zw-stap{border-right:none !important;border-bottom:2px solid var(--sage);padding:1.25rem 0 !important;}}
+
+/* ── USP SECTIE: Uitvoering én transparantie ─────────── */
+.usp-section {
+  padding: 5rem 8%;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.usp-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--greenLt) 50%, var(--sage) 100%);
+}
+.usp-inner { max-width: 1040px; margin: 0 auto; }
+
+.usp-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+@media(max-width:768px){ .usp-header { grid-template-columns: 1fr; gap: 2rem; } }
+
+.usp-statement {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: var(--charcoal);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+.usp-statement em { color: var(--green); font-style: normal; }
+
+.usp-desc {
+  font-family: var(--f-body);
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.75;
+}
+.usp-desc strong { color: var(--charcoal); font-weight: 600; }
+
+/* Drie pilaren */
+.usp-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--sage);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+@media(max-width:640px){ .usp-pillars { grid-template-columns: 1fr; } }
+
+.usp-pillar {
+  background: var(--white);
+  padding: 2rem 1.75rem;
+  transition: var(--trans);
+  position: relative;
+}
+.usp-pillar:hover { background: var(--mint); }
+.usp-pillar-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.usp-pillar-num {
+  font-family: var(--f-display);
+  font-size: 0.65rem; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.usp-pillar h3 {
+  font-family: var(--f-display);
+  font-size: 1.1rem; font-weight: 800;
+  color: var(--charcoal); letter-spacing: -0.01em;
+  margin-bottom: 0.6rem; line-height: 1.2;
+}
+.usp-pillar p {
+  font-family: var(--f-body);
+  font-size: 0.82rem; color: var(--gray);
+  line-height: 1.65;
+}
+.usp-pillar-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 1rem;
+  font-family: var(--f-head); font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+}
+
+/* Vergelijkingstabel */
+.usp-compare {
+  margin-top: 3rem;
+  background: var(--offwhite);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media(max-width:640px){ .usp-compare { grid-template-columns: 1fr; gap: 1.5rem; } }
+.usp-compare-divider {
+  background: var(--sage);
+  align-self: stretch;
+}
+@media(max-width:640px){ .usp-compare-divider { display:none; } }
+.usp-compare-col h4 {
+  font-family: var(--f-head); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.usp-compare-col.theirs h4 { color: var(--gray); }
+.usp-compare-col.ours   h4 { color: var(--green); }
+.usp-compare-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-family: var(--f-body); font-size: 0.82rem;
+  color: var(--charcoal); padding: 6px 0;
+  border-bottom: 1px solid var(--sage);
+  line-height: 1.5;
+}
+.usp-compare-item:last-child { border-bottom: none; }
+.usp-compare-item svg { flex-shrink: 0; margin-top: 2px; }
+
 </style>
 </head>
 
@@ -3105,6 +3232,127 @@ textarea.ifield { min-height: 90px; }
       <div class="stat-src">Bron: CBS 2025</div>
     </div>
   </div>
+
+  <!-- USP: UITVOERING ÉN TRANSPARANTIE -->
+  <section class="usp-section">
+    <div class="usp-inner">
+
+      <!-- Statement + beschrijving -->
+      <div class="usp-header">
+        <div>
+          <div class="section-label">Waarom WerkKracht anders is</div>
+          <h2 class="usp-statement">
+            Uitvoering &eacute;n transparantie<br>
+            <em>in &eacute;&eacute;n platform.</em>
+          </h2>
+        </div>
+        <div>
+          <p class="usp-desc">
+            De meeste partijen adviseren over impact. Wij organiseren &eacute;n meten haar &mdash; van eerste opdracht tot MKBA-rapportage.<br><br>
+            <strong>Geen black box, geen eindeloze rapportages.</strong> Opdrachtgevers, gemeenten en stakeholders hebben real-time inzicht in voortgang, waarde en resultaat. Terwijl wij op de achtergrond de samenwerking organiseren die daarvoor nodig is.
+          </p>
+        </div>
+      </div>
+
+      <!-- Drie pilaren -->
+      <div class="usp-pillars">
+
+        <div class="usp-pillar">
+          <div class="usp-pillar-icon" style="background:var(--sage);">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="9" y1="10.5" x2="15" y2="7.5"/><line x1="9" y1="13.5" x2="15" y2="16.5"/></svg>
+          </div>
+          <div class="usp-pillar-num" style="color:var(--forest);">Businesslines 01 &ndash; 04</div>
+          <h3>Hands-on uitvoering</h3>
+          <p>Wij implementeren, projectleiden en schalen op. Geen vrijblijvend advies &mdash; concrete samenwerking met meetbare resultaten per opdracht.</p>
+          <span class="usp-pillar-tag" style="background:var(--sage);color:var(--forest);">
+            <svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Vraagbundeling &middot; Opschaling &middot; Projectleiding
+          </span>
+        </div>
+
+        <div class="usp-pillar">
+          <div class="usp-pillar-icon" style="background:var(--mint);border:1px solid var(--sage);">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="usp-pillar-num" style="color:var(--green);">Live &middot; Real-time</div>
+          <h3>Meetbare impact</h3>
+          <p>Elke opdracht wordt gevolgd via ons dashboard. MKBA-waarde, loonwaarde en doelrealisatie zijn op elk moment inzichtelijk &mdash; voor alle betrokken partijen.</p>
+          <span class="usp-pillar-tag" style="background:var(--teal-light,#E1F5EE);color:var(--green);">
+            <svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Stakeholder &middot; Opdrachtgever &middot; Gemeente
+          </span>
+        </div>
+
+        <div class="usp-pillar">
+          <div class="usp-pillar-icon" style="background:#EAF0FB;">
+            <svg viewBox="0 0 24 24" fill="none" style="width:22px;height:22px" stroke="#185FA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="usp-pillar-num" style="color:#185FA5;">Per opdracht &middot; Per gemeente</div>
+          <h3>Digitale projectplanning</h3>
+          <p>Opdrachtgevers volgen hun eigen projectplanning live &mdash; inclusief mijlpalen, KPI-structuur en budgetvoortgang. Transparantie als standaard, niet als extra.</p>
+          <span class="usp-pillar-tag" style="background:#EAF0FB;color:#185FA5;">
+            <svg viewBox="0 0 24 24" fill="none" style="width:11px;height:11px" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Planning &middot; KPI&apos;s &middot; MKBA-rapportage
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Vergelijking: anderen vs WerkKracht -->
+      <div class="usp-compare">
+        <div class="usp-compare-col theirs">
+          <h4>Andere partijen in de sector</h4>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Adviesrapport na afronding
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Impact achteraf berekend
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Lokale aanpak, moeilijk schaalbaar
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Geen live voortgangsinzicht
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Kennis blijft bij de consultant
+          </div>
+        </div>
+
+        <div class="usp-compare-divider"></div>
+
+        <div class="usp-compare-col ours">
+          <h4>WerkKracht Nederland</h4>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Hands-on uitvoering &amp; projectleiding
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            MKBA real-time inzichtelijk
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Landelijk platform, elke regio
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Live dashboard voor opdrachtgever
+          </div>
+          <div class="usp-compare-item">
+            <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Kennis gedeeld via kennisplatform
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- MKBA CALCULATOR -->
   <div class="calc-section">
