@@ -6654,19 +6654,18 @@ function submitContactForm() {
     return;
   }
 
-  // Stuur naar Google Sheets
-  fetch(SHEETS_API, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      tab: 'intakes',
-      contactpersoon: naam, organisatie: org, email: email,
-      ingevuld_op: new Date().toLocaleDateString('nl-NL'),
-      advies: onderw,
-      aandachtspunten: bericht,
-      score_gemiddeld: 'Contactformulier'
-    })
-  });
+  const onderwerp = encodeURIComponent('⚡ WERKKRACHT | Bericht van ' + (naam || 'website'));
+  const body = encodeURIComponent(
+    'Naam: ' + (naam || '—') + '\r\n' +
+    'Organisatie: ' + (org || '—') + '\r\n' +
+    'E-mail: ' + email + '\r\n' +
+    'Telefoon: ' + (tel || '—') + '\r\n' +
+    'Onderwerp: ' + (onderw || '—') + '\r\n\r\n' +
+    'Bericht:\r\n' + (bericht || '—') + '\r\n\r\n' +
+    '---\r\nVerzonden via werkkrachtnederland.nl op ' + new Date().toLocaleDateString('nl-NL')
+  );
+
+  window.location.href = 'mailto:edwin@werkkrachtnederland.nl?subject=' + onderwerp + '&body=' + body;
 
   // Toon bevestiging
   const btn = document.querySelector('[onclick="submitContactForm()"]');
@@ -6693,19 +6692,17 @@ function submitGesprek() {
     return;
   }
 
-  fetch(SHEETS_API, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      tab: 'gesprekken',
-      contactpersoon: naam,
-      email: contact,
-      ingevuld_op: new Date().toLocaleDateString('nl-NL'),
-      advies: 'Gespreksverzoek — ' + vorm,
-      aandachtspunten: 'Momenten: ' + slots.join(' | '),
-      score_gemiddeld: 'Gespreksplanner'
-    })
-  });
+  const onderwerp = encodeURIComponent('📅 WERKKRACHT | Gespreksverzoek van ' + naam);
+  const body = encodeURIComponent(
+    'Naam: ' + naam + '\r\n' +
+    'Contact: ' + contact + '\r\n' +
+    'Gespreksvorm: ' + vorm + '\r\n\r\n' +
+    'Voorgestelde momenten:\r\n' +
+    slots.map((s, i) => '  ' + (i + 1) + '. ' + s).join('\r\n') + '\r\n\r\n' +
+    '---\r\nVerzonden via werkkrachtnederland.nl op ' + new Date().toLocaleDateString('nl-NL')
+  );
+
+  window.location.href = 'mailto:edwin@werkkrachtnederland.nl?subject=' + onderwerp + '&body=' + body;
 
   document.querySelector('[onclick="submitGesprek()"]').style.display = 'none';
   document.getElementById('gp-bevestiging').style.display = 'block';
