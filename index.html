@@ -26,7 +26,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="WerkKracht">
 <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj4KICA8cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjM2IiBmaWxsPSIjMUE1QzM4Ii8+CiAgPCEtLSBTdGFpcmNhc2UgYmxva2tlbiAtLT4KICA8cmVjdCB4PSIxOCIgIHk9IjEzMCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjI0IiByeD0iNyIgZmlsbD0iIzI3QUU2MCIvPgogIDxyZWN0IHg9IjUwIiAgeT0iMTAwIiB3aWR0aD0iNTYiIGhlaWdodD0iMjQiIHJ4PSI3IiBmaWxsPSIjQTlERkJGIi8+CiAgPHJlY3QgeD0iODIiICB5PSI3MCIgIHdpZHRoPSI1NiIgaGVpZ2h0PSIyNCIgcng9IjciIGZpbGw9IndoaXRlIi8+CiAgPCEtLSBQb3BwZXRqZSBjaXJrZWwgaG9vZmQgLS0+CiAgPGNpcmNsZSBjeD0iMTU1IiBjeT0iNTIiIHI9IjE4IiBmaWxsPSJ3aGl0ZSIvPgogIDwhLS0gTGljaGFhbSAtLT4KICA8bGluZSB4MT0iMTU1IiB5MT0iNzAiIHgyPSIxNTUiIHkyPSIxMTIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDwhLS0gQXJtZW4gLS0+CiAgPGxpbmUgeDE9IjE1NSIgeTE9Ijg4IiB4Mj0iMTMyIiB5Mj0iNzIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIxNTUiIHkxPSI4OCIgeDI9IjE3OCIgeTI9IjcyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjExIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIEJlbmVuIC0tPgogIDxsaW5lIHgxPSIxNDgiIHkxPSIxMTIiIHgyPSIxMzIiIHkyPSIxNDgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIxNjIiIHkxPSIxMTIiIHgyPSIxNzgiIHkyPSIxNDgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Red+Hat+Display:wght@400;500;700;900&family=Red+Hat+Text:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:wght@700&family=Red+Hat+Display:wght@400;500;700;900&family=Red+Hat+Text:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <style>
 /* ═══════════════════════════════════════════════
@@ -51,13 +51,18 @@
   --f-display: 'Syne', sans-serif;
   --f-head:    'Red Hat Display', sans-serif;
   --f-body:    'Red Hat Text', sans-serif;
-
   --nav-h: 72px;
   --radius: 14px;
   --trans:  all 0.28s cubic-bezier(.4,0,.2,1);
 }
 
 html { scroll-behavior: smooth; }
+
+@media (max-width: 768px) {
+  :root {
+    --f-display: 'Fraunces', serif;
+  }
+}
 
 body {
   font-family: var(--f-body);
