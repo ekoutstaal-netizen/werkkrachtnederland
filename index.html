@@ -3193,13 +3193,15 @@ textarea.ifield { min-height: 90px; }
 }
 
 @media(max-width:768px){
-  .keten-track { flex-direction: column; align-items: center; gap: 1.5rem; }
-  .keten-track::before { top: 28px; left: 50%; width: 2px; height: calc(100% - 28px); right: auto; }
-  .keten-progress-line { top: 28px; left: 50%; width: 2px; height: 0; transition: height 1.6s cubic-bezier(.4,0,.2,1); }
-  .keten-progress-line.animated { width: 2px; height: calc(100% - 56px); }
+  .keten-track { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-left: 32px; }
+  .keten-track::before { top: 22px; left: 12px; width: 2px; height: calc(100% - 22px); right: auto; }
+  .keten-progress-line { top: 22px; left: 12px; width: 2px; height: 0; transition: height 1.6s cubic-bezier(.4,0,.2,1); }
+  .keten-progress-line.animated { width: 2px; height: calc(100% - 44px); }
+  .keten-step { align-items: flex-start; text-align: left; width: 100%; }
+  .keten-icon { margin-bottom: 0.4rem; }
   .keten-arrow { display: none; }
   .keten-result-stats { margin-left: 0; }
-  .keten-desc { max-width: 200px; }
+  .keten-desc { max-width: none; }
 }
 
 
@@ -3240,6 +3242,40 @@ textarea.ifield { min-height: 90px; }
   .maatwerk-btns { flex-direction: column; }
   .maatwerk-close { width: 100%; text-align: center; }
 }
+
+/* WhatsApp floating button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  z-index: 9000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.whatsapp-btn:hover { transform: scale(1.08); box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+.whatsapp-tooltip {
+  position: absolute;
+  right: 58px;
+  background: var(--charcoal);
+  color: var(--white);
+  font-family: var(--f-body);
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
 
 /* WhatsApp knop niet over exit banner */
 @media(max-width:640px){
@@ -4616,11 +4652,11 @@ textarea.ifield { min-height: 90px; }
             &ldquo;Wij geloven dat de beste samenwerkingen beginnen met een eerlijk gesprek. Geen pitch, geen druk &mdash; gewoon twee partijen die kijken of er een match is.&rdquo;
           </p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <a href="tel:+31700000000" style="display:inline-flex;align-items:center;gap:6px;background:var(--green);color:white;font-family:var(--f-display);font-size:0.78rem;font-weight:800;padding:8px 14px;border-radius:7px;text-decoration:none;">
+            <a href="tel:+31646101135" style="display:inline-flex;align-items:center;gap:6px;background:var(--green);color:white;font-family:var(--f-display);font-size:0.78rem;font-weight:800;padding:8px 14px;border-radius:7px;text-decoration:none;">
               <svg viewBox="0 0 24 24" fill="none" style="width:13px;height:13px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               Bel Edwin
             </a>
-            <a href="https://wa.me/31700000000?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;font-family:var(--f-display);font-size:0.78rem;font-weight:800;padding:8px 14px;border-radius:7px;text-decoration:none;">
+            <a href="https://wa.me/31646101135?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;font-family:var(--f-display);font-size:0.78rem;font-weight:800;padding:8px 14px;border-radius:7px;text-decoration:none;">
               <svg viewBox="0 0 32 32" fill="white" style="width:13px;height:13px"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.28 19.43c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43s-1.2 1.17-1.2 2.86 1.23 3.31 1.4 3.54 2.42 3.7 5.86 5.19c.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
               App Edwin
             </a>
@@ -4740,11 +4776,11 @@ textarea.ifield { min-height: 90px; }
       <div style="text-align:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--sage);">
         <p style="font-family:var(--f-body);font-size:.88rem;color:var(--gray);margin-bottom:1.25rem;">Klaar voor stap 1? Vul het formulier in of bereik Edwin direct.</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-          <a href="https://wa.me/31700000000?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;">
+          <a href="https://wa.me/31646101135?text=Hallo%20Edwin%2C%20ik%20wil%20graag%20meer%20weten%20over%20WerkKracht%20Nederland." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;">
             <svg viewBox="0 0 32 32" fill="white" style="width:18px;height:18px"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm6.28 19.43c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43s-1.2 1.17-1.2 2.86 1.23 3.31 1.4 3.54 2.42 3.7 5.86 5.19c.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
             App Edwin op WhatsApp
           </a>
-          <a href="tel:+31700000000" style="display:inline-flex;align-items:center;gap:8px;background:none;color:var(--forest);font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;border:2px solid var(--sage);">
+          <a href="tel:+31646101135" style="display:inline-flex;align-items:center;gap:8px;background:none;color:var(--forest);font-family:var(--f-display);font-size:.85rem;font-weight:800;padding:.75rem 1.5rem;border-radius:9px;text-decoration:none;border:2px solid var(--sage);">
             <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             Bel Edwin direct
           </a>
@@ -7644,8 +7680,8 @@ iUpdateProgress();
 </div>
 
 <!-- ── WHATSAPP KNOP ── -->
-<a class="whatsapp-btn" href="https://wa.me/31700000000?text=Hallo%20WerkKracht%20Nederland%2C%20ik%20wil%20graag%20meer%20weten%20over%20jullie%20platform." target="_blank" rel="noopener" aria-label="App ons op WhatsApp">
-  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm0 25.5c-2.17 0-4.2-.58-5.95-1.6l-.43-.25-4.43 1.04 1.06-4.31-.28-.45A11.43 11.43 0 0 1 4.5 16C4.5 9.6 9.6 4.5 16 4.5S27.5 9.6 27.5 16 22.4 27.5 16 27.5zm6.28-8.57c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43-.32.34-1.2 1.17-1.2 2.86 0 1.68 1.23 3.31 1.4 3.54.17.23 2.42 3.7 5.86 5.19.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
+<a class="whatsapp-btn" href="https://wa.me/31646101135?text=Hallo%20WerkKracht%20Nederland%2C%20ik%20wil%20graag%20meer%20weten%20over%20jullie%20platform." target="_blank" rel="noopener" aria-label="App ons op WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.45.65 4.75 1.78 6.74L2 30l7.47-1.75A13.92 13.92 0 0 0 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm0 25.5c-2.17 0-4.2-.58-5.95-1.6l-.43-.25-4.43 1.04 1.06-4.31-.28-.45A11.43 11.43 0 0 1 4.5 16C4.5 9.6 9.6 4.5 16 4.5S27.5 9.6 27.5 16 22.4 27.5 16 27.5zm6.28-8.57c-.34-.17-2.02-1-2.33-1.11-.32-.11-.55-.17-.78.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.69-2.02-1.89-2.36-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.87-1.07-2.56-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.91.43-.32.34-1.2 1.17-1.2 2.86 0 1.68 1.23 3.31 1.4 3.54.17.23 2.42 3.7 5.86 5.19.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.14.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.67-.4z"/></svg>
   <span class="whatsapp-tooltip">App ons op WhatsApp</span>
 </a>
 
