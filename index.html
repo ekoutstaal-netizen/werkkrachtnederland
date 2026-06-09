@@ -1538,18 +1538,18 @@ textarea.ifield { min-height: 90px; }
   display: flex; align-items: flex-start; justify-content: space-between;
   flex-wrap: wrap; gap: 1rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--sage);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
   margin-bottom: 2rem;
 }
 .dash-topbar-left h1 {
   font-family: var(--f-display);
   font-size: 1.6rem; font-weight: 800;
-  color: var(--charcoal);
+  color: var(--white);
   letter-spacing: -0.02em;
 }
 .dash-topbar-left p {
   font-family: var(--f-body);
-  font-size: 0.82rem; color: var(--gray);
+  font-size: 0.82rem; color: rgba(255,255,255,0.72);
   margin-top: 3px;
 }
 .dash-badge-pill {
@@ -1563,10 +1563,10 @@ textarea.ifield { min-height: 90px; }
 .dash-meta-right { text-align: right; }
 .dash-meta-right .date-str {
   font-family: var(--f-head); font-size: 0.78rem; font-weight: 700;
-  color: var(--charcoal);
+  color: rgba(255,255,255,0.92);
 }
 .dash-meta-right .quarter-str {
-  font-family: var(--f-body); font-size: 0.72rem; color: var(--gray);
+  font-family: var(--f-body); font-size: 0.72rem; color: rgba(255,255,255,0.55);
 }
 
 /* KPI grid */
@@ -1731,22 +1731,22 @@ textarea.ifield { min-height: 90px; }
 .dash-foot {
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: .5rem;
-  border-top: 1px solid var(--sage); padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.18); padding-top: 1.2rem;
   margin-top: .5rem;
 }
-.dash-foot p { font-family: var(--f-body); font-size: 0.72rem; color: var(--gray); }
+.dash-foot p { font-family: var(--f-body); font-size: 0.72rem; color: rgba(255,255,255,0.6); }
 .dash-foot-btns { display: flex; gap: 8px; }
 .dbtn {
   font-family: var(--f-head); font-size: 0.72rem; font-weight: 700;
   padding: 6px 14px;
-  border: 1px solid var(--greenLt);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 6px; background: none;
-  cursor: pointer; color: var(--forest);
+  cursor: pointer; color: rgba(255,255,255,0.9);
   display: flex; align-items: center; gap: 5px;
   letter-spacing: 0.04em;
   transition: var(--trans);
 }
-.dbtn:hover { background: var(--sage); }
+.dbtn:hover { background: rgba(255,255,255,0.1); }
 
 /* ═══════════════════════════════════════════════
    OPDRACHTGEVERS PORTAAL
@@ -1754,13 +1754,13 @@ textarea.ifield { min-height: 90px; }
 .opd-tabs-bar {
   display: flex; gap: 4px; flex-wrap: wrap;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--sage);
+  border-bottom: 2px solid rgba(255,255,255,0.22);
   padding-bottom: 0;
 }
 .opd-tab-btn {
   font-family: var(--f-head); font-size: 0.8rem; font-weight: 700;
   padding: 8px 16px; border: none; background: none;
-  cursor: pointer; color: var(--gray);
+  cursor: pointer; color: rgba(255,255,255,0.7);
   border-bottom: 3px solid transparent; margin-bottom: -2px;
   transition: var(--trans); letter-spacing: 0.04em;
   border-radius: 6px 6px 0 0;
@@ -2187,10 +2187,10 @@ textarea.ifield { min-height: 90px; }
 .intern-level-btn {
   font-family:var(--f-head); font-size:0.75rem; font-weight:700;
   padding:7px 16px; border-radius:20px; cursor:pointer;
-  border:1.5px solid var(--sage); background:none;
-  color:var(--gray); transition:var(--trans); letter-spacing:0.04em;
+  border:1.5px solid rgba(255,255,255,0.28); background:none;
+  color:rgba(255,255,255,0.85); transition:var(--trans); letter-spacing:0.04em;
 }
-.intern-level-btn:hover { border-color:var(--green); color:var(--forest); }
+.intern-level-btn:hover { border-color:var(--green); color:var(--white); }
 .intern-level-btn.active { background:var(--green); border-color:var(--green); color:var(--white); }
 .intern-panel { display:none; }
 .intern-panel.active { display:block; }
@@ -5649,7 +5649,7 @@ textarea.ifield { min-height: 90px; }
         </div>
       </div>
 
-      <p style="font-family:var(--f-head);font-size:0.82rem;font-weight:700;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">Uw projecten</p>
+      <p style="font-family:var(--f-head);font-size:0.82rem;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;">Uw projecten</p>
 
       <!-- Project 1 -->
       <div class="proj-card">
