@@ -42,7 +42,7 @@
   --mint:      #E8F8F0;
   --sage:      #D5F5E3;
   --white:     #FFFFFF;
-  --gray:      #6B7C75;
+  --gray:      #4A5C54;
   --grayLt:    #B2C4BB;
   --charcoal:  #1E2D26;
   --offwhite:  #F4FAF7;
@@ -633,7 +633,6 @@ nav {
   font-family: var(--f-body);
   font-size: 0.84rem;
   line-height: 1.65;
-  opacity: 0.8;
   margin-bottom: 1.2rem;
 }
 .bl-tags {
@@ -1049,7 +1048,7 @@ footer {
 .dienst-content p {
   font-family: var(--f-body);
   font-size: 0.95rem;
-  color: var(--gray);
+  color: var(--charcoal);
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -2631,7 +2630,7 @@ textarea.ifield { min-height: 90px; }
   width: 400px; height: 400px; border-radius: 50%;
   background: radial-gradient(circle, rgba(39,174,96,.1) 0%, transparent 70%);
 }
-.netwerk-hero .section-label { color: var(--green); }
+.netwerk-hero .section-label { color: rgba(255,255,255,0.7); }
 .netwerk-hero h1 {
   font-family: var(--f-display); font-size: clamp(2rem,4vw,3rem);
   font-weight: 800; color: var(--white); letter-spacing: -.025em;
@@ -3322,6 +3321,41 @@ textarea.ifield { min-height: 90px; }
     font-size: .72rem;
   }
 }
+
+
+/* Section labels op donkere achtergronden → wit */
+.keten-section .section-label,
+.page-hero .section-label,
+.contact-section .section-label,
+.netwerk-hero .section-label { color: rgba(255,255,255,0.7) !important; }
+.keten-section .section-label::before,
+.page-hero .section-label::before,
+.contact-section .section-label::before { background: rgba(255,255,255,0.5) !important; }
+
+/* bl-num en bl-title op donkere kaarten */
+.bl-dark .bl-num { color: rgba(255,255,255,0.5); }
+.bl-green .bl-num { color: rgba(255,255,255,0.5); }
+.bl-dark .bl-title { color: var(--white); }
+.bl-green .bl-title { color: var(--white); }
+
+/* dienst-content section-label (op witte achtergrond) */
+.dienst-content .section-label { color: var(--green); }
+.dienst-content .section-label::before { background: var(--green); }
+
+/* Businessline preview cards op homepage */
+.bl-desc { font-family: var(--f-body); font-size: 0.84rem; line-height: 1.65; margin-bottom: 1.2rem; }
+.bl-dark .bl-desc { color: rgba(255,255,255,0.82); }
+.bl-green .bl-desc { color: rgba(255,255,255,0.82); }
+.bl-light .bl-desc { color: var(--charcoal); opacity: 0.8; }
+.bl-sage .bl-desc { color: var(--charcoal); opacity: 0.8; }
+
+
+/* Section title op donkere hero */
+.page-hero .section-title { color: var(--white); }
+.keten-section .section-title { color: var(--white); }
+
+/* Betere leesbaarheid algemene tekst */
+.bl-light .bl-num, .bl-sage .bl-num { color: var(--forest); opacity: 0.5; }
 
 </style>
 </head>
