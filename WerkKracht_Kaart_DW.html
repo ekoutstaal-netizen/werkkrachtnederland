@@ -63,6 +63,14 @@ header p{font-size:11px;color:#A9DFBF;letter-spacing:.18em;text-transform:upperc
 .map-header h2{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff}
 .map-header p{font-size:11px;color:#A9DFBF;margin-left:auto}
 .map-frame{display:block;width:100%;border:none;flex:1;min-height:500px}
+.map-mobile-link{display:none;padding:48px 32px;text-align:center;background:#fff}
+.map-mobile-link p{font-family:'Red Hat Text',sans-serif;font-size:14px;color:#4A5C54;margin-bottom:20px;line-height:1.6}
+.map-mobile-btn{display:inline-flex;align-items:center;gap:10px;background:#27AE60;color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;transition:background .2s}
+.map-mobile-btn:hover{background:#1A5C38}
+@media(max-width:768px){
+  .map-frame{display:none}
+  .map-mobile-link{display:block}
+}
 
 /* Legenda */
 .legenda-sectie{
@@ -160,6 +168,13 @@ footer a{color:#27AE60;text-decoration:none}
       style="border:none;width:100%;height:calc(100vh - 260px);min-height:600px"
       scrolling="no">
     </iframe>
+    <div class="map-mobile-link">
+      <p>De interactieve kaart werkt het beste in een volledig scherm.<br>Tik op de knop om alle 97 Cedris-leden te bekijken.</p>
+      <a class="map-mobile-btn" href="https://datawrapper.dwcdn.net/OojKL/1/" target="_blank">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h8"/></svg>
+        Bekijk interactieve kaart
+      </a>
+    </div>
   </div>
 </div>
 
