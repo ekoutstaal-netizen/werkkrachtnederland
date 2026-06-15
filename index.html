@@ -224,7 +224,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg-img" aria-hidden="true"></div>
+    <div class="hero-bg-img" aria-hidden="true" style="background-image:url('images/selectie_magazijn.png')"></div>
     <div class="hero-left">
       <p class="hero-eyebrow">Wij verbinden werkgevers met werkontwikkelbedrijven</p>
       <h1 class="hero-h1">Elke stap <em>telt.</em></h1>
@@ -772,6 +772,45 @@
         <p>"Gelijkgerichtheid op alle niveaus is een voorwaarde voor het succes van welke inrichtingskeuze dan ook." WerkKracht brengt die gelijkgerichtheid landelijk tot stand.</p>
       </div>
     </div>
+  </section>
+
+  <!-- FOTO SECTIE: MENSEN AAN HET WERK -->
+  <section style="padding:0;background:var(--offwhite);overflow:hidden;">
+    <div id="foto-duo-grid" style="display:grid;grid-template-columns:1fr 1fr;min-height:420px;">
+      <!-- Foto 1: inpakken / Down syndroom -->
+      <div style="position:relative;overflow:hidden;min-height:320px;">
+        <img
+          src="images/selectie_inpakken.png"
+          alt="Diverse medewerkers werken samen aan inpaktafel in een logistieke werkplaats"
+          style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
+          loading="lazy"
+        >
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,92,56,0.72) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:2rem;left:2rem;right:2rem;">
+          <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--greenLt);margin-bottom:0.4rem;">Logistiek & productie</p>
+          <p style="font-family:var(--f-display);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.3;">Samen werken aan échte opdrachten</p>
+        </div>
+      </div>
+      <!-- Foto 2: rolstoel receptie -->
+      <div style="position:relative;overflow:hidden;min-height:320px;">
+        <img
+          src="images/selectie_groen.png"
+          alt="Medewerkers in groene overalls werken buiten in de tuin"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+          loading="lazy"
+        >
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,92,56,0.72) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:2rem;left:2rem;right:2rem;">
+          <p style="font-family:var(--f-head);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--greenLt);margin-bottom:0.4rem;">Groen & buitenwerk</p>
+          <p style="font-family:var(--f-display);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.3;">Iedereen verdient een volwaardige werkplek</p>
+        </div>
+      </div>
+    </div>
+    <style>
+      @media(max-width:640px){
+        #foto-duo-grid{grid-template-columns:1fr !important;}
+      }
+    </style>
   </section>
 
   <!-- CTA STRIP -->
