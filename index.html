@@ -158,6 +158,33 @@
 }
 .keten-toggle::-webkit-details-marker { display: none; }
 details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
+
+.usp-pillar{cursor:pointer;}
+.usp-pillar p,.usp-pillar-tag{
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  margin-top:0;
+  transition:max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  pointer-events:none;
+}
+.usp-pillar.open p,.usp-pillar.open .usp-pillar-tag{
+  max-height:300px;
+  opacity:1;
+  margin-top:0.6rem;
+  pointer-events:auto;
+}
+.usp-pillar h3::after{
+  content:' ↓';
+  font-size:0.75rem;
+  font-weight:400;
+  color:var(--green-ink);
+  transition:transform 0.2s;
+  display:inline-block;
+}
+.usp-pillar.open h3::after{
+  content:' ↑';
+}
 </style>
 </head>
 
@@ -356,7 +383,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         <!-- KAART MODAL -->
                 <div class="hero-stat" style="cursor:pointer" onclick="document.getElementById('popup5x7').style.display='flex'" title="Meer informatie over maatschappelijke impact">
           <div class="num" id="cnt-rendement" style="text-decoration:underline;text-decoration-color:rgba(169,223,191,0.5);text-underline-offset:4px">5–7×</div>
-          <div class="lbl">Maatschappelijk<br>impact<br><span style="font-size:0.6rem;color:var(--greenLt);letter-spacing:0.08em">↗ meer informatie</span></div>
+          <div class="lbl">Maatschappelijke<br>impact<br><span style="font-size:0.6rem;color:var(--greenLt);letter-spacing:0.08em">↗ meer informatie</span></div>
         </div>
       </div>
     </div>
@@ -450,7 +477,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         </button>
         <button type="button" class="kh-role" onclick="khSelect('wob', this)">
           <span class="kh-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M6.7 7.9 10.6 15.8M17.3 7.9 13.4 15.8M7.5 6h9"/></svg></span>
-          <strong>Werkontwikkelbedrijf</strong>
+          <strong>WerkOntwikkelBedrijf</strong>
           <span>Ik wil meer opdrachten en betere vindbaarheid.</span>
         </button>
       </div>
@@ -835,10 +862,10 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         <div style="background:var(--forest);border-radius:14px;padding:2rem;color:var(--white);margin-bottom:1.2rem;">
           <h3 style="font-family:var(--f-head);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:1rem;">Vraagbundeling</h3>
           <div style="display:flex;flex-direction:column;gap:.7rem;">
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doorlooptijd</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">6–12 weken</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Inzet</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Projectleider WerkKracht Nederland</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Resultaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Opdracht + plaatsingen</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">WerkOntwikkelBedrijven + Werkgevers</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doorlooptijd</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">6–12 weken</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Inzet</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Projectleider WerkKracht Nederland</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Resultaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Opdracht + plaatsingen</span></div>
+            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">WerkOntwikkelBedrijven + Werkgevers</span></div>
           </div>
         </div>
         <div style="background:var(--offwhite);border-radius:14px;padding:1.5rem;border:1px solid var(--sage);">
@@ -875,10 +902,10 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         <div style="background:var(--forest);border-radius:14px;padding:2rem;color:var(--white);margin-bottom:1.2rem;">
           <h3 style="font-family:var(--f-head);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:1rem;">Opschaling</h3>
           <div style="display:flex;flex-direction:column;gap:.7rem;">
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doorlooptijd</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">3–9 maanden</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Inzet</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Kennisadviseur WerkKracht Nederland</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Resultaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Implementatieplan</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">WerkOntwikkelBedrijven landelijk</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doorlooptijd</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">3–9 maanden</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Inzet</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Kennisadviseur WerkKracht Nederland</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Resultaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Implementatieplan</span></div>
+            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">WerkOntwikkelBedrijven landelijk</span></div>
           </div>
         </div>
         <div style="background:var(--white);border-radius:14px;padding:1.5rem;border:1px solid var(--sage);">
@@ -915,10 +942,10 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         <div style="background:var(--forest);border-radius:14px;padding:2rem;color:var(--white);margin-bottom:1.2rem;">
           <h3 style="font-family:var(--f-head);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:1rem;">Kennisplatform</h3>
           <div style="display:flex;flex-direction:column;gap:.7rem;">
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Toegang</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Via lidmaatschap</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Formaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Online + fysiek</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Inhoud</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Werksoorten, MKBA, formats</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">WerkOntwikkelBedrijven</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Toegang</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Via lidmaatschap</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Formaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Online + fysiek</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Inhoud</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Werksoorten, MKBA, formats</span></div>
+            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">WerkOntwikkelBedrijven</span></div>
           </div>
         </div>
         <div style="background:var(--offwhite);border-radius:14px;padding:1.5rem;border:1px solid var(--sage);">
@@ -956,10 +983,10 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         <div style="background:var(--forest);border-radius:14px;padding:2rem;color:var(--white);margin-bottom:1.2rem;">
           <h3 style="font-family:var(--f-head);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:1rem;">Projectleiding</h3>
           <div style="display:flex;flex-direction:column;gap:.7rem;">
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Inzet</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Flexibel, per opdracht</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doorlooptijd</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">3–12 maanden</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Resultaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">Implementatie + overdracht</span></div>
-            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;">WerkOntwikkelBedrijven + Gemeenten</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Inzet</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Flexibel, per opdracht</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doorlooptijd</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">3–12 maanden</span></div>
+            <div style="display:grid;grid-template-columns:max-content 1fr;gap:0 16px;align-items:baseline;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Resultaat</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">Implementatie + overdracht</span></div>
+            <div style="display:flex;justify-content:space-between;padding:.6rem 0;"><span style="font-family:var(--f-body);font-size:.8rem;color:rgba(255,255,255,0.6);white-space:nowrap;">Doelgroep</span><span style="font-family:var(--f-body);font-size:.8rem;color:var(--white);font-weight:600;text-align:right;">WerkOntwikkelBedrijven + Gemeenten</span></div>
           </div>
         </div>
         <div style="background:var(--white);border-radius:14px;padding:1.5rem;border:1px solid var(--sage);">
@@ -1292,7 +1319,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
 
     <!-- Bovenste laag: persoonlijke belofte -->
     <div style="max-width:900px;margin:0 auto;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,0.1);">
-      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:1rem;"><div style="width:28px;height:3px;background:var(--green);border-radius:2px;"></div><span style="font-family:var(--f-head);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Persoonlijk contact</span></div>
+      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:1rem;"><div style="width:28px;height:3px;background:var(--green);border-radius:2px;"></div><span style="font-family:var(--f-head);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,0.6);white-space:nowrap;">Persoonlijk contact</span></div>
       <h1 style="font-family:var(--f-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem;">
         U bent niet een lead.<br>
         <span style="color:var(--greenLt);">U bent onze prioriteit.</span>
@@ -4064,6 +4091,17 @@ function sendPortalMsg() {
 }
 
 
+
+// Browser terug/vooruit knop
+window.addEventListener('popstate', function(e) {
+  const pageId = e.state?.pageId || 'home';
+  showPage(pageId);
+});
+// Bij eerste load: check URL hash
+(function() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash) showPage(hash);
+})();
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -4072,6 +4110,10 @@ function showPage(pageId) {
   if (target) {
     target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Browser terug/vooruit knop ondersteuning
+    if (history.state?.pageId !== pageId) {
+      history.pushState({ pageId }, '', '#' + pageId);
+    }
   }
 
   // Update active nav link
@@ -4929,5 +4971,13 @@ iUpdateProgress();
           </div>
         </div>
 
+<script>
+// USP pillar toggle
+document.querySelectorAll('.usp-pillar').forEach(function(pillar) {
+  pillar.addEventListener('click', function() {
+    this.classList.toggle('open');
+  });
+});
+</script>
 </body>
 </html>
