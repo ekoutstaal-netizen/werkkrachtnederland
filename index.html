@@ -477,7 +477,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         </button>
         <button type="button" class="kh-role" onclick="khSelect('wob', this)">
           <span class="kh-role-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M6.7 7.9 10.6 15.8M17.3 7.9 13.4 15.8M7.5 6h9"/></svg></span>
-          <strong>WerkOntwikkelBedrijf</strong>
+          <strong>Ik ben WerkOntwikkelBedrijf</strong>
           <span>Ik wil meer opdrachten en betere vindbaarheid.</span>
         </button>
       </div>
@@ -4092,16 +4092,6 @@ function sendPortalMsg() {
 
 
 
-// Browser terug/vooruit knop
-window.addEventListener('popstate', function(e) {
-  const pageId = e.state?.pageId || 'home';
-  showPage(pageId);
-});
-// Bij eerste load: check URL hash
-(function() {
-  const hash = window.location.hash.replace('#', '');
-  if (hash) showPage(hash);
-})();
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -4110,10 +4100,6 @@ function showPage(pageId) {
   if (target) {
     target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Browser terug/vooruit knop ondersteuning
-    if (history.state?.pageId !== pageId) {
-      history.pushState({ pageId }, '', '#' + pageId);
-    }
   }
 
   // Update active nav link
