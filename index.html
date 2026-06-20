@@ -341,7 +341,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
         <a class="btn-outline" href="#" onclick="showPage('home'); setTimeout(()=>{document.querySelector('.calc-section')?.scrollIntoView({behavior:'smooth'})},120)">Bereken uw impact →</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat" style="cursor:pointer" onclick="window.open('https://datawrapper.dwcdn.net/OojKL/1/','_blank')" title="Bekijk interactieve kaart">
+        <div class="hero-stat" style="cursor:pointer" onclick="openKaart()" title="Bekijk interactieve kaart">
           <div class="num" id="cnt-bedrijven" style="text-decoration:underline;text-decoration-color:rgba(169,223,191,0.5);text-underline-offset:4px">97</div>
           <div class="lbl">Werkontwikkelbedrijven<br><span style="font-size:0.6rem;color:var(--greenLt);letter-spacing:0.08em">↗ bekijk kaart</span></div>
         </div>
@@ -378,9 +378,54 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
             <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--grayLt);margin-top:0.75rem">Bron: Cedris Sectorinformatie 2024</p>
           </div>
         </div>
-        <div class="hero-stat">
-          <div class="num" id="cnt-rendement">5–7×</div>
-          <div class="lbl">Maatschappelijk<br>impact</div>
+
+        <!-- POPUP 5-7× MAATSCHAPPELIJKE IMPACT -->
+        <div id="popup5x7" onclick="if(event.target===this)this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:9500;background:rgba(10,30,20,0.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1.5rem">
+          <div style="background:var(--white);border-radius:16px;padding:2rem 2.25rem;width:100%;max-width:520px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.25);position:relative">
+            <button onclick="document.getElementById('popup5x7').style.display='none'" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--gray);line-height:1">&#215;</button>
+            <p style="font-family:var(--f-head);font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-ink);margin-bottom:0.5rem">Toelichting</p>
+            <h2 style="font-family:var(--f-display);font-size:1.6rem;font-weight:800;color:var(--forest);letter-spacing:-0.02em;margin-bottom:1.25rem">Maatschappelijke impact</h2>
+            <p style="font-family:var(--f-body);font-size:0.9rem;color:var(--charcoal);line-height:1.75;margin-bottom:1.1rem">
+              <strong>Maatschappelijke impact</strong> is de verhouding tussen de maatschappelijke waarde die een werkplek oplevert en de kosten die daarvoor worden gemaakt. Het laat zien wat elke ge&#239;nvesteerde euro aan bredere baten oplevert &mdash; voor de deelnemer, de gemeente en de samenleving als geheel.
+            </p>
+            <p style="font-family:var(--f-body);font-size:0.9rem;color:var(--charcoal);line-height:1.75;margin-bottom:1.5rem">
+              WerkKracht Nederland berekent deze impact op basis van de <strong>MKBA-methode</strong> (Maatschappelijke Kosten-Batenanalyse), ontwikkeld door Berenschot in opdracht van Cedris en Divosa. Per werkplek bedraagt de gemiddelde maatschappelijke waarde <strong>&euro;29.000 per jaar</strong>.
+            </p>
+            <div style="background:var(--mint);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+                <div>
+                  <div style="font-family:var(--f-display);font-size:1.8rem;font-weight:800;color:var(--forest);letter-spacing:-0.03em;line-height:1.1">5&ndash;7&times;</div>
+                  <div style="font-family:var(--f-body);font-size:0.78rem;color:var(--charcoal);margin-top:4px">Impact per werkplek</div>
+                </div>
+                <div>
+                  <div style="font-family:var(--f-display);font-size:1.8rem;font-weight:800;color:var(--forest);letter-spacing:-0.03em;line-height:1.1">&euro;29K</div>
+                  <div style="font-family:var(--f-body);font-size:0.78rem;color:var(--charcoal);margin-top:4px">MKBA-waarde per werkplek/jaar</div>
+                </div>
+                <div>
+                  <div style="font-family:var(--f-display);font-size:1.8rem;font-weight:800;color:var(--forest);letter-spacing:-0.03em;line-height:1.1">&euro;13K</div>
+                  <div style="font-family:var(--f-body);font-size:0.78rem;color:var(--charcoal);margin-top:4px">BUIG-besparing per plaatsing</div>
+                </div>
+              </div>
+            </div>
+            <p style="font-family:var(--f-body);font-size:0.68rem;color:var(--grayLt);line-height:1.6">Bron: Berenschot/Cedris MKBA-methodiek, Divosa 2024. Berekeningen zijn indicatief op basis van sectorgemiddelden.</p>
+          </div>
+        </div>
+        <!-- KAART MODAL -->
+        <div id="kaartModal" onclick="if(event.target===this)closeKaart()" style="display:none;position:fixed;inset:0;z-index:9500;background:rgba(10,28,18,0.78);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1rem">
+          <div style="background:var(--greenDk);border-radius:16px;width:100%;max-width:960px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.45)">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.1);flex-shrink:0">
+              <div>
+                <span style="font-family:var(--f-head);font-size:0.88rem;font-weight:700;color:var(--white)">Netwerk werkontwikkelbedrijven</span>
+                <span style="font-family:var(--f-body);font-size:0.72rem;color:rgba(255,255,255,0.5);margin-left:10px">97 Cedris-leden in Nederland</span>
+              </div>
+              <button onclick="closeKaart()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;color:rgba(255,255,255,0.85);font-size:1.1rem;line-height:1;padding:6px 14px;font-family:var(--f-head);transition:background 0.15s" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">× sluiten</button>
+            </div>
+            <iframe src="https://datawrapper.dwcdn.net/OojKL/1/" style="width:100%;flex:1;border:none;min-height:500px" loading="lazy" title="Kaart werkontwikkelbedrijven Nederland"></iframe>
+          </div>
+        </div>
+                <div class="hero-stat" style="cursor:pointer" onclick="document.getElementById('popup5x7').style.display='flex'" title="Meer informatie over maatschappelijke impact">
+          <div class="num" id="cnt-rendement" style="text-decoration:underline;text-decoration-color:rgba(169,223,191,0.5);text-underline-offset:4px">5–7×</div>
+          <div class="lbl">Maatschappelijk<br>impact<br><span style="font-size:0.6rem;color:var(--greenLt);letter-spacing:0.08em">↗ meer informatie</span></div>
         </div>
       </div>
     </div>
@@ -706,11 +751,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
           <span>Elke stap gedocumenteerd, elke euro verantwoord &mdash; voor gemeente, opdrachtgever en stakeholder.</span>
         </div>
         <div class="keten-result-stats">
-          <div class="keten-result-stat" style="cursor:pointer;" onclick="document.querySelector('.calc-section')?.scrollIntoView({behavior:'smooth'})" title="Bereken uw eigen impact">
-            <span class="rv">5&ndash;7&times;</span>
-            <span class="rl">Maatsch. impact</span>
-            <span style="font-family:var(--f-head);font-size:0.6rem;color:var(--greenLt);letter-spacing:0.06em;margin-top:2px;display:flex;align-items:center;gap:3px;">↗ bereken zelf</span>
-          </div>
+
           <div class="keten-result-stat">
             <span class="rv">&euro;29K</span>
             <span class="rl">MKBA per werkplek</span>
@@ -3748,6 +3789,17 @@ function initOpdPlanning() {
 })();
 
 // ── PORTAAL DROPDOWN ────────────────────────────────────────
+
+function openKaart() {
+  var m = document.getElementById('kaartModal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeKaart() {
+  var m = document.getElementById('kaartModal');
+  m.style.display = 'none';
+  document.body.style.overflow = '';
+}
 function togglePortalMenu(e) {
   e.stopPropagation();
   const btn = document.getElementById('portalNavBtn');
