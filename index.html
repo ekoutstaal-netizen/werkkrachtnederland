@@ -265,15 +265,6 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
           <small>WerkKracht Nederland intern</small>
         </span>
       </button>
-      <button class="portal-dd-item" onclick="togglePortalMenu(event);showPage('intake')">
-        <span class="portal-dd-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
-        </span>
-        <span>
-          <strong>Intakeformulier</strong>
-          <small>Intern instrument</small>
-        </span>
-      </button>
     </div>
   </div>
   <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -337,15 +328,6 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
     <span class="mpi-text">
       <strong>Organisatieplanning</strong>
       <small>WerkKracht intern</small>
-    </span>
-  </button>
-  <button class="mobile-portal-item" onclick="showPage('intake');closeMobileMenu()">
-    <span class="mpi-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
-    </span>
-    <span class="mpi-text">
-      <strong>Intakeformulier</strong>
-      <small>Intern instrument</small>
     </span>
   </button>
   <a class="mobile-menu-cta" href="#" onclick="showPage('contact');closeMobileMenu()">Meld je aan →</a>
@@ -815,7 +797,7 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
       <h2 style="font-family:var(--f-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1rem;">Klaar om samen te werken?</h2>
       <p style="font-family:var(--f-body);font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:2rem;">Of u nu werkgever, gemeente of werkontwikkelbedrijf bent — er is een concrete eerste stap voor u.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="#" onclick="showPage('intake');window.scrollTo(0,0);return false;" class="btn-primary" style="font-size:1rem;padding:0.9rem 2.2rem;">Start een intake →</a>
+        <a href="#" onclick="showPage('contact');window.scrollTo(0,0);return false;" class="btn-primary" style="font-size:1rem;padding:0.9rem 2.2rem;">Neem contact op →</a>
         <a href="#" onclick="showPage('contact');window.scrollTo(0,0);return false;" class="btn-outline" style="font-size:1rem;padding:0.9rem 2rem;">Neem contact op</a>
       </div>
     </div>
@@ -4134,7 +4116,7 @@ document.addEventListener('click', function(e) {
 
 // ── HIDDEN INTAKE ROUTE: /#intake ──────────────────────────────
 (function() {
-  if (window.location.hash === '#intake') showPage('intake');
+  
 })();
 
 function showDienst(id) {
