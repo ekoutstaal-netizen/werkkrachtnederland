@@ -265,6 +265,17 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
           <small>WerkKracht Nederland intern</small>
         </span>
       </button>
+      <div style="height:1px;background:rgba(255,255,255,.07);margin:4px 12px;"></div>
+      <div class="portal-dd-label" style="margin-top:4px;">Klantportaal</div>
+      <button class="portal-dd-item" onclick="togglePortalMenu(event);showPage('klantportaal')">
+        <span class="portal-dd-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
+        </span>
+        <span>
+          <strong>Klantportaal</strong>
+          <small>Realtime dossierstatus</small>
+        </span>
+      </button>
     </div>
   </div>
   <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -3271,6 +3282,91 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
   </div>
 </div>
 
+<!-- ════════════════════════════════════════════
+     KLANTPORTAAL (Bouwsteen 4b)
+════════════════════════════════════════════ -->
+<div id="page-klantportaal" class="page">
+  <!-- LOGIN VIEW -->
+  <div id="kp-login-wrap" class="portal-wrap">
+    <div class="portal-card">
+      <button class="portal-back" onclick="showPage('home')">← Terug naar website</button>
+      <div class="portal-icon">
+        <svg viewBox="0 0 24 24" fill="none" style="width:28px;height:28px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
+      </div>
+      <h2>Uw dossierportaal</h2>
+      <p>Vul uw dossiernummer in om de actuele status van uw traject te bekijken.</p>
+      <div class="portal-error" id="kp-err">Dossiernummer niet gevonden. Controleer het nummer en probeer het opnieuw.</div>
+      <div class="portal-field">
+        <label>Dossiernummer</label>
+        <input type="text" id="kp-dossier" placeholder="bijv. RIV-2026-001" onkeydown="if(event.key==='Enter')doKlantLogin()" autocomplete="off" style="text-transform:uppercase;" />
+      </div>
+      <button class="portal-login-btn" id="kp-login-btn" onclick="doKlantLogin()">Inloggen →</button>
+      <p class="portal-hint">Uw dossiernummer staat vermeld in de bevestigingsmail van WerkKracht Nederland.</p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD VIEW -->
+  <div id="kp-dashboard-wrap" style="display:none;background:var(--greenDk);min-height:100vh;padding:calc(var(--nav-h) + 2rem) 5% 4rem;">
+    <div style="max-width:680px;margin:0 auto;">
+
+      <!-- topbar -->
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:2rem;">
+        <div>
+          <h1 id="kp-org-name" style="font-family:var(--f-display);font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:-0.02em;margin:0;">—</h1>
+          <p id="kp-dossier-display" style="font-family:var(--f-body);font-size:0.82rem;color:rgba(255,255,255,0.65);margin-top:4px;">Dossier —</p>
+        </div>
+        <div style="text-align:right;">
+          <div id="kp-status-badge" class="dash-badge-pill pill-green">—</div>
+          <div id="kp-update-str" style="font-family:var(--f-body);font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:6px;"></div>
+        </div>
+      </div>
+
+      <!-- data tiles -->
+      <div class="kpi-strip" style="margin-bottom:1.75rem;">
+        <div class="kpi-tile">
+          <div class="kpi-lbl">Dossier</div>
+          <div class="kpi-num" id="kp-dossier-tile" style="font-size:1rem;letter-spacing:0.02em;">—</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-lbl">Accountmanager</div>
+          <div class="kpi-num" id="kp-accountmanager" style="font-size:1rem;">—</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-lbl">Arbeidsmarktregio</div>
+          <div class="kpi-num" id="kp-regio" style="font-size:0.9rem;letter-spacing:-0.01em;">—</div>
+        </div>
+      </div>
+
+      <!-- status block -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:1.5rem 1.75rem;margin-bottom:1.75rem;">
+        <div style="font-family:var(--f-head);font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.8rem;">Actuele status</div>
+        <div id="kp-status-display" style="font-family:var(--f-display);font-size:1.6rem;font-weight:800;color:var(--white);letter-spacing:-0.02em;">—</div>
+        <div id="kp-status-desc" style="font-family:var(--f-body);font-size:0.82rem;color:rgba(255,255,255,0.65);margin-top:0.5rem;line-height:1.6;"></div>
+      </div>
+
+      <!-- info strip -->
+      <div class="transp-strip">
+        <span class="ts-icon">
+          <svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </span>
+        <p>Vragen over uw dossier? Neem contact op met uw accountmanager of mail naar <strong>info@werkkrachtnederland.nl</strong>.</p>
+      </div>
+
+      <!-- footer -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-top:1px solid rgba(255,255,255,0.15);padding-top:1.2rem;margin-top:2rem;">
+        <p style="font-family:var(--f-body);font-size:0.72rem;color:rgba(255,255,255,0.55);">
+          <svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;vertical-align:-1px" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Klantportaal · WerkKracht Nederland · Live data
+        </p>
+        <div style="display:flex;gap:8px;">
+          <button class="dbtn" onclick="doKlantRefresh()">↻ Vernieuwen</button>
+          <button class="dbtn" onclick="doKlantLogout()">← Uitloggen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- WERKSOORTEN MOZAÏEK -->
 <div id="wk-mosaic" style="display:flex;gap:3px;background:#1A5C38;"></div>
 <script>
@@ -3338,6 +3434,97 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
 </footer>
 
 <script>
+
+// ── KLANTPORTAAL (Bouwsteen 4b) ───────────────────────────────────────────────
+var KP_SCRIPT_URL =  + APPS_SCRIPT_URL + ;
+var KP_KEY = 'WKN2026';
+var kpCurrentDossier = '';
+
+var KP_STATUS_LABELS = {
+  'Nieuw':              { desc: 'Uw aanvraag is ontvangen. Onze accountmanager neemt spoedig contact met u op.' },
+  'In behandeling':     { desc: 'Uw dossier wordt momenteel beoordeeld door uw accountmanager.' },
+  'Intake gepland':     { desc: 'Er is een intakegesprek gepland. Meer informatie ontvangt u per mail.' },
+  'Actieve opdracht':   { desc: 'Uw opdracht is gestart en wordt actief begeleid door WerkKracht Nederland.' },
+  'Afgerond':           { desc: 'Uw traject is afgerond. Bedankt voor de samenwerking.' },
+  'Niet doorgegaan':    { desc: 'Dit dossier is gesloten. Neem contact op voor meer informatie.' }
+};
+
+function doKlantLogin() {
+  var raw = document.getElementById('kp-dossier').value.trim().toUpperCase();
+  if (!raw) return;
+  var btn = document.getElementById('kp-login-btn');
+  btn.textContent = 'Laden…';
+  btn.disabled = true;
+  document.getElementById('kp-err').style.display = 'none';
+  var url = KP_SCRIPT_URL + '?action=read&key=' + encodeURIComponent(KP_KEY) + '&dossiernummer=' + encodeURIComponent(raw);
+  fetch(url)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      btn.textContent = 'Inloggen →';
+      btn.disabled = false;
+      if (data.status === 'success') {
+        kpCurrentDossier = raw;
+        renderKlantDashboard(data.data);
+      } else {
+        document.getElementById('kp-err').textContent = data.message || 'Dossiernummer niet gevonden. Controleer het nummer en probeer het opnieuw.';
+        document.getElementById('kp-err').style.display = 'block';
+      }
+    })
+    .catch(function(e) {
+      btn.textContent = 'Inloggen →';
+      btn.disabled = false;
+      document.getElementById('kp-err').textContent = 'Verbindingsfout. Controleer uw internetverbinding en probeer het opnieuw.';
+      document.getElementById('kp-err').style.display = 'block';
+    });
+}
+
+function renderKlantDashboard(data) {
+  var orgName = data['Organisatienaam'] || '—';
+  var dossierNr = data['Dossiernummer'] || '—';
+  var status = data['Status'] || '—';
+  var accountmanager = data['Accountmanager'] || '—';
+  var regio = data['Arbeidsmarktregio'] || '—';
+  var updateDate = data['Datum_laatste_update'] || '';
+
+  document.getElementById('kp-org-name').textContent = orgName;
+  document.getElementById('kp-dossier-display').textContent = 'Dossier · ' + dossierNr;
+  document.getElementById('kp-dossier-tile').textContent = dossierNr;
+  document.getElementById('kp-accountmanager').textContent = accountmanager;
+  document.getElementById('kp-regio').textContent = regio;
+  document.getElementById('kp-status-display').textContent = status;
+  document.getElementById('kp-update-str').textContent = updateDate ? 'Bijgewerkt: ' + updateDate : '';
+
+  // Status description
+  var statusInfo = KP_STATUS_LABELS[status] || { desc: '' };
+  document.getElementById('kp-status-desc').textContent = statusInfo.desc;
+
+  // Badge styling
+  var badge = document.getElementById('kp-status-badge');
+  badge.textContent = status;
+  badge.className = 'dash-badge-pill';
+  if (status === 'Actieve opdracht') { badge.style.background = 'var(--sage)'; badge.style.color = 'var(--forest)'; }
+  else if (status === 'In behandeling' || status === 'Intake gepland') { badge.style.background = '#FEF9E7'; badge.style.color = '#9A7D0A'; }
+  else if (status === 'Afgerond') { badge.style.background = 'var(--forest)'; badge.style.color = 'var(--white)'; }
+  else { badge.style.background = 'rgba(255,255,255,0.12)'; badge.style.color = 'rgba(255,255,255,0.85)'; }
+
+  // Switch views
+  document.getElementById('kp-login-wrap').style.display = 'none';
+  document.getElementById('kp-dashboard-wrap').style.display = 'block';
+}
+
+function doKlantLogout() {
+  kpCurrentDossier = '';
+  document.getElementById('kp-dossier').value = '';
+  document.getElementById('kp-err').style.display = 'none';
+  document.getElementById('kp-login-wrap').style.display = 'flex';
+  document.getElementById('kp-dashboard-wrap').style.display = 'none';
+}
+
+function doKlantRefresh() {
+  if (!kpCurrentDossier) return;
+  document.getElementById('kp-dossier').value = kpCurrentDossier;
+  doKlantLogin();
+}
 
 // ── MKBA CALCULATOR ──────────────────────────────────────────
 function calcFormat(n) {
