@@ -3907,6 +3907,7 @@ function doPortalLogin() {
 
 // ── GOOGLE SHEETS KOPPELING ──────────────────────────────────
 const SHEETS_API = 'https://script.google.com/macros/s/AKfycbzWfV0-UYHc4d-94qhMhyiBBYRL4_Wys3WsW6hRQmp6ghrf5inau2f_ECnycXUkux60rg/exec';
+const WKN_FLOW_URL = 'https://default7272340e5f43414a9701af2cefea52.b7.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2707444b1d034d138f4c9b37bbebe944/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SlIiXlVV_6AEvSRjuRlNQqOq0pNiQ5EHB1h54nt8n2s';
 
 function fmtEur(n) {
   n = Number(n);
@@ -4294,6 +4295,25 @@ function iSubmitForm() {
     if (statusEl) statusEl.style.display = 'none';
     if (errorEl)  errorEl.style.display = 'flex';
     console.warn('Sheets intake fout:', e);
+  });
+
+  // Stuur ook naar SharePoint Klantdossiers via Power Automate HTTP trigger
+  const wknPayload = {
+    organisatienaam:      data.q1_1 || '',
+    type_organisatie:     data.q1_2 || '',
+    contactpersoon:       data.q1_3 || '',
+    email_contactpersoon: data.q1_4 || '',
+    arbeidsmarktregio:    ''
+  };
+  fetch(WKN_FLOW_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(wknPayload)
+  }).then(() => {
+    console.log('Intake verstuurd naar SharePoint Klantdossiers via Power Automate');
+  }).catch(e => {
+    console.warn('Power Automate intake fout:', e);
   });
   const scores_display = [
     ['Veranderbereidheid', data.q8_1],
