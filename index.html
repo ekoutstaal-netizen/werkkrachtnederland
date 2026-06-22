@@ -3298,10 +3298,14 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
       <div class="portal-error" id="kp-err">Dossiernummer niet gevonden. Controleer het nummer en probeer het opnieuw.</div>
       <div class="portal-field">
         <label>Dossiernummer</label>
-        <input type="text" id="kp-dossier" placeholder="bijv. RIV-2026-001" onkeydown="if(event.key==='Enter')doKlantLogin()" autocomplete="off" style="text-transform:uppercase;" />
+        <input type="text" id="kp-dossier" placeholder="Uw dossiernummer" onkeydown="if(event.key==='Enter')document.getElementById('kp-naam').focus()" autocomplete="off" style="text-transform:uppercase;" />
+      </div>
+      <div class="portal-field">
+        <label>Achternaam contactpersoon</label>
+        <input type="text" id="kp-naam" placeholder="Achternaam" onkeydown="if(event.key==='Enter')doKlantLogin()" autocomplete="off" />
       </div>
       <button class="portal-login-btn" id="kp-login-btn" onclick="doKlantLogin()">Inloggen →</button>
-      <p class="portal-hint">Uw dossiernummer staat vermeld in de bevestigingsmail van WerkKracht Nederland.</p>
+      <p class="portal-hint">Uw toegangsgegevens zijn vermeld in de bevestigingsmail van WerkKracht Nederland.</p>
     </div>
   </div>
 
@@ -3437,40 +3441,85 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
 
 // ── KLANTPORTAAL (Bouwsteen 4b) ───────────────────────────────────────────────
 var KP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzdXXGNa07uz0GQdVCmSnXFfyRVRQywsWfl1r-IJRxx9ETyFGswLcy0LzCzwroSSV5z/exec';
-var KP_KEY = 'WKN2026';
+var KP_KEY        = 'WKN2026';
 var kpCurrentDossier = '';
+var kpCurrentNaam    = '';
+
+// Demo-inlog: dossiernummer + achternaam (uitsluitend voor presentaties)
+var KP_DEMO_DOSSIER = 'DEMO-2026';
+var KP_DEMO_NAAM    = 'Nederland';
+var KP_DEMO_DATA    = {
+  Dossiernummer:        'DEMO-2026',
+  Organisatienaam:      'WerkKracht Demo BV',
+  Status:               'Actieve opdracht',
+  Accountmanager:       'Edwin Koutstaal',
+  Arbeidsmarktregio:    'Midden-Holland',
+  Datum_laatste_update: '22-06-2026'
+};
 
 var KP_STATUS_LABELS = {
-  'Nieuw':              { desc: 'Uw aanvraag is ontvangen. Onze accountmanager neemt spoedig contact met u op.' },
-  'In behandeling':     { desc: 'Uw dossier wordt momenteel beoordeeld door uw accountmanager.' },
-  'Intake gepland':     { desc: 'Er is een intakegesprek gepland. Meer informatie ontvangt u per mail.' },
-  'Actieve opdracht':   { desc: 'Uw opdracht is gestart en wordt actief begeleid door WerkKracht Nederland.' },
-  'Afgerond':           { desc: 'Uw traject is afgerond. Bedankt voor de samenwerking.' },
-  'Niet doorgegaan':    { desc: 'Dit dossier is gesloten. Neem contact op voor meer informatie.' }
+  'Nieuw':            { desc: 'Uw aanvraag is ontvangen. Onze accountmanager neemt spoedig contact met u op.' },
+  'In behandeling':   { desc: 'Uw dossier wordt momenteel beoordeeld door uw accountmanager.' },
+  'Intake gepland':   { desc: 'Er is een intakegesprek gepland. Meer informatie ontvangt u per mail.' },
+  'Actieve opdracht': { desc: 'Uw opdracht is gestart en wordt actief begeleid door WerkKracht Nederland.' },
+  'Afgerond':         { desc: 'Uw traject is afgerond. Bedankt voor de samenwerking.' },
+  'Niet doorgegaan':  { desc: 'Dit dossier is gesloten. Neem contact op voor meer informatie.' }
 };
 
 function doKlantLogin() {
-  var raw = document.getElementById('kp-dossier').value.trim().toUpperCase();
-  if (!raw) return;
+  var dossier = document.getElementById('kp-dossier').value.trim().toUpperCase();
+  var naam    = document.getElementById('kp-naam').value.trim();
+  if (!dossier || !naam) {
+    document.getElementById('kp-err').textContent = 'Vul beide velden in.';
+    document.getElementById('kp-err').style.display = 'block';
+    return;
+  }
+
+  // ── Demo-modus: geen API-aanroep ─────────────────────────────
+  if (dossier === KP_DEMO_DOSSIER && naam.toLowerCase() === KP_DEMO_NAAM.toLowerCase()) {
+    kpCurrentDossier = dossier;
+    kpCurrentNaam    = naam;
+    renderKlantDashboard(KP_DEMO_DATA);
+    return;
+  }
+
+  // ── Echte inlog: API aanroepen ────────────────────────────────
   var btn = document.getElementById('kp-login-btn');
   btn.textContent = 'Laden…';
   btn.disabled = true;
   document.getElementById('kp-err').style.display = 'none';
-  var url = KP_SCRIPT_URL + '?action=read&key=' + encodeURIComponent(KP_KEY) + '&dossiernummer=' + encodeURIComponent(raw);
+
+  var url = KP_SCRIPT_URL
+    + '?action=read&key=' + encodeURIComponent(KP_KEY)
+    + '&dossiernummer='   + encodeURIComponent(dossier);
+
   fetch(url)
     .then(function(r) { return r.json(); })
     .then(function(data) {
       btn.textContent = 'Inloggen →';
       btn.disabled = false;
-      if (data.status === 'success') {
-        kpCurrentDossier = raw;
-        renderKlantDashboard(data.data);
-      } else {
-        document.getElementById('kp-err').textContent = data.message || 'Dossiernummer niet gevonden. Controleer het nummer en probeer het opnieuw.';
+
+      if (data.status !== 'success') {
+        document.getElementById('kp-err').textContent = 'Gegevens niet herkend. Controleer uw dossiernummer en achternaam.';
         document.getElementById('kp-err').style.display = 'block';
+        return;
       }
+
+      // Achternaam-verificatie (tweede factor).
+      // Vereist kolom Contactpersoon_achternaam in portaal_data sheet.
+      // Zolang die kolom ontbreekt, wordt de check overgeslagen (backwards compatible).
+      var serverNaam = (data.data['Contactpersoon_achternaam'] || '').trim().toLowerCase();
+      if (serverNaam && serverNaam !== naam.toLowerCase()) {
+        document.getElementById('kp-err').textContent = 'Gegevens niet herkend. Controleer uw dossiernummer en achternaam.';
+        document.getElementById('kp-err').style.display = 'block';
+        return;
+      }
+
+      kpCurrentDossier = dossier;
+      kpCurrentNaam    = naam;
+      renderKlantDashboard(data.data);
     })
-    .catch(function(e) {
+    .catch(function() {
       btn.textContent = 'Inloggen →';
       btn.disabled = false;
       document.getElementById('kp-err').textContent = 'Verbindingsfout. Controleer uw internetverbinding en probeer het opnieuw.';
@@ -3479,52 +3528,58 @@ function doKlantLogin() {
 }
 
 function renderKlantDashboard(data) {
-  var orgName = data['Organisatienaam'] || '—';
-  var dossierNr = data['Dossiernummer'] || '—';
-  var status = data['Status'] || '—';
-  var accountmanager = data['Accountmanager'] || '—';
-  var regio = data['Arbeidsmarktregio'] || '—';
-  var updateDate = data['Datum_laatste_update'] || '';
+  var orgName  = data['Organisatienaam']      || '—';
+  var dossierNr= data['Dossiernummer']        || '—';
+  var status   = data['Status']               || '—';
+  var manager  = data['Accountmanager']       || '—';
+  var regio    = data['Arbeidsmarktregio']    || '—';
+  var updated  = data['Datum_laatste_update'] || '';
 
-  document.getElementById('kp-org-name').textContent = orgName;
+  document.getElementById('kp-org-name').textContent        = orgName;
   document.getElementById('kp-dossier-display').textContent = 'Dossier · ' + dossierNr;
-  document.getElementById('kp-dossier-tile').textContent = dossierNr;
-  document.getElementById('kp-accountmanager').textContent = accountmanager;
-  document.getElementById('kp-regio').textContent = regio;
-  document.getElementById('kp-status-display').textContent = status;
-  document.getElementById('kp-update-str').textContent = updateDate ? 'Bijgewerkt: ' + updateDate : '';
+  document.getElementById('kp-dossier-tile').textContent    = dossierNr;
+  document.getElementById('kp-accountmanager').textContent  = manager;
+  document.getElementById('kp-regio').textContent           = regio;
+  document.getElementById('kp-status-display').textContent  = status;
+  document.getElementById('kp-update-str').textContent      = updated ? 'Bijgewerkt: ' + updated : '';
 
-  // Status description
   var statusInfo = KP_STATUS_LABELS[status] || { desc: '' };
   document.getElementById('kp-status-desc').textContent = statusInfo.desc;
 
-  // Badge styling
   var badge = document.getElementById('kp-status-badge');
   badge.textContent = status;
-  badge.className = 'dash-badge-pill';
-  if (status === 'Actieve opdracht') { badge.style.background = 'var(--sage)'; badge.style.color = 'var(--forest)'; }
-  else if (status === 'In behandeling' || status === 'Intake gepland') { badge.style.background = '#FEF9E7'; badge.style.color = '#9A7D0A'; }
-  else if (status === 'Afgerond') { badge.style.background = 'var(--forest)'; badge.style.color = 'var(--white)'; }
-  else { badge.style.background = 'rgba(255,255,255,0.12)'; badge.style.color = 'rgba(255,255,255,0.85)'; }
+  badge.className   = 'dash-badge-pill';
+  if (status === 'Actieve opdracht') {
+    badge.style.background = 'var(--sage)'; badge.style.color = 'var(--forest)';
+  } else if (status === 'In behandeling' || status === 'Intake gepland') {
+    badge.style.background = '#FEF9E7'; badge.style.color = '#9A7D0A';
+  } else if (status === 'Afgerond') {
+    badge.style.background = 'var(--forest)'; badge.style.color = 'var(--white)';
+  } else {
+    badge.style.background = 'rgba(255,255,255,0.12)'; badge.style.color = 'rgba(255,255,255,0.85)';
+  }
 
-  // Switch views
-  document.getElementById('kp-login-wrap').style.display = 'none';
+  document.getElementById('kp-login-wrap').style.display    = 'none';
   document.getElementById('kp-dashboard-wrap').style.display = 'block';
 }
 
 function doKlantLogout() {
   kpCurrentDossier = '';
+  kpCurrentNaam    = '';
   document.getElementById('kp-dossier').value = '';
-  document.getElementById('kp-err').style.display = 'none';
-  document.getElementById('kp-login-wrap').style.display = 'flex';
+  document.getElementById('kp-naam').value    = '';
+  document.getElementById('kp-err').style.display          = 'none';
+  document.getElementById('kp-login-wrap').style.display    = 'flex';
   document.getElementById('kp-dashboard-wrap').style.display = 'none';
 }
 
 function doKlantRefresh() {
   if (!kpCurrentDossier) return;
   document.getElementById('kp-dossier').value = kpCurrentDossier;
+  document.getElementById('kp-naam').value    = kpCurrentNaam;
   doKlantLogin();
 }
+
 
 // ── MKBA CALCULATOR ──────────────────────────────────────────
 function calcFormat(n) {
