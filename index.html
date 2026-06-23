@@ -3383,6 +3383,28 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
   </div>
 </div>
 
+<!-- ════════════════════════════════════════════
+     BEVEILIGING NIVEAU 1 — PIN-TOEGANG
+════════════════════════════════════════════ -->
+<div id="page-pincode" class="page">
+  <div class="portal-wrap">
+    <div class="portal-card">
+      <button class="portal-back" onclick="showPage('home')">← Terug naar website</button>
+      <div class="portal-icon">
+        <svg viewBox="0 0 24 24" fill="none" style="width:28px;height:28px" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h2>Intern toegang</h2>
+      <p>Dit gedeelte is uitsluitend toegankelijk voor medewerkers van WerkKracht Nederland.</p>
+      <div class="portal-error" id="pin-err">Onjuiste code. Probeer het opnieuw.</div>
+      <div class="portal-field">
+        <label>Toegangscode</label>
+        <input type="password" id="pin-input" placeholder="••••" maxlength="6" onkeydown="if(event.key==='Enter')doPin()" autocomplete="off" inputmode="numeric" style="letter-spacing:0.3em;font-size:1.4rem;text-align:center;" />
+      </div>
+      <button class="portal-login-btn" onclick="doPin()">Toegang →</button>
+    </div>
+  </div>
+</div>
+
 <!-- WERKSOORTEN MOZAÏEK -->
 <div id="wk-mosaic" style="display:flex;gap:3px;background:#1A5C38;"></div>
 <script>
@@ -4353,6 +4375,16 @@ function sendPortalMsg() {
 
 
 function showPage(pageId) {
+  // ── Niveau 1 beveiliging ─────────────────────────────────────
+  var WKN_PROTECTED = ['intern', 'kennisbank', 'dashboard'];
+  if (WKN_PROTECTED.indexOf(pageId) !== -1 && sessionStorage.getItem('wkn_auth') !== '1') {
+    pinPendingPage = pageId;
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    var pinPage = document.getElementById('page-pincode');
+    if (pinPage) { pinPage.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    return;
+  }
+  // ─────────────────────────────────────────────────────────────
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
 
@@ -4369,6 +4401,31 @@ function showPage(pageId) {
       l.classList.add('active');
     }
   });
+}
+
+// ── BEVEILIGING NIVEAU 1 ──────────────────────────────────────────────────────
+var WKN_PIN       = '2108'; // ← hier de toegangscode wijzigen
+var pinPendingPage = '';
+
+function doPin() {
+  var entered = document.getElementById('pin-input').value.trim();
+  if (entered === WKN_PIN) {
+    sessionStorage.setItem('wkn_auth', '1');
+    document.getElementById('pin-err').style.display = 'none';
+    document.getElementById('pin-input').value = '';
+    var target = pinPendingPage || 'intern';
+    pinPendingPage = '';
+    showPage(target);
+  } else {
+    document.getElementById('pin-err').style.display = 'block';
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-input').focus();
+  }
+}
+
+function doPinLogout() {
+  sessionStorage.removeItem('wkn_auth');
+  showPage('home');
 }
 
 // ── MOBILE MENU ───────────────────────────────────────────────
