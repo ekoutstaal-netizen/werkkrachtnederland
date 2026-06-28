@@ -25,7 +25,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="WerkKracht">
-<link rel="apple-touch-icon" sizes="180x180" href="appicon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAACIklEQVR42u3dsRUBQRiFUbtnUw3QgBJoQ0wRQoFIIFSEXBta2AZUoAASBUicnXlzbwf/zGfOJGO7xW79nkGI3hIgaBA0CBoEjaBB0CBoEDQIGkGDoEHQIGgQNIIGQYOgQdAgaAQNggZBg6BB0AgaBA2CBkGDoBE0CBoEDYIGQSNoEDQIGgSNoEHQIGgQNPxusATTet4e1c+w3G+c0GTEXNocghZB1DyCFnPUXIIWc9R8giaKoBE0CBoEDYJG0CBoEDQIGgSNoEHQIGhCTf16RdCNbbgTGlFXNJegRR01T7fYrd/ymk7tL1hK+2EKGndoEDQIGgSNoEHQIGgQNAgaQYOgoRw+SfF1PV+qn+FwOjqhpZwRc9IcghaBqAWdu/ktR92L2XyCBkGDoEHQCBoEDYIGQYOgETQIGgQNggZBt6nV1yu9DUfQojaXoG2+ef7PP/h/1f7CwxVK0LhygKBB0CBoBG0JEDQIGgQNgkbQIGgoTXGfpJhvV9Uv6us+KssJnRFz0hyCFoGoBZ27+aJuMOj0TRd1w3doEDQIGkGDoEHQIGgQNIIGQYOgQdAIGgTNj7xeaSxoG07cCZ0atR9rw1eOtM0Xszt0RASv+yjmCQ0lBgERJzQIGgSNoEHQIGgQNAgaQYOgQdAgaAQNggZBg6BB0AgaBA2CBkGDoBE0CBoEDYIGQSNoEDQIGgQNgkbQIGgQNAgaBI2gQdAgaBA0CJpIH9QAYY/xLdzPAAAAAElFTkSuQmCC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fraunces:wght@700&family=Red+Hat+Display:wght@400;500;700;900&family=Red+Hat+Text:ital,wght@0,400;0,500;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -66,7 +66,6 @@ footer .logo-white-step{stroke:none}.nav-wordmark{font-family:var(--f-display);f
 .mobile-menu .lang-switch { margin: 2px 0 10px; align-self: flex-start; }
 .exit-banner{position:fixed;left:0;right:0;bottom:0;z-index:9100;background:var(--forest);border-top:3px solid var(--green);box-shadow:0 -8px 32px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;padding:1rem 5%;transform:translateY(110%);visibility:hidden;transition:transform .35s cubic-bezier(.4,0,.2,1),visibility .35s}.exit-banner.visible{transform:translateY(0);visibility:visible}.exit-banner-text{display:flex;flex-direction:column;gap:2px;min-width:0}.exit-banner-text strong{font-family:var(--f-head);font-size:0.95rem;font-weight:800;color:var(--white)}.exit-banner-text span{font-family:var(--f-body);font-size:0.78rem;color:rgba(255,255,255,0.92)}.exit-banner-btns{display:flex;gap:10px;flex-wrap:wrap}.exit-btn-primary{font-family:var(--f-display);font-size:0.85rem;font-weight:800;background:var(--white);color:var(--forest);border:none;border-radius:8px;padding:0.6rem 1.3rem;cursor:pointer;transition:var(--trans)}.exit-btn-primary:hover{background:var(--greenLt)}.exit-btn-dismiss{font-family:var(--f-head);font-size:0.82rem;font-weight:700;background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.55);border-radius:8px;padding:0.6rem 1.1rem;cursor:pointer;transition:var(--trans)}.exit-btn-dismiss:hover{border-color:var(--white);background:rgba(255,255,255,0.1)}@media(max-width:640px){.exit-banner{flex-direction:column;align-items:stretch;text-align:center;gap:0.8rem;padding:0.9rem 5%}.exit-banner-btns{justify-content:center}.exit-btn-primary,.exit-btn-dismiss{flex:1}}
 @media (max-width:768px){
-  .usp-section{display:none}
   .mobile-doelgroep{display:block}
 }
 @media (min-width:769px){
@@ -170,6 +169,8 @@ footer .logo-white-step{stroke:none}.nav-wordmark{font-family:var(--f-display);f
 }
 .keten-toggle::-webkit-details-marker { display: none; }
 details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
+.pill-cta{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--f-head);font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--green-ink);background:var(--sage);border:none;border-radius:999px;padding:0.55rem 1.25rem;cursor:pointer;text-decoration:none;transition:var(--trans)}
+.pill-cta:hover{color:var(--forest);background:var(--mint);transform:translateY(-1px)}
 
 .usp-pillar{cursor:pointer;}
 .usp-pillar p,.usp-pillar-tag{
@@ -797,15 +798,11 @@ details[open] .keten-toggle { color: var(--forest); background: var(--mint); }
   </div>
 
   <!-- BUSINESSLINES PREVIEW -->
-  <section class="section" style="padding:4rem 8%;">
-    <div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap;">
-      <div>
-        <div class="section-label">Onze diensten</div>
-        <h2 class="section-title" style="margin-bottom:0.5rem;">Vier businesslines. Één richting.</h2>
-        <p style="font-family:var(--f-body);font-size:0.95rem;color:var(--gray);line-height:1.7;max-width:520px;">Van werkgeversvraag bundelen tot kennisdeling op landelijke schaal — ontdek hoe WerkKracht uw organisatie versterkt.</p>
-      </div>
-      <a href="#" onclick="showPage('diensten');window.scrollTo(0,0);return false;" class="btn-primary" style="flex-shrink:0;min-width:0;overflow:visible;">Bekijk alle diensten →</a>
-    </div>
+  <section class="section" style="padding:4rem 8%;text-align:center;">
+    <div class="section-label" style="justify-content:center;">Onze diensten</div>
+    <h2 class="section-title" style="margin-bottom:0.75rem;">Vier businesslines. Één richting.</h2>
+    <p class="section-sub" style="margin:0 auto 1.5rem;">Van werkgeversvraag bundelen tot kennisdeling op landelijke schaal — ontdek hoe WerkKracht uw organisatie versterkt.</p>
+    <a href="#" onclick="showPage('diensten');window.scrollTo(0,0);return false;" class="pill-cta">Bekijk alle diensten →</a>
   </section>
 
   
