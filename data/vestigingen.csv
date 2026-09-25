@@ -50,7 +50,10 @@ ves028a,org028,Gemeente Hellendoorn/Stichting Noest,,,Nijverdal,Overijssel,52.36
 ves029a,org029,Gemeente Noordenveld,,,Roden,Drenthe,53.138,6.428,ja,sheet Werkkracht Data Leden
 ves030a,org030,Gemeente Weststellingwerf,,,Wolvega,Friesland,52.877,5.981,ja,sheet Werkkracht Data Leden
 ves031a,org031,GOwerkt,Pascal 40,3241 MB,Middelharnis,Zuid-Holland,51.76456,4.18905,ja,https://www.goeree-overflakkee.nl/gowerkt
-ves032a,org032,GR Sociaal Drechtsteden X Drechtwerk,,,Dordrecht,Zuid-Holland,51.814,4.69,ja,sheet Werkkracht Data Leden
+ves032a,org032,GR Sociaal Drechtsteden X Drechtwerk,Snelliusstraat 10,3316 GV,Dordrecht,Zuid-Holland,51.78160,4.64033,ja,https://drechtwerk.nl/contact/
+ves032b,org032,GR Sociaal Drechtsteden X Drechtwerk,Kamerlingh Onnesweg 1,3316 GK,Dordrecht,Zuid-Holland,51.78053,4.64012,nee,https://drechtwerk.nl/contact/
+ves032c,org032,GR Sociaal Drechtsteden X Drechtwerk,Pieter Zeemanweg 20,3316 GZ,Dordrecht,Zuid-Holland,51.77643,4.64237,nee,https://drechtwerk.nl/contact/
+ves032d,org032,GR Sociaal Drechtsteden X Drechtwerk,Leeghwaterstraat 33,3364 AE,Sliedrecht,Zuid-Holland,51.82888,4.77073,nee,https://drechtwerk.nl/contact/
 ves033a,org033,HW Werkt!,Jan van der Heijdenstraat 11,3261 LE,Oud-Beijerland,Zuid-Holland,51.82718,4.43102,ja,https://www.hwwerkt.nl:443
 ves034a,org034,IBN,,,Uden,Noord-Brabant,51.66,5.618,ja,sheet Werkkracht Data Leden
 ves035a,org035,iederz,Silkeborgweg 2,9723 AL,Groningen,Groningen,53.20459,6.60418,ja,https://www.iederz.nl/contactgegevens/
