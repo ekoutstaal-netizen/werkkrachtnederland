@@ -3,7 +3,7 @@
   'use strict';
   var PDOK_FREE = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/free';
   var PDOK_TEGELS = 'https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/grijs/EPSG:3857/{z}/{x}/{y}.png';
-  var ZOEKLOG_URL = ''; // Apps Script relay-URL invullen zodra actie "zoeklog" is geïmplementeerd; leeg = uit
+  var ZOEKLOG_URL = 'https://script.google.com/macros/s/AKfycbzdXXGNa07uz0GQdVCmSnXFfyRVRQywsWfl1r-IJRxx9ETyFGswLcy0LzCzwroSSV5z/exec'; // Apps Script relay, actie "zoeklog"; leeg = uit
   var STRALEN = [10, 25, 50, 100, 200];
   var t = function (s, v) { return window.WKN.t(s, v); };
 
