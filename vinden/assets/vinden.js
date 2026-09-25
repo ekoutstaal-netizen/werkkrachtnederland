@@ -344,11 +344,21 @@
     $('straal').addEventListener('change', function () { if (!$('resultaten').hidden) zoek(true); });
     $('alles').addEventListener('change', function () { if (!$('resultaten').hidden) zoek(true); });
     $('geoknop').addEventListener('click', function () {
-      if (!navigator.geolocation) { melding(t('Uw locatie kon niet worden bepaald.')); return; }
+      var knop = this;
+      function mislukt(tekst) { knop.disabled = false; melding(t(tekst)); $('loc-invoer').focus(); }
+      if (!navigator.geolocation) { mislukt('Uw locatie kon niet worden bepaald. Vul een postcode of plaats in.'); return; }
+      knop.disabled = true;
+      melding(t('Locatie wordt bepaald…'));
       navigator.geolocation.getCurrentPosition(function (p) {
+        knop.disabled = false;
         state.loc = { label: t('Uw locatie'), lat: p.coords.latitude, lon: p.coords.longitude, pc4: '' };
         $('loc-invoer').value = state.loc.label; zoek(true);
-      }, function () { melding(t('Uw locatie kon niet worden bepaald.')); }, { timeout: 10000 });
+      }, function (fout) {
+        // code 1 = toestemming geweigerd; 2 (niet beschikbaar) en 3 (time-out) krijgen dezelfde melding
+        mislukt(fout && fout.code === 1
+          ? 'Uw browser geeft uw locatie niet vrij. Sta locatie toe in uw browserinstellingen, of vul een postcode in.'
+          : 'Uw locatie kon niet worden bepaald. Vul een postcode of plaats in.');
+      }, { timeout: 20000, maximumAge: 600000, enableHighAccuracy: false });
     });
     var smal = window.matchMedia('(max-width: 860px)');
     function pasKaartAan() { $('kaartkolom').hidden = smal.matches; $('kaartwissel').textContent = t('Toon op kaart'); }
