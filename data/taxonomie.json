@@ -1,0 +1,1077 @@
+{
+ "versie": "definitief fase 1, 2026-09-25",
+ "toelichting": "Definitieve lijst fase 1, vastgesteld op basis van de crawl van de openbare websites (september 2026). patronen = regex (case-insensitive) voor extractie; termen = woorden voor autocomplete op de site; intro = tekst op de werksoortpagina.",
+ "uitvoeringsvormen": {
+  "eigen_bedrijf": [
+   "In eigen bedrijf",
+   "In-house",
+   "En sus propias instalaciones"
+  ],
+  "op_locatie": [
+   "Op locatie bij de opdrachtgever",
+   "At the client's site",
+   "En las instalaciones del cliente"
+  ],
+  "beide": [
+   "In eigen bedrijf of op locatie",
+   "In-house or on site",
+   "En sus instalaciones o en las del cliente"
+  ]
+ },
+ "hoofdgroepen": [
+  {
+   "id": "assemblage",
+   "naam": "Assemblage & montage",
+   "naam_en": "Assembly",
+   "naam_es": "Ensamblaje y montaje",
+   "slug": "assemblage-montage"
+  },
+  {
+   "id": "verpakken",
+   "naam": "Verpakken & fulfilment",
+   "naam_en": "Packaging & fulfilment",
+   "naam_es": "Embalaje y fulfilment",
+   "slug": "verpakken-fulfilment"
+  },
+  {
+   "id": "logistiek",
+   "naam": "Logistiek & transport",
+   "naam_en": "Logistics & transport",
+   "naam_es": "Logística y transporte",
+   "slug": "logistiek-transport"
+  },
+  {
+   "id": "metaal",
+   "naam": "Metaal",
+   "naam_en": "Metalwork",
+   "naam_es": "Metal",
+   "slug": "metaal"
+  },
+  {
+   "id": "hout",
+   "naam": "Hout",
+   "naam_en": "Woodwork",
+   "naam_es": "Madera",
+   "slug": "hout"
+  },
+  {
+   "id": "groen",
+   "naam": "Groen",
+   "naam_en": "Landscaping",
+   "naam_es": "Jardinería",
+   "slug": "groen"
+  },
+  {
+   "id": "schoonmaak",
+   "naam": "Schoonmaak",
+   "naam_en": "Cleaning",
+   "naam_es": "Limpieza",
+   "slug": "schoonmaak"
+  },
+  {
+   "id": "facilitair",
+   "naam": "Facilitair",
+   "naam_en": "Facility services",
+   "naam_es": "Servicios generales",
+   "slug": "facilitair"
+  },
+  {
+   "id": "catering",
+   "naam": "Catering & hospitality",
+   "naam_en": "Catering & hospitality",
+   "naam_es": "Catering y hostelería",
+   "slug": "catering-hospitality"
+  },
+  {
+   "id": "textiel",
+   "naam": "Textiel & wasserij",
+   "naam_en": "Textiles & laundry",
+   "naam_es": "Textil y lavandería",
+   "slug": "textiel-wasserij"
+  },
+  {
+   "id": "administratief",
+   "naam": "Administratief & digitaal",
+   "naam_en": "Administrative & digital",
+   "naam_es": "Administrativo y digital",
+   "slug": "administratief-digitaal"
+  },
+  {
+   "id": "circulair",
+   "naam": "Recycling & circulair",
+   "naam_en": "Recycling & circular",
+   "naam_es": "Reciclaje y economía circular",
+   "slug": "recycling-circulair"
+  }
+ ],
+ "werksoorten": [
+  {
+   "id": "assemblage",
+   "hoofdgroep": "assemblage",
+   "naam": "Assemblage",
+   "naam_en": "Assembly",
+   "naam_es": "Ensamblaje",
+   "slug": "assemblage",
+   "termen": [
+    "assemblage",
+    "assembleren",
+    "samenstellen"
+   ],
+   "patronen": [
+    "\\bassembl",
+    "\\bsamenstellen van"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Assemblage is het samenstellen van onderdelen tot een halffabricaat of eindproduct: van kleine series tot doorlopende productie met vaste werkinstructies. Werkontwikkelbedrijven hebben hiervoor ingerichte hallen, ervaren werkvoorbereiders en teams die gewend zijn aan kwaliteitscontroles per stap. Daardoor kunt u pieken opvangen zonder eigen personeel uit te breiden. Vraag na welke volumes en doorlooptijden haalbaar zijn, of de assemblage in het eigen bedrijf of bij u gebeurt, en hoe de kwaliteitsborging is geregeld, bijvoorbeeld via ISO 9001."
+  },
+  {
+   "id": "montage",
+   "hoofdgroep": "assemblage",
+   "naam": "Montage",
+   "naam_en": "Mounting and fitting",
+   "naam_es": "Montaje",
+   "slug": "montage",
+   "termen": [
+    "montage",
+    "monteren",
+    "zonnepanelen monteren",
+    "seriematig monteren"
+   ],
+   "patronen": [
+    "\\bmontage",
+    "\\bmonteren\\b",
+    "\\bmontagewerk"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Bij montage gaat het om het monteren en afmonteren van producten of componenten, vaak met handgereedschap, pneumatiek of eenvoudige mallen. Het werk leent zich goed voor opsplitsing in overzichtelijke stappen, en precies daar zijn werkontwikkelbedrijven sterk in: ze richten het proces zo in dat het tempo en de kwaliteit stabiel blijven. Bespreek vooraf de seriegrootte, wie de onderdelen en mallen levert en hoe transport en retourlogistiek lopen. Ook montage bij u op locatie is bij veel organisaties mogelijk."
+  },
+  {
+   "id": "elektrotechnische-assemblage",
+   "hoofdgroep": "assemblage",
+   "naam": "Elektrotechnische assemblage",
+   "naam_en": "Electrical assembly",
+   "naam_es": "Ensamblaje electrotécnico",
+   "slug": "elektrotechnische-assemblage",
+   "termen": [
+    "kabelbomen",
+    "bekabeling",
+    "elektromontage",
+    "printplaten",
+    "elektronica",
+    "solderen",
+    "smd",
+    "kabelconfectie",
+    "panelenbouw"
+   ],
+   "patronen": [
+    "\\bkabelbo[mo]",
+    "\\bkabelconfectie",
+    "\\belektro(technische )?(montage|assemblage)",
+    "\\bprintpla(at|ten)",
+    "\\bbekabeling",
+    "\\belektronica[- ]?(assemblage|productie|componenten)",
+    "\\bsmd[- ]?(productie|assemblage)",
+    "\\bsolderen",
+    "\\bkabel(bewerking|confectie)",
+    "\\bdraadconfectie",
+    "\\bpanelenbouw"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Kabelbomen, kabelconfectie, bekabeling van kasten en het bestukken of afmonteren van printplaten: elektrotechnische assemblage vraagt nauwkeurigheid en discipline. Verschillende werkontwikkelbedrijven hebben hiervoor ESD-veilige werkplekken en medewerkers die op dit werk zijn opgeleid. Voor opdrachtgevers betekent dat een betrouwbare partner voor terugkerende series. Vraag na welke normen worden gehanteerd (zoals IPC-A-620 voor kabelbomen), hoe testen en doormeten zijn geregeld en welke traceerbaarheid u per batch krijgt."
+  },
+  {
+   "id": "verpakken",
+   "hoofdgroep": "verpakken",
+   "naam": "Verpakken",
+   "naam_en": "Packaging",
+   "naam_es": "Embalaje",
+   "slug": "verpakken",
+   "termen": [
+    "verpakken",
+    "inpakken",
+    "ompakken",
+    "sealen",
+    "krimpfolie",
+    "afvullen",
+    "flowpacken",
+    "blisteren",
+    "etiketteren"
+   ],
+   "patronen": [
+    "\\bverpak",
+    "\\binpak",
+    "\\bompak",
+    "\\bseal(en|machine)",
+    "\\bkrimpfolie",
+    "\\bafvul",
+    "\\bflowpack",
+    "\\bblister",
+    "\\bskin ?verpak",
+    "\\betiketter"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Verpakken omvat inpakken, ompakken, sealen, krimpen, etiketteren en het gereedmaken van zendingen. Het is werk waarin werkontwikkelbedrijven veel ervaring hebben, met ruime productiehallen en flexibele capaciteit voor seizoenspieken of acties. U levert de producten en het verpakkingsmateriaal aan, of laat dat regelen; het werk komt klaar voor verzending terug. Stem vooraf af welke volumes per week haalbaar zijn, welke hygiëne-eisen gelden (bijvoorbeeld voor levensmiddelen of cosmetica) en of er een BRC- of ISO-certificering nodig is."
+  },
+  {
+   "id": "co-packing",
+   "hoofdgroep": "verpakken",
+   "naam": "Co-packing",
+   "naam_en": "Co-packing",
+   "naam_es": "Co-packing",
+   "slug": "co-packing",
+   "termen": [
+    "co-packing",
+    "displays",
+    "promotiepakketten",
+    "sets samenstellen",
+    "kerstpakketten",
+    "relatiegeschenken"
+   ],
+   "patronen": [
+    "\\bco-?packing",
+    "\\bdisplaybouw",
+    "\\bdisplays?\\b",
+    "\\bpromotie(pakket|materiaal)",
+    "\\bkerstpakket",
+    "\\brelatiegeschenk"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Co-packing is het samenstellen van verkoopklare combinaties: actieverpakkingen, multipacks, geschenksets, displays en promotiepakketten. Het is typisch werk met wisselende volumes en korte levertijden, en juist daarom goed onder te brengen bij een werkontwikkelbedrijf met schaalbare teams en opslagruimte. Zo houdt u uw eigen productie vrij. Vraag na hoe snel een nieuwe run kan starten, of opslag van materialen en eindproduct mogelijk is en hoe telling en rapportage per order verlopen."
+  },
+  {
+   "id": "fulfilment",
+   "hoofdgroep": "verpakken",
+   "naam": "Fulfilment",
+   "naam_en": "Fulfilment",
+   "naam_es": "Fulfilment",
+   "slug": "fulfilment",
+   "termen": [
+    "fulfilment",
+    "webshop",
+    "e-fulfilment",
+    "orderverwerking",
+    "retourverwerking",
+    "retouren"
+   ],
+   "patronen": [
+    "\\bfulfil+ment",
+    "\\be-?commerce",
+    "\\bwebshop(orders|logistiek)",
+    "\\borderverwerking",
+    "\\bretour(en)?(verwerking|afhandeling)"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Fulfilment neemt het volledige orderproces na de verkoop uit handen: voorraad ontvangen en opslaan, orders picken en verpakken, verzendlabels maken en retouren verwerken. Werkontwikkelbedrijven verzorgen dit voor webshops en groothandels, vaak gekoppeld aan het eigen orderplatform van de klant. U houdt de regie over verkoop en klantcontact; het fysieke werk gebeurt elders. Controleer welke koppelingen met uw webshop of ERP mogelijk zijn, tot welk tijdstip orders dezelfde dag worden verzonden en welke vervoerders worden gebruikt."
+  },
+  {
+   "id": "mailing-en-lettershop",
+   "hoofdgroep": "verpakken",
+   "naam": "Mailing en lettershop",
+   "naam_en": "Mailing and lettershop",
+   "naam_es": "Mailing y lettershop",
+   "slug": "mailing-en-lettershop",
+   "termen": [
+    "mailing",
+    "lettershop",
+    "enveloppen",
+    "couverteren"
+   ],
+   "patronen": [
+    "\\bmailing",
+    "\\blettershop",
+    "\\bcouverte",
+    "\\bvouwen en insteken"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Een lettershop verzorgt het vouwen, couverteren, adresseren, sorteren en aanbieden van mailings en post. Denk aan nieuwsbrieven, facturen, ledenbladen of uitnodigingen in grote oplagen. Werkontwikkelbedrijven combineren machinale verwerking met handwerk voor bijzondere formaten en persoonlijke stukken. Omdat het vaak om persoonsgegevens gaat, is zorgvuldigheid essentieel. Vraag daarom naar een verwerkersovereenkomst, de beveiliging van adresbestanden, de beschikbare machines en de afspraken met postbedrijven over portokorting."
+  },
+  {
+   "id": "magazijn-en-opslag",
+   "hoofdgroep": "logistiek",
+   "naam": "Magazijn en opslag",
+   "naam_en": "Warehousing and storage",
+   "naam_es": "Almacén y almacenamiento",
+   "slug": "magazijn-en-opslag",
+   "termen": [
+    "magazijn",
+    "opslag",
+    "warehousing",
+    "voorraadbeheer"
+   ],
+   "patronen": [
+    "\\bmagazijn",
+    "\\bwarehous",
+    "\\bvoorraadbeheer",
+    "\\bpalletplaats",
+    "\\bopslag(ruimte|capaciteit|loods|hal)",
+    "\\bopslag en (distributie|logistiek|transport)",
+    "\\bopslaan van (goederen|producten|voorraad)"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Magazijn en opslag gaat over het ontvangen, controleren, opslaan en beheren van goederen, inclusief voorraadadministratie en uitlevering. Sommige werkontwikkelbedrijven hebben eigen magazijnen met stellingen en heftrucks; andere leveren getrainde medewerkers in uw magazijn. Het voordeel is extra ruimte en capaciteit zonder langdurige verplichtingen. Vraag na hoeveel palletplaatsen beschikbaar zijn, hoe de voorraad digitaal wordt bijgehouden, of er temperatuurgeconditioneerde ruimte is en welke verzekering de opgeslagen goederen dekt."
+  },
+  {
+   "id": "orderpicking",
+   "hoofdgroep": "logistiek",
+   "naam": "Orderpicking",
+   "naam_en": "Order picking",
+   "naam_es": "Preparación de pedidos",
+   "slug": "orderpicking",
+   "termen": [
+    "orderpicken",
+    "orderpicking",
+    "picken"
+   ],
+   "patronen": [
+    "\\border ?pick"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Orderpicking is het verzamelen van artikelen per order, controleren en klaarzetten voor verzending of productie. Het werk vraagt nauwkeurigheid en een heldere looproute, iets wat werkontwikkelbedrijven goed kunnen organiseren met duidelijke werkinstructies en scanners. Dat kan in hun eigen magazijn of met een team bij u op de vloer. Bespreek de verwachte orderaantallen per dag, de gewenste foutmarge, het gebruikte warehouse-managementsysteem en of de medewerkers een heftruck- of reachtruckcertificaat nodig hebben."
+  },
+  {
+   "id": "transport-en-koeriersdiensten",
+   "hoofdgroep": "logistiek",
+   "naam": "Transport en koeriersdiensten",
+   "naam_en": "Transport and courier services",
+   "naam_es": "Transporte y mensajería",
+   "slug": "transport-en-koeriersdiensten",
+   "termen": [
+    "transport",
+    "koerier",
+    "bezorgen",
+    "vervoer",
+    "personenvervoer",
+    "leerlingenvervoer",
+    "fietskoerier"
+   ],
+   "patronen": [
+    "\\bkoerier",
+    "\\btransportdienst",
+    "\\bbezorgdienst",
+    "\\bgoederenvervoer",
+    "\\bleerlingenvervoer",
+    "\\bdoelgroepenvervoer",
+    "\\bpersonenvervoer",
+    "\\btaxivervoer",
+    "\\bfietskoerier",
+    "\\bkoerierswerk"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Een aantal werkontwikkelbedrijven heeft eigen wagenparken voor goederenvervoer, koeriersritten, bezorging of doelgroepen- en leerlingenvervoer. Voor opdrachtgevers is dat handig bij vaste ritten, zoals pendels tussen vestigingen of de bezorging van eigen producten in de regio. Ervaren chauffeurs worden hierbij ondersteund door planners die de routes bewaken. Vraag na welke voertuigen beschikbaar zijn, welke rijbewijzen en vergunningen de chauffeurs hebben en hoe aansprakelijkheid en verzekering zijn geregeld."
+  },
+  {
+   "id": "post-en-pakketbezorging",
+   "hoofdgroep": "logistiek",
+   "naam": "Post- en pakketbezorging",
+   "naam_en": "Mail and parcel delivery",
+   "naam_es": "Reparto de correo y paquetes",
+   "slug": "post-en-pakketbezorging",
+   "termen": [
+    "postbezorging",
+    "pakketbezorging",
+    "post bezorgen",
+    "zakelijke post",
+    "postsortering"
+   ],
+   "patronen": [
+    "\\bpost(bezorg|sorte|dienst|afhandeling)",
+    "\\bpakket(bezorg|dienst)",
+    "\\bbezorg(en|t) (van )?(post|poststukken|pakketten)",
+    "\\bbusiness ?post\\b"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Post- en pakketbezorging betekent ophalen, sorteren en bezorgen van brieven, pakketten en aangetekende stukken, vaak in de eigen regio en tegen een scherp tarief. Verschillende werkontwikkelbedrijven hebben hiervoor een eigen postbedrijf of bezorgen in opdracht van landelijke postbedrijven. Voor bedrijven, scholen en gemeenten neemt dat een terugkerende klus uit handen, soms aangevuld met frankeren en een haal- en brengservice. Vraag na welke bezorgtermijnen gelden (bijvoorbeeld 24 of 48 uur), tot welk tijdstip post wordt opgehaald en hoe aangetekende en vertrouwelijke stukken worden behandeld."
+  },
+  {
+   "id": "productie-en-lijnwerk",
+   "hoofdgroep": "logistiek",
+   "naam": "Productie- en lijnwerk",
+   "naam_en": "Production and line work",
+   "naam_es": "Trabajo de producción y en línea",
+   "slug": "productie-en-lijnwerk",
+   "termen": [
+    "lijnwerk",
+    "productiewerk",
+    "inpakstraat",
+    "productielijn"
+   ],
+   "patronen": [
+    "\\bproductiewerk",
+    "\\blijnwerk",
+    "\\bproductielijn",
+    "\\binpakstraat"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Productieondersteuning betekent meedraaien in de productie van de opdrachtgever: lijnwerk, het beladen en afnemen van machines of bemensen van een inpakstraat. Werkontwikkelbedrijven leveren hiervoor complete teams, inclusief een leidinggevende die de begeleiding verzorgt, zodat u niet zelf hoeft te sturen op elke medewerker. Zo blijft uw lijn draaien bij ploegenwerk of groei. Bespreek vooraf de ploegentijden, de benodigde inwerkperiode, veiligheidsinstructies en wie de dagelijkse aansturing op de vloer verzorgt."
+  },
+  {
+   "id": "metaalbewerking",
+   "hoofdgroep": "metaal",
+   "naam": "Metaalbewerking",
+   "naam_en": "Metalworking",
+   "naam_es": "Metalurgia",
+   "slug": "metaalbewerking",
+   "termen": [
+    "metaalbewerking",
+    "verspanen",
+    "draaien",
+    "frezen",
+    "cnc"
+   ],
+   "patronen": [
+    "\\bmetaalbewerk",
+    "\\bverspan",
+    "\\bcnc\\b",
+    "\\bfrezen\\b",
+    "\\bdraaiwerk"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Metaalbewerking omvat verspanen, draaien, frezen, boren, zagen en ontbramen, al dan niet op CNC-machines. Werkontwikkelbedrijven met een eigen metaalafdeling produceren onderdelen in kleine en middelgrote series en werken daarbij op tekening van de opdrachtgever. Het combineert vakmanschap met leerwerkplekken voor medewerkers die zich in dit vak ontwikkelen. Vraag na welke materialen en toleranties haalbaar zijn, welk machinepark beschikbaar is en of er meetrapporten of materiaalcertificaten bij de levering horen."
+  },
+  {
+   "id": "plaatwerk",
+   "hoofdgroep": "metaal",
+   "naam": "Plaatwerk",
+   "naam_en": "Sheet metal work",
+   "naam_es": "Chapistería",
+   "slug": "plaatwerk",
+   "termen": [
+    "plaatwerk",
+    "zetten",
+    "knippen",
+    "ponsen",
+    "lasersnijden"
+   ],
+   "patronen": [
+    "\\bplaatwerk",
+    "\\bponsen\\b",
+    "\\blaser ?snijd",
+    "\\bkantbank"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Plaatwerk gaat over het knippen, ponsen, lasersnijden, zetten en afwerken van dunne plaat in staal, rvs of aluminium. Denk aan behuizingen, beugels, kasten en panelen. Werkontwikkelbedrijven met een plaatwerkerij combineren moderne kantbanken en lasers met handmatige afwerking en montage, zodat een onderdeel in één keer compleet kan worden geleverd. Bespreek de maximale plaatdikte en afmetingen, de aanlevering van tekeningen (bijvoorbeeld in DXF of STEP) en of nabewerkingen zoals poedercoaten in huis mogelijk zijn."
+  },
+  {
+   "id": "lassen",
+   "hoofdgroep": "metaal",
+   "naam": "Lassen",
+   "naam_en": "Welding",
+   "naam_es": "Soldadura",
+   "slug": "lassen",
+   "termen": [
+    "lassen",
+    "laswerk",
+    "constructiewerk"
+   ],
+   "patronen": [
+    "\\blassen\\b",
+    "\\blaswerk",
+    "\\blasser",
+    "\\bstaalconstructie"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Lassen en constructiewerk gaat van het hechten van eenvoudige onderdelen tot het bouwen van staalconstructies, frames en hekwerken. Enkele werkontwikkelbedrijven hebben volledig ingerichte lasafdelingen met gecertificeerde lassers en leerlingen die onder begeleiding meewerken. Voor opdrachtgevers levert dat een vaste partner op voor series en maatwerk. Controleer welke lasprocessen worden beheerst (MIG/MAG, TIG, elektrode), of lassers gecertificeerd zijn volgens NEN-EN-ISO 9606 en of het bedrijf EN 1090-constructies mag leveren."
+  },
+  {
+   "id": "poedercoaten-en-spuiten",
+   "hoofdgroep": "metaal",
+   "naam": "Poedercoaten en spuiten",
+   "naam_en": "Powder coating and spraying",
+   "naam_es": "Recubrimiento en polvo y pintura",
+   "slug": "poedercoaten-en-spuiten",
+   "termen": [
+    "poedercoaten",
+    "coaten",
+    "spuitwerk",
+    "lakken"
+   ],
+   "patronen": [
+    "\\bpoedercoat",
+    "\\bspuitwerk",
+    "\\bspuiterij",
+    "\\bnatlak"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Poedercoaten en natlakken geven metalen onderdelen een duurzame, gelijkmatige afwerking in de gewenste kleur. Sommige werkontwikkelbedrijven hebben een eigen coatinglijn of spuiterij, inclusief voorbehandeling zoals ontvetten en stralen. Dat maakt ze interessant als u metalen producten compleet wilt laten afwerken zonder meerdere leveranciers te coördineren. Vraag na welke RAL-kleuren en structuren beschikbaar zijn, de maximale afmetingen van de oven, de laagdiktemeting en of de voorbehandeling geschikt is voor buitentoepassingen."
+  },
+  {
+   "id": "houtbewerking",
+   "hoofdgroep": "hout",
+   "naam": "Houtbewerking, pallets en kisten",
+   "naam_en": "Woodworking, pallets and crates",
+   "naam_es": "Carpintería, palés y cajas",
+   "slug": "houtbewerking",
+   "termen": [
+    "houtbewerking",
+    "timmerwerk",
+    "houtproducten",
+    "pallets",
+    "kisten",
+    "verpakkingshout",
+    "palletreparatie",
+    "kabelhaspels"
+   ],
+   "patronen": [
+    "\\bhoutbewerk",
+    "\\btimmer(werk|fabriek|werkplaats)",
+    "\\bhoutproduct",
+    "\\bhoutwerkplaats",
+    "\\bpallet(s)? (maken|repareren|sorteren)",
+    "\\bpallet(reparatie|productie|bouw|fabriek|service|handel)",
+    "\\bkistenmakerij",
+    "\\b(houten|transport)kisten\\b",
+    "\\bhouten kisten\\b",
+    "\\bverpakkingshout",
+    "\\bexportverpakking",
+    "\\bkabelhaspel"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Houtbewerking omvat zagen, schaven, frezen en schuren van hout en plaatmateriaal, maar ook het maken en repareren van pallets, kisten en ander verpakkingshout. Werkontwikkelbedrijven met een houtwerkplaats leveren onderdelen, tuin- en speelmeubilair en transportverpakkingen, op tekening of in overleg over een ontwerp dat efficiënt te produceren is. Vraag na welke houtsoorten en plaatmaterialen worden verwerkt, of CNC-bewerking mogelijk is en hoe groot de gebruikelijke series zijn. Voor export is het van belang dat pallets en kisten volgens ISPM 15 zijn behandeld."
+  },
+  {
+   "id": "meubelmakerij",
+   "hoofdgroep": "hout",
+   "naam": "Meubelmakerij",
+   "naam_en": "Furniture making",
+   "naam_es": "Ebanistería",
+   "slug": "meubelmakerij",
+   "termen": [
+    "meubels",
+    "meubelmaker",
+    "interieurbouw"
+   ],
+   "patronen": [
+    "\\bmeubel(maker|makerij|s op maat)",
+    "\\binterieurbouw"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Een meubelmakerij maakt tafels, kasten, balies en interieurs op maat, van enkel stuk tot serie. Diverse werkontwikkelbedrijven hebben een professionele meubelmakerij en leveren aan scholen, kantoren, zorginstellingen en gemeenten. U krijgt maatwerk met een sociaal verhaal, en vaak ook de montage op locatie. Bespreek de ontwerpfase (wie tekent), de gewenste materialen en afwerking, de levertijd en of plaatsing en eventueel het herstel van bestaand meubilair tot de mogelijkheden behoren."
+  },
+  {
+   "id": "groenvoorziening-en-onderhoud",
+   "hoofdgroep": "groen",
+   "naam": "Groenvoorziening en natuurbeheer",
+   "naam_en": "Landscaping, grounds and nature management",
+   "naam_es": "Mantenimiento de zonas verdes y espacios naturales",
+   "slug": "groenvoorziening-en-onderhoud",
+   "termen": [
+    "groenvoorziening",
+    "groenonderhoud",
+    "hovenier",
+    "tuinonderhoud",
+    "maaien",
+    "bestrating",
+    "aanleg",
+    "snoeien",
+    "natuurbeheer",
+    "bosbeheer",
+    "landschapsonderhoud"
+   ],
+   "patronen": [
+    "\\bgroenvoorzien",
+    "\\bgroenonderhoud",
+    "\\bhovenier",
+    "\\btuinonderhoud",
+    "\\bmaaiwerk",
+    "\\bgroenbeheer",
+    "\\baanleg (van )?(groen|tuinen|bestrating|beplanting)",
+    "\\bonkruid(vrij|bestrijding)",
+    "\\bsnoeiwerk",
+    "\\bnatuurbeheer",
+    "\\bbosbeheer",
+    "\\blandschapsonderhoud",
+    "\\bbosonderhoud"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Groenvoorziening omvat aanleg en onderhoud van plantsoenen, bedrijfsterreinen en tuinen: maaien, snoeien, schoffelen, bladruimen en het onkruidvrij houden van bestrating. Ook bos- en natuurbeheer valt eronder, zoals dunnen, paden onderhouden en exoten bestrijden. Veel werkontwikkelbedrijven hebben eigen groenploegen met vakkundige voormannen en materieel, en werken met vaste bestekken per seizoen. Vraag na welke beeldkwaliteit (bijvoorbeeld volgens de CROW-systematiek) wordt gehanteerd, hoe met broedseizoenen wordt omgegaan en of er een VCA-certificaat is."
+  },
+  {
+   "id": "kwekerij-en-tuinbouw",
+   "hoofdgroep": "groen",
+   "naam": "Kwekerij en tuinbouw",
+   "naam_en": "Nursery and horticulture",
+   "naam_es": "Vivero y horticultura",
+   "slug": "kwekerij-en-tuinbouw",
+   "termen": [
+    "kwekerij",
+    "tuinbouw",
+    "plantenkwekerij",
+    "kas"
+   ],
+   "patronen": [
+    "\\bkwekerij",
+    "\\btuinbouw",
+    "\\bglastuinbouw",
+    "\\bplantenkwek"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Kwekerij en tuinbouw betreft het opkweken, verzorgen, oppotten en verwerken van planten, bloemen en groenten, in kassen of op het open veld. Sommige werkontwikkelbedrijven hebben een eigen kwekerij; andere leveren teams voor seizoenswerk in de glastuinbouw. Dat biedt telers extra handen in drukke periodes, met begeleiding geregeld. Bespreek de seizoensplanning, de benodigde teamgrootte, hygiëne- en gewasbeschermingsregels en of het werk in de eigen kas van het werkontwikkelbedrijf kan plaatsvinden."
+  },
+  {
+   "id": "openbare-ruimte-en-straatreiniging",
+   "hoofdgroep": "groen",
+   "naam": "Openbare ruimte en straatreiniging",
+   "naam_en": "Public space maintenance",
+   "naam_es": "Mantenimiento del espacio público",
+   "slug": "openbare-ruimte-en-straatreiniging",
+   "termen": [
+    "openbare ruimte",
+    "straatreiniging",
+    "zwerfafval",
+    "veegdienst",
+    "gladheidsbestrijding",
+    "graffiti"
+   ],
+   "patronen": [
+    "\\bopenbare ruimte",
+    "\\bstraatreinig",
+    "\\bzwerfafval",
+    "\\bveegdienst",
+    "\\bonkruidbestrijding",
+    "\\bgladheidsbestrijding",
+    "\\bsneeuwruim"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Werk in de openbare ruimte omvat het verwijderen van zwerfafval, vegen, onkruidbestrijding, legen van afvalbakken en het schoonhouden van winkelgebieden en parken. Werkontwikkelbedrijven doen dit vaak in opdracht van gemeenten, maar ook voor bedrijventerreinen, stations en evenementen. Hun ploegen zijn zichtbaar in de wijk en kennen het gebied. Stem af welk beeldkwaliteitsniveau u verwacht, hoe vaak rondes worden gelopen, welke meldingen direct worden opgepakt en hoe het afval wordt afgevoerd en gescheiden."
+  },
+  {
+   "id": "schoonmaak",
+   "hoofdgroep": "schoonmaak",
+   "naam": "Schoonmaak",
+   "naam_en": "Cleaning",
+   "naam_es": "Limpieza",
+   "slug": "schoonmaak",
+   "termen": [
+    "schoonmaak",
+    "schoonmaken",
+    "kantoorschoonmaak",
+    "reiniging"
+   ],
+   "patronen": [
+    "\\bschoonma(ak|ken)",
+    "\\bkantoorreiniging",
+    "\\binterieurverzorging"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Schoonmaak omvat dagelijks en periodiek onderhoud van kantoren, scholen, sportaccommodaties en productieruimten. Veel werkontwikkelbedrijven hebben schoonmaakteams met een eigen leidinggevende die kwaliteit en planning bewaakt. Voor opdrachtgevers betekent dat een vaste bezetting en korte lijnen, met ruimte voor extra inzet bij verbouwingen of evenementen. Vraag na welk kwaliteitsmeetsysteem wordt gebruikt (zoals VSR-KMS), of het bedrijf het OSB-keurmerk heeft, welke middelen worden gebruikt en hoe vervanging bij ziekte is geregeld."
+  },
+  {
+   "id": "glazenwassen",
+   "hoofdgroep": "schoonmaak",
+   "naam": "Glazenwassen",
+   "naam_en": "Window cleaning",
+   "naam_es": "Limpieza de cristales",
+   "slug": "glazenwassen",
+   "termen": [
+    "glazenwassen",
+    "glasbewassing"
+   ],
+   "patronen": [
+    "\\bglazenwas",
+    "\\bglasbewassing"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Glazenwassen gaat van ramen en glazen puien tot kozijnen, zonwering en lichtreclames. Diverse werkontwikkelbedrijven hebben eigen glazenwassers die werken met telescoopstelen, osmosewater en hoogwerkers. Het werk is goed te plannen in vaste cycli en past bij kantoren, winkels en woongebouwen. Bespreek de frequentie, de bereikbaarheid van gevels en welke werkhoogte haalbaar is. Vraag ook na of wordt gewerkt volgens de arbocatalogus van de schoonmaak- en glazenwassersbranche en hoe de aansprakelijkheid voor schade is verzekerd."
+  },
+  {
+   "id": "industriele-en-specialistische-reiniging",
+   "hoofdgroep": "schoonmaak",
+   "naam": "Industriële en specialistische reiniging",
+   "naam_en": "Industrial and specialist cleaning",
+   "naam_es": "Limpieza industrial y especializada",
+   "slug": "industriele-en-specialistische-reiniging",
+   "termen": [
+    "industriële reiniging",
+    "gevelreiniging",
+    "bouwschoonmaak",
+    "autowassen",
+    "hogedrukreiniging",
+    "graffitiverwijdering",
+    "ict-reiniging"
+   ],
+   "patronen": [
+    "\\bindustri[eë]le reiniging",
+    "\\bgevelreinig",
+    "\\bbouwschoonma",
+    "\\bauto(was|poets)",
+    "\\bvoertuigreinig",
+    "\\bcontainerreinig",
+    "\\bhogedrukreinig",
+    "\\bgraffiti(verwijder|reinig|bestrijd)",
+    "\\bgraffiti verwijderen",
+    "\\bict-reiniging",
+    "\\bcarwash",
+    "\\bwasstraat"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Specialistische reiniging gaat verder dan dagelijkse schoonmaak: industriële reiniging van machines en hallen, bouwopleveringsschoonmaak, gevelreiniging, het wassen van voertuigen en containerreiniging. Werkontwikkelbedrijven die dit aanbieden, hebben er specifiek materieel en opgeleide ploegen voor. Het is geschikt voor periodieke of eenmalige klussen die u niet met eigen mensen wilt doen. Vraag na welke reinigingsmethoden worden gebruikt, hoe met afvalwater en chemicaliën wordt omgegaan en of medewerkers VCA-gecertificeerd zijn."
+  },
+  {
+   "id": "receptie-en-gastvrijheid",
+   "hoofdgroep": "facilitair",
+   "naam": "Receptie en gastvrijheid",
+   "naam_en": "Reception and front desk",
+   "naam_es": "Recepción",
+   "slug": "receptie-en-gastvrijheid",
+   "termen": [
+    "receptie",
+    "gastvrouw",
+    "gastheer",
+    "baliemedewerker"
+   ],
+   "patronen": [
+    "\\breceptie",
+    "\\bgastvrouw",
+    "\\bgastheer",
+    "\\bbaliemedewerk",
+    "\\bfront ?office"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Receptie en gastvrijheid betekent de eerste indruk verzorgen: bezoekers ontvangen, telefoon aannemen, vergaderruimtes klaarzetten en gasten wegwijs maken. Werkontwikkelbedrijven leveren gastvrouwen en gastheren voor kantoren, gemeentehuizen en evenementen, vaak getraind in klantvriendelijkheid en het werken met bezoekersregistratie. U krijgt een vaste bezetting met achtervang. Bespreek openingstijden, dresscode, taalvaardigheid, de systemen die gebruikt worden en hoe vervanging bij ziekte of vakantie is geregeld."
+  },
+  {
+   "id": "postkamer-en-documentstromen",
+   "hoofdgroep": "facilitair",
+   "naam": "Postkamer en documentstromen",
+   "naam_en": "Mailroom services",
+   "naam_es": "Servicio de correspondencia",
+   "slug": "postkamer-en-documentstromen",
+   "termen": [
+    "postkamer",
+    "postverwerking",
+    "interne post"
+   ],
+   "patronen": [
+    "\\bpostkamer",
+    "\\bpostverwerking",
+    "\\binterne post"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Een postkamer verwerkt inkomende en uitgaande post, verdeelt interne post, frankeert en verzorgt koeriersritten tussen locaties. Werkontwikkelbedrijven verzorgen dit bij de opdrachtgever op locatie of centraal in het eigen bedrijf, soms gecombineerd met scannen van inkomende stukken. Omdat post vaak vertrouwelijk is, zijn afspraken over zorgvuldigheid belangrijk. Vraag na hoe vertrouwelijke stukken worden behandeld, welke verwerkingstijden gelden en of een verwerkersovereenkomst beschikbaar is."
+  },
+  {
+   "id": "facilitaire-dienstverlening",
+   "hoofdgroep": "facilitair",
+   "naam": "Facilitaire dienstverlening",
+   "naam_en": "Facility support",
+   "naam_es": "Servicios generales",
+   "slug": "facilitaire-dienstverlening",
+   "termen": [
+    "facilitair",
+    "conciërge",
+    "facilitaire dienst",
+    "huismeester",
+    "gebouwbeheer"
+   ],
+   "patronen": [
+    "\\bfacilitaire (dienst|ondersteuning|diensten)",
+    "\\bconci[eë]rge",
+    "\\bhuismeester",
+    "\\bgebouwbeheer"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Facilitaire dienstverlening is het brede pakket dat een gebouw laat functioneren: conciërgetaken, huismeesterschap, koffievoorziening, klaarzetten van ruimtes, kleine verhuizingen en het beheren van voorraden. Werkontwikkelbedrijven bundelen deze taken vaak in één vaste medewerker of team op locatie. Dat geeft u één aanspreekpunt voor het dagelijkse beheer. Stem af welke taken precies onder de opdracht vallen, welke uren en diensten nodig zijn en wie de medewerker op de werkvloer aanstuurt."
+  },
+  {
+   "id": "beveiliging-en-toezicht",
+   "hoofdgroep": "facilitair",
+   "naam": "Beveiliging en toezicht",
+   "naam_en": "Security and supervision",
+   "naam_es": "Seguridad y vigilancia",
+   "slug": "beveiliging-en-toezicht",
+   "termen": [
+    "beveiliging",
+    "toezicht",
+    "parkeerbeheer",
+    "fietsenstalling",
+    "stallingbeheer",
+    "surveillance"
+   ],
+   "patronen": [
+    "\\bbeveiligers?\\b",
+    "\\bbeveiligingsdienst",
+    "\\bobjectbeveiliging",
+    "\\bsurveillan",
+    "\\btoegangscontrole",
+    "\\bparkeer(beheer|controle)",
+    "\\bfietsenstalling",
+    "\\bstallingbeheer"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Onder beveiliging en toezicht vallen toegangscontrole, surveillance, parkeerbeheer, toezicht in fietsenstallingen en gastheerschap met een toezichtstaak. Werkontwikkelbedrijven leveren hiervoor teams aan gemeenten, stations en bedrijventerreinen. Voor beveiligingswerk in strikte zin gelden wettelijke eisen: een vergunning op grond van de Wpbr en gediplomeerde beveiligers. Vraag daarom na welk type toezicht wordt geleverd, welke diploma's de medewerkers hebben en of het bedrijf over een ND-nummer of een samenwerking met een erkend beveiligingsbedrijf beschikt."
+  },
+  {
+   "id": "klein-onderhoud-en-klusdiensten",
+   "hoofdgroep": "facilitair",
+   "naam": "Klein onderhoud, schilder- en klusdiensten",
+   "naam_en": "Minor maintenance, painting and handyman services",
+   "naam_es": "Mantenimiento menor, pintura y reparaciones",
+   "slug": "klein-onderhoud-en-klusdiensten",
+   "termen": [
+    "klusdienst",
+    "klein onderhoud",
+    "klussen",
+    "schilderwerk",
+    "schilderen",
+    "schildersbedrijf"
+   ],
+   "patronen": [
+    "\\bklusdienst",
+    "\\bklein onderhoud",
+    "\\bklussenteam",
+    "\\bschilder(werk|s)",
+    "\\bklusbedrijf",
+    "\\bschildersbedrijf",
+    "\\bschilderwerkzaamheden"
+   ],
+   "uitvoeringsvorm_standaard": "op_locatie",
+   "intro": "Klein onderhoud en klusdiensten omvat reparaties, schilderwerk, het vervangen van hang- en sluitwerk, het ophangen van borden en kleine timmerklussen. Werkontwikkelbedrijven hebben hiervoor klusteams die op afroep of volgens een vast rooster werken voor woningcorporaties, scholen en bedrijven. Zo blijven kleine gebreken niet liggen. Bespreek de reactietijd bij meldingen, hoe opdrachten worden aangevraagd en afgemeld, wie materialen inkoopt en welke werkzaamheden buiten de opdracht vallen, zoals elektra of gas."
+  },
+  {
+   "id": "catering",
+   "hoofdgroep": "catering",
+   "naam": "Catering",
+   "naam_en": "Catering",
+   "naam_es": "Catering",
+   "slug": "catering",
+   "termen": [
+    "catering",
+    "lunches",
+    "broodjes",
+    "bedrijfscatering"
+   ],
+   "patronen": [
+    "\\bcatering",
+    "\\blunchservice",
+    "\\bbroodjes"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Catering levert lunches, broodjes, vergaderarrangementen, buffetten en maaltijden, bezorgd op locatie of geserveerd bij evenementen. Diverse werkontwikkelbedrijven hebben een eigen keuken met koks en een team dat produceert en bezorgt. Voor opdrachtgevers levert dat vers eten op met een aantoonbare sociale waarde, bijvoorbeeld voor SROI-verplichtingen. Vraag na welke menu's en dieetwensen mogelijk zijn, tot welk tijdstip bestellingen kunnen worden gewijzigd, of er gewerkt wordt volgens de Hygiënecode en hoe de bezorging is georganiseerd."
+  },
+  {
+   "id": "bedrijfsrestaurant-en-horeca",
+   "hoofdgroep": "catering",
+   "naam": "Bedrijfsrestaurant en horeca",
+   "naam_en": "Staff restaurant and hospitality",
+   "naam_es": "Comedor de empresa y hostelería",
+   "slug": "bedrijfsrestaurant-en-horeca",
+   "termen": [
+    "bedrijfsrestaurant",
+    "horeca",
+    "kantine",
+    "lunchroom"
+   ],
+   "patronen": [
+    "\\bbedrijfsrestaurant",
+    "\\bhoreca",
+    "\\bkantine",
+    "\\blunchroom",
+    "\\bgrand ?caf[eé]"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Een bedrijfsrestaurant of horecagelegenheid draaien vraagt koken, bedienen, afrekenen en schoonhouden, dag in dag uit. Werkontwikkelbedrijven exploiteren zelf lunchrooms, grand cafés en kantines, of verzorgen het restaurant van een opdrachtgever. Gasten merken vooral de gastvrijheid; achter de schermen werken teams die in het vak groeien. Bespreek de openingstijden, het assortiment en de prijsstelling, wie de inkoop doet en of de exploitatie volledig wordt overgenomen of in samenwerking met uw eigen facilitaire dienst."
+  },
+  {
+   "id": "voedselbewerking",
+   "hoofdgroep": "catering",
+   "naam": "Voedselbewerking",
+   "naam_en": "Food processing",
+   "naam_es": "Procesamiento de alimentos",
+   "slug": "voedselbewerking",
+   "termen": [
+    "voedselbewerking",
+    "levensmiddelen",
+    "food"
+   ],
+   "patronen": [
+    "\\bvoedselverwerk",
+    "\\blevensmiddel",
+    "\\bfoodproductie",
+    "\\bvoedingsmiddel"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Voedselbewerking omvat het snijden, portioneren, mengen, afvullen en verpakken van levensmiddelen. Werkontwikkelbedrijven die dit doen, beschikken over hygiënische ruimtes en medewerkers die getraind zijn in voedselveiligheid. Ze werken voor producenten die extra capaciteit nodig hebben of een specifiek deel van het proces willen uitbesteden. Controleer welke certificering aanwezig is (zoals HACCP, BRC of IFS), of het werk gekoeld kan gebeuren, hoe de traceerbaarheid per partij is geregeld en hoe allergenen worden gescheiden."
+  },
+  {
+   "id": "wasserij-en-linnenservice",
+   "hoofdgroep": "textiel",
+   "naam": "Wasserij en linnenservice",
+   "naam_en": "Laundry and linen service",
+   "naam_es": "Lavandería y servicio de lencería",
+   "slug": "wasserij-en-linnenservice",
+   "termen": [
+    "wasserij",
+    "linnen",
+    "strijken",
+    "textielreiniging"
+   ],
+   "patronen": [
+    "\\bwasserij",
+    "\\blinnen",
+    "\\bstrijkerij",
+    "\\btextielreinig"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Een wasserij verzorgt het wassen, drogen, strijken, vouwen en repareren van bedrijfskleding, beddengoed, handdoeken en ander textiel. Werkontwikkelbedrijven met een eigen wasserij werken voor zorginstellingen, horeca, sportclubs en bedrijven, vaak inclusief ophalen en bezorgen. Dat geeft een voorspelbare service met vaste routes. Vraag na welke volumes per week verwerkt kunnen worden, of de wasserij RAL-GZ 992-gecertificeerd is voor zorgtextiel, hoe linnen wordt gemerkt en geteld en wat de doorlooptijd is."
+  },
+  {
+   "id": "naaiatelier-en-confectie",
+   "hoofdgroep": "textiel",
+   "naam": "Naaiatelier en stoffeerderij",
+   "naam_en": "Sewing and upholstery",
+   "naam_es": "Taller de costura y tapicería",
+   "slug": "naaiatelier-en-confectie",
+   "termen": [
+    "naaiatelier",
+    "confectie",
+    "naaien",
+    "borduren",
+    "stoffeerderij",
+    "stofferen"
+   ],
+   "patronen": [
+    "\\bnaaiatelier",
+    "\\bconfectie",
+    "\\bnaaiwerk",
+    "\\bborduur",
+    "\\bstoffeer"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Een naaiatelier of stoffeerderij maakt en herstelt textiel: bedrijfskleding, tassen, gordijnen, zeilen, kussens en het opnieuw bekleden van stoelen en banken. Werkontwikkelbedrijven met zo'n afdeling leveren kleine series en maatwerk, en denken mee over materiaal en afwerking. Zo krijgt bestaand meubilair of textiel ook een tweede leven. Bespreek de gewenste aantallen, wie de stoffen levert, de mogelijkheden voor borduren of bedrukken en de levertijd, en vraag of er een proefmodel wordt gemaakt voordat de serie start."
+  },
+  {
+   "id": "scannen-en-archiveren",
+   "hoofdgroep": "administratief",
+   "naam": "Scannen en archiveren",
+   "naam_en": "Scanning and archiving",
+   "naam_es": "Digitalización y archivo",
+   "slug": "scannen-en-archiveren",
+   "termen": [
+    "scannen",
+    "digitaliseren",
+    "archiveren",
+    "archiefbeheer"
+   ],
+   "patronen": [
+    "\\bscan(nen|straat|dienst)",
+    "\\bdigitalis",
+    "\\barchiver",
+    "\\barchiefbeheer"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Scannen en archiveren betekent papieren dossiers, tekeningen en archieven omzetten naar digitale bestanden, met indexering zodat alles vindbaar is. Werkontwikkelbedrijven met een scanafdeling verwerken grote aantallen documenten voor gemeenten, zorginstellingen en bedrijven, en vernietigen desgewenst de originelen. Het werk vraagt precisie en vertrouwelijkheid. Vraag na hoe de beveiliging van gegevens is geregeld (een verwerkersovereenkomst en bij voorkeur ISO 27001 of NEN 7510), welke bestandsformaten worden geleverd en of het werk op uw locatie kan gebeuren."
+  },
+  {
+   "id": "administratieve-ondersteuning",
+   "hoofdgroep": "administratief",
+   "naam": "Administratieve ondersteuning",
+   "naam_en": "Administrative support",
+   "naam_es": "Apoyo administrativo",
+   "slug": "administratieve-ondersteuning",
+   "termen": [
+    "administratie",
+    "data-invoer",
+    "backoffice"
+   ],
+   "patronen": [
+    "\\badministratieve (ondersteuning|diensten|werkzaamheden)",
+    "\\bdata-?invoer",
+    "\\bback ?office"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Administratieve ondersteuning omvat data-invoer, het bijwerken van bestanden, controleren van gegevens, verwerken van formulieren en ander backofficewerk. Werkontwikkelbedrijven voeren dit uit in eigen kantoorruimtes of met medewerkers bij u op locatie. Het werk laat zich goed standaardiseren, zodat u capaciteit vrijmaakt voor taken die kennis van uw organisatie vragen. Bespreek welke systemen gebruikt worden en hoe toegang veilig wordt geregeld, welke aantallen per dag realistisch zijn en hoe kwaliteitscontroles plaatsvinden."
+  },
+  {
+   "id": "drukwerk-en-print",
+   "hoofdgroep": "administratief",
+   "naam": "Drukwerk en print",
+   "naam_en": "Printing",
+   "naam_es": "Imprenta",
+   "slug": "drukwerk-en-print",
+   "termen": [
+    "drukkerij",
+    "drukwerk",
+    "print",
+    "grafisch",
+    "graveren",
+    "belettering",
+    "zeefdruk"
+   ],
+   "patronen": [
+    "\\bdrukkerij",
+    "\\bdrukwerk",
+    "\\bgrafische (afwerking|productie|dienst)",
+    "\\bprintshop",
+    "\\bgraveren",
+    "\\bfoliesnij",
+    "\\bbelettering",
+    "\\bzeefdruk"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Drukwerk en print gaat van visitekaartjes, folders en brochures tot grootformaat posters, banners en bedrukt textiel, inclusief grafische afwerking als snijden, vouwen, nieten en inbinden. Enkele werkontwikkelbedrijven hebben een eigen drukkerij of printshop met vakmensen en moderne digitale persen. Voor opdrachtgevers is dat een lokale leverancier voor terugkerend drukwerk. Vraag na welke formaten en oplagen mogelijk zijn, hoe bestanden moeten worden aangeleverd, de levertijden en of er FSC-papier wordt gebruikt."
+  },
+  {
+   "id": "demontage-en-recycling",
+   "hoofdgroep": "circulair",
+   "naam": "Demontage en recycling",
+   "naam_en": "Dismantling and recycling",
+   "naam_es": "Desmontaje y reciclaje",
+   "slug": "demontage-en-recycling",
+   "termen": [
+    "demontage",
+    "recycling",
+    "e-waste",
+    "sorteren"
+   ],
+   "patronen": [
+    "\\bdemontage",
+    "\\brecycl",
+    "\\be-?waste",
+    "\\bafvalscheiding",
+    "\\bsorteerwerk"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Demontage en recycling betekent producten uit elkaar halen, materialen scheiden en herbruikbare onderdelen terugwinnen: van elektronica en kantoormeubilair tot verpakkingen en kabels. Werkontwikkelbedrijven doen dit handmatig, waardoor materialen zuiverder worden gescheiden dan bij machinale verwerking. Dat helpt opdrachtgevers hun circulaire doelen te halen. Vraag na welke afvalstromen worden verwerkt, of het bedrijf de benodigde vergunningen heeft, hoe gegevensdragers veilig worden vernietigd en welke rapportage u krijgt over hergebruikpercentages."
+  },
+  {
+   "id": "kringloop-en-hergebruik",
+   "hoofdgroep": "circulair",
+   "naam": "Kringloop en hergebruik",
+   "naam_en": "Second-hand and reuse",
+   "naam_es": "Segunda mano y reutilización",
+   "slug": "kringloop-en-hergebruik",
+   "termen": [
+    "kringloop",
+    "hergebruik",
+    "refurbish"
+   ],
+   "patronen": [
+    "\\bkringloop",
+    "\\brefurbish",
+    "\\bupcycl",
+    "\\btweedehands",
+    "\\bhergebruik van (meubels|kleding|spullen|goederen|materialen|meubilair)"
+   ],
+   "uitvoeringsvorm_standaard": "eigen_bedrijf",
+   "intro": "Kringloop en hergebruik draait om spullen een tweede leven geven: inzamelen, sorteren, opknappen en verkopen. Werkontwikkelbedrijven exploiteren kringloopwinkels en refurbishwerkplaatsen voor meubels, elektronica en textiel, en halen partijen op bij bedrijven en instellingen. Voor opdrachtgevers is het een manier om kantoorinventaris of restpartijen verantwoord af te voeren. Vraag na welke goederen worden geaccepteerd, of ophalen gratis is, hoe gegevens op apparaten worden gewist en of u een rapportage over hergebruik ontvangt."
+  },
+  {
+   "id": "fietsenwerkplaats",
+   "hoofdgroep": "circulair",
+   "naam": "Fietsenwerkplaats",
+   "naam_en": "Bicycle workshop",
+   "naam_es": "Taller de bicicletas",
+   "slug": "fietsenwerkplaats",
+   "termen": [
+    "fietsenmaker",
+    "fietsreparatie",
+    "fietsenwerkplaats"
+   ],
+   "patronen": [
+    "\\bfiets(en)?(maker|reparatie|werkplaats|herstel)"
+   ],
+   "uitvoeringsvorm_standaard": "beide",
+   "intro": "Een fietsenwerkplaats repareert, onderhoudt en knapt fietsen op, van gewone stadsfietsen tot e-bikes en bedrijfsfietsen. Werkontwikkelbedrijven verzorgen dit in eigen werkplaatsen, bij fietsenstallingen of met een mobiele service bij bedrijven. Ook het opknappen van weesfietsen en het beheer van fietsenvloten komen voor. Bespreek welke merken en typen worden onderhouden, of er ook aan e-bikes wordt gewerkt, of ophalen en terugbrengen mogelijk is en hoe snel reparaties gereed zijn."
+  }
+ ]
+}

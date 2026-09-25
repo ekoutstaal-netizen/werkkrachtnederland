@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoek een werkontwikkelbedrijf op werksoort en afstand | WerkKracht Nederland</title>
+<meta name="description" content="Vind werkontwikkelbedrijven die uw werk uitvoeren, dicht bij uw locatie. Zoek op werksoort, postcode en afstand.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://werkkrachtnederland.nl/vinden/">
+<meta property="og:title" content="Zoek een werkontwikkelbedrijf | WerkKracht Nederland">
+<meta property="og:description" content="Vind werkontwikkelbedrijven die uw werk uitvoeren, dicht bij uw locatie.">
+<meta property="og:url" content="https://werkkrachtnederland.nl/vinden/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Red+Hat+Display:wght@700;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="/vinden/assets/vinden.css?v=202609251721">
+</head>
+<body>
+<header class="kop">
+  <a class="merk" href="/"><svg viewBox="0 0 72 72" width="34" height="34" aria-hidden="true"><rect x="2" y="56" width="22" height="9" rx="2.5" fill="#27AE60"/><rect x="14" y="42" width="22" height="9" rx="2.5" fill="#A9DFBF"/><rect x="26" y="28" width="22" height="9" rx="2.5" fill="#FFFFFF"/></svg><span>WerkKracht Nederland</span></a>
+  <nav class="kop-nav"><span class="taal" role="group" aria-label="Taal"><button type="button" data-lang="nl">NL</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button></span></nav>
+</header>
+<div class="strip"></div>
+
+<main>
+  <section class="zoek" aria-labelledby="zoekzin">
+    <h1 class="zoekzin" id="zoekzin">
+      <span data-t="Ik zoek">Ik zoek</span>
+      <span class="veld veld-ws">
+        <span class="chips" id="chips">
+          <input id="ws-invoer" type="text" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="ws-opties" aria-autocomplete="list" data-t-ph="bijvoorbeeld verpakken of groenonderhoud" data-t-aria="Werksoort" placeholder="bijvoorbeeld verpakken of groenonderhoud" aria-label="Werksoort">
+        </span>
+        <ul class="opties" id="ws-opties" role="listbox" hidden></ul>
+      </span>
+      <span class="deel"><span data-t="binnen">binnen</span>
+        <select id="straal" data-t-aria="Straal" aria-label="Straal">
+          <option value="10">10 km</option><option value="25" selected>25 km</option><option value="50">50 km</option><option value="100">100 km</option>
+        </select></span>
+      <span class="deel"><span data-t="van">van</span>
+        <span class="veld veld-loc">
+          <input id="loc-invoer" type="text" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="loc-opties" aria-autocomplete="list" data-t-ph="postcode of plaats" data-t-aria="Locatie" placeholder="postcode of plaats" aria-label="Locatie">
+          <ul class="opties" id="loc-opties" role="listbox" hidden></ul>
+        </span></span>
+    </h1>
+    <p class="intro-zoek" data-t="Opdrachtgevers vinden hier werkontwikkelbedrijven die het werk uitvoeren, dicht bij de eigen locatie.">Opdrachtgevers vinden hier werkontwikkelbedrijven die het werk uitvoeren, dicht bij de eigen locatie.</p>
+    <div class="zoek-acties">
+      <button class="knop" id="zoekknop" type="button" data-t="Toon werkontwikkelbedrijven">Toon werkontwikkelbedrijven</button>
+      <button class="tekstknop" id="geoknop" type="button" data-t="Gebruik mijn locatie">Gebruik mijn locatie</button>
+      <label><input type="checkbox" id="alles"> <span data-t="Alleen partijen die alles doen">Alleen partijen die alles doen</span></label>
+    </div>
+    <p class="melding" id="melding" role="alert"></p>
+    <div class="hoofdgroepen" id="hoofdgroepen"><span data-t="Of kies een hoofdgroep">Of kies een hoofdgroep</span></div>
+  </section>
+
+  <section class="resultaten" id="resultaten" hidden>
+    <div class="lijstkolom">
+      <div class="telregel">
+        <h2 id="telling" aria-live="polite"></h2>
+        <span>
+          <button class="tekstknop kaartwissel" id="kaartwissel" type="button" data-t="Toon op kaart">Toon op kaart</button>
+          <button class="tekstknop" id="deelknop" type="button" data-t="Kopieer de link naar deze resultaten">Kopieer de link naar deze resultaten</button>
+        </span>
+      </div>
+      <div id="leeg"></div>
+      <ol class="res" id="reslijst"></ol>
+      <div class="bundel">
+        <p data-t="Geen passende match? WerkKracht Nederland bundelt uw vraag.">Geen passende match? WerkKracht Nederland bundelt uw vraag.</p>
+        <a class="knop knop-licht" id="bundelknop" href="/#contact" data-t="Vraag uitzetten">Vraag uitzetten</a>
+      </div>
+    </div>
+    <div class="kaartkolom" id="kaartkolom"><div id="kaart" role="region" data-t-aria="Kaart" aria-label="Kaart"></div></div>
+  </section>
+</main>
+
+<footer class="voet">
+  <p class="payoff" data-t="Elke stap telt.">Elke stap telt.</p>
+  <p data-t="Gegevens afgeleid van de openbare websites van de werkontwikkelbedrijven. Klopt er iets niet? Laat het ons weten.">Gegevens afgeleid van de openbare websites van de werkontwikkelbedrijven. Klopt er iets niet? Laat het ons weten.</p>
+  <p><a href="/#contact" data-t="Neem contact op met WerkKracht Nederland">Neem contact op met WerkKracht Nederland</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="/vinden/assets/taal.js?v=202609251721"></script>
+<script src="/vinden/assets/vinden.js?v=202609251721"></script>
+</body>
+</html>

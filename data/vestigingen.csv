@@ -1,0 +1,164 @@
+id,organisatie_id,naam,adres,postcode,plaats,provincie,lat,lon,hoofdvestiging,bron
+ves001a,org001,Afeer,A.J. Romijnweg 17,9672 AH,Winschoten,Groningen,53.13425,7.04845,ja,https://www.afeer.nl/contact/
+ves001b,org001,Afeer,Winschoter Hogebrug 1,9697 XB,Blijham,Groningen,53.12895,7.05128,nee,https://www.afeer.nl/contact/
+ves001c,org001,Afeer,Spetsebrugweg 1b,9541 XV,Vlagtwedde,Groningen,53.03899,7.11741,nee,https://www.afeer.nl/contact/
+ves001d,org001,Afeer,H. Hindersstraat 54,9665 RC,Oude Pekela,Groningen,53.09324,6.99034,nee,https://www.afeer.nl/contact/
+ves002a,org002,AM Match,Wijkermeerstraat 36,2131 HA,Hoofddorp,Noord-Holland,52.31189,4.69616,ja,https://ammatch.nl/contact/
+ves002b,org002,AM Match,Industrieweg 13A,1422 AH,Uithoorn,Noord-Holland,52.23895,4.83076,nee,https://ammatch.nl/contact/
+ves003a,org003,Amfors Groep,Heliumweg 7,3812 RD,Amersfoort,Utrecht,52.16920,5.35347,ja,https://www.amfors.nl/werk-uitbesteden/metaalbewerking-en-elektromontage/
+ves003b,org003,Amfors Groep,Uraniumweg 15,3812 RJ,Amersfoort,Utrecht,52.16670,5.35801,nee,https://www.amfors.nl/werk-uitbesteden/productie-en-verpakwerk/
+ves004a,org004,Amsterdam Werk en Re-integratie,,,Amsterdam,Noord-Holland,52.37,4.895,ja,sheet Werkkracht Data Leden
+ves005a,org005,Avres,,,Gorinchem,Zuid-Holland,51.834,4.975,ja,sheet Werkkracht Data Leden
+ves006a,org006,Baanbrekers,,,Waalwijk,Noord-Brabant,51.682,5.069,ja,sheet Werkkracht Data Leden
+ves006b,org006,Baanbrekers,Zanddonkweg 14,5144 NX,Waalwijk,Noord-Brabant,51.68007,5.05841,nee,https://baanbrekers.org/kringloop/
+ves007a,org007,Biga Groep,Thorbeckelaan 3,3705 KJ,Zeist,Utrecht,52.10108,5.23577,ja,https://www.bigagroep.nl/contact/
+ves008a,org008,Caparis,Ampèrelaan 2,9207 AM,Drachten,Friesland,53.10869,6.13475,ja,https://www.caparis.nl/contact
+ves008b,org008,Caparis,Dukaat 2,9207 MB,Drachten,Friesland,53.12850,6.07418,nee,https://www.caparis.nl/locaties
+ves008c,org008,Caparis,Orionweg 2,8938 AH,Leeuwarden,Friesland,53.20000,5.84467,nee,https://www.caparis.nl/locaties
+ves008d,org008,Caparis,Industrieweg 13,8444 AS,Heerenveen,Friesland,52.93173,5.95329,nee,https://www.caparis.nl/locaties
+ves009a,org009,Concern voor Werk,,,Emmeloord,Flevoland,52.718,5.749,ja,sheet Werkkracht Data Leden
+ves010a,org010,Confed,Databankweg 22,3821 AL,Amersfoort,Utrecht,52.18132,5.41802,ja,https://www.confed.eu/neem-contact-op-met-confed-voor-vragen-of-algemene-informatie
+ves010b,org010,Confed,Calandstraat 17,3316 EA,Dordrecht,Zuid-Holland,51.77888,4.64836,nee,https://www.confed.eu/neem-contact-op-met-confed-voor-vragen-of-algemene-informatie
+ves011a,org011,DCW,Spoordijkstraat 132,7521 CB,Enschede,Overijssel,52.22228,6.86996,ja,https://dcw.nl/contact
+ves011b,org011,DCW,Blijdensteinbleekweg 30,7524 DD,Enschede,Overijssel,52.24186,6.90700,nee,https://dcw.nl/contact
+ves012a,org012,De Betho,,,Goes,Zeeland,51.504,3.889,ja,sheet Werkkracht Data Leden
+ves013a,org013,De Zuidhoek,Deltastraat 8,4301 RC,Zierikzee,Zeeland,51.64506,3.92163,ja,https://www.dezuidhoek.nl/
+ves014a,org014,Den Haag Werkt,,,Den Haag,Zuid-Holland,52.07,4.3,ja,sheet Werkkracht Data Leden
+ves015a,org015,Dethon,Mr. F.J. Haarmanweg 33,4538 AN,Terneuzen,Zeeland,51.31897,3.83618,ja,https://www.dethon.nl/montage-en-verpakking/contact/
+ves015b,org015,Dethon,Industrieweg 2,4501 PM,Oostburg,Zeeland,51.33237,3.49913,nee,https://www.dethon.nl/montage-en-verpakking/contact/
+ves015c,org015,Dethon,Industrieweg 10,4561 GH,Hulst,Zeeland,51.27261,4.04720,nee,https://www.dethon.nl/montage-en-verpakking/contact/
+ves016a,org016,Diamant-groep,Zevenheuvelenweg 14,5048 AN,Tilburg,Noord-Brabant,51.58425,5.06202,ja,https://diamant-groep.nl/over-ons/contact/
+ves017a,org017,Dokwurk,Hendoweg 26,9101 PC,Dokkum,Friesland,53.32650,5.97411,ja,https://dokwurk.nl/contact/
+ves018a,org018,Doon,De Hanze 1,6041 PA,Roermond,Limburg,51.17257,5.97423,ja,https://doon-roermond.nl/contact
+ves019a,org019,DZB Leiden,,,Leiden,Zuid-Holland,52.16,4.497,ja,sheet Werkkracht Data Leden
+ves020a,org020,EMCO-groep,Abel Tasmanstraat 7,7821 AN,Emmen,Drenthe,52.75780,6.91588,ja,https://emco-groep.nl/contact
+ves020b,org020,EMCO-groep,Monierweg 12,7741 KT,Coevorden,Drenthe,52.65568,6.73045,nee,https://emco-groep.nl/contact
+ves020c,org020,EMCO-groep,Brinkenhalte 30,7812 HX,Emmen,Drenthe,52.75357,6.88210,nee,https://emco-groep.nl/contact
+ves021a,org021,Empatec,,,Sneek,Friesland,53.033,5.66,ja,sheet Werkkracht Data Leden
+ves022a,org022,Ergon,Rooijakkersstraat 3,5652 BA,Eindhoven,Noord-Brabant,51.42913,5.44367,ja,https://ergon.nl/contact/
+ves022b,org022,Ergon,Rooijakkersstraat 2B,5652 BB,Eindhoven,Noord-Brabant,51.42955,5.44435,nee,https://ergon.nl/contact/
+ves022c,org022,Ergon,Bokt 14A,5633 BG,Eindhoven,Noord-Brabant,51.49100,5.50080,nee,https://ergon.nl/contact/
+ves022d,org022,Ergon,Achtseweg Noord 62,5651 GG,Eindhoven,Noord-Brabant,51.46878,5.42972,nee,https://ergon.nl/contact/
+ves022e,org022,Ergon,De Run 5127,5503 LV,Veldhoven,Noord-Brabant,51.41162,5.41993,nee,https://ergon.nl/contact/
+ves022f,org022,Ergon,de Hooge Akker 2,5661 NG,Geldrop,Noord-Brabant,51.42767,5.53279,nee,https://ergon.nl/contact/
+ves023a,org023,Ferm Werk,Carrosserieweg 1,3445 BC,Woerden,Utrecht,52.09321,4.91176,ja,https://www.fermwerk.nl/contact
+ves024a,org024,Fijnder,Batterij 12,7141 JL,Groenlo,Gelderland,52.05848,6.62723,ja,https://www.fijnder.nl/contact
+ves025a,org025,Gelre Werkt!,,,Zutphen,Gelderland,52.138,6.197,ja,sheet Werkkracht Data Leden
+ves026a,org026,Gemeente Ameland,,,Ballum,Friesland,53.448,5.53,ja,sheet Werkkracht Data Leden
+ves027a,org027,Gemeente Breda,,,Breda,Noord-Brabant,51.589,4.775,ja,sheet Werkkracht Data Leden
+ves028a,org028,Gemeente Hellendoorn/Stichting Noest,,,Nijverdal,Overijssel,52.364,6.459,ja,sheet Werkkracht Data Leden
+ves029a,org029,Gemeente Noordenveld,,,Roden,Drenthe,53.138,6.428,ja,sheet Werkkracht Data Leden
+ves030a,org030,Gemeente Weststellingwerf,,,Wolvega,Friesland,52.877,5.981,ja,sheet Werkkracht Data Leden
+ves031a,org031,GOwerkt,Pascal 40,3241 MB,Middelharnis,Zuid-Holland,51.76456,4.18905,ja,https://www.goeree-overflakkee.nl/gowerkt
+ves032a,org032,GR Sociaal Drechtsteden X Drechtwerk,,,Dordrecht,Zuid-Holland,51.814,4.69,ja,sheet Werkkracht Data Leden
+ves033a,org033,HW Werkt!,Jan van der Heijdenstraat 11,3261 LE,Oud-Beijerland,Zuid-Holland,51.82718,4.43102,ja,https://www.hwwerkt.nl:443
+ves034a,org034,IBN,,,Uden,Noord-Brabant,51.66,5.618,ja,sheet Werkkracht Data Leden
+ves035a,org035,iederz,Silkeborgweg 2,9723 AL,Groningen,Groningen,53.20459,6.60418,ja,https://www.iederz.nl/contactgegevens/
+ves036a,org036,IJmond Werkt!,De Trompet 1300,1967 DA,Heemskerk,Noord-Holland,52.50643,4.69790,ja,https://www.ijmondwerkt.com/contact-locaties-en-informatie/
+ves036b,org036,IJmond Werkt!,Stationsplein 48A,1948 LC,Beverwijk,Noord-Holland,52.47809,4.65421,nee,https://www.ijmondwerkt.com/
+ves036c,org036,IJmond Werkt!,Kuikensweg 84A,1945 EP,Beverwijk,Noord-Holland,52.49747,4.65735,nee,https://www.ijmondwerkt.com/contact-locaties-en-informatie/
+ves036d,org036,IJmond Werkt!,Molenwerf 11,1911 DB,Uitgeest,Noord-Holland,52.53168,4.72015,nee,https://www.ijmondwerkt.com/contact-locaties-en-informatie/
+ves037a,org037,Impact,Gildestraat 1,8263 AH,Kampen,Overijssel,52.56393,5.88973,ja,https://impact.nl/
+ves037b,org037,Impact,De Boorn 15,8253 RA,Dronten,Flevoland,52.54247,5.71470,nee,https://www.impact.nl/contact
+ves038a,org038,Inclusief Groep,Industrieweg 47,8071 CS,Nunspeet,Gelderland,52.36957,5.77373,ja,https://www.inclusiefgroep.nl/
+ves038b,org038,Inclusief Groep,Paul Krugerweg 43,3851 ZH,Ermelo,Gelderland,52.28989,5.62338,nee,https://www.inclusiefgroep.nl/contact/
+ves038c,org038,Inclusief Groep,Gelreweg 4B,3843 AN,Harderwijk,Gelderland,52.33728,5.62907,nee,https://www.inclusiefgroep.nl/contact/
+ves038d,org038,Inclusief Groep,Eerste Kruishaarseweg 2,3862 RT,Nijkerk,Gelderland,52.21385,5.53621,nee,https://www.inclusiefgroep.nl/contact/
+ves039a,org039,Intos,De Groote Heeze 41,6598 AV,Heijen,Limburg,51.68237,5.97623,ja,https://www.intos-gennep.nl/contact/
+ves039b,org039,Intos,Paesplasweg 6,6591 MH,Gennep,Limburg,51.68671,5.97393,nee,https://www.intos-gennep.nl/contact/
+ves040a,org040,IW4,Transformatorstraat 1,3903 LT,Veenendaal,Utrecht,52.00762,5.57781,ja,https://iw4.nl/
+ves041a,org041,Kansis,De Corridor 8,3621 ZB,Breukelen,Utrecht,52.17675,4.99090,ja,https://kansis.nl/contact/
+ves042a,org042,KempenPlus,,,Bladel,Noord-Brabant,51.365,5.217,ja,sheet Werkkracht Data Leden
+ves043a,org043,KonnecteD,Schonenvaardersstraat 9,7418 CC,Deventer,Overijssel,52.25130,6.17862,ja,https://www.konnected.nl/contact/
+ves043b,org043,KonnecteD,Kamperstraat 40,7418 CB,Deventer,Overijssel,52.25269,6.17938,nee,https://www.konnected.nl/contact/
+ves044a,org044,Laborijn,,,Doetinchem,Gelderland,51.963,6.296,ja,sheet Werkkracht Data Leden
+ves045a,org045,Larcom,,,Ommen,Overijssel,52.524,6.422,ja,sheet Werkkracht Data Leden
+ves046a,org046,Midwerk,Molenraai 1,9611 TH,Sappemeer,Groningen,53.16353,6.81198,ja,https://www.midwerk.nl/regelingen-voor-werkgevers
+ves047a,org047,MidZuid,Wilhelminakanaal Noord 3,4902 VR,Oosterhout,Noord-Brabant,51.63037,4.87310,ja,https://www.midzuid.nl/contact
+ves048a,org048,MTB,Watermolen 1,6229 PM,Maastricht,Limburg,50.82247,5.71343,ja,https://mtb.nl/onze-diensten/hardware-werkplekreiniging/
+ves049a,org049,NLW Groep,Smakterweg 19,5804 AE,Venray,Limburg,51.54177,5.98062,ja,https://nlw.nl/contact
+ves049b,org049,NLW Groep,Industrieterrein Panningen 1,5981 NK,Panningen,Limburg,51.33724,5.98669,nee,https://nlw.nl/contact
+ves049c,org049,NLW Groep,Venloseweg 22a,5961 JD,Horst,Limburg,51.44866,6.05915,nee,https://nlw.nl/contact
+ves049d,org049,NLW Groep,Nieuwenbergweg 1,5961 NR,Horst,Limburg,51.48287,6.05613,nee,https://nlw.nl/contact
+ves050a,org050,NoordWestGroep,Koematen 36,8331 TK,Steenwijk,Overijssel,52.78181,6.09448,ja,https://www.noordwestgroep.nl/contact/
+ves051a,org051,Novatec,Traan 1,9351 VM,Leek,Groningen,53.18680,6.37048,ja,https://www.novatec.nl/catering-en-schoonmaak
+ves052a,org052,Ontplooj,Plesmanweg 9,7602 PD,Almelo,Overijssel,52.36974,6.64531,ja,https://ontplooj.nl/contact/
+ves053a,org053,Ontwikkelplein Het Hogeland,,,Uithuizen,Groningen,53.406,6.676,ja,sheet Werkkracht Data Leden
+ves054a,org054,Orionis Walcheren,Oostsouburgseweg 10,4382 NH,Vlissingen,Zeeland,51.44944,3.59187,ja,https://www.orioniswalcheren.nl/contact-afspraak-maken
+ves055a,org055,Pantar,Kriekenoord 3,1111 PT,Diemen,Noord-Holland,52.33692,4.97389,ja,https://pantar.nl/contact/
+ves055b,org055,Pantar,Strekkerweg 51,1033 DA,Amsterdam,Noord-Holland,52.40348,4.89728,nee,https://pantar.nl/contact/
+ves055c,org055,Pantar,Schepenbergweg 17,1105 AS,Amsterdam,Noord-Holland,52.29611,4.94447,nee,https://pantar.nl/contact/
+ves055d,org055,Pantar,Seineweg 10,1043 BG,Amsterdam,Noord-Holland,52.38827,4.81765,nee,https://pantar.nl/contact/
+ves055e,org055,Pantar,Marie Baronlaan 19,1095 MV,Amsterdam,Noord-Holland,52.37168,4.97278,nee,https://pantar.nl/contact/
+ves056a,org056,Particibaan,,,Rijswijk,Zuid-Holland,52.041,4.32,ja,sheet Werkkracht Data Leden
+ves057a,org057,Patijnenburg,Ambachtstraat 10,2671 CN,Naaldwijk,Zuid-Holland,51.99919,4.21038,ja,https://patijnenburg.nl/contact/
+ves058a,org058,Probedrijven,Witte Paal 122,1742 NW,Schagen,Noord-Holland,52.77578,4.80899,ja,https://www.probedrijven.nl/
+ves058b,org058,Probedrijven,Witte Paal 58,1742 NV,Schagen,Noord-Holland,52.77499,4.80713,nee,https://www.probedrijven.nl/progroen-milieu/contact
+ves058c,org058,Probedrijven,Pastoor Koopmanweg 1,1784 NX,Den Helder,Noord-Holland,52.93562,4.75379,nee,https://www.probedrijven.nl/progroen-milieu/contact
+ves059a,org059,Promen,Zuider IJsseldijk 46,2808 PB,Gouda,Zuid-Holland,52.00588,4.72312,ja,https://promen.nl/contact/
+ves059b,org059,Promen,Hoofdweg 20,2908 LC,Capelle aan den IJssel,Zuid-Holland,51.95581,4.57622,nee,https://promen.nl/contact/
+ves060a,org060,Provalu,Nijverheidsweg 22,2215 MH,Voorhout,Zuid-Holland,52.21680,4.48958,ja,https://www.provalu.nl/over-ons/gemeenschappelijke-regeling-kust-duin-en-bollenstreek/
+ves061a,org061,Reestmond,,,Meppel,Drenthe,52.696,6.194,ja,sheet Werkkracht Data Leden
+ves062a,org062,Rijnvicus,,,Alphen aan den Rijn,Zuid-Holland,52.129,4.657,ja,sheet Werkkracht Data Leden
+ves063a,org063,Risse Groep,,,Weert,Limburg,51.252,5.706,ja,sheet Werkkracht Data Leden
+ves064a,org064,Rotterdam Inclusief,,,Rotterdam,Zuid-Holland,51.924,4.477,ja,sheet Werkkracht Data Leden
+ves065a,org065,Scalabor,,,Arnhem,Gelderland,51.985,5.909,ja,sheet Werkkracht Data Leden
+ves066a,org066,Senzer,Montgomeryplein 6,5705 AX,Helmond,Noord-Brabant,51.47309,5.66573,ja,https://www.senzer.nl/werkgever/contact
+ves067a,org067,Spaarne Werkt,,,Cruquius,Noord-Holland,52.337,4.633,ja,sheet Werkkracht Data Leden
+ves068a,org068,StadswerkSW,,,Alkmaar,Noord-Holland,52.632,4.748,ja,sheet Werkkracht Data Leden
+ves069a,org069,Stark,Europaweg 30,7903 TM,Hoogeveen,Drenthe,52.73645,6.52067,ja,https://www.wijzijnstark.nl/contact/
+ves070a,org070,Stichting MOA,,,Surhuisterveen,Friesland,53.182,6.173,ja,sheet Werkkracht Data Leden
+ves071a,org071,Stroomopwaarts,,,Maassluis,Zuid-Holland,51.923,4.254,ja,sheet Werkkracht Data Leden
+ves072a,org072,SWB,,,Hengelo,Overijssel,52.265,6.794,ja,sheet Werkkracht Data Leden
+ves073a,org073,Tiem,Lingenstraat 9,8028 PM,Zwolle,Overijssel,52.53138,6.16780,ja,https://tiem.nl/contact-werkgever/
+ves074a,org074,Tomingroep,Franciscusweg 12,1216 SK,Hilversum,Noord-Holland,52.21330,5.14205,ja,https://tomingroep.nl/contact/
+ves074b,org074,Tomingroep,Omroepweg 12,1324 KV,Almere,Flevoland,52.35604,5.19447,nee,https://tomingroep.nl/contact/
+ves074c,org074,Tomingroep,Franciscusweg 359,1216 SM,Hilversum,Noord-Holland,52.21193,5.14437,nee,https://tomingroep.nl/contact/
+ves074d,org074,Tomingroep,Bolderweg 41,1332 AZ,Almere,Flevoland,52.40918,5.26258,nee,https://tomingroep.nl/contact/
+ves074e,org074,Tomingroep,Zwenkgrasstraat 4,1313 LA,Almere,Flevoland,52.38667,5.20439,nee,https://tomingroep.nl/contact/
+ves074f,org074,Tomingroep,Amsterdamsestraatweg 41,1411 AX,Naarden,Noord-Holland,52.30301,5.14605,nee,https://tomingroep.nl/contact/
+ves074g,org074,Tomingroep,Noorderweg 96A,1221 AB,Hilversum,Noord-Holland,52.23121,5.17848,nee,https://tomingroep.nl/contact/
+ves075a,org075,UW,Niels Bohrweg 121,3542 CA,Utrecht,Utrecht,52.12130,5.04872,ja,https://www.uw.nl/contact/
+ves075b,org075,UW,Nieuwe Houtenseweg 25,3524 SE,Utrecht,Utrecht,52.06036,5.14801,nee,https://www.uw.nl/contact/
+ves075c,org075,UW,Lange Schaft 7d,3991 AP,Houten,Utrecht,52.02029,5.16988,nee,https://www.uw.nl/contact/
+ves076a,org076,Vakmensen,,,Zwolle,Overijssel,52.517,6.092,ja,sheet Werkkracht Data Leden
+ves077a,org077,Vidar,,,Sittard,Limburg,50.999,5.869,ja,sheet Werkkracht Data Leden
+ves078a,org078,Voorne Putten Werkt,Laanweg 3,3208 LG,Spijkenisse,Zuid-Holland,51.85722,4.29842,ja,https://www.vpwerkt.nl/contact
+ves078b,org078,Voorne Putten Werkt,Lorentzweg 3,3208 LJ,Spijkenisse,Zuid-Holland,51.85136,4.29479,nee,https://www.vpwerkt.nl/contact
+ves078c,org078,Voorne Putten Werkt,Schenkelweg 90A,3203 LE,Spijkenisse,Zuid-Holland,51.84264,4.34488,nee,https://www.vpwerkt.nl/contact
+ves078d,org078,Voorne Putten Werkt,Kerkweg 28,3235 XL,Rockanje,Zuid-Holland,51.87566,4.07743,nee,https://www.vpwerkt.nl/contact
+ves078e,org078,Voorne Putten Werkt,Hekelingseweg 11A,3206 LA,Spijkenisse,Zuid-Holland,51.83759,4.33197,nee,https://www.vpwerkt.nl/contact
+ves079a,org079,WAA groep,Prinsessesingel 10,5911 HT,Venlo,Limburg,51.36799,6.16564,ja,https://www.waagroep.nl/contact/
+ves080a,org080,Wedeka Bedrijven,,,Stadskanaal,Groningen,52.985,6.952,ja,sheet Werkkracht Data Leden
+ves081a,org081,Weener XL,,,'s-Hertogenbosch,Noord-Brabant,51.689,5.304,ja,sheet Werkkracht Data Leden
+ves082a,org082,Werk en Inkomen Lekstroom,Stadsplein 1B,3431 LZ,Nieuwegein,Utrecht,52.02784,5.08485,ja,https://www.wil-lekstroom.nl/werkgevers/contact-wsp-lekstroom
+ves083a,org083,Werkbedrijf De Binnenbaan,Einsteinlaan 10,2719 EP,Zoetermeer,Zuid-Holland,52.04551,4.48362,ja,https://debinnenbaan.nl/contact/
+ves083b,org083,Werkbedrijf De Binnenbaan,Hitchcockstrook 26,2726 VN,Zoetermeer,Zuid-Holland,52.07005,4.49232,nee,https://debinnenbaan.nl/contact/
+ves083c,org083,Werkbedrijf De Binnenbaan,Kristalstraat 40,2665 NE,Bleiswijk,Zuid-Holland,52.04238,4.54098,nee,https://debinnenbaan.nl/contact/
+ves083d,org083,Werkbedrijf De Binnenbaan,Steenplaetsstraat 2a,2288 AA,Rijswijk,Zuid-Holland,52.04490,4.34117,nee,https://debinnenbaan.nl/contact/
+ves083e,org083,Werkbedrijf De Binnenbaan,Stoomweg 19,2631 RR,Nootdorp,Zuid-Holland,52.04988,4.42053,nee,https://debinnenbaan.nl/contact/
+ves083f,org083,Werkbedrijf De Binnenbaan,Populierendreef 988,2272 HX,Voorburg,Zuid-Holland,52.08454,4.35977,nee,https://debinnenbaan.nl/contact/
+ves084a,org084,Werkbedrijf De Bolder,,,Den Burg,Noord-Holland,53.05,4.796,ja,sheet Werkkracht Data Leden
+ves085a,org085,Werkbedrijf Eemsdelta,,,Appingedam,Groningen,53.318,6.862,ja,sheet Werkkracht Data Leden
+ves086a,org086,Werkbedrijf Rijk van Nijmegen,,,Nijmegen,Gelderland,51.843,5.858,ja,sheet Werkkracht Data Leden
+ves087a,org087,Werkkracht,Molenstraat 80F,6711 AW,Ede,Gelderland,52.04764,5.67229,ja,https://werkkracht.nl/werkgevers/
+ves088a,org088,Werkleerbedrijf Lucrato,Egerlaan 15,7334 AD,Apeldoorn,Gelderland,52.18423,5.95699,ja,https://www.lucrato.nl/contact
+ves088b,org088,Werkleerbedrijf Lucrato,Zwarteweg 3,8181 PD,Heerde,Gelderland,52.37294,6.01824,nee,https://www.lucrato.nl/contact
+ves089a,org089,Werkom,Einsteinstraat 103,1446 VE,Purmerend,Noord-Holland,52.51328,4.99451,ja,https://werkom.nl/contact/
+ves089b,org089,Werkom,Plantsoenstraat 32,1441 CX,Purmerend,Noord-Holland,52.50804,4.94834,nee,https://werkom.nl/voor-bedrijven/uitbesteden/fietsenstallingen/
+ves089c,org089,Werkom,Vinkenstraat 4,1506 CM,Zaandam,Noord-Holland,52.44028,4.82270,nee,https://werkom.nl/voor-bedrijven/uitbesteden/fietsenstallingen/
+ves090a,org090,Werkplein Drentsche Aa,W.A. Scholtenstraat 22,9403 AK,Assen,Drenthe,53.00546,6.57523,ja,https://www.wpda.nl/contact
+ves091a,org091,WerkSaam Westfriesland,Dampten 26,1624 NR,Hoorn,Noord-Holland,52.64513,5.04398,ja,https://www.werksaamwf.nl/
+ves092a,org092,Werkse!,,,Den Hoorn,Zuid-Holland,51.998,4.325,ja,sheet Werkkracht Data Leden
+ves093a,org093,Werkzaak Rivierenland,,,Tiel,Gelderland,51.886,5.431,ja,sheet Werkkracht Data Leden
+ves094a,org094,WSD,Schouwrooij 20,5281 RE,Boxtel,Noord-Brabant,51.58077,5.30658,ja,https://www.wsd-groep.nl/contact
+ves094b,org094,WSD,Industrieweg 158,5683 CG,Best,Noord-Brabant,51.50184,5.40420,nee,https://www.wsd-groep.nl/contact
+ves094c,org094,WSD,Ambachtstraat 19,5481 SM,Schijndel,Noord-Brabant,51.60590,5.44322,nee,https://www.wsd-groep.nl/contact
+ves094d,org094,WSD,Kettingweg 5,5261 LG,Vught,Noord-Brabant,51.64425,5.29638,nee,https://www.wsd-groep.nl/contact
+ves094e,org094,WSD,Reginahof 1,5282 GC,Boxtel,Noord-Brabant,51.59732,5.31727,nee,https://www.wsd-groep.nl/contact
+ves094f,org094,WSD,Steeg 9,5482 WN,Schijndel,Noord-Brabant,51.62206,5.43758,nee,https://www.wsd-groep.nl/contact
+ves094g,org094,WSD,Spoorstraat 3,5684 AA,Best,Noord-Brabant,51.50929,5.38896,nee,https://www.wsd-groep.nl/contact
+ves095a,org095,WSP Parkstad,,,Heerlen,Limburg,50.888,5.98,ja,sheet Werkkracht Data Leden
+ves096a,org096,WVS,,,Roosendaal,Noord-Brabant,51.53,4.464,ja,sheet Werkkracht Data Leden
+ves097a,org097,Zaffier,Mallegatsplein 10,1815 AG,Alkmaar,Noord-Holland,52.63536,4.74613,ja,https://www.zaffier.nl/contact/
+ves097b,org097,Zaffier,Hertog Aalbrechtweg 32,1823 DL,Alkmaar,Noord-Holland,52.64624,4.77188,nee,https://www.zaffier.nl/contact/
