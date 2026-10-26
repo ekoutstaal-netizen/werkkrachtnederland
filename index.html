@@ -3886,41 +3886,42 @@ function khSelect(role, el) {
 // Init: calculator herstellen uit een gedeelde link
 calcRestoreFromURL();
 
+// ── AANVRAGEN VIA DE APPS SCRIPT RELAY ────────────────────────
+// Contactformulier en gespreksverzoek gaan naar het WKN Portaal Script (actie
+// "contact" of "gespreksverzoek"). Het script schrijft een regel in tab "aanvragen"
+// en mailt info@. Alleen bij antwoord {ok:true} krijgt de bezoeker een bevestiging.
+function postAanvraag(payload) {
+  payload.taal = (window.WKLANG ? window.WKLANG() : 'nl');
+  return fetch(KP_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).then(function (r) { return r.json(); })
+    .then(function (d) { if (!d || d.ok !== true) throw new Error((d && d.fout) || 'geen bevestiging'); return d; });
+}
+
 // ── CONTACTFORMULIER ──────────────────────────────────────────
 function submitContactForm() {
-  const naam     = document.getElementById('cf-naam')    ? document.getElementById('cf-naam').value.trim()    : '';
-  const org      = document.getElementById('cf-org')     ? document.getElementById('cf-org').value.trim()     : '';
-  const email    = document.getElementById('cf-email')   ? document.getElementById('cf-email').value.trim()   : '';
-  const tel      = document.getElementById('cf-tel')     ? document.getElementById('cf-tel').value.trim()     : '';
-  const onderw   = document.getElementById('cf-onderwerp')? document.getElementById('cf-onderwerp').value     : '';
-  const bericht  = document.getElementById('cf-bericht') ? document.getElementById('cf-bericht').value.trim() : '';
+  const v = function (id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+  const naam = v('cf-naam'), org = v('cf-org'), email = v('cf-email'), tel = v('cf-tel'), onderw = v('cf-onderwerp'), bericht = v('cf-bericht');
 
   if (!email) {
     alert(WKT('Vul uw e-mailadres in zodat wij u kunnen bereiken.'));
     return;
   }
 
-  // Verzenden via de bestaande Sheets/Power Automate-pijplijn (geen mailto meer)
   const btn = document.querySelector('[onclick="submitContactForm()"]');
   if (btn) { btn.disabled = true; btn.textContent = WKT('Versturen…'); }
 
-  fetch(SHEETS_API, {
-    method: 'POST', mode: 'no-cors',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({
-      tab: 'intakes',
-      organisatie: org || '—',
-      contactpersoon: naam || '—',
-      email: email + (tel ? ' / ' + tel : ''),
-      ingevuld_op: new Date().toLocaleDateString('nl-NL'),
-      advies: 'CONTACTFORMULIER — Onderwerp: ' + (onderw || 'Algemeen') + ' — Bericht: ' + (bericht || '—'),
-      score_gemiddeld: ''
-    })
-  }).then(function() {
+  postAanvraag({
+    actie: 'contact', naam: naam, organisatie: org, contact: email, telefoon: tel,
+    onderwerp: onderw || 'Algemeen', bericht: bericht
+  }).then(function () {
     if (btn) btn.style.display = 'none';
     const bev = document.getElementById('cf-bevestiging');
     if (bev) bev.style.display = 'block';
-  }).catch(function() {
+  }).catch(function (e) {
+    console.warn('Contactformulier niet verstuurd:', e);
     if (btn) { btn.disabled = false; btn.textContent = WKT('Verstuur bericht →'); }
     alert(WKT('Verzenden is niet gelukt. Bel of app Edwin via 06-46101135, of mail naar info@werkkrachtnederland.nl.'));
   });
@@ -3944,26 +3945,16 @@ function submitGesprek() {
     return;
   }
 
-  // Verzenden via de bestaande Sheets/Power Automate-pijplijn (geen mailto meer)
   const gpBtn = document.querySelector('[onclick="submitGesprek()"]');
   if (gpBtn) { gpBtn.disabled = true; gpBtn.textContent = WKT('Versturen…'); }
 
-  fetch(SHEETS_API, {
-    method: 'POST', mode: 'no-cors',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({
-      tab: 'intakes',
-      organisatie: '—',
-      contactpersoon: naam,
-      email: contact,
-      ingevuld_op: new Date().toLocaleDateString('nl-NL'),
-      advies: 'GESPREKSVERZOEK — Vorm: ' + vorm + ' — Momenten: ' + slots.map((s, i) => (i + 1) + '. ' + s).join(' | '),
-      score_gemiddeld: ''
-    })
-  }).then(function() {
+  postAanvraag({
+    actie: 'gespreksverzoek', naam: naam, contact: contact, vorm: vorm, momenten: slots
+  }).then(function () {
     if (gpBtn) gpBtn.style.display = 'none';
     document.getElementById('gp-bevestiging').style.display = 'block';
-  }).catch(function() {
+  }).catch(function (e) {
+    console.warn('Gespreksverzoek niet verstuurd:', e);
     if (gpBtn) { gpBtn.disabled = false; gpBtn.textContent = WKT('Gesprek aanvragen →'); }
     alert(WKT('Verzenden is niet gelukt. Bel of app Edwin via 06-46101135, of mail naar info@werkkrachtnederland.nl.'));
   });
